@@ -1,0 +1,4 @@
+Bundle-SymbolicName: com.springsource.javax.el
+Bundle-Name: Java Expression Language API
+Bundle-Vendor: SpringSource
+Bundle-ManifestVersion: 2

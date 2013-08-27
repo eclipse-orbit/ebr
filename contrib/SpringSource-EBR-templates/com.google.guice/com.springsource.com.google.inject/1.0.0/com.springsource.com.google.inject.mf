@@ -1,0 +1,17 @@
+Bundle-SymbolicName: com.springsource.com.google.inject
+Bundle-Name: Google Guice Dependency Injection Framework
+Bundle-Vendor: SpringSource
+Bundle-ManifestVersion: 2
+Import-Template: 
+ org.aopalliance.*;version="[1.0.0, 2.0.0)",
+ org.apache.tools.ant.*;version="[1.6.5, 2.0.0)";resolution:=optional
+Unversioned-Imports: 
+ javax.management.*,
+ javax.naming.*
+Excluded-Imports: 
+ com.google.inject.cglib.asm.util.*,
+ net.sf.cglib.*,
+ org.objectweb.asm.*
+Excluded-Exports: 
+ com.google.inject.cglib.*,
+ com.google.inject.asm.*

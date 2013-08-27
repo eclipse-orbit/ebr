@@ -1,0 +1,6 @@
+Bundle-SymbolicName: com.springsource.org.apache.commons.io
+Bundle-Name: Apache Commons IO
+Bundle-Vendor: SpringSource
+Bundle-ManifestVersion: 2
+Ignored-Existing-Headers: 
+ Import-Package

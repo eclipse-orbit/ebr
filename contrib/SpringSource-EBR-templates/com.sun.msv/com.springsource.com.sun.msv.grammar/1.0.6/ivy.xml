@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="http://ivyrep.jayasoft.org/ivy-doc.xsl"?>
+<ivy-module
+		xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+		xsi:noNamespaceSchemaLocation="http://incubator.apache.org/ivy/schemas/ivy.xsd"
+		version="1.3">
+
+	<info organisation="com.sun.msv" module="com.springsource.com.sun.msv.grammar"/>
+
+	<configurations>
+		<include file="${spring.build.dir}/common/default-ivy-configurations.xml"/>
+	</configurations>
+
+	<publications>
+		<artifact name="${ant.project.name}"/>
+		<artifact name="${ant.project.name}-sources" type="src" ext="jar"/>
+		<artifact name="license" type="license" ext="txt"/>
+	</publications>
+
+	<dependencies>
+		<dependency org="com.sun.msv" name="com.springsource.com.sun.msv.datatype" rev="0.0.0.20060615" conf="optional->runtime"/>
+		<dependency org="org.apache.xml" name="com.springsource.org.apache.xml.resolver" rev="1.2.0" conf="optional->runtime"/>
+		<dependency org="org.apache.xerces" name="com.springsource.org.apache.xerces" rev="2.8.1" conf="optional->runtime"/>
+		<dependency org="org.relaxng" name="com.springsource.org.relaxng.datatype" rev="0.0.20020414" conf="optional->runtime"/>
+	</dependencies>
+
+</ivy-module>

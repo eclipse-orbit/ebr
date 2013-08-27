@@ -1,0 +1,24 @@
+Bundle-SymbolicName: com.springsource.org.eclipse.persistence
+Bundle-Name: EclipseLink (Eclipse Persistent Services Project)
+Bundle-Vendor: SpringSource
+Bundle-ManifestVersion: 2
+Ignored-Existing-Headers: 
+ Require-Bundle,
+ HK2-Bundle-Name,
+ Import-Package,
+ Export-Package,
+ Bundle-RequiredExecutionEnvironment,
+ Tool,
+ Bnd-LastModified,
+ Private-Package,
+ Include-Resources
+Import-Template: 
+ javax.jms.*;version="[1.1.0, 2.0.0)";resolution:=optional,
+ javax.mail.*;version="[1.4.0, 2.0.0)";resolution:=optional,
+ javax.persistence.*;version="[2.0.0, 3.0.0)";resolution:=optional,
+ javax.resource.*;version="[1.5.0, 2.0.0)";resolution:=optional,
+ javax.transaction.*;version="[1.1.0, 2.0.0)";resolution:=optional,
+ org.eclipse.persistence.internal.libraries.antlr.*;version="[2.0.0, 2.0.0]";resolution:=optional,
+ org.eclipse.persistence.internal.libraries.asm.*;version="[2.0.0, 2.0.0]";resolution:=optional
+Export-Package: 
+ xsd;version="2.0.0"

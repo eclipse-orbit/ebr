@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="org.osgi.core">
+	<property name="version" value="4.1.0"/>
+	<property name="release.type" value="external"/>
+	<import file="${basedir}/../../../../spring-build/no-osgi/default.xml"/>
+</project>

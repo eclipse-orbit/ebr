@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="com.springsource.org.apache.derby">
+	<property name="version" value="10.3.2000001.599110"/>
+	<property name="release.type" value="external"/>
+	<import file="${basedir}/../../../../spring-build/add-osgi/default.xml"/>
+</project>

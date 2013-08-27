@@ -1,0 +1,33 @@
+Bundle-SymbolicName: com.springsource.org.hibernate.search
+Bundle-Name: JBoss Hibernate Search
+Bundle-Vendor: SpringSource
+Bundle-ManifestVersion: 2
+Import-Template: 
+ javax.annotation.*;version="[1.0.0, 2.0.0)",
+ javax.jms.*;version="[1.1.0, 2.0.0)";resolution:=optional,
+ javax.persistence.*;version="[1.0.0, 2.0.0)";resolution:=optional,
+ javax.transaction.*;version="[1.1.0, 2.0.0)",
+ org.apache.commons.logging;version="[1.1.1, 2.0.0)",
+ org.apache.lucene.*;version="[2.3.0, 3.0.0)",
+ org.hibernate;version="[3.2.6.GA, 4.0.0)",
+ org.hibernate.annotations.common.*;version="[3.3.0.GA, 4.0.0)",
+ org.hibernate.cfg.*;version="[3.2.6.GA, 4.0.0)",
+ org.hibernate.classic.*;version="[3.2.6.GA, 4.0.0)",
+ org.hibernate.collection.*;version="[3.2.6.GA, 4.0.0)",
+ org.hibernate.criterion.*;version="[3.2.6.GA, 4.0.0)",
+ org.hibernate.engine.*;version="[3.3.1.ga, 4.0.0)";resolution:=optional,
+ org.hibernate.event.*;version="[3.2.6.GA, 4.0.0)",
+ org.hibernate.exception.*;version="[3.2.6.GA, 4.0.0)",
+ org.hibernate.hql.*;version="[3.2.6.GA, 4.0.0)",
+ org.hibernate.impl.*;version="[3.2.6.GA, 4.0.0)",
+ org.hibernate.jdbc.*;version="[3.2.6.GA, 4.0.0)",
+ org.hibernate.loader.*;version="[3.2.6.GA, 4.0.0)",
+ org.hibernate.mapping.*;version="[3.2.6.GA, 4.0.0)",
+ org.hibernate.persister.*;version="[3.2.6.GA, 4.0.0)",
+ org.hibernate.proxy.*;version="[3.2.6.GA, 4.0.0)",
+ org.hibernate.stat.*;version="[3.2.6.GA, 4.0.0)",
+ org.hibernate.transform.*;version="[3.2.6.GA, 4.0.0)",
+ org.hibernate.type.*;version="[3.2.6.GA, 4.0.0)",
+ org.hibernate.util.*;version="[3.2.6.GA, 4.0.0)"
+Unversioned-Imports: 
+ javax.naming.*

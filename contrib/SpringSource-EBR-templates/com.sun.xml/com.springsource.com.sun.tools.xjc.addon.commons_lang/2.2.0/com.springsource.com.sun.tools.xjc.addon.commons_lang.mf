@@ -1,0 +1,8 @@
+Bundle-SymbolicName: com.springsource.com.sun.tools.xjc.addon.commons_lang
+Bundle-Name: Java Architecture for XML Binding (JAXB) Compile Commons Lang Add On
+Bundle-Vendor: SpringSource
+Bundle-ManifestVersion: 2
+Import-Template: 
+ com.sun.codemodel.*;version="[2.2.0, 2.2.0]", 
+ com.sun.tools.xjc.*;version="[2.2.0, 2.2.0]",
+ org.apache.commons.lang.builder.*;version="[2.4.0, 3.0.0)"

@@ -1,0 +1,12 @@
+Bundle-SymbolicName: com.springsource.org.powermock.mockito
+Bundle-Name: Powermock Mockito Mock Library for Java
+Bundle-Vendor: SpringSource
+Bundle-ManifestVersion: 2
+Import-Template: 
+ javassist.*;version="[3.10.0.GA, 4.0.0)",
+ junit.*;version="[3.8.2, 5.0.0)";resolution:=optional,
+ org.junit.*;version="[4.8.1, 5.0.0)";resolution:=optional,
+ org.mockito.*;version="[1.8.4, 2.0.0)",
+ org.objenesis.*;version="[1.2.0, 2.0.0)",
+ org.testng.*;version="[5.10.0, 6.0.0)";resolution:=optional
+

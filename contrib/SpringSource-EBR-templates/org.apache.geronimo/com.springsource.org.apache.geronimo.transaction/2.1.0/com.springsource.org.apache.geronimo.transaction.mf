@@ -1,0 +1,8 @@
+Bundle-SymbolicName: com.springsource.org.apache.geronimo.transaction
+Bundle-Name: Apache Geronimo Transaction API
+Bundle-Vendor: SpringSource
+Bundle-ManifestVersion: 2
+Import-Template: 
+ javax.resource.*;version="[1.5.0, 2.0.0)";resolution:=optional,
+ org.apache.commons.logging.*;version="[1.0.4, 2.0.0)",
+ org.objectweb.howl.*;version="[1.0.1, 2.0.0)"

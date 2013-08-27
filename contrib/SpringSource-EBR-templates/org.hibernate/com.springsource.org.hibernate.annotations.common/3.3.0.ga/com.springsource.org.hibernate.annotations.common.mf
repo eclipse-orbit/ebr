@@ -1,0 +1,6 @@
+Bundle-SymbolicName: com.springsource.org.hibernate.annotations.common
+Bundle-Name: JBoss Hibernate Common Annotations
+Bundle-Vendor: SpringSource
+Bundle-ManifestVersion: 2
+Import-Template: 
+ org.apache.commons.logging.*;version="[1.1.1, 2.0.0)"

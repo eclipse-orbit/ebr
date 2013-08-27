@@ -1,0 +1,9 @@
+Bundle-SymbolicName: com.springsource.org.apache.jasper.org.eclipse.jdt.springsource
+Bundle-Name: Apache Jasper JDT bundle
+Bundle-Vendor: SpringSource
+Bundle-ManifestVersion: 2
+Excluded-Imports: 
+ org.eclipse.core.*,
+ org.eclipse.jdt.*
+Export-Template: 
+ org.eclipse.jdt.*;version=3.3.0;provider="jasper";mandatory:="provider"

@@ -1,0 +1,6 @@
+Bundle-SymbolicName: com.springsource.org.dojotoolkit.shrinksafe
+Bundle-Name: Dojo Toolkit Shrinksafe
+Bundle-Vendor: SpringSource
+Bundle-ManifestVersion: 2
+Import-Template: 
+ org.mozilla.javascript.*;version="[1.7.0.R1, 1.7.0.R1]"

@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="com.springsource.bsh">
+	<property name="version" value="2.0.0.b4"/>
+	<property name="release.type" value="external"/>
+	<import file="${basedir}/../../../../spring-build/add-osgi/default.xml"/>
+</project>

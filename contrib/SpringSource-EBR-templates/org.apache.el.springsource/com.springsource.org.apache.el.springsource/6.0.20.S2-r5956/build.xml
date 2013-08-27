@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="com.springsource.org.apache.el.springsource">
+	<property name="version" value="6.0.20.S2-r5956"/>
+	<property name="release.type" value="external"/>
+	<import file="${basedir}/../../../../spring-build/add-osgi/default.xml"/>
+</project>

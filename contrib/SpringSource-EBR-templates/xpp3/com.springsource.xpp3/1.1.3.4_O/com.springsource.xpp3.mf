@@ -1,0 +1,6 @@
+Bundle-SymbolicName: com.springsource.xpp3
+Bundle-Name: MXP1 - Xml Pull Parser 3rd Edition (XPP3)
+Bundle-Vendor: SpringSource
+Bundle-ManifestVersion: 2
+Ignored-Existing-Headers: 
+ Bundle-Symbolicname

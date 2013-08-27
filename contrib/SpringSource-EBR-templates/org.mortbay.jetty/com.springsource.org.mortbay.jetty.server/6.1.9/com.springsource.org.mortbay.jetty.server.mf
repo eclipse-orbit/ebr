@@ -1,0 +1,20 @@
+Bundle-SymbolicName: com.springsource.org.mortbay.jetty.server
+Bundle-Name: Jetty Server
+Bundle-Vendor: SpringSource
+Bundle-ManifestVersion: 2
+Ignored-Existing-Headers: 
+ Bnd-LastModified,
+ Export-Package,
+ Ignore-Package,
+ Import-Package,
+ Tool
+Import-Template: 
+ javax.servlet;version="[2.5.0, 3.0.0)",
+ javax.servlet.http.*;version="[2.5.0, 3.0.0)",
+ javax.servlet.jsp.*;version="[2.0.0, 3.0.0)";resolution:=optional,
+ org.mortbay.*;version="[6.1.0, 7.0.0)"
+Unversioned-Imports: 
+ javax.net.*,
+ javax.security.*,
+ javax.xml.parsers.*,
+ org.xml.sax.*

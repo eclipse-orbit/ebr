@@ -1,0 +1,6 @@
+Bundle-SymbolicName: com.springsource.org.objectweb.asm.commons
+Bundle-Name: ObjectWeb ASM Commons
+Bundle-Vendor: SpringSource
+Bundle-ManifestVersion: 2
+Import-Template: 
+ org.objectweb.asm.*;version="[2.2.3, 3.0.0)"

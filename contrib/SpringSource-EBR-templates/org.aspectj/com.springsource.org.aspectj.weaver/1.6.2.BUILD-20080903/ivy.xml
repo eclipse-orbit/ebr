@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="http://ivyrep.jayasoft.org/ivy-doc.xsl"?>
+<ivy-module
+		xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+		xsi:noNamespaceSchemaLocation="http://incubator.apache.org/ivy/schemas/ivy.xsd"
+		version="1.3">
+
+	<info organisation="org.aspectj" module="com.springsource.org.aspectj.weaver"/>
+
+	<configurations>
+		<include file="${spring.build.dir}/common/default-ivy-configurations.xml"/>
+	</configurations>
+
+	<publications>
+		<artifact name="${ant.project.name}"/>
+		<artifact name="license" type="license" ext="txt"/>
+	</publications>
+
+	<dependencies>
+		<dependency org="org.apache.commons" name="com.springsource.org.apache.commons.logging" rev="1.1.1" conf="optional->compile"/>
+		<dependency org="org.apache.regexp" name="com.springsource.org.apache.regexp" rev="1.5.0" conf="optional->compile"/>
+		<dependency org="org.aspectj" name="com.springsource.org.aspectj.runtime" rev="1.6.2.BUILD-20080903" conf="compile->compile"/>
+	</dependencies>
+
+</ivy-module>

@@ -1,0 +1,24 @@
+Bundle-SymbolicName: com.springsource.com.sun.xml.wss
+Bundle-Name: XML and WebServices Security Project
+Bundle-Vendor: SpringSource
+Bundle-ManifestVersion: 2
+Excluded-Imports:
+ com.sun.enterprise.security.jauth.*
+Import-Template:
+ com.sun.mail.util;version="[1.4.0, 2.0.0)",
+ com.sun.msv.datatype.*;version="[0.0.0.20060615, 1.0.0)";resolution:=optional,
+ com.sun.msv.grammar;version="[1.0.6, 2.0.0)";resolution:=optional,
+ com.sun.msv.util;version="[1.0.6, 2.0.0)";resolution:=optional,
+ com.sun.msv.verifier.*;version="[1.0.6, 2.0.0)";resolution:=optional,
+ org.iso_relax.verifier.impl;version="[1.0.6, 2.0.0)";resolution:=optional,
+ com.sun.org.apache.xalan.internal.xsltc.trax;version="0";resolution:=optional,
+ com.sun.org.apache.xerces.internal.*;version="0";resolution:=optional,
+ com.sun.org.apache.xml.internal.*;version="0";resolution:=optional,
+ com.sun.org.apache.xpath.internal;version="0";resolution:=optional,
+ com.sun.xml.bind.*;version="[1.0.0, 3.0.0)";resolution:=optional,
+ com.sun.xml.jaxws;version="0";resolution:=optional,
+ com.sun.xml.messaging.saaj.soap;version="[1.3.0, 2.0.0)";resolution:=optional,
+ javax.mail.*;version="[1.4.0, 2.0.0)",
+ javax.xml.rpc.*;version="[1.0.0, 2.0.0)",
+ org.relaxng.datatype.*;version="[0.0.20020414, 1.0.0)";resolution:=optional,
+ org.jcp.xml.dsig.internal.dom;version="[1.4.3, 2.0.0)";resolution:=optional

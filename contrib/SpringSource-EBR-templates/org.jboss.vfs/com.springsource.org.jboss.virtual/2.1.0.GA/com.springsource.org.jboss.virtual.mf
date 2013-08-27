@@ -1,0 +1,7 @@
+Bundle-SymbolicName: com.springsource.org.jboss.virtual
+Bundle-Name: JBoss VFS
+Bundle-Vendor: SpringSource
+Bundle-ManifestVersion: 2
+Import-Template: 
+ org.jboss.logging;version="[2.0.5.GA, 3.0.0)",
+ org.jboss.util.*;version="[2.2.9.GA, 3.0.0)"

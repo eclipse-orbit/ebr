@@ -1,0 +1,4 @@
+Bundle-SymbolicName: com.springsource.com.db4o.java5
+Bundle-Name: DB40 for Java5
+Bundle-Vendor: SpringSource
+Bundle-ManifestVersion: 2

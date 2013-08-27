@@ -1,0 +1,5 @@
+Bundle-SymbolicName: com.springsource.org.hyperic.sigar
+Bundle-Name: Hyperic Sigar
+Bundle-Vendor: SpringSource
+Bundle-ManifestVersion: 2
+Excluded-Imports: *

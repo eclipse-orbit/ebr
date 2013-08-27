@@ -1,0 +1,9 @@
+Bundle-SymbolicName: com.springsource.org.apache.commons.collections
+Bundle-Name: Apache Commons Collections
+Bundle-Vendor: SpringSource
+Bundle-ManifestVersion: 2
+Ignored-Existing-Headers: 
+ Import-Package,
+ Bnd-LastModified,
+ Tool
+

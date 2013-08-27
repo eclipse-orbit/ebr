@@ -1,0 +1,15 @@
+Bundle-SymbolicName: com.springsource.org.hibernate.validator
+Bundle-Name: JBoss Hibernate Validator
+Bundle-Vendor: SpringSource
+Bundle-ManifestVersion: 2
+Import-Template: 
+ javax.persistence.*;version="[1.0.0, 2.0.0)",
+ org.apache.commons.logging;version="[1.1.1, 2.0.0)",
+ org.hibernate;version="[3.2.6.GA, 4.0.0)",
+ org.hibernate.annotations.common.*;version="[3.3.0.GA, 4.0.0)",
+ org.hibernate.cfg.*;version="[3.2.6.GA, 4.0.0)",
+ org.hibernate.engine.*;version="[3.2.6.GA, 4.0.0)",
+ org.hibernate.event.*;version="[3.2.6.GA, 4.0.0)",
+ org.hibernate.mapping.*;version="[3.2.6.GA, 4.0.0)",
+ org.hibernate.property.*;version="[3.2.6.GA, 4.0.0)",
+ org.hibernate.util.*;version="[3.2.6.GA, 4.0.0)"

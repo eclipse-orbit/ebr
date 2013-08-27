@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="http://ivyrep.jayasoft.org/ivy-doc.xsl"?>
+<ivy-module
+		xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+		xsi:noNamespaceSchemaLocation="http://incubator.apache.org/ivy/schemas/ivy.xsd"
+		version="1.3">
+
+	<info organisation="org.testng" module="com.springsource.org.testng"/>
+
+	<configurations>
+		<include file="${spring.build.dir}/common/default-ivy-configurations.xml"/>
+	</configurations>
+
+	<publications>
+		<artifact name="${ant.project.name}"/>
+		<artifact name="${ant.project.name}-sources" type="src" ext="jar"/>
+		<artifact name="license" type="license" ext="txt"/>
+	</publications>
+
+	<dependencies>
+		<dependency org="com.beust" name="com.springsource.jcommander" rev="1.12.0" conf="optional->runtime"/>
+		<dependency org="org.jmock" name="com.springsource.org.jmock" rev="1.1.0" />
+		<dependency org="org.junit" name="com.springsource.org.junit" rev="4.10.0" conf="optional->runtime"/>
+		<dependency org="org.beanshell" name="com.springsource.bsh" rev="2.0.0.b4" />
+		<dependency org="org.hamcrest" name="com.springsource.org.hamcrest.core" rev="1.1.0" />
+		<dependency org="org.easymock" name="com.springsource.org.easymock" rev="2.3.0" />
+		<dependency org="org.yaml" name="com.springsource.snakeyaml" rev="1.6.0" />
+		<dependency org="org.apache.ant" name="com.springsource.org.apache.tools.ant" rev="1.7.0" conf="optional->runtime"/>
+	</dependencies>
+
+</ivy-module>

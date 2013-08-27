@@ -1,0 +1,10 @@
+Bundle-SymbolicName: com.springsource.org.apache.juli.extras
+Bundle-Name: Apache Java Util Logging extras
+Bundle-Vendor: SpringSource
+Bundle-ManifestVersion: 2
+Import-Template: 
+ javax.servlet;version="[2.5.0, 3.0.0)";resolution:=optional,
+ org.apache.log4j.*;version="[1.2.15, 1.3.0)";resolution:=optional,
+ org.apache.avalon.*;version="[4.1.3, 4.1.3]";resolution:=optional,
+ org.apache.log.*;version="[1.0.1, 1.0.1]";resolution:=optional
+Ignored-Existing-Headers: Import-Package

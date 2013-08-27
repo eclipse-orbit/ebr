@@ -1,0 +1,14 @@
+Bundle-SymbolicName: com.springsource.org.apache.webdav.lib
+Bundle-Name: Apache Slide WebDAV Library
+Bundle-Vendor: SpringSource
+Bundle-ManifestVersion: 2
+Import-Template: 
+ org.apache.commons.httpclient.*;version="[3.1.0, 4.0.0)"
+Unversioned-Imports: 
+ javax.xml.parsers.*,
+ org.w3c.dom.*,
+ org.xml.sax.*
+Excluded-Imports: 
+ org.apache.util.*
+Excluded-Exports: 
+ org.apache.util.*

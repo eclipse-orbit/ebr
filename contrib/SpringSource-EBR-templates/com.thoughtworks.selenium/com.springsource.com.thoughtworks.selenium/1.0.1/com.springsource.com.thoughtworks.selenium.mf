@@ -1,0 +1,8 @@
+Bundle-SymbolicName: com.springsource.com.thoughtworks.selenium
+Bundle-Name: Selenium Remote Control Java Client Driver
+Bundle-Vendor: SpringSource
+Bundle-ManifestVersion: 2
+Import-Template: 
+ junit.framework;version="[3.8.2, 4.0.0)",
+ groovy.*;version="0";resolution="optional",
+ org.codehaus.groovy.*;version="0";resolution="optional"

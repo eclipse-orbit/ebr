@@ -1,0 +1,13 @@
+Bundle-SymbolicName: com.springsource.com.informix.jdbcx
+Bundle-Name: IBM Informix JDBC Driver Datasource Extensions
+Bundle-Vendor: SpringSource
+Bundle-ManifestVersion: 2
+Import-Template: 
+ javax.transaction.*;version="[1.0.1, 2.0.0)";resolution:=optional,
+ com.informix.asf.*;version="[3.0.0.JC3, 3.0.0.JC3]",
+ com.informix.jdbc.*;version="[3.0.0.JC3, 3.0.0.JC3]",
+ com.informix.lang.*;version="[3.0.0.JC3, 3.0.0.JC3]",
+ com.informix.util.*;version="[3.0.0.JC3, 3.0.0.JC3]"
+Unversioned-Imports: 
+ javax.naming.*,
+ javax.sql.*

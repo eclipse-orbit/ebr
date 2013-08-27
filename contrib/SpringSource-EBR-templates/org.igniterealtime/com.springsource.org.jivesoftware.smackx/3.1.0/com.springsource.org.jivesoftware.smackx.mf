@@ -1,0 +1,10 @@
+Bundle-SymbolicName: com.springsource.org.jivesoftware.smackx
+Bundle-Name: Smack XMPP (Jabber) extensions
+Bundle-Vendor: SpringSource
+Bundle-ManifestVersion: 2
+Excluded-Exports:
+ com.jcraft.jzlib.*
+Import-Template:
+ org.jivesoftware.smack.*;version="[3.1.0, 3.1.0]",
+ org.xmlpull.v1;version="[3.1.0, 3.1.0]"
+

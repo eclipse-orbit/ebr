@@ -1,0 +1,22 @@
+Bundle-SymbolicName: com.springsource.org.apache.xmlbeans
+Bundle-Name: XMLBeans Development Kit
+Bundle-Vendor: SpringSource
+Bundle-ManifestVersion: 2
+Import-Template: 
+ com.sun.javadoc.*;resolution:=optional,
+ com.sun.tools.javadoc.*;resolution:=optional,
+ org.apache.tools.ant.*;version="[1.7.0, 2.0.0)";resolution:=optional
+Unversioned-Imports: 
+ com.sun.javadoc.*,
+ com.sun.tools.javadoc.*,
+ javax.xml.parsers.*,
+ javax.xml.stream.*,
+ javax.xml.transform.*,
+ org.xml.sax.*
+Excluded-Imports: 
+ javax.xml.*,
+ org.w3c.dom.*
+Excluded-Exports: 
+ javax.xml.*,
+ org.w3c.dom.*,
+ repackage.* 

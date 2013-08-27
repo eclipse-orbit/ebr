@@ -1,0 +1,23 @@
+Bundle-SymbolicName: com.springsource.ch.qos.logback.classic
+Bundle-Name: LogBack Classic
+Bundle-Vendor: SpringSource
+Bundle-ManifestVersion: 2
+Ignored-Existing-Headers: 
+ Import-Package,
+ Export-Package,
+ Tool,
+ Bnd-LastModified,
+ Private-Package
+Export-Template: 
+ org.slf4j.impl;version="1.5.6"
+Import-Template: 
+ ch.qos.logback.core.*;version="[0.9.18, 0.9.18]",
+ javax.jms.*;version="[1.1.0, 2.0.0)";resolution:=optional,
+ javax.servlet.*;version="[2.5.0, 3.0.0)";resolution:=optional,
+ org.slf4j.*;version="[1.5.6, 2.0.0)",
+ javax.management.*;version="0",
+ javax.naming.*;version="0",
+ org.xml.sax.*;version="0"
+Import-Package: 
+ ch.qos.logback.core.rolling;version="[0.9.18,0.9.18]",
+ ch.qos.logback.core.rolling.helper;version="[0.9.18,0.9.18]"

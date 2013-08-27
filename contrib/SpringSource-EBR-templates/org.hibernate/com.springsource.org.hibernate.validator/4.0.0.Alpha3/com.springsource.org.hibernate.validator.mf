@@ -1,0 +1,9 @@
+Bundle-SymbolicName: com.springsource.org.hibernate.validator
+Bundle-Name: JBoss Hibernate Validator
+Bundle-Vendor: SpringSource
+Bundle-ManifestVersion: 2
+Import-Template: 
+ com.googlecode.jtype;version="[0.1.0, 0.1.0]",
+ javax.persistence;version="[2.0.0.Beta1, 2.0.0.Beta1]";resolution:=optional,
+ javax.validation.*;version="[1.0.0.CR1, 1.0.0.CR1]",
+ org.slf4j;version="[1.3.1, 2.0.0)"

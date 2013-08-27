@@ -1,0 +1,37 @@
+--- DITA-OT1.4.2.1/build_dita2pdf.xml	2007-08-10 14:52:40.000000000 +0100
++++ DITA-OT1.4.2.1-mod/build_dita2pdf.xml	2009-02-04 09:52:31.000000000 +0000
+@@ -56,12 +56,14 @@
+       property="dita.merged.dir" />
+     <xslt processor="trax" in="${input}"
+       out="${dita.merged.dir}${file.separator}${dita.map.filename.root}_MERGED.xml"
+-      style="${dita.script.dir}${file.separator}topicmerge.xsl">
++      style="${dita.script.dir}${file.separator}topicmerge.xsl"
++      classpathref="dost.jar.path">
+       <xmlcatalog refid="dita.catalog" />
+     </xslt>
+     <xslt processor="trax"
+       in="${dita.merged.dir}${file.separator}${dita.map.filename.root}_MERGED.xml"
+-      out="${output}" style="${args.xsl}">
++      out="${output}" style="${args.xsl}"
++      classpathref="dost.jar.path">
+       <xmlcatalog refid="dita.catalog" />
+       <param name="output-related-links"
+         expression="${args.fo.output.rel.links}"
+@@ -77,7 +79,7 @@
+     and Batik relevant jar files in CLASSPATH -->
+   <target name="dita.fo2pdf" if="hasFOP"
+     description="Build PDF from FO using FOP">
+-    <taskdef name="fop" classname="org.apache.fop.tools.anttasks.Fop" />
++    <taskdef name="fop" classname="org.apache.fop.tools.anttasks.Fop" classpathref="dost.jar.path"/>
+     <antcall target="dita.fo2pdf.userconfig" />
+     <antcall target="dita.fo2pdf.nouserconfig" />
+   </target>
+@@ -105,7 +107,7 @@
+       </not>
+     </condition>
+     <xslt processor="trax" in="${input}" out="${output}"
+-      style="${args.xsl}">
++      style="${args.xsl}" classpathref="dost.jar.path">
+       <xmlcatalog refid="dita.catalog" />
+       <param name="output-related-links"
+         expression="${args.fo.output.rel.links}"

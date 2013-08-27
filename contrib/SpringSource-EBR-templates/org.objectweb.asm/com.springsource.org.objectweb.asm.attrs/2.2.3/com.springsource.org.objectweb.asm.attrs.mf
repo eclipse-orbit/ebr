@@ -1,0 +1,6 @@
+Bundle-SymbolicName: com.springsource.org.objectweb.asm.attrs
+Bundle-Name: ObjectWeb ASM Attributes
+Bundle-Vendor: SpringSource
+Bundle-ManifestVersion: 2
+Import-Template: 
+ org.objectweb.asm;version="[2.2.3, 2.2.3]"

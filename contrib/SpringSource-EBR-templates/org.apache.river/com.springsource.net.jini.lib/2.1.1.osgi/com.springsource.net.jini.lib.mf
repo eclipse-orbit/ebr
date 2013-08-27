@@ -1,0 +1,11 @@
+Bundle-SymbolicName: com.springsource.net.jini.lib
+Bundle-Name: Apache River Lib
+Bundle-Vendor: SpringSource
+Bundle-ManifestVersion: 2
+Fragment-Host: com.springsource.net.jini.platform;bundle-version="[2.1.1.osgi, 2.1.1.osgi]"
+Excluded-Imports: 
+ com.artima.lookup.util;version="[2.1.1.osgi, 3.0.0)";resolution:=optional,
+ com.sun.jini.discovery.*;version="[2.1.1.osgi, 2.1.1.osgi]",
+ net.jini.*;version="[2.1.1.osgi, 2.1.1.osgi]"
+Unversioned-Imports: 
+ javax.swing.*

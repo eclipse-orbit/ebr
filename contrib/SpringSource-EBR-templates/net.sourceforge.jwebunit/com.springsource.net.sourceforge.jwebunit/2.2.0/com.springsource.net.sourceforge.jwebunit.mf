@@ -1,0 +1,8 @@
+Bundle-SymbolicName: com.springsource.net.sourceforge.jwebunit
+Bundle-Name: JWebUnit
+Bundle-Vendor: SpringSource
+Bundle-ManifestVersion: 2
+Import-Template: 
+ javax.servlet.http;version="[2.4.0, 3.0.0)",
+ junit.framework;version="[3.8.2, 5.0.0)",
+ org.apache.regexp;version="[1.3.0, 2.0.0)"

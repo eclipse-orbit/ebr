@@ -1,0 +1,6 @@
+Bundle-SymbolicName: com.springsource.com.sleepcat.je
+Bundle-Name: Sleepycat Berkeley DB Java Edition
+Bundle-Vendor: SpringSource
+Bundle-ManifestVersion: 2
+Import-Template: 
+ org.apache.tools.ant.*;version="[1.7.1, 2.0.0)";resolution:=optional

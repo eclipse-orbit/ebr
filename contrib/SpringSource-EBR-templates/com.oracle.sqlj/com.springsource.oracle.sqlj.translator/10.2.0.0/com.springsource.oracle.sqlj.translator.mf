@@ -1,0 +1,12 @@
+Bundle-SymbolicName: com.springsource.oracle.sqlj.translator
+Bundle-Name: Oracle SQLJ Translator
+Bundle-Vendor: SpringSource
+Bundle-ManifestVersion: 2
+Import-Template: 
+ oracle.jdbc.*;version="[10.2.0.2, 11.0.0)",
+ oracle.jpub.reflect;version="[10.2.0.0, 11.0.0)",
+ oracle.jpub.runtime;version="[10.2.0.2, 11.0.0)",
+ oracle.sql.*;version="[10.2.0.0, 11.0.0)",
+ oracle.sqlj.runtime.*;version="[10.2.0.0, 11.0.0)",
+ sqlj.runtime.*;version="[10.2.0.0, 11.0.0)"
+Unversioned-Imports: 

@@ -1,0 +1,6 @@
+Bundle-SymbolicName: com.springsource.org.objectweb.asm.tree
+Bundle-Name: ObjectWeb ASM Tree
+Bundle-Vendor: SpringSource
+Bundle-ManifestVersion: 2
+Import-Template: 
+ org.objectweb.asm.*;version="[2.2.0, 2.2.0]"

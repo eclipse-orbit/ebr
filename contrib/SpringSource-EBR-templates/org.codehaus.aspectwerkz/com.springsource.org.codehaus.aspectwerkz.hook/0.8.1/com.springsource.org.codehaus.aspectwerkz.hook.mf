@@ -1,0 +1,8 @@
+Bundle-SymbolicName: com.springsource.org.codehaus.aspectwerkz.hook
+Bundle-Name: Aspectwerkz AOP for Java Core
+Bundle-Vendor: SpringSource
+Bundle-ManifestVersion: 2
+Import-Template: 
+ org.apache.bcel.*;version="[5.0.0, 5.2.0)";resolution:=optional
+Excluded-Imports: 
+ com.sun.jdi.*

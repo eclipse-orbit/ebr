@@ -1,0 +1,9 @@
+Bundle-SymbolicName: com.springsource.javax.servlet.jsp
+Bundle-Name: Java JSP API
+Bundle-Vendor: SpringSource
+Bundle-ManifestVersion: 2
+Import-Template: 
+ javax.el.*;version="[1.0.0, 2.0.0)",
+ javax.servlet.*;version="[2.4.0, 3.0.0)"
+Export-Package: 
+ javax.servlet.jsp.resources;version="2.0.0"

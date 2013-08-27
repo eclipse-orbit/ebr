@@ -1,0 +1,7 @@
+Bundle-SymbolicName: com.springsource.org.apache.batik.xml
+Bundle-Name: Apache Batik XML Utility Library
+Bundle-Vendor: SpringSource
+Bundle-ManifestVersion: 2
+Import-Template: 
+ org.apache.batik.i18n.*;version="[1.7.0, 1.7.0]",
+ org.apache.batik.util.*;version="[1.7.0, 1.7.0]"

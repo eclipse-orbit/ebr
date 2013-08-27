@@ -1,0 +1,13 @@
+Bundle-SymbolicName: com.springsource.net.sourceforge.jtds
+Bundle-Name: jTDS JDBC Driver
+Bundle-Vendor: SpringSource
+Bundle-ManifestVersion: 2
+Import-Template: 
+ jcifs.smb;version="[1.2.15, 2.0.0)"
+Unversioned-Imports: 
+ javax.naming.*,
+ javax.net.*,
+ javax.sql.*,
+ javax.transaction.*
+Excluded-Imports: 
+ com.sun.net.ssl

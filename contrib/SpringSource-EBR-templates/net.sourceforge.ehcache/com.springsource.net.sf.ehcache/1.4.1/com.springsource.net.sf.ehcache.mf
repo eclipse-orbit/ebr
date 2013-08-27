@@ -1,0 +1,16 @@
+Bundle-SymbolicName: com.springsource.net.sf.ehcache
+Bundle-Name: EHCache Cache
+Bundle-Vendor: SpringSource
+Bundle-ManifestVersion: 2
+Import-Template: 
+ edu.emory.mathcs.backport.*;version="[3.0.0, 4.0.0)";resolution:=optional,
+ javax.servlet.*;version="[2.5.0, 3.0.0)";resolution:=optional,
+ net.sf.jsr107cache.*;version="[1.0.0, 2.0.0)",
+ org.apache.commons.collections.*;version="[3.2.0, 4.0.0)",
+ org.apache.commons.logging.*;version="[1.1.1, 2.0.0)",
+ org.hibernate.cache.*;version="[3.2.6.ga, 3.3.0)";resolution:=optional
+Unversioned-Imports: 
+ javax.management.*,
+ javax.naming.*,
+ javax.xml.parsers.*,
+ org.xml.sax.*

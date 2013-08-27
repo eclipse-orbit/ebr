@@ -1,0 +1,8 @@
+Bundle-SymbolicName: com.springsource.org.codehaus.jettison
+Bundle-Name: A JSON StAX Implementation
+Bundle-Vendor: SpringSource
+Bundle-ManifestVersion: 2
+Import-Template: 
+ javax.xml.stream.*;version="[1.0.1, 2.0.0)"
+Unversioned-Imports: 
+ javax.xml.*

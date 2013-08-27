@@ -1,0 +1,31 @@
+Bundle-SymbolicName: com.springsource.org.directwebremoting
+Bundle-Name: Direct Web Remoting
+Bundle-Vendor: SpringSource
+Bundle-ManifestVersion: 2
+Import-Template: 
+ com.google.inject.*;version="[1.0.0, 2.0.0)",
+ com.opensymphony.webwork.*;version="[2.2.2, 3.0.0)",
+ com.opensymphony.xwork.*;version="[1.1.1, 2.0.0)",
+ edu.emory.mathcs.backport.java.util.concurrent.*;version="[1.1.1, 2.0.0)";resolution:=optional,
+ javax.faces.*;version="[1.1.5, 2.0.0)",
+ net.sf.hibernate.*;version="[2.1.7.c, 3.0.0)";resolution:=optional,
+ nu.xom.*;version="[1.1.0, 2.0.0)";resolution:=optional,
+ org.apache.bsf.*;version="[2.4.0, 3.0.0)";resolution:=optional,
+ org.apache.commons.logging.*;version="[1.1.1, 2.0.0)",
+ org.apache.struts.*;version="[1.2.9, 2.0.0)",
+ org.dom4j.*;version="[1.6.1, 2.0.0)";resolution:=optional,
+ org.hibernate.*;version="[3.2.0.ga, 4.0.0)",
+ org.jdom.*;version="[1.0.0, 2.0.0)";resolution:=optional,
+ org.springframework.aop.*;version="[2.5.4.A, 3.0.0)",
+ org.springframework.beans.*;version="[2.5.4.A, 3.0.0)",
+ org.springframework.context.*;version="[2.5.4.A, 3.0.0)",
+ org.springframework.util.*;version="[2.5.4.A, 3.0.0)",
+ org.springframework.web.context.*;version="[2.5.4.A, 3.0.0)",
+ org.springframework.web.servlet.*;version="[2.5.4.A, 3.0.0)"
+Unversioned-Imports: 
+ javax.naming.*,
+ javax.servlet.*,
+ javax.xml.parsers.*,
+ javax.xml.transform.*,
+ org.w3c.dom.*,
+ org.xml.sax.*

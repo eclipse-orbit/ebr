@@ -1,0 +1,14 @@
+Bundle-SymbolicName: com.springsource.org.apache.tiles.compat
+Bundle-Name: Apache Tiles 2 Compatibility
+Bundle-Vendor: SpringSource
+Bundle-ManifestVersion: 2
+Ignored-Existing-Headers: 
+ Bnd-LastModified,
+ Import-Package,
+ Export-Package,
+ Tool
+Fragment-Host: 
+ com.springsource.org.apache.tiles.core;bundle-version="[2.1.2.osgi, 2.1.2.osgi]"
+Import-Template: 
+ org.apache.commons.digester;version="[1.8.1, 2.0.0)",
+ org.apache.tiles.*;version="[2.1.2, 2.1.3)"

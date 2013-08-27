@@ -1,0 +1,7 @@
+Bundle-SymbolicName: com.springsource.org.objenesis
+Bundle-Name: Objenesis
+Bundle-Vendor: SpringSource
+Bundle-ManifestVersion: 2
+Ignored-Existing-Headers: 
+ Import-Package,
+ Export-Package

@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="com.springsource.com.mchange.v2.c3p0">
+	<property name="version" value="0.9.1.2"/>
+	<property name="release.type" value="external"/>
+	<import file="${basedir}/../../../../spring-build/add-osgi/default.xml"/>
+</project>

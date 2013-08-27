@@ -1,0 +1,6 @@
+Bundle-SymbolicName: com.springsource.org.jmock
+Bundle-Name: JMock Core
+Bundle-Vendor: SpringSource
+Bundle-ManifestVersion: 2
+Import-Template: 
+ junit.*;version="[3.8.2, 4.0.0)";resolution:=optional

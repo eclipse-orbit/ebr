@@ -1,0 +1,6 @@
+Bundle-SymbolicName: com.springsource.org.textmining.extraction
+Bundle-Name: TextMining.org tm-extractors
+Bundle-Vendor: SpringSource
+Bundle-ManifestVersion: 2
+Import-Template: 
+ org.apache.poi.*;version="[3.0.1.FINAL-20070705, 4.0.0)"

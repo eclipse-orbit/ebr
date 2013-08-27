@@ -1,0 +1,10 @@
+Bundle-SymbolicName: com.springsource.org.apache.directory.server.ntp
+Bundle-Name: Apache Directory Server NTP Protocol Support
+Bundle-Vendor: SpringSource
+Bundle-ManifestVersion: 2
+Import-Template: 
+ org.apache.directory.server.core.*;version="[1.0.2, 2.0.0)",
+ org.apache.directory.server.protocol.shared.*;version="[1.0.2, 2.0.0)",
+ org.apache.mina.*;version="[1.0.2, 2.0.0)",
+ org.slf4j.*;version="[1.5.0, 2.0.0)"
+Unversioned-Imports: 

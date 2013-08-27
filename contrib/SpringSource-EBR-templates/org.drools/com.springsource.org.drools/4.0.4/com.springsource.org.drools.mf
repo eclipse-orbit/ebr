@@ -1,0 +1,7 @@
+Bundle-SymbolicName: com.springsource.org.drools
+Bundle-Name: Drools JBoss Rules Engine 4.0.4 core
+Bundle-Vendor: SpringSource
+Bundle-ManifestVersion: 2
+Import-Template: 
+ com.thoughtworks.xstream;version="[1.2.2, 2.0.0)";resolution:=optional,
+ org.mvel.*;version="[1.2.21, 2.0.0)"

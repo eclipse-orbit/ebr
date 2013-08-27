@@ -1,0 +1,7 @@
+Bundle-SymbolicName: com.springsource.com.ibm.netrexx
+Bundle-Name: NetRexx
+Bundle-Vendor: SpringSource
+Bundle-ManifestVersion: 2
+Unversioned-Imports: 
+ sun.io.*,
+ sun.tools.javac.*

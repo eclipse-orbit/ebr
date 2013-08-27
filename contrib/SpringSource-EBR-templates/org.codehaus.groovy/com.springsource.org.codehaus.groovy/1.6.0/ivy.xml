@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="http://ivyrep.jayasoft.org/ivy-doc.xsl"?>
+<ivy-module
+		xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+		xsi:noNamespaceSchemaLocation="http://incubator.apache.org/ivy/schemas/ivy.xsd"
+		version="1.3">
+
+	<info organisation="org.codehaus.groovy" module="com.springsource.org.codehaus.groovy"/>
+
+	<configurations>
+		<include file="${spring.build.dir}/common/default-ivy-configurations.xml"/>
+	</configurations>
+
+	<publications>
+		<artifact name="${ant.project.name}"/>
+		<artifact name="${ant.project.name}-sources" type="src" ext="jar"/>
+		<artifact name="license" type="license" ext="txt"/>
+	</publications>
+
+	<dependencies>
+		<dependency org="org.antlr" name="com.springsource.antlr" rev="2.7.7" conf="optional->compile"/>
+		<dependency org="com.thoughtworks.xstream" name="com.springsource.com.thoughtworks.xstream" rev="1.3.0" conf="optional->compile"/>
+		<dependency org="javax.servlet" name="com.springsource.javax.servlet" rev="2.5.0" conf="provided->compile"/>
+		<dependency org="javax.servlet" name="com.springsource.javax.servlet.jsp" rev="2.1.0" conf="provided->compile"/>
+		<dependency org="net.sourceforge.jline" name="com.springsource.jline" rev="0.9.94" conf="optional->compile"/>
+		<dependency org="org.junit" name="com.springsource.junit" rev="3.8.2" conf="optional->compile"/>
+		<dependency org="org.apache.bsf" name="com.springsource.org.apache.bsf" rev="2.4.0" conf="optional->compile"/>
+		<dependency org="org.apache.commons" name="com.springsource.org.apache.commons.cli" rev="1.1.0" conf="optional->compile"/>
+		<dependency org="org.apache.ant" name="com.springsource.org.apache.ivy" rev="2.0.0" conf="optional->compile"/>
+		<dependency org="org.apache.ant" name="com.springsource.org.apache.tools.ant" rev="1.7.1" conf="optional->compile"/>
+		<dependency org="org.objectweb.asm" name="com.springsource.org.objectweb.asm" rev="2.2.3" conf="optional->compile"/>
+		<dependency org="org.objectweb.asm" name="com.springsource.org.objectweb.asm.tree" rev="2.2.3" conf="optional->compile"/>
+		<dependency org="org.objectweb.asm" name="com.springsource.org.objectweb.asm.tree.analysis" rev="2.2.3" conf="optional->compile"/>
+		<dependency org="org.objectweb.asm" name="com.springsource.org.objectweb.asm.util" rev="2.2.3" conf="optional->compile"/>
+	</dependencies>
+
+</ivy-module>

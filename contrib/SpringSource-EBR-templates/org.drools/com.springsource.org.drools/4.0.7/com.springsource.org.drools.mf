@@ -1,0 +1,7 @@
+Bundle-SymbolicName: com.springsource.org.drools
+Bundle-Name: Drools Rules Engine Core
+Bundle-Vendor: SpringSource
+Bundle-ManifestVersion: 2
+Import-Template: 
+ com.thoughtworks.xstream.*;version="[1.2.2, 2.0.0)",
+ org.mvel.*;version="[1.3.1, 2.0.0)"

@@ -1,0 +1,17 @@
+Bundle-SymbolicName: com.springsource.org.quickfixj
+Bundle-Name: QuickFIX/J Core
+Bundle-Vendor: SpringSource
+Bundle-ManifestVersion: 2
+Import-Template: 
+ com.sleepycat.*;version="[2.1.30, 3.0.0)";resolution:=optional,
+ javax.management.*;version="0",
+ javax.naming.*;version="0",
+ javax.net.ssl.*;version="0";resolution:=optional,
+ javax.sql.*;version="0";resolution:=optional,
+ javax.xml.parsers.*;version="0",
+ javax.xml.transform.*;version="0",
+ org.apache.mina.*;version="[1.0.1, 2.0.0)",
+ org.logicalcobwebs.proxool.*;version="[0.9.0, 1.0.0)";resolution:=optional,
+ org.slf4j.*;version="[1.5.3, 1.6.0)";resolution:=optional,
+ org.w3c.dom.*;version="0",
+ org.xml.sax.*;version="0"

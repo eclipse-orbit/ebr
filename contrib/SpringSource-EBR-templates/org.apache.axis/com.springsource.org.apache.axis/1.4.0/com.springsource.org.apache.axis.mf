@@ -1,0 +1,24 @@
+Bundle-SymbolicName: com.springsource.org.apache.axis
+Bundle-Name: Apache Web Services - Axis
+Bundle-Vendor: SpringSource
+Bundle-ManifestVersion: 2
+Import-Template: 
+ com.ibm.wsdl.extensions.soap.*;version="[1.6.1, 2.0.0)",
+ com.sun.jimi.core.*;version="0";resolution:=optional,
+ com.sun.net.*;version="0";resolution:=optional,
+ javax.activation.*;version="[1.1.0, 2.0.0)",
+ javax.jms.*;version="[1.1.0, 2.0.0)",
+ javax.mail.*;version="[1.4.0, 2.0.0)",
+ javax.servlet;version="[2.4.0, 3.0.0)",
+ javax.servlet.http.*;version="[2.4.0, 3.0.0)",
+ javax.wsdl.*;version="[1.6.1, 2.0.0)",
+ javax.xml.rpc.*;version="0",
+ org.apache.bsf.*;version="[2.4.0, 3.0.0)";resolution:=optional,
+ org.apache.commons.discovery.*;version="[0.4.0, 1.0.0)",
+ org.apache.commons.httpclient.*;version="[3.1.0, 4.0.0)",
+ org.apache.commons.logging.*;version="[1.1.1, 2.0.0)",
+ org.apache.commons.net.*;version="[1.4.1, 2.0.0)",
+ org.exolab.castor.*;version="[1.1.2, 2.0.0)";resolution:=optional,
+ com.sun.net.*;resolution:=optional
+Excluded-Imports: 
+ org.omg

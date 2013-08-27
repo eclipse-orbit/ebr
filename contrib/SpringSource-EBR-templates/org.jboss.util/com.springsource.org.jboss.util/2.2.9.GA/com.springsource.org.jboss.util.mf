@@ -1,0 +1,8 @@
+Bundle-SymbolicName: com.springsource.org.jboss.util
+Bundle-Name: JBoss Common Utilities
+Bundle-Vendor: SpringSource
+Bundle-ManifestVersion: 2
+Import-Template: 
+ org.apache.commons.httpclient;version="[2.0.2, 4.0.0)";resolution:=optional,
+ org.apache.webdav.lib;version="[2.0.0, 3.0.0)";resolution:=optional,
+ org.jboss.logging;version="[2.0.5.GA, 3.0.0)"

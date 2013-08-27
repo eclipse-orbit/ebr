@@ -1,0 +1,20 @@
+Bundle-SymbolicName: com.springsource.oracle.toplink.essentials
+Bundle-Name: Oracle TopLink Essentials JPA
+Bundle-Vendor: SpringSource
+Bundle-ManifestVersion: 2
+Import-Package: 
+ javax.persistence;version="[1.0.0, 2.0.0)",
+ javax.persistence.spi;version="[1.0.0, 2.0.0)"
+Import-Template: 
+ javax.transaction.*;version="[1.0.1, 2.0.0)";resolution:=optional,
+ org.apache.tools.ant.*;version="[1.7.0, 2.0.0)";resolution:=optional
+Unversioned-Imports: 
+ javax.crypto.*,
+ javax.naming.*,
+ javax.sql.*,
+ javax.swing.*,
+ javax.xml.*,
+ org.w3c.dom.*,
+ org.xml.sax.*
+Excluded-Exports: 
+ javax.persistence.*

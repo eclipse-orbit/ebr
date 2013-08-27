@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="org.eclipse.osgi">
+	<property name="version" value="3.6.1.R36x_v20100806"/>
+	<property name="release.type" value="external"/>
+	<import file="${basedir}/../../../../spring-build/no-osgi/default.xml"/>
+</project>

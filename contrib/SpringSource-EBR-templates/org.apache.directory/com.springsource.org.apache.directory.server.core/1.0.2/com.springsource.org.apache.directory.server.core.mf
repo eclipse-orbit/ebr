@@ -1,0 +1,14 @@
+Bundle-SymbolicName: com.springsource.org.apache.directory.server.core
+Bundle-Name: Apache Directory Server
+Bundle-Vendor: SpringSource
+Bundle-ManifestVersion: 2
+Excluded-Imports: org.apache.directory.server.core.schema.bootstrap
+Fragment-Host: com.springsource.org.apache.directory.server.core.shared;bundle-version="[1.0.2,1.0.2]"
+Import-Template: 
+ jdbm.*;version="[1.0.0, 2.0.0)";resolution:=optional,
+ org.apache.commons.collections.*;version="[3.2.0, 4.0.0)",
+ org.apache.directory.shared.ldap.*;version="[0.9.5.5, 1.0.0)",
+ org.slf4j.*;version="[1.5.0, 2.0.0)"
+Unversioned-Imports: 
+ javax.naming.*,
+ javax.swing.*

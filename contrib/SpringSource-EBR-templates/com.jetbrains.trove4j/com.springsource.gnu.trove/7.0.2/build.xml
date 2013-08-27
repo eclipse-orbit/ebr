@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="com.springsource.gnu.trove">
+	<property name="version" value="7.0.2"/>
+	<property name="release.type" value="external"/>
+	<import file="../../../../spring-build/add-osgi/default.xml"/>
+</project>

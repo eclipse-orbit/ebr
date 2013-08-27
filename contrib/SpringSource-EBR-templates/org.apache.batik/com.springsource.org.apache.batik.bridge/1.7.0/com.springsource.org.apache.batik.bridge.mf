@@ -1,0 +1,27 @@
+Bundle-SymbolicName: com.springsource.org.apache.batik.bridge
+Bundle-Name: Apache Batik Bridge Classes
+Bundle-Vendor: SpringSource
+Bundle-ManifestVersion: 2
+Import-Template: 
+ org.apache.batik.anim.*;version="[1.7.0, 1.7.0]",
+ org.apache.batik.css.*;version="[1.7.0, 1.7.0]",
+ org.apache.batik.dom;version="[1.7.0, 1.7.0]",
+ org.apache.batik.dom.anim.*;version="[1.7.0, 1.7.0]",
+ org.apache.batik.dom.events.*;version="[1.7.0, 1.7.0]",
+ org.apache.batik.dom.svg.*;version="[1.7.0, 1.7.0]",
+ org.apache.batik.dom.svg12.*;version="[1.7.0, 1.7.0]",
+ org.apache.batik.dom.util.*;version="[1.7.0, 1.7.0]",
+ org.apache.batik.dom.xbl.*;version="[1.7.0, 1.7.0]",
+ org.apache.batik.ext.awt.*;version="[1.7.0, 1.7.0]",
+ org.apache.batik.gvt.*;version="[1.7.0, 1.7.0]",
+ org.apache.batik.i18n.*;version="[1.7.0, 1.7.0]",
+ org.apache.batik.parser.*;version="[1.7.0, 1.7.0]",
+ org.apache.batik.script.*;version="[1.7.0, 1.7.0]",
+ org.apache.batik.util.*;version="[1.7.0, 1.7.0]",
+ org.apache.batik.xml.*;version="[1.7.0, 1.7.0]",
+ org.apache.xpath.*;version="[2.7.0, 3.0.0)",
+ org.apache.xml.*;version="[2.7.0, 3.0.0)",
+ org.w3c.dom.css;version="0";resolution:=optional,
+ org.w3c.dom.svg;version="0";resolution:=optional,
+ org.w3c.dom.views;version="0";resolution:=optional,
+ org.w3c.dom.xpath;version="0";resolution:=optional

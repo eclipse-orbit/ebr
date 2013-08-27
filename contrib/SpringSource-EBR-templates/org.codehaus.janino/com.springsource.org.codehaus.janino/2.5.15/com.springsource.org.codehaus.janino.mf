@@ -1,0 +1,6 @@
+Bundle-SymbolicName: com.springsource.org.codehaus.janino
+Bundle-Name: Janino Embedded Java Compiler
+Bundle-Vendor: SpringSource
+Bundle-ManifestVersion: 2
+Import-Template: 
+ org.apache.tools.ant.*;version="[1.7.0, 2.0.0)";resolution:=optional

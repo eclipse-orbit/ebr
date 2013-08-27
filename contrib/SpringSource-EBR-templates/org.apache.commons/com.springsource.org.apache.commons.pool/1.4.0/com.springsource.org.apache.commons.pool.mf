@@ -1,0 +1,6 @@
+Bundle-SymbolicName: com.springsource.org.apache.commons.pool
+Bundle-Name: Apache Commons Pool
+Bundle-Vendor: SpringSource
+Bundle-ManifestVersion: 2
+Ignored-Existing-Headers: 
+ Import-Package

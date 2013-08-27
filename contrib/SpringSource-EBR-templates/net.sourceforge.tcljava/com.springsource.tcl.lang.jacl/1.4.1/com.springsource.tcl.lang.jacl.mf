@@ -1,0 +1,6 @@
+Bundle-SymbolicName: com.springsource.tcl.lang.jacl
+Bundle-Name: Tcl/Java Jacl
+Bundle-Vendor: SpringSource
+Bundle-ManifestVersion: 2
+Fragment-Host: com.springsource.tcl.lang;bundle-version="[1.4.1,1.4.1]"
+Excluded-Imports: tcl.lang

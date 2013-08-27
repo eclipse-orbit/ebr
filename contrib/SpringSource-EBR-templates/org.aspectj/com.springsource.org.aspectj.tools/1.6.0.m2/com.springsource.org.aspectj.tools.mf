@@ -1,0 +1,7 @@
+Bundle-SymbolicName: com.springsource.org.aspectj.tools
+Bundle-Name: AspectJ Tools
+Bundle-Vendor: SpringSource
+Bundle-ManifestVersion: 2
+Fragment-Host: com.springsource.org.aspectj.weaver;version="[1.6.0.m2, 1.6.0.m2]"
+Excluded-Imports: 
+ *

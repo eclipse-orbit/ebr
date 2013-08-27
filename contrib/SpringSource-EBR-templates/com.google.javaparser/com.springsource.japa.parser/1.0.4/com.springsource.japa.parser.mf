@@ -1,0 +1,4 @@
+Bundle-SymbolicName: com.springsource.japa.parser
+Bundle-Name: Java 1.5 Parser and AST
+Bundle-Vendor: SpringSource
+Bundle-ManifestVersion: 2

@@ -1,0 +1,7 @@
+Bundle-SymbolicName: com.springsource.com.fasterxml.jackson.core.jackson-databind
+Bundle-Name: FasterXML Jackson Databind
+Bundle-Vendor: SpringSource
+Bundle-ManifestVersion: 2
+Import-Template: 
+ com.fasterxml.jackson.*;version="[2.0.2, 2.0.2]"
+

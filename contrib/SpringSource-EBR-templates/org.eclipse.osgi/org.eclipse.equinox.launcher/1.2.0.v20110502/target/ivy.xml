@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="http://ivyrep.jayasoft.org/ivy-doc.xsl"?>
+<ivy-module xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://incubator.apache.org/ivy/schemas/ivy.xsd" version="1.3">
+
+	<info organisation="org.eclipse.osgi" module="org.eclipse.equinox.launcher" revision="1.2.0.v20110502" status="release" publication="20110517101316"/>
+
+	<configurations>
+		<conf name="compile" visibility="public" description="Compile dependencies"/>
+		<conf name="optional" visibility="public" extends="compile" description="Optional dependencies"/>
+		<conf name="provided" visibility="public" description="Provided dependencies"/>
+		<conf name="runtime" visibility="public" extends="compile" description="Runtime dependencies"/>
+	</configurations>
+
+	<publications>
+		<artifact name="org.eclipse.equinox.launcher"/>
+		<artifact name="org.eclipse.equinox.launcher-sources" type="src" ext="jar"/>
+		<artifact name="license" type="license" ext="txt"/>
+	</publications>
+</ivy-module>

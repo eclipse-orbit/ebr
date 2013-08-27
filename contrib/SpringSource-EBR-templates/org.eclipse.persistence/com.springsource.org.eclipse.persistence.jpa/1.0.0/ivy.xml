@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="http://ivyrep.jayasoft.org/ivy-doc.xsl"?>
+<ivy-module
+		xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+		xsi:noNamespaceSchemaLocation="http://incubator.apache.org/ivy/schemas/ivy.xsd"
+		version="1.3">
+
+	<info organisation="org.eclipse.persistence" module="com.springsource.org.eclipse.persistence.jpa"/>
+
+	<configurations>
+		<include file="${spring.build.dir}/common/default-ivy-configurations.xml"/>
+	</configurations>
+
+	<publications>
+		<artifact name="${ant.project.name}"/>
+		<artifact name="${ant.project.name}-sources" type="src" ext="jar"/>
+		<artifact name="license" type="license" ext="txt"/>
+	</publications>
+
+	<dependencies>
+		<dependency org="org.eclipse.persistence" name="com.springsource.org.eclipse.persistence" rev="1.0.0" conf="compile->compile"/>
+		<dependency org="javax.persistence" name="com.springsource.javax.persistence" rev="1.0.0" conf="provided->runtime"/>
+		<dependency org="javax.transaction" name="com.springsource.javax.transaction" rev="1.1.0" conf="provided->runtime"/>
+		<dependency org="org.apache.ant" name="com.springsource.org.apache.tools.ant" rev="1.7.0" conf="optional->runtime"/>
+	</dependencies>
+
+</ivy-module>

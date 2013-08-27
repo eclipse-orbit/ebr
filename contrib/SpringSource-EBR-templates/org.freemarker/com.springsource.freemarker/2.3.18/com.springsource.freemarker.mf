@@ -1,0 +1,28 @@
+Bundle-SymbolicName: com.springsource.freemarker
+Bundle-Name: Freemarker Templating Engine
+Bundle-Vendor: SpringSource
+Bundle-ManifestVersion: 2
+Import-Template: 
+ javax.el.*;version="[2.0.0, 3.0.0)";resolution:=optional,
+ javax.servlet.*;version="[3.0.0, 4.0.0)";resolution:=optional,
+ javax.servlet.jsp.*;version="[2.1.0, 3.0.0)";resolution:=optional,
+ javax.swing.*;version="0",
+ javax.xml.*;version="0",
+ org.apache.log.*;version="[1.0.1, 1.0.1]";resolution:=optional,
+ org.apache.log4j.*;version="[1.2.16, 2.0.0)";resolution:=optional,
+ org.apache.tools.ant.*;version="[1.7.0, 2.0.0)";resolution:=optional,
+ org.apache.xml.*;version="[2.7.0, 3.0.0)";resolution:=optional,
+ org.apache.xpath.*;version="[2.7.0, 3.0.0)";resolution:=optional,
+ org.dom4j.*;version="[1.6.1, 2.0.0)";resolution:=optional,
+ org.jaxen.*;version="[1.1.1, 2.0.0)";resolution:=optional,
+ org.jdom.*;version="[1.0.0, 2.0.0)";resolution:=optional,
+ org.mozilla.javascript.*;version="0";resolution:=optional,
+ org.python.*;version="[2.2.1, 2.3.0)";resolution:=optional,
+ org.slf4j.*;version="[1.6.0, 2.0.0)";resolution:=optional,
+ org.apache.commons.logging;version="[1.1.1, 2.0.0)";resolution:=optional,
+ org.w3c.dom;version="0",
+ org.xml.sax.*;version="0",
+ org.zeroturnaround.javarebel;version="0";resolution:=optional
+Excluded-Imports: 
+ com.sun.org.apache.*,
+ org.w3c.dom.traversal.*

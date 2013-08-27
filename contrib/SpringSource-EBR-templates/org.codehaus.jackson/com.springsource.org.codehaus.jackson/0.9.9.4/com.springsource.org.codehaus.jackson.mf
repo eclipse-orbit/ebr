@@ -1,0 +1,13 @@
+Bundle-SymbolicName: com.springsource.org.codehaus.jackson
+Bundle-Name: Jackson JSON parser
+Bundle-Vendor: SpringSource
+Bundle-ManifestVersion: 2
+Ignored-Existing-Headers: 
+ Bnd-LastModified,
+ Import-Package,
+ Export-Package,
+ Tool,
+ Private-Package
+Excluded-Exports: 
+ org.codehaus.jackson.impl,
+ org.codehaus.jackson.sym

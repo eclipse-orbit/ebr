@@ -1,0 +1,6 @@
+Bundle-SymbolicName: com.springsource.javax.rules
+Bundle-Name: JSR-94 javax.rules API
+Bundle-Vendor: SpringSource
+Bundle-ManifestVersion: 2
+Unversioned-Imports: 
+ org.w3c.dom.*

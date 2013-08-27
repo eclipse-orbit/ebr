@@ -1,0 +1,6 @@
+Bundle-SymbolicName: com.springsource.org.ognl
+Bundle-Name: Object-Graph Navigation Language (OGNL)
+Bundle-Vendor: SpringSource
+Bundle-ManifestVersion: 2
+Import-Template: 
+ javassist.*;version="[3.3.0.ga, 4.0.0)"

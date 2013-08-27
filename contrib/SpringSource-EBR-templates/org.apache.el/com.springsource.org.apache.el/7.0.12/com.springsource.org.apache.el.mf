@@ -1,0 +1,6 @@
+Bundle-SymbolicName: com.springsource.org.apache.el
+Bundle-Name: Apache EL
+Bundle-Vendor: SpringSource
+Bundle-ManifestVersion: 2
+Import-Template: 
+ javax.el.*;version="[1.0.0, 3.0.0)"

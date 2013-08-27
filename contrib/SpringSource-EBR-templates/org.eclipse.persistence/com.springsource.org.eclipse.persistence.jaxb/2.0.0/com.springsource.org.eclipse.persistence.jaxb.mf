@@ -1,0 +1,19 @@
+Bundle-SymbolicName: com.springsource.org.eclipse.persistence.jaxb
+Bundle-Name: EclipseLink MOXY component's implementation of JAXB
+Bundle-Vendor: SpringSource
+Bundle-ManifestVersion: 2
+Ignored-Existing-Headers: 
+ Import-Package,
+ Export-Package,
+ Require-Bundle,
+ HK2-Bundle-Name,
+ TODAY,
+ Bundle-RequiredExecutionEnvironment,
+ TSTAMP,
+ Bnd-LastModified,
+ Tool,
+ Private-Package,
+ DSTAMP
+Import-Template: 
+ org.eclipse.persistence.*;version="[2.0.0, 2.0.0]",
+ org.eclipse.persistence.internal.libraries.asm.*;version="[2.0.0, 2.0.0]";resolution:=optional

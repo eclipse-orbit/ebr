@@ -1,0 +1,29 @@
+Bundle-SymbolicName: com.springsource.org.jruby
+Bundle-Name: JRuby
+Bundle-Vendor: SpringSource
+Bundle-ManifestVersion: 2
+Ignored-Existing-Headers: 
+ Import-Package,
+ Bnd-LastModified,
+ Tool,
+ TODAY,
+ TSTAMP,
+ DSTAMP,
+ Ignore-Package,
+ Private-Package
+Import-Template: 
+ *;version="0";resolution:=optional
+Excluded-Exports: 
+ builtin.*,
+ jruby.*,
+ jline.*,
+ com.*,
+ org.apache.*,
+ org.dynalang.*,
+ org.jcodings.*,
+ org.joni.*,
+ org.joda.*,
+ org.jvyamlb.*,
+ doc.*,
+ jay.*,
+ jni.*

@@ -1,0 +1,11 @@
+Bundle-SymbolicName: com.springsource.edu.yale.its.tp.cas
+Bundle-Name: Yale Java Central Authentication Service Client
+Bundle-Vendor: SpringSource
+Bundle-ManifestVersion: 2
+Import-Template: 
+ javax.servlet;version="[2.5.0, 3.0.0)",
+ javax.servlet.http.*;version="[2.5.0, 3.0.0)",
+ javax.servlet.jsp.*;version="[2.1.0, 3.0.0)",
+Unversioned-Imports: 
+ javax.xml.parsers.*,
+ org.xml.sax.*

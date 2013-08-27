@@ -1,0 +1,7 @@
+Bundle-SymbolicName: com.springsource.org.antlr
+Bundle-Name: ANTLR
+Bundle-Vendor: SpringSource
+Bundle-ManifestVersion: 2
+Import-Template: 
+ antlr.*;version="[2.7.7, 3.0.0)";resolution:=optional,
+ org.antlr.stringtemplate.*;version="[3.1.0.b1, 4.0.0)";resolution:=optional

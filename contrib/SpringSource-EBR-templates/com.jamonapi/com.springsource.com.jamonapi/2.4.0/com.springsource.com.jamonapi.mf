@@ -1,0 +1,10 @@
+Bundle-SymbolicName: com.springsource.com.jamonapi
+Bundle-Name: Java Application Monitor
+Bundle-Vendor: SpringSource
+Bundle-ManifestVersion: 2
+Import-Template: 
+ javax.servlet;version="[2.5.0, 3.0.0)";resolution:=optional,
+ javax.servlet.http;version="[2.5.0, 3.0.0)";resolution:=optional
+Unversioned-Imports: 
+ javax.naming.*,
+ javax.sql.*

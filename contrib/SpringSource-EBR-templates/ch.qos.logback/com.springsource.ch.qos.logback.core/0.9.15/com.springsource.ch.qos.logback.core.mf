@@ -1,0 +1,17 @@
+Bundle-SymbolicName: com.springsource.ch.qos.logback.core
+Bundle-Name: LogBack Core
+Bundle-Vendor: SpringSource
+Bundle-ManifestVersion: 2
+Import-Template: 
+ javax.mail.*;version="[1.4.0, 2.0.0)";resolution:=optional,
+ org.codehaus.janino.*;version="[2.4.3, 3.0.0)";resolution:=optional,
+ javax.servlet.*;version="[2.5.0, 3.0.0)";resolution:=optional,
+ javax.naming.*;version="0",
+ javax.sql.*;version="0",
+ javax.xml.*;version="0",
+ org.xml.sax.*;version="0"
+Ignored-Existing-Headers: 
+ Import-Package,
+ Export-Package,
+ Tool,
+ Bnd-LastModified

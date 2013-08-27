@@ -1,0 +1,7 @@
+Bundle-SymbolicName: com.springsource.org.apache.mina
+Bundle-Name: Apache MINA Project
+Bundle-Vendor: SpringSource
+Bundle-ManifestVersion: 2
+Import-Template: 
+ edu.emory.mathcs.backport.java.util.*;version="[2.2.0, 3.0.0)",
+ org.slf4j.*;version="[1.3.0, 2.0.0)"

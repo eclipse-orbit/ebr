@@ -1,0 +1,10 @@
+Bundle-SymbolicName: com.springsource.org.eclipse.persistence.asm
+Bundle-Name: EclipseLink ASM
+Bundle-Vendor: SpringSource
+Ignored-Existing-Headers: 
+ HK2-Bundle-Name,
+ Export-Package
+Import-Template: 
+ javax.xml.transform.*;version="0",
+ org.xml.sax.*;version="0"
+

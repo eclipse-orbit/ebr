@@ -1,0 +1,4 @@
+Bundle-SymbolicName: com.springsource.javax.portlet
+Bundle-Name: Java Portlet API
+Bundle-Vendor: SpringSource
+Bundle-ManifestVersion: 2

@@ -1,0 +1,18 @@
+Bundle-SymbolicName: com.springsource.com.opensymphony.xwork
+Bundle-Name: OpenSymphony XWork
+Bundle-Vendor: SpringSource
+Bundle-ManifestVersion: 2
+Import-Template: 
+ junit.*;version="[3.8.2, 4.0.0)";resolution:=optional,
+ com.opensymphony.util.*;version="[2.2.4, 3.0.0)",
+ com.uwyn.rife.continuations.*;version="[0.0.1, 1.0.0)",
+ ognl.*;version="[2.6.9, 3.0.0)",
+ org.apache.commons.logging.*;version="[1.1.1, 2.0.0)",
+ org.springframework.beans.*;version="[2.5.4.A, 3.0.0)";resolution:=optional,
+ org.springframework.context.*;version="[2.5.4.A, 3.0.0)";resolution:=optional,
+ org.springframework.web.context.*;version="[2.5.4.A, 3.0.0)";resolution:=optional
+Unversioned-Imports: 
+ javax.xml.parsers.*,
+ javax.xml.transform.*,
+ org.w3c.dom.*,
+ org.xml.sax.*

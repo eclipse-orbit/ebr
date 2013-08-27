@@ -1,0 +1,14 @@
+Bundle-SymbolicName: com.springsource.org.apache.activemq.console
+Bundle-Name: Apache ActiveMQ Management Console
+Bundle-Vendor: SpringSource
+Bundle-ManifestVersion: 2
+Ignored-Existing-Headers: 
+ Bnd-LastModified,
+ Import-Package,
+ Export-Package,
+ Tool
+Import-Template: 
+ javax.jms.*;version="[1.1.0, 2.0.0)",
+ org.apache.activemq.*;version="[5.1.0, 6.0.0)"
+Unversioned-Imports: 
+ javax.management.*

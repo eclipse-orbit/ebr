@@ -1,0 +1,10 @@
+Bundle-SymbolicName: com.springsource.org.apache.tools.ant
+Bundle-Name: Apache ANT
+Bundle-Vendor: SpringSource
+Bundle-ManifestVersion: 2
+Import-Template: 
+ org.apache.tools.ant.launch.*;version="[1.7.0, 2.0.0)";resolution:=optional
+Unversioned-Imports: 
+ javax.xml.*,
+ org.w3c.dom.*,
+ org.xml.sax.*

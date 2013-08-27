@@ -1,0 +1,5 @@
+Bundle-SymbolicName: com.springsource.com.fasterxml.jackson.core.jackson-core
+Bundle-Name: FasterXML Jackson Core
+Bundle-Vendor: SpringSource
+Bundle-ManifestVersion: 2
+

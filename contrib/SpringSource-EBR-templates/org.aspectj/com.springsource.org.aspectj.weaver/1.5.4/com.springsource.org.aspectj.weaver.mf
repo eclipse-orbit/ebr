@@ -1,0 +1,28 @@
+Bundle-SymbolicName: com.springsource.org.aspectj.weaver
+Bundle-Name: AspectJ Weaver
+Bundle-Vendor: SpringSource
+Bundle-ManifestVersion: 2
+Import-Package: 
+ org.aspectj.internal.lang.annotation;version="[1.6.0.m2, 1.6.0.m2]",
+ org.aspectj.internal.lang.reflect;version="[1.6.0.m2, 1.6.0.m2]",
+ org.aspectj.lang;version="[1.6.0.m2, 1.6.0.m2]",
+ org.aspectj.lang.annotation;version="[1.6.0.m2, 1.6.0.m2]",
+ org.aspectj.lang.internal.lang;version="[1.6.0.m2, 1.6.0.m2]",
+ org.aspectj.lang.reflect;version="[1.6.0.m2, 1.6.0.m2]",
+ org.aspectj.runtime;version="[1.6.0.m2, 1.6.0.m2]",
+ org.aspectj.runtime.internal;version="[1.6.0.m2, 1.6.0.m2]",
+ org.aspectj.runtime.internal.cflowstack;version="[1.6.0.m2, 1.6.0.m2]",
+ org.aspectj.runtime.reflect;version="[1.6.0.m2, 1.6.0.m2]"
+Import-Template: 
+ org.apache.commons.logging.*;version="[1.1.1, 2.0.0)";resolution:=optional,
+ org.apache.regexp.*;version="[1.5.0, 2.0.0)";resolution:=optional
+Unversioned-Imports: 
+ javax.swing.*,
+ javax.xml.parsers,
+ org.xml.sax.*
+Excluded-Imports: 
+ org.aspectj.bea.jvm.*
+Excluded-Exports: 
+ org.aspectj.internal.*,
+ org.aspectj.lang.*,
+ org.aspectj.runtime.*

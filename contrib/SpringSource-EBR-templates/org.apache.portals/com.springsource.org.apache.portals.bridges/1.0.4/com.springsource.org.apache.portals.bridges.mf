@@ -1,0 +1,7 @@
+Bundle-SymbolicName: com.springsource.org.apache.portals.bridges
+Bundle-Name: Apache Portals Bridges Common Library
+Bundle-Vendor: SpringSource
+Bundle-ManifestVersion: 2
+Import-Template: 
+ javax.portlet.*;version="[1.0.0, 2.0.0)",
+ javax.servlet.*;version="[2.5.0, 3.0.0)"

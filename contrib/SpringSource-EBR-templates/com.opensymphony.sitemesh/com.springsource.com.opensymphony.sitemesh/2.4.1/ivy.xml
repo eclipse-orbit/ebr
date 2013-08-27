@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="http://ivyrep.jayasoft.org/ivy-doc.xsl"?>
+<ivy-module
+		xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+		xsi:noNamespaceSchemaLocation="http://incubator.apache.org/ivy/schemas/ivy.xsd"
+		version="1.3">
+
+	<info organisation="com.opensymphony.sitemesh" module="com.springsource.com.opensymphony.sitemesh"/>
+
+	<configurations>
+		<include file="${spring.build.dir}/common/default-ivy-configurations.xml"/>
+	</configurations>
+
+	<publications>
+		<artifact name="${ant.project.name}"/>
+		<artifact name="${ant.project.name}-sources" type="src" ext="jar"/>
+		<artifact name="license" type="license" ext="txt"/>
+	</publications>
+
+	<dependencies>
+		<dependency org="org.freemarker" name="com.springsource.freemarker" rev="2.3.12" conf="optional->runtime"/>
+		<dependency org="javax.servlet" name="com.springsource.javax.servlet" rev="2.4.0" conf="provided->runtime"/>
+		<dependency org="javax.servlet" name="com.springsource.javax.servlet.jsp" rev="2.0.0" conf="provided->runtime"/>
+		<dependency org="org.apache.tapestry" name="com.springsource.org.apache.tapestry" rev="4.1.5" conf="optional->runtime"/>
+		<dependency org="org.apache.velocity" name="com.springsource.org.apache.velocity" rev="1.5.0" conf="optional->runtime"/>
+	</dependencies>
+
+</ivy-module>

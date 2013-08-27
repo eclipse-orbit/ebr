@@ -1,0 +1,11 @@
+Bundle-SymbolicName: com.springsource.mx4j
+Bundle-Name: MX4J JMX API and implementation
+Bundle-Vendor: SpringSource
+Bundle-ManifestVersion: 2
+Import-Template: 
+ org.apache.bcel.*;version="[5.2.0, 6.0.0)";resolution:=optional,
+ org.apache.commons.logging.*;version="[1.1.1, 2.0.0)",
+ org.apache.log4j.*;version="[1.2.15, 2.0.0)";resolution:=optional,
+Unversioned-Imports: 
+ javax.xml.parsers.*,
+ org.w3c.dom.*

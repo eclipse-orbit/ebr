@@ -1,0 +1,18 @@
+Bundle-SymbolicName: com.springsource.org.jvnet.jax_ws_commons.spring
+Bundle-Name: JAX-WS Commons - Spring support for JAX-WS RI
+Bundle-Vendor: SpringSource
+Bundle-ManifestVersion: 2
+Import-Template: 
+ com.sun.istack;version="[2.1.6,3.0.0)",
+ com.sun.xml.ws.*;version="[2.1.3,3.0.0)",
+ javax.servlet.*;version="[2.5.0,3.0.0)",
+ javax.xml.namespace;version="0",
+ javax.xml.ws.*;version="0",
+ org.springframework.beans.factory;version="[2.5.6.A,3.0.0)",
+ org.springframework.web.context.*;version="[2.5.6.A,3.0.0)",
+ org.xml.sax;version="0"
+Excluded-Imports: 
+ com.sun.xml.ws.transport.*
+Excluded-Exports: 
+ com.sun.xml.ws.transport.*
+

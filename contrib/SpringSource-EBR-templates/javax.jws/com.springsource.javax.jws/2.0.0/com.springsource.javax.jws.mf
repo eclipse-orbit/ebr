@@ -1,0 +1,4 @@
+Bundle-SymbolicName: com.springsource.javax.jws
+Bundle-Name: Java Web Services Metadata (JSR 181)
+Bundle-Vendor: SpringSource
+Bundle-ManifestVersion: 2

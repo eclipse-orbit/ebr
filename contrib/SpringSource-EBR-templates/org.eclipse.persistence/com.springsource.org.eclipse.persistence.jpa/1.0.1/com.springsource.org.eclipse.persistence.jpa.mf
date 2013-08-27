@@ -1,0 +1,26 @@
+Bundle-SymbolicName: com.springsource.org.eclipse.persistence.jpa
+Bundle-Name: Eclipse Link JPA
+Bundle-Vendor: SpringSource
+Bundle-ManifestVersion: 2
+Fragment-Host: com.springsource.org.eclipse.persistence;bundle-version="[1.0.1, 1.0.1]"
+Excluded-Imports: 
+ org.eclipse.persistence.*
+Import-Template: 
+ javax.persistence.*;version="[1.0.0, 2.0.0)",
+ javax.transaction.*;version="[1.1.0, 2.0.0)",
+ org.apache.tools.ant.*;version="[1.7.0, 2.0.0)";resolution:=optional
+Unversioned-Imports: 
+ javax.sql.*,
+ javax.xml.parsers.*,
+ javax.xml.transform.*,
+ javax.xml.validation.*,
+ org.osgi.framework.*,
+ org.osgi.service.packageadmin.*,
+ org.w3c.dom.*,
+ org.xml.sax.*
+Ignored-Existing-Headers: 
+ Created-By,
+ Export-Package,
+ Import-Package,
+ Require-Bundle,
+ Bundle-Classpath

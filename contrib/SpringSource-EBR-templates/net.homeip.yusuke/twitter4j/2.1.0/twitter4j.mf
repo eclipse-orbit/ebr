@@ -1,0 +1,7 @@
+Bundle-SymbolicName: twitter4j
+Bundle-Name: twitter4j
+Bundle-Vendor: SpringSource
+Bundle-ManifestVersion: 2
+Import-Template: 
+ org.slf4j;version="[1.2.25, 2.0.0)";resolution:=optional,
+ com.sun.syndication.*;version="[0.9.0, 1.0.0)";resolution:=optional

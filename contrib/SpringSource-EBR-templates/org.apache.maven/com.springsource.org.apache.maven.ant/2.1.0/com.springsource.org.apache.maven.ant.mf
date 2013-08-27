@@ -1,0 +1,8 @@
+Bundle-SymbolicName: com.springsource.org.apache.maven.ant
+Bundle-Name: Apache Maven Ant Tasks
+Bundle-Vendor: SpringSource
+Bundle-ManifestVersion: 2
+Import-Template: 
+ *;version="0";resolution:=optional
+Excluded-Exports: 
+ *

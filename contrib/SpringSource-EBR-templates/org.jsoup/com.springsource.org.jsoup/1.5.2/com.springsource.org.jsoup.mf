@@ -1,0 +1,4 @@
+Bundle-SymbolicName: com.springsource.org.jsoup
+Bundle-Name: jsoup - Java HTML Parser
+Bundle-Vendor: SpringSource
+Bundle-ManifestVersion: 2

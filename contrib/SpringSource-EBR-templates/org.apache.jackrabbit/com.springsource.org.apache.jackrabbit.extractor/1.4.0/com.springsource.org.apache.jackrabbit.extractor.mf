@@ -1,0 +1,16 @@
+Bundle-SymbolicName: com.springsource.org.apache.jackrabbit.extractor
+Bundle-Name: Apache Jackrabbit Text Extractors
+Bundle-Vendor: SpringSource
+Bundle-ManifestVersion: 2
+Import-Template: 
+ org.apache.poi.*;version="[2.5.1, 4.0.0)",
+ org.apache.xerces.*;version="[2.8.1, 3.0.0)",
+ org.cyberneko.html.*;version="[0.9.4, 2.0.0)",
+ org.pdfbox.*;version="[0.6.5, 1.0.0)",
+ org.slf4j.*;version="[1.3.0, 2.0.0)",
+ org.textmining.*;version="[0.4.0, 1.0.0)"
+Unversioned-Imports: 
+ javax.swing.*,
+ javax.xml.parsers.*,
+ javax.xml.transform.*,
+ org.xml.sax.*

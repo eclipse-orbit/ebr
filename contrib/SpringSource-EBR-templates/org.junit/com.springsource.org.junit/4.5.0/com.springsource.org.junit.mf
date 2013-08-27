@@ -1,0 +1,6 @@
+Bundle-SymbolicName: com.springsource.org.junit
+Bundle-Name: JUnit
+Bundle-Vendor: SpringSource
+Bundle-ManifestVersion: 2
+Export-Template: 
+ junit.*;version="3.8.2"

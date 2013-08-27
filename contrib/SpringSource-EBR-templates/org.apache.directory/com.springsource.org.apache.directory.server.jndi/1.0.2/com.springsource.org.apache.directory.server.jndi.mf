@@ -1,0 +1,19 @@
+Bundle-SymbolicName: com.springsource.org.apache.directory.server.jndi
+Bundle-Name: Apache Directory Server Java Naming and Directory Interface
+Bundle-Vendor: SpringSource
+Bundle-ManifestVersion: 2
+Import-Template: 
+ edu.emory.mathcs.backport.java.util.concurrent.*;version="[2.2.0, 3.0.0)",
+ org.apache.commons.lang;version="[2.1.0, 3.0.0)",
+ org.apache.directory.server.changepw.*;version="[1.0.2, 2.0.0)",
+ org.apache.directory.server.core.*;version="[1.0.2, 2.0.0)",
+ org.apache.directory.server.kerberos.kdc.*;version="[1.0.2, 2.0.0)",
+ org.apache.directory.server.kerberos.shared.*;version="[1.0.2, 2.0.0)",
+ org.apache.directory.server.ldap.*;version="[1.0.2, 2.0.0)",
+ org.apache.directory.server.ntp.*;version="[1.0.2, 2.0.0)",
+ org.apache.directory.server.protocol.shared.*;version="[1.0.2, 2.0.0)",
+ org.apache.directory.shared.ldap.*;version="[0.9.5.5, 1.0.0)",
+ org.apache.mina.*;version="[1.0.2, 2.0.0)",
+ org.slf4j.*;version="[1.5.0, 2.0.0)"
+Unversioned-Imports: 
+ javax.naming.*

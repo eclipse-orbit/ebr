@@ -1,0 +1,7 @@
+Bundle-SymbolicName: com.springsource.org.apache.lucene.analysis.snowball
+Bundle-Name: Lucene Search Engine: snowball
+Bundle-Vendor: SpringSource
+Bundle-ManifestVersion: 2
+Import-Template: 
+ org.apache.lucene.analysis;version="[2.3.2, 2.3.2]",
+ org.apache.lucene.analysis.standard;version="[2.3.2, 2.3.2]"

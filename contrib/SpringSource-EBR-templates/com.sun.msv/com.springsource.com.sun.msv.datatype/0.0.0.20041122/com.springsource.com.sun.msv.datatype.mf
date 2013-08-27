@@ -1,0 +1,7 @@
+Bundle-SymbolicName: com.springsource.com.sun.msv.datatype
+Bundle-Name: XML Schema Datatypes Library
+Bundle-Vendor: SpringSource
+Bundle-ManifestVersion: 2
+Import-Template: 
+ org.apache.xerces.*;version="[2.6.1, 3.0.0)",
+ org.relaxng.datatype.*;version="[1.0.0, 2.0.0)"

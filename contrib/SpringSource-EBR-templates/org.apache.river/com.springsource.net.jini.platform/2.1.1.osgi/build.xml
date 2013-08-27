@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="com.springsource.net.jini.platform">
+	<property name="version" value="2.1.1.osgi"/>
+	<property name="release.type" value="external"/>
+	<property name="publish.bucket" value="private.repository.springsource.com"/>
+	<import file="${basedir}/../../../../spring-build/add-osgi/default.xml"/>
+</project>

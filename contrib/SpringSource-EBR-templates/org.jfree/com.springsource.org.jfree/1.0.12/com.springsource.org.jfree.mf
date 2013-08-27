@@ -1,0 +1,8 @@
+Bundle-SymbolicName: com.springsource.org.jfree
+Bundle-Name: JFree JCommon Runtime
+Bundle-Vendor: SpringSource
+Bundle-ManifestVersion: 2
+Import-Template: 
+Unversioned-Imports: 
+ javax.accessibility.*,
+ javax.swing.*

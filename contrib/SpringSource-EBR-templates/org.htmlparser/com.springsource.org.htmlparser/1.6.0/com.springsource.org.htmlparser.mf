@@ -1,0 +1,8 @@
+Bundle-SymbolicName: com.springsource.org.htmlparser
+Bundle-Name: HTML Parser
+Bundle-Vendor: SpringSource
+Bundle-ManifestVersion: 2
+Unversioned-Imports: 
+ javax.swing.*,
+ org.w3c.dom.*,
+ org.xml.sax.*

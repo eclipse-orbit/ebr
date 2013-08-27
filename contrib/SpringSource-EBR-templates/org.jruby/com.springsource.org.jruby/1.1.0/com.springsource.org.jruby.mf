@@ -1,0 +1,22 @@
+Bundle-SymbolicName: com.springsource.org.jruby
+Bundle-Name: JRuby
+Bundle-Vendor: SpringSource
+Bundle-ManifestVersion: 2
+Import-Template: 
+ org.apache.bsf.*;version="[2.4.0, 3.0.0)";resolution:=optional
+Unversioned-Imports: 
+ javax.swing.*
+Excluded-Imports: 
+ jruby.*,
+ jline.*,
+ com.*,
+ org.joni.*,
+ org.joda.*
+Excluded-Exports: 
+ builtin.*,
+ jruby.*,
+ jline.*,
+ com.*,
+ org.jbyamlb.*,
+ org.joni.*,
+ org.joda.*

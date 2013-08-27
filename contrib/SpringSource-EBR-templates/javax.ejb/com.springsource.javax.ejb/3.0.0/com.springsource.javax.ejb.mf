@@ -1,0 +1,7 @@
+Bundle-SymbolicName: com.springsource.javax.ejb
+Bundle-Name: Java EJB API
+Bundle-Vendor: SpringSource
+Bundle-ManifestVersion: 2
+Import-Template: 
+ javax.transaction.*;version="[1.0.1, 2.0.0)";resolution:=optional,
+ javax.xml.rpc.*;version="[1.1.0, 2.0.0)"

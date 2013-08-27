@@ -1,0 +1,12 @@
+Bundle-SymbolicName: com.springsource.org.apache.jackrabbit.spi.commons
+Bundle-Name: Apache Jackrabbit SPI Commons
+Bundle-Vendor: SpringSource
+Bundle-ManifestVersion: 2
+Import-Template: 
+ javax.jcr.*;version="[1.0.0, 2.0.0)",
+ org.apache.jackrabbit.spi.*;version="[1.4.0, 2.0.0)",
+ org.apache.jackrabbit.util.*;version="[1.4.2, 2.0.0)",
+ org.apache.jackrabbit.uuid.*;version="[1.4.2, 2.0.0)",
+ org.slf4j.*;version="[1.3.0, 2.0.0)"
+Unversioned-Imports: 
+ org.xml.sax.*

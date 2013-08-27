@@ -1,0 +1,8 @@
+Bundle-SymbolicName: com.springsource.org.apache.batik.ext.awt
+Bundle-Name: Apache Batik AWT Utilities
+Bundle-Vendor: SpringSource
+Bundle-ManifestVersion: 2
+Import-Template: 
+ org.apache.batik.*;version="[1.7.0, 1.7.0]"
+Unversioned-Imports: 
+ javax.swing.*

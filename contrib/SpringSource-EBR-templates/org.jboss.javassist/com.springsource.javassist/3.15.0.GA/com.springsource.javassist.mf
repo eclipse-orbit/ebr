@@ -1,0 +1,6 @@
+Bundle-SymbolicName: com.springsource.javassist
+Bundle-Name: Javassist Java Programming Assistant
+Bundle-Vendor: SpringSource
+Bundle-ManifestVersion: 2
+Import-Template: 
+ com.sun.jdi.*;version="0";resolution:=optional

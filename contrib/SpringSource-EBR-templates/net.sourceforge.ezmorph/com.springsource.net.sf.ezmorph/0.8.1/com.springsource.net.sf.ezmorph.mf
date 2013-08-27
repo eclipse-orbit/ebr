@@ -1,0 +1,7 @@
+Bundle-SymbolicName: com.springsource.net.sf.ezmorph
+Bundle-Name: EZMorph Object Transformation Library
+Bundle-Vendor: SpringSource
+Bundle-ManifestVersion: 2
+Import-Template: 
+ junit.framework.*;version="[3.8.2, 4.0.0)";resolution:=optional,
+ org.apache.commons.lang.*;version="[2.1.0, 3.0.0)",

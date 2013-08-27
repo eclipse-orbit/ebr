@@ -1,0 +1,6 @@
+Bundle-SymbolicName: com.springsource.org.apache.lucene.search
+Bundle-Name: Lucene Search Engine: queries
+Bundle-Vendor: SpringSource
+Bundle-ManifestVersion: 2
+Fragment-Host: com.springsource.org.apache.lucene;bundle-version="[2.4.1, 2.4.1]"
+Excluded-Imports: org.apache.lucene.*

@@ -1,0 +1,10 @@
+Bundle-SymbolicName: com.springsource.com.sun.msv.grammar
+Bundle-Name: JAXB Libraries
+Bundle-Vendor: SpringSource
+Bundle-ManifestVersion: 2
+Import-Template: 
+ com.sun.msv.datatype.*;version="[0.0.0.20060615, 1.0.0)";resolution:=optional,
+ jp.co.swiftinc.relax.*;version="0";resolution:=optional,
+ org.apache.xml.resolver.*;version="[1.0.0, 2.0.0)";resolution:=optional,
+ org.apache.xerces.parsers;version="[2.8.1, 3.0.0)";resolution:=optional,
+ org.relaxng.datatype.*;version="[0.0.20020414, 1.0.0)";resolution:=optional

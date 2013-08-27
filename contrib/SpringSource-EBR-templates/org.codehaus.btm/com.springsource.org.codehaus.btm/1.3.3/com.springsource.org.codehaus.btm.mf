@@ -1,0 +1,17 @@
+Bundle-SymbolicName: com.springsource.org.codehaus.btm
+Bundle-Name: Bitronix Transaction Manager
+Bundle-Vendor: SpringSource
+Bundle-ManifestVersion: 2
+Excluded-Exports: 
+ org.codehaus.jackson.impl,
+ org.codehaus.jackson.sym
+Ignored-Existing-Headers: 
+ Bnd-LastModified,
+ Tool,
+ Import-Package,
+ Export-Package,
+ Private-Package,
+ Bundle-Vendor
+Import-Template: 
+ javax.jms;version="0",
+ org.slf4j.*;version="[1.5.2, 2.0.0)";resolution:=optional

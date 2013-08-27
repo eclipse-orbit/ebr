@@ -1,0 +1,18 @@
+Bundle-SymbolicName: com.springsource.org.apache.batik.dom.svg
+Bundle-Name: Apache Batik SVG DOM
+Bundle-Vendor: SpringSource
+Bundle-ManifestVersion: 2
+Import-Template: 
+ org.apache.batik.anim.*;version="[1.7.0, 1.7.0]",
+ org.apache.batik.css.*;version="[1.7.0, 1.7.0]",
+ org.apache.batik.dom.*;version="[1.7.0, 1.7.0]",
+ org.apache.batik.ext.awt.*;version="[1.7.0, 1.7.0]",
+ org.apache.batik.i18n.*;version="[1.7.0, 1.7.0]",
+ org.apache.batik.parser.*;version="[1.7.0, 1.7.0]",
+ org.apache.batik.util.*;version="[1.7.0, 1.7.0]",
+ org.w3c.css.*;version="0";resolution:=optional,
+ org.w3c.dom.css.*;version="0";resolution:=optional,
+ org.w3c.dom.smil.*;version="0";resolution:=optional,
+ org.w3c.dom.stylesheets.*;version="0";resolution:=optional,
+ org.w3c.dom.svg.*;version="0";resolution:=optional,
+ org.w3c.dom.views.*;version="0";resolution:=optional

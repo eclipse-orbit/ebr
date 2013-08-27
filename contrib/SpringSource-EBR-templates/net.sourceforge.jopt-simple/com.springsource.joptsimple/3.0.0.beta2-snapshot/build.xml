@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="com.springsource.joptsimple">
+	<property name="version" value="3.0.0.beta2-snapshot"/>
+	<property name="publish.bucket" value="private.repository.springsource.com"/>
+	<property name="release.type" value="external"/>
+	<import file="${basedir}/../../../../spring-build/add-osgi/default.xml"/>
+</project>

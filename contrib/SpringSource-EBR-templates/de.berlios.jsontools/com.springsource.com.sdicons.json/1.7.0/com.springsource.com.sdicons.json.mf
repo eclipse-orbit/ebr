@@ -1,0 +1,6 @@
+Bundle-SymbolicName: com.springsource.com.sdicons.json
+Bundle-Name: JSON Tools
+Bundle-Vendor: SpringSource
+Bundle-ManifestVersion: 2
+Import-Template: 
+ antlr.*;version="[2.7.7, 3.0.0)"

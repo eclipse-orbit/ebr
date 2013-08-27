@@ -1,0 +1,25 @@
+Bundle-SymbolicName: com.springsource.org.objectweb.jotm
+Bundle-Name: Java Open Transaction Manager
+Bundle-Vendor: SpringSource
+Bundle-ManifestVersion: 2
+Import-Template: 
+ javax.resource.*;version="[1.5.0, 2.0.0)";resolution:=optional,
+ javax.transaction.*;version="[1.0.1, 2.0.0)";resolution:=optional,
+ org.apache.commons.cli.*;version="[1.1.0,2.0.0)";resolution:=optional,
+ org.apache.commons.logging.*;version="[1.1.1, 2.0.0)",
+ org.objectweb.carol.*;resolution:=optional,
+ org.objectweb.jeremie.services.handler.api.*;resolution:=optional,
+ org.objectweb.howl.*;version="[1.0.2, 2.0.0)",
+ org.objectweb.jonathan.*;resolution:=optional,
+ org.omg.CosTransactions.*;resolution:=optional
+Unversioned-Imports: 
+ javax.naming.*,
+ javax.rmi.*,
+ org.objectweb.carol.*,
+ org.objectweb.jeremie.services.handler.api.*,
+ org.objectweb.jonathan.*,
+ org.omg.CORBA.*,
+ org.omg.CosTransactions.*,
+ org.omg.DynamicAny.*,
+ org.omg.IOP.*,
+ org.omg.PortableInterceptor.*

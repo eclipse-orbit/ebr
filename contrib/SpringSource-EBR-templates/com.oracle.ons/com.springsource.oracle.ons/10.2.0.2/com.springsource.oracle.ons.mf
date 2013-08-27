@@ -1,0 +1,9 @@
+Bundle-SymbolicName: com.springsource.oracle.ons
+Bundle-Name: Oracle Notification Services
+Bundle-Vendor: SpringSource
+Bundle-ManifestVersion: 2
+Import-Template: 
+ oracle.security.pki.*;version="[10.2.0.2, 10.3.0.0)";resolution:=optional
+Unversioned-Imports: 
+ javax.net.ssl.*,
+ oracle.security.pki.*

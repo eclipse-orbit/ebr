@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="http://ivyrep.jayasoft.org/ivy-doc.xsl"?>
+<ivy-module
+		xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+		xsi:noNamespaceSchemaLocation="http://incubator.apache.org/ivy/schemas/ivy.xsd"
+		version="1.3">
+
+	<info organisation="org.apache.tiles" module="com.springsource.org.apache.tiles.portlet"/>
+
+	<configurations>
+		<include file="${spring.build.dir}/common/default-ivy-configurations.xml"/>
+	</configurations>
+
+	<publications>
+		<artifact name="${ant.project.name}"/>
+		<artifact name="${ant.project.name}-sources" type="src" ext="jar"/>
+		<artifact name="license" type="license" ext="txt"/>
+	</publications>
+
+	<dependencies>
+		<dependency org="javax.portlet" name="com.springsource.javax.portlet" rev="1.0.0" conf="provided->runtime"/>
+		<dependency org="org.apache.commons" name="com.springsource.org.apache.commons.logging" rev="1.1.1" conf="compile->runtime"/>
+		<dependency org="org.apache.tiles" name="com.springsource.org.apache.tiles" rev="2.1.4" conf="compile->runtime"/>
+		<dependency org="org.apache.tiles" name="com.springsource.org.apache.tiles.core" rev="2.1.4" conf="compile->runtime"/>
+		<dependency org="org.apache.commons" name="com.springsource.org.apache.commons.logging" rev="1.1.0" conf="compile->runtime"/>
+		<dependency org="org.springframework" name="org.springframework.core" rev="2.5.6.SEC02" conf="optional->runtime"/>
+		<dependency org="org.springframework" name="org.springframework.web.portlet" rev="2.5.6.SEC02" conf="optional->runtime"/>
+	</dependencies>
+
+</ivy-module>

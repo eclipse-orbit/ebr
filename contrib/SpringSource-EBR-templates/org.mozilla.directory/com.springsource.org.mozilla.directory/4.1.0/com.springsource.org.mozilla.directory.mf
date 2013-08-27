@@ -1,0 +1,4 @@
+Bundle-SymbolicName: com.springsource.org.mozilla.directory
+Bundle-Name: Netscape Directory
+Bundle-Vendor: SpringSource
+Bundle-ManifestVersion: 2

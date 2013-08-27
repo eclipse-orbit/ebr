@@ -1,0 +1,22 @@
+Bundle-SymbolicName: com.springsource.org.eclipse.persistence.platform.database.oracle
+Bundle-Vendor: SpringSource
+Bundle-Name: EclipseLink Oracle Extensions
+Bundle-ManifestVersion: 2
+Ignored-Existing-Headers: 
+ HK2-Bundle-Name,
+ Import-Package,
+ Export-Package,
+ Require-Bundle,
+ TODAY,
+ Fragment-Host,
+ Bundle-RequiredExecutionEnvironment,
+ TSTAMP,
+ Include-Resource,
+ Bnd-LastModified,
+ Tool,
+ Private-Package,
+ DSTAMP
+Import-Template: 
+ javax.resource.*;version="[1.5.0, 2.0.0)";resolution:=optional,
+ oracle.*;version="[10.1.0.1, 11.0.0)";resolution:=optional,
+ org.eclipse.persistence.*;version="[2.0.0, 2.0.0]"

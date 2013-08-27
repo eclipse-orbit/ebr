@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="http://ivyrep.jayasoft.org/ivy-doc.xsl"?>
+<ivy-module xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://incubator.apache.org/ivy/schemas/ivy.xsd" version="1.3">
+
+	<info organisation="org.sat4j" module="org.sat4j.pb" revision="2.3.0.v20110329" status="release" publication="20110517082011"/>
+
+	<configurations>
+		<conf name="compile" visibility="public" description="Compile dependencies"/>
+		<conf name="optional" visibility="public" extends="compile" description="Optional dependencies"/>
+		<conf name="provided" visibility="public" description="Provided dependencies"/>
+		<conf name="runtime" visibility="public" extends="compile" description="Runtime dependencies"/>
+	</configurations>
+
+	<publications>
+		<artifact name="org.sat4j.pb"/>
+		<artifact name="org.sat4j.pb-sources" type="src" ext="jar"/>
+		<artifact name="license" type="license" ext="txt"/>
+	</publications>
+
+	<dependencies>
+		<dependency org="org.sat4j" name="org.sat4j.core" rev="2.3.0.v20110329" conf="compile->compile"/>
+	</dependencies>
+
+</ivy-module>

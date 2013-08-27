@@ -1,0 +1,14 @@
+Bundle-SymbolicName: com.springsource.org.apache.commons.jxpath
+Bundle-Name: XPath for Java Objects
+Bundle-Vendor: SpringSource
+Bundle-ManifestVersion: 2
+Import-Template: 
+ javax.servlet;version="[2.4.0, 3.0.0)",
+ javax.servlet.http.*;version="[2.4.0, 3.0.0)",
+ javax.servlet.jsp.*;version="[2.1.0, 3.0.0)",
+ org.apache.commons.beanutils.*;version="[1.7.0, 2.0.0)",
+ org.jdom.*;version="[1.0.0, 2.0.0)"
+Unversioned-Imports: 
+ javax.xml.parsers.*,
+ javax.xml.transform.*,
+ org.w3c.dom.*

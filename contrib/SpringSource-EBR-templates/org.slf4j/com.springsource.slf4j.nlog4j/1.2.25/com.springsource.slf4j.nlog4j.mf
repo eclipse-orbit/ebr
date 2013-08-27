@@ -1,0 +1,12 @@
+Bundle-SymbolicName: com.springsource.slf4j.nlog4j
+Bundle-Name: SLF4J NLog4J Binding
+Bundle-Vendor: SpringSource
+Bundle-ManifestVersion: 2
+Import-Template: 
+ com.sun.jdmk.comm;version="0",
+ javax.jms;version="0",
+ javax.mail;version="0",
+ javax.mail.internet;version="0"
+Excluded-Exports: 
+ org.apache.log4j.*,
+ org.slf4j.*

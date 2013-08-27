@@ -1,0 +1,21 @@
+Bundle-SymbolicName: com.springsource.com.thoughtworks.xstream
+Bundle-Name: Thoughtworks XStream
+Bundle-Vendor: SpringSource
+Bundle-ManifestVersion: 2
+Import-Template: 
+ javax.xml.stream.*;version="[1.0.1, 2.0.0)",
+ net.sf.cglib.*;version="[2.1.3, 3.0.0)";resolution:=optional,
+ nu.xom.*;version="[1.1.0, 2.0.0)";resolution:=optional,
+ org.codehaus.jettison.*;version="[1.0.0, 2.0.0)";resolution:=optional,
+ org.dom4j.*;version="[1.6.1, 2.0.0)";resolution:=optional,
+ org.jdom.*;version="[1.0.0, 2.0.0)";resolution:=optional,
+ org.joda.time.*;version="[0.9.0, 1.0.0)";resolution:=optional,
+ org.xmlpull.*;version="[1.1.3.4-O, 2.0.0)"
+Unversioned-Imports: 
+ javax.security.*,
+ javax.swing.*,
+ javax.xml.namespace.*,
+ javax.xml.parsers.*,
+ javax.xml.transform.*,
+ org.w3c.dom.*,
+ org.xml.sax.*

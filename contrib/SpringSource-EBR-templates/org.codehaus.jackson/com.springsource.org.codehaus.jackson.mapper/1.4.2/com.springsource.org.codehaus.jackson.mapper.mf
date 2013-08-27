@@ -1,0 +1,19 @@
+Bundle-SymbolicName: com.springsource.org.codehaus.jackson.mapper
+Bundle-Name: Jackson JSON mapper
+Bundle-Vendor: SpringSource
+Bundle-ManifestVersion: 2
+Import-Template: 
+ org.codehaus.jackson.*;version="[1.4.2, 1.4.2]",
+ org.joda.time;version="[1.5.2, 2.0.0)";required:=optional
+Excluded-Exports: 
+ org.codehaus.jackson.map.ext,
+ org.codehaus.jackson.map.util
+Ignored-Existing-Headers: 
+ Bnd-LastModified,
+ Tool,
+ Import-Package,
+ Export-Package,
+ Private-Package,
+ DynamicImport-Package,
+ Bundle-Vendor,
+ Bnd-LastModified

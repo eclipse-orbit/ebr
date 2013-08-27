@@ -1,0 +1,18 @@
+Bundle-SymbolicName: com.springsource.org.apache.xerces
+Bundle-Name: Apache Xerces XML Support
+Bundle-Vendor: SpringSource
+Bundle-ManifestVersion: 2
+Import-Template: 
+ org.apache.xml.resolver.*;version="[1.2.0, 1.3.0)"
+Unversioned-Imports: 
+ javax.xml.*,
+ org.w3c.dom,
+ org.w3c.dom.events,
+ org.w3c.dom.ls,
+ org.w3c.dom.ranges.*,
+ org.w3c.dom.traversal.*,
+ org.xml.sax.*,
+ org.w3c.dom.html.*
+Excluded-Exports: 
+ org.w3c.dom.html.*
+Fragment-Host: com.springsource.org.apache.xmlcommons;bundle-version="[1.3.3,1.3.3]"

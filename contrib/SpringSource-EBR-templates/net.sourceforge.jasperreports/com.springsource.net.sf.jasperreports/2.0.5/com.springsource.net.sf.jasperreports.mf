@@ -1,0 +1,50 @@
+Bundle-SymbolicName: com.springsource.net.sf.jasperreports
+Bundle-Name: JasperReports Reporting Framework
+Bundle-Vendor: SpringSource
+Bundle-ManifestVersion: 2
+Import-Template: 
+ antlr.*;version="[2.7.7, 3.0.0)";resolution:=optional,
+ bsh.*;version="[2.0.0.b4, 3.0.0)";resolution:=optional,
+ com.keypoint.*;version="[1.0.12, 2.0.0)";resolution:=optional,
+ com.lowagie.text.*;version="[2.0.8, 3.0.0)",
+ groovyjarjarasm.asm.*;resolution:=optional,
+ javax.persistence.*;version="[1.0.0, 2.0.0)";resolution:=optional,
+ javax.servlet.*;version="[2.5.0, 3.0.0)";resolution:=optional,
+ jxl.*;version="[2.6.6, 3.0.0)";resolution:=optional,
+ mondrian.olap.*;resolution:=optional,
+ org.apache.batik.bridge.*;version="[1.7.0, 2.0.0)";resolution:=optional,
+ org.apache.batik.dom.*;version="[1.7.0, 2.0.0)";resolution:=optional,
+ org.apache.batik.dom.svg.*;version="[1.7.0, 2.0.0)";resolution:=optional,
+ org.apache.batik.ext.awt.*;version="[1.7.0, 2.0.0)";resolution:=optional,
+ org.apache.batik.gvt.*;version="[1.7.0, 2.0.0)";resolution:=optional,
+ org.apache.batik.svggen.*;version="[1.7.0, 2.0.0)";resolution:=optional,
+ org.apache.commons.beanutils.*;version="[1.7.0, 2.0.0)",
+ org.apache.commons.collections.*;version="[3.2.0, 4.0.0)",
+ org.apache.commons.digester.*;version="[1.8.0, 2.0.0)",
+ org.apache.commons.javaflow.*;resolution:=optional,
+ org.apache.commons.logging.*;version="[1.1.1, 2.0.0)",
+ org.apache.poi.*;version="[3.0.2.FINAL, 4.0.0)";resolution:=optional,
+ org.apache.tools.ant.*;version="[1.7.0, 2.0.0)";resolution:=optional,
+ org.apache.xpath.*;version="[2.7.0, 3.0.0)";resolution:=optional,
+ org.codehaus.groovy.*;version="[1.5.1, 2.0.0)";resolution:=optional,
+ org.eclipse.jdt.*;version="[3.3.0, 4.0.0)",
+ org.hibernate.*;version="[3.2.6.ga, 4.0.0)";resolution:=optional,
+ org.jaxen.*;version="[1.1.1, 2.0.0)";resolution:=optional,
+ org.jfree.chart.*;version="[1.0.9, 2.0.0)";resolution:=optional,
+ org.jfree.data.*;version="[1.0.9, 2.0.0)";resolution:=optional,
+ org.jfree.ui.*;version="[1.0.12, 2.0.0)";resolution:=optional,
+ org.w3c.dom.svg.*;resolution:=optional,
+ org.w3c.dom.traversal.*;resolution:=optional
+Unversioned-Imports: 
+ groovyjarjarasm.asm.*,
+ javax.imageio.*,
+ javax.print.*,
+ javax.swing.*,
+ javax.xml.*,
+ mondrian.olap.*,
+ org.apache.commons.javaflow.*,
+ org.w3c.dom.*,
+ org.xml.sax.*
+Excluded-Imports: 
+ com.sun.image.*
+

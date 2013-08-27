@@ -1,0 +1,24 @@
+Bundle-SymbolicName: com.springsource.org.apache.xbean.spring
+Bundle-Name: Apache XBean Spring Plugin
+Bundle-Vendor: SpringSource
+Bundle-ManifestVersion: 2
+Ignored-Existing-Headers: 
+ Bnd-LastModified,
+ Import-Package,
+ Export-Package,
+ Tool
+Import-Template: 
+ com.thoughtworks.qdox.*;version="[1.5.0, 2.0.0)";resolution:=optional,
+ org.apache.commons.logging.*;version="[1.1.1, 2.0.0)",
+ org.apache.tools.ant.*;version="[1.7.0, 2.0.0)";resolution:=optional,
+ org.springframework.beans.*;version="[2.5.4.A, 3.0.0)",
+ org.springframework.context.*;version="[2.5.4.A, 3.0.0)",
+ org.springframework.core.*;version="[2.5.4.A, 3.0.0)",
+ org.springframework.util.*;version="[2.5.4.A, 3.0.0)",
+ org.springframework.web.*;version="[2.5.4.A, 3.0.0)"
+Unversioned-Imports: 
+ javax.management.*,
+ javax.naming.*,
+ javax.xml.namespace.*,
+ org.w3c.dom.*,
+ org.xml.sax.*

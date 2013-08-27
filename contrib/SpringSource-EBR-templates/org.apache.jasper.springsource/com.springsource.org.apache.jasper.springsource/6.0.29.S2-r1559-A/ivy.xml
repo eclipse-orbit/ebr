@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="http://ivyrep.jayasoft.org/ivy-doc.xsl"?>
+<ivy-module
+		xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+		xsi:noNamespaceSchemaLocation="http://incubator.apache.org/ivy/schemas/ivy.xsd"
+		version="1.3">
+
+	<info organisation="org.apache.jasper.springsource" module="com.springsource.org.apache.jasper.springsource"/>
+
+	<configurations>
+		<include file="${spring.build.dir}/common/default-ivy-configurations.xml"/>
+	</configurations>
+
+	<publications>
+		<artifact name="${ant.project.name}"/>
+		<artifact name="${ant.project.name}-sources" type="src" ext="jar"/>
+		<artifact name="license" type="license" ext="txt"/>
+	</publications>
+
+	<dependencies>
+		<dependency org="javax.el" name="com.springsource.javax.el" rev="1.0.0" conf="provided->compile"/>
+		<dependency org="javax.servlet" name="com.springsource.javax.servlet" rev="2.4.0" conf="provided->compile"/>
+		<dependency org="javax.servlet" name="com.springsource.javax.servlet.jsp" rev="2.0.0" conf="provided->compile"/>
+		<dependency org="org.apache.el.springsource" name="com.springsource.org.apache.el.springsource" rev="6.0.29.S2-r1559" conf="provided->compile"/>
+		<dependency org="org.eclipse.jdt" name="org.eclipse.jdt.core" rev="3.3.1.v_780_R33x" conf="compile->compile"/>
+		<dependency org="org.apache.juli.springsource" name="com.springsource.org.apache.juli.extras.springsource" rev="6.0.29.S2-r1559" conf="compile->compile"/>
+		<dependency org="org.apache.ant" name="com.springsource.org.apache.tools.ant" rev="1.7.0" conf="optional->compile"/>
+	</dependencies>
+
+</ivy-module>

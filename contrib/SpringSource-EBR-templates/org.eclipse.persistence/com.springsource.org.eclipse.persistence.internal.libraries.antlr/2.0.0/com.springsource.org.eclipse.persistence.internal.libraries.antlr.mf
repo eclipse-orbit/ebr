@@ -1,0 +1,13 @@
+Bundle-SymbolicName: com.springsource.org.eclipse.persistence.internal.libraries.antlr
+Bundle-Vendor: SpringSource
+Bundle-Name: EclipseLink ANTLR
+Bundle-ManifestVersion: 2
+Ignored-Existing-Headers: 
+ TODAY,
+ Bundle-RequiredExecutionEnvironment,
+ Export-Package,
+ TSTAMP,
+ Bnd-LastModified,
+ Tool,
+ HK2-Bundle-Name,
+ DSTAMP

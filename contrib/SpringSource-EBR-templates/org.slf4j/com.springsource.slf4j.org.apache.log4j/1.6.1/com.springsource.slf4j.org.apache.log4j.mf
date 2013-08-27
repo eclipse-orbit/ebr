@@ -1,0 +1,13 @@
+Bundle-SymbolicName: com.springsource.slf4j.org.apache.log4j
+Bundle-Name: SLF4J Log4j Over SLF4J Binding
+Bundle-Vendor: SpringSource
+Bundle-ManifestVersion: 2
+Ignored-Existing-Headers: 
+ Bundle-RequiredExecutionEnvironment,
+ Require-Bundle,
+ Export-Package,
+ Import-Package
+Import-Template: 
+ org.slf4j.*;version="[1.6.1, 1.6.1]"
+Export-Template: 
+ org.apache.log4j.*;version="1.2.16";provider=slf4j

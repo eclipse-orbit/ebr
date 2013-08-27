@@ -1,0 +1,5 @@
+Bundle-SymbolicName: com.springsource.gnu.trove
+Bundle-Name: Gnu Collections Trove4j
+Bundle-Vendor: SpringSource
+Bundle-ManifestVersion: 2
+Import-Template: 

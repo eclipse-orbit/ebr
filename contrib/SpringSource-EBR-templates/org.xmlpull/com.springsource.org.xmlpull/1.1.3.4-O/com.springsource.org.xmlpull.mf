@@ -1,0 +1,4 @@
+Bundle-SymbolicName: com.springsource.org.xmlpull
+Bundle-Name: XMLPULL V1 API
+Bundle-Vendor: SpringSource
+Bundle-ManifestVersion: 2

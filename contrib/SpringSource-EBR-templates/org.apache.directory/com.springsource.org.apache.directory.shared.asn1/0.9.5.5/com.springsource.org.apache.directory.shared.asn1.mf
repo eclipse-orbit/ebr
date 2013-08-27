@@ -1,0 +1,8 @@
+Bundle-SymbolicName: com.springsource.org.apache.directory.shared.asn1
+Bundle-Name: Apache Directory Server ASN.1 support
+Bundle-Vendor: SpringSource
+Bundle-ManifestVersion: 2
+Import-Template: 
+ org.slf4j.*;version="[1.5.0, 2.0.0)"
+Unversioned-Imports: 
+ javax.naming.*

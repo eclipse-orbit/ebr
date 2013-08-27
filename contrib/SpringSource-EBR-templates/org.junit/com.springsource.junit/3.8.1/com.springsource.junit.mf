@@ -1,0 +1,6 @@
+Bundle-SymbolicName: com.springsource.junit
+Bundle-Name: JUnit
+Bundle-Vendor: SpringSource
+Bundle-ManifestVersion: 2
+Unversioned-Imports: 
+ javax.swing.*

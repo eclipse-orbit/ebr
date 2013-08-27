@@ -1,0 +1,23 @@
+Bundle-SymbolicName: com.springsource.org.eclipse.persistence.jpa
+Bundle-Name: EclipseLink JPA
+Bundle-Vendor: SpringSource
+Bundle-ManifestVersion: 2
+Ignored-Existing-Headers: 
+ Import-Package,
+ Export-Package,
+ Require-Bundle,
+ HK2-Bundle-Name,
+ Bundle-RequiredExecutionEnvironment,
+ Include-Resource,
+ Bnd-LastModified,
+ Tool,
+ Private-Package,
+ DSTAMP,
+ TODAY,
+ TSTAMP
+Import-Template: 
+ javax.persistence.*;version="[2.0.0, 3.0.0)",
+ javax.validation.*;version="[1.0.0, 2.0.0)",
+ org.apache.tools.ant.*;version="[1.6.0, 2.0.0)";resolution:=optional,
+ org.eclipse.persistence.*;version="[2.0.0, 2.0.0]",
+ org.eclipse.persistence.internal.libraries.asm.*;version="[2.0.0, 2.0.0]"

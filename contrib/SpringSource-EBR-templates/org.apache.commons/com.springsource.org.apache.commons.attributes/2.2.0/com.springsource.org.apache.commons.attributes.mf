@@ -1,0 +1,4 @@
+Bundle-SymbolicName: com.springsource.org.apache.commons.attributes
+Bundle-Name: Apache Commons Attributes API
+Bundle-Vendor: SpringSource
+Bundle-ManifestVersion: 2

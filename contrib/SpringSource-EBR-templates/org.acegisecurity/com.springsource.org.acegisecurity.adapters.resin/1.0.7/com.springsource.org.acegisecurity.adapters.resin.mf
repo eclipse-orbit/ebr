@@ -1,0 +1,13 @@
+Bundle-SymbolicName: com.springsource.org.acegisecurity.adapters.resin
+Bundle-Name: Acegi Security - Adapters for Resin
+Bundle-Vendor: SpringSource
+Bundle-ManifestVersion: 2
+Import-Template: 
+ com.caucho.http.security;version="",
+ javax.servlet;version="",
+ javax.servlet.http;version="",
+ org.acegisecurity;version="",
+ org.acegisecurity.adapters;version="",
+ org.acegisecurity.providers;version="",
+ org.apache.commons.logging;version="",
+ org.springframework.context.support;version=""

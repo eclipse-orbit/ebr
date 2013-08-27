@@ -1,0 +1,22 @@
+Bundle-SymbolicName: com.springsource.org.apache.solr
+Bundle-Name: Apache Solr
+Bundle-Vendor: SpringSource
+Bundle-ManifestVersion: 2
+Import-Template: 
+ javanet.staxutils;version="[0.0.0.20040917, 0.0.0.20040917]",
+ javax.servlet.*;version="[2.4.0, 3.0.0]",
+ junit.framework;version="[4.3.0, 5.0.0)";resolution:=optional,
+ org.apache.commons.codec.*;version="[1.3.0, 2.0.0)",
+ org.apache.commons.csv;version="[1.0.0.BUILD-20080106, 1.0.0.BUILD-20080106]",
+ org.apache.commons.fileupload.*;version="[1.2.0, 2.0.0)",
+ org.apache.commons.httpclient.*;version="[3.1.0, 4.0.0)",
+ org.apache.commons.io;version="[1.3.1, 2.0.0)",
+ org.apache.lucene.*;version="[2.4.0, 2.5.0)",
+ org.apache.lucene.analysis.*;version="[2.4.0, 2.5.0)",
+ org.apache.lucene.analysis.snowball;version="[2.4.0, 2.5.0)",
+ org.apache.lucene.search.highlight;version="[2.4.0, 2.5.0)",
+ org.apache.lucene.search.spell;version="[2.4.0, 2.5.0)",
+ org.apache.solr.common.*;version="[1.3.0, 1.3.0]",
+ org.mortbay.jetty.*;version="[6.1.3, 7.0.0)";resolution:=optional,
+ org.mortbay.log;version="[6.1.3, 7.0.0)";resolution:=optional,
+ org.tartarus.snowball.*;version="[2.4.0, 2.5.0)"

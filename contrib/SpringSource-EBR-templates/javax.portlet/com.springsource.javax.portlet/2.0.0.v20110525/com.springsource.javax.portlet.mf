@@ -1,0 +1,9 @@
+Bundle-SymbolicName: com.springsource.javax.portlet
+Bundle-Name: JSR 286 Portlet API 2.0
+Bundle-Vendor: SpringSource
+Bundle-ManifestVersion: 2
+Import-Template: 
+ javax.servlet.*;version="[2.4.0, 3.1.0)"
+Unversioned-Imports: 
+ javax.xml.namespace.*,
+ org.w3c.dom.*

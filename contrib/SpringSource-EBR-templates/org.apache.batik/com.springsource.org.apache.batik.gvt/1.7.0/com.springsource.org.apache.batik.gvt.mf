@@ -1,0 +1,12 @@
+Bundle-SymbolicName: com.springsource.org.apache.batik.gvt
+Bundle-Name: Apache Batik GVT (Graphics Vector Tree)
+Bundle-Vendor: SpringSource
+Bundle-ManifestVersion: 2
+Import-Template: 
+ org.apache.batik.bridge.*;version="[1.7.0, 1.7.0]",
+ org.apache.batik.ext.awt.*;version="[1.7.0, 1.7.0]",
+ org.apache.batik.util.*;version="[1.7.0, 1.7.0]"
+Unversioned-Imports: 
+ javax.swing.*,
+ org.w3c.dom.*
+

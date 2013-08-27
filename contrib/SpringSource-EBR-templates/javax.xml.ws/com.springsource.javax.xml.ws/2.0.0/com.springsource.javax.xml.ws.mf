@@ -1,0 +1,9 @@
+Bundle-SymbolicName: com.springsource.javax.xml.ws
+Bundle-Name: Java Web Services API
+Bundle-Vendor: SpringSource
+Bundle-ManifestVersion: 2
+Import-Template: 
+ javax.xml.bind.*;version="[2.0.0, 3.0.0)",
+ javax.xml.soap.*;version="[1.3.0, 2.0.0)",
+ javax.xml.namespace.*;version="0",
+ javax.xml.transform.*;version="0"

@@ -1,0 +1,10 @@
+Bundle-SymbolicName: com.springsource.slf4j.api
+Bundle-Name: SLF4J API
+Bundle-Vendor: SpringSource
+Bundle-ManifestVersion: 2
+Import-Template: 
+ org.slf4j.impl;version="[1.5.2, 2.0.0)"
+Ignored-Existing-Headers: 
+ Bundle-RequiredExecutionEnvironment,
+ Import-Package,
+ Export-Package

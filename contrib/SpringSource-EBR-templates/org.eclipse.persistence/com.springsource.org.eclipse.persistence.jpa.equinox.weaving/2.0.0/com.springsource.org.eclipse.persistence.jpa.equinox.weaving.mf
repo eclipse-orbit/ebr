@@ -1,0 +1,18 @@
+Bundle-SymbolicName: com.springsource.org.eclipse.persistence.jpa.equinox.weaving
+Bundle-Name: EclipseLink Dynamic Weaving Fragment for Equinox
+Bundle-Vendor: SpringSource
+Bundle-ManifestVersion: 2
+Ignored-Existing-Headers: 
+ TODAY,
+ Fragment-Host,
+ Bundle-RequiredExecutionEnvironment,
+ Ignore-Package,
+ Export-Package,
+ TSTAMP,
+ Include-Resource,
+ Bnd-LastModified,
+ Tool,
+ Private-Package,
+ DSTAMP
+Import-Template: 
+ org.eclipse.osgi.*;version="[3.0.0, 4.0.0)"

@@ -1,0 +1,4 @@
+Bundle-SymbolicName: com.springsource.com.ericsson.otp.erlang
+Bundle-Name: Erlang Java Interface
+Bundle-Vendor: SpringSource
+Bundle-ManifestVersion: 2

@@ -1,0 +1,6 @@
+Bundle-SymbolicName: com.springsource.net.sf.ehcache
+Bundle-Name: EHCache
+Bundle-Vendor: SpringSource
+Bundle-ManifestVersion: 2
+Import-Template: 
+ org.hibernate.cache;version="[3.2.6.ga, 4.0.0)";resolution:=optional

@@ -1,0 +1,11 @@
+Bundle-SymbolicName: com.springsource.javax.xml.rpc
+Bundle-Name: Java XML RPC API
+Bundle-Vendor: SpringSource
+Bundle-ManifestVersion: 2
+Import-Template: 
+ javax.servlet.*;version="[2.4.0, 3.1)",
+ javax.xml.soap.*;version="[1.3.0, 2.0.0)"
+Excluded-Imports: 
+ javax.xml.namespace.*
+Excluded-Exports: 
+ javax.xml.namespace.*

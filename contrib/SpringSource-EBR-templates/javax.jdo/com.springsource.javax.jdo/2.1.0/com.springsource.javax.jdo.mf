@@ -1,0 +1,17 @@
+Bundle-SymbolicName: com.springsource.javax.jdo
+Bundle-Name: Java Data Objects
+Bundle-Vendor: SpringSource
+Bundle-ManifestVersion: 2
+Ignored-Existing-Headers: 
+ Export-Package,
+ Import-Package,
+ Bundle-ManifestVersion
+Import-Template: 
+ javax.persistence.*;version="[1.0.0, 2.0.0)";resolution:=optional,
+ javax.transaction.*;version="[1.0.1, 2.0.0)";resolution:=optional
+Unversioned-Imports: 
+ javax.naming.*,
+ javax.rmi.*,
+ javax.xml.parsers.*,
+ org.w3c.dom.*,
+ org.xml.sax.*

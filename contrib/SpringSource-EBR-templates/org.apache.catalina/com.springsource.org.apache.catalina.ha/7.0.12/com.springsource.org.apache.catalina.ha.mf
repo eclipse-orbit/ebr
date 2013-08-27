@@ -1,0 +1,12 @@
+Bundle-SymbolicName: com.springsource.org.apache.catalina.ha
+Bundle-Name: Apache Tomcat Catalina HA
+Bundle-Vendor: SpringSource
+Bundle-ManifestVersion: 2
+Fragment-Host: com.springsource.org.apache.catalina;bundle-version="[7.0.12, 7.0.12]"
+Import-Template: 
+ javax.servlet.*;version="[3.0.0, 4.0.0)",
+ org.apache.catalina.*;version="[7.0.12, 7.0.12]",
+ org.apache.juli.*;version="[7.0.12, 7.0.12]",
+ org.apache.tomcat.*;version="[7.0.12, 7.0.12]"
+Unversioned-Imports: 
+ javax.management.*

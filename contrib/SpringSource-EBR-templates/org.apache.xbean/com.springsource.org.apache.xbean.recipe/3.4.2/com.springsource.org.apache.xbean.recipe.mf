@@ -1,0 +1,17 @@
+Bundle-SymbolicName: coms.springsource.org.apache.xbean.recipe
+Bundle-Name: Apache XBean Reflection
+Bundle-Vendor: SpringSource
+Bundle-ManifestVersion: 2
+Ignored-Existing-Headers: 
+ Bnd-LastModified,
+ Import-Package,
+ Export-Package,
+ Tool
+Import-Template: 
+ org.apache.commons.logging.*;version="[1.1.1, 2.0.0)",
+ org.apache.log4j.*;version="[1.2.15, 2.0.0)",
+ org.objectweb.asm;version="[2.2.3, 3.0.0)",
+ org.objectweb.asm.commons.*;version="[2.2.3, 3.0.0)"
+Unversioned-Imports: 
+ javax.management.*,
+ javax.naming.*

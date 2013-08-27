@@ -1,0 +1,24 @@
+Bundle-SymbolicName: com.springsource.org.directwebremoting
+Bundle-Name: DWR
+Bundle-Vendor: SpringSource
+Bundle-ManifestVersion: 2
+Import-Template: 
+ javax.faces.*;version="[1.1.5, 2.0.0)";resolution:=optional,
+ javax.servlet.*;version="[2.3.0, 3.0.0)",
+ junit.*;version="[3.8.1, 4.0.0)";resolution:=optional,
+ nu.xom.*;version="[1.1.0, 2.0.0)";resolution:=optional,
+ org.apache.bsf.*;version="[2.3.0, 3.0.0)";resolution:=optional,
+ org.apache.commons.logging.*;version="[1.1.1, 2.0.0)",
+ org.apache.struts.*;version="[1.2.8, 2.0.0)";resolution:=optional,
+ org.dom4j.*;version="[1.6.1, 2.0.0)";resolution:=optional,
+ org.jdom.*;version="[1.0.0, 2.0.0)";resolution:=optional,
+ org.springframework.beans.*;version="[2.5.4.A, 3.0.0)";resolution:=optional,
+ org.springframework.context.*;version="[2.5.4.A, 3.0.0)";resolution:=optional,
+ org.springframework.util.*;version="[2.5.4.A, 3.0.0)";resolution:=optional,
+ org.springframework.web.context.*;version="[2.5.4.A, 3.0.0)";resolution:=optional,
+ org.springframework.web.servlet.*;version="[2.5.4.A, 3.0.0)";resolution:=optional
+Unversioned-Imports: 
+ javax.xml.parsers.*,
+ javax.xml.transform.*,
+ org.w3c.dom.*,
+ org.xml.sax.*

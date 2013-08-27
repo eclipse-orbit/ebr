@@ -1,0 +1,4 @@
+Bundle-SymbolicName: com.springsource.org.joda.time
+Bundle-Name: Joda-Time - Java date and time API
+Bundle-Vendor: SpringSource
+Bundle-ManifestVersion: 2

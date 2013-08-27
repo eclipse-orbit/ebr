@@ -1,0 +1,8 @@
+Bundle-SymbolicName: com.springsource.org.gparallelizer
+Bundle-Name: GPars - Groovy Parallel Systems
+Bundle-Vendor: SpringSource
+Bundle-ManifestVersion: 2
+Import-Template: 
+ groovy.*;version="[1.6.3, 2.0.0)",
+ org.codehaus.groovy.*;version="[1.6.3, 2.0.0)",
+ jsr166y.*;version="[0.0.0.070108, 0.0.0.070108]"

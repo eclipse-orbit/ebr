@@ -1,0 +1,13 @@
+Bundle-SymbolicName: com.springsource.oracle.aq
+Bundle-Name: Oracle Advance Message Queueing
+Bundle-Vendor: SpringSource
+Bundle-ManifestVersion: 2
+Import-Template: 
+ javax.transaction.*;version="[1.0.1, 2.0.0)";resolution:=optional,
+ javax.jms.*;version="[1.1.0, 2.0.0)",
+ oracle.jdbc.*;version="[10.2.0.2, 11.0.0)",
+ oracle.jpub.*;version="[10.2.0.2, 11.0.0)",
+ oracle.sql.*;version="[10.2.0.2, 11.0.0)"
+Unversioned-Imports: 
+ javax.naming.*,
+ javax.sql.*

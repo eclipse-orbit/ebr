@@ -1,0 +1,13 @@
+Bundle-SymbolicName: com.springsource.javax.management.j2ee
+Bundle-Name: J2EE Application Management Specification
+Bundle-Vendor: SpringSource
+Bundle-ManifestVersion: 2
+Ignored-Existing-Headers: 
+ Bnd-LastModified,
+ Import-Package,
+ Export-Package,
+ Tool
+Import-Template: 
+ javax.ejb.*;version="[3.0.0, 4.0.0)"
+Unversioned-Imports: 
+ javax.management.*

@@ -1,0 +1,21 @@
+Bundle-SymbolicName: com.springsource.com.mysql.jdbc
+Bundle-Name: MySQL AB's JDBC Driver for MySQL
+Bundle-Vendor: SpringSource
+Bundle-ManifestVersion: 2
+Import-Template: 
+ com.mchange.v2.c3p0.*;version="[0.9.1.2, 1.0.0)";resolution:=optional,
+ javax.transaction.*;version="[1.0.1, 2.0.0)";resolution:=optional,
+ javax.xml.transform.stax.*;resolution:=optional,
+ javax.xml.stream.*;version="[1.0.1, 2.0.0)";resolution:=optional,
+ org.apache.commons.logging.*;version="[1.1.1,2.0.0)",
+ org.apache.log4j.*;version="[1.2.15, 2.0.0)";resolution:=optional,
+ org.jboss.resource.adapter.jdbc.*;resolution:=optional
+Unversioned-Imports: 
+ javax.naming.*,
+ javax.net.*,
+ javax.sql.*,
+ javax.xml.parsers.*,
+ javax.xml.transform.*,
+ org.jboss.resource.adapter.jdbc.*,
+ org.w3c.dom.*,
+ org.xml.sax.*

@@ -1,0 +1,4 @@
+The contents of this bundle are identical to ../../com.springsource.org.hibernate/4.0.0.CR4.
+This bundle exists only to disambiguate bundle symbolic names between hibernate 3.x and 4.x
+given that Spring Framework 3.1 needs to compile against both of them, and ivy/spring-build
+doesn't allow two identical symbolic names to co-exist.

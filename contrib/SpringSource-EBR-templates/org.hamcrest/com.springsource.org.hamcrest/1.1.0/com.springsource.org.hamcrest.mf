@@ -1,0 +1,11 @@
+Bundle-SymbolicName: com.springsource.org.hamcrest
+Bundle-Name: Hamcrest additional library of matchers
+Bundle-Vendor: SpringSource
+Bundle-ManifestVersion: 2
+Fragment-Host: org.hamcrest.core;bundle-version="[1.1.0, 1.1.0]"
+Excluded-Imports: 
+ org.hamcrest.*
+Unversioned-Imports: 
+ javax.xml.namespace.*,
+ javax.xml.xpath.*,
+ org.w3c.dom.*

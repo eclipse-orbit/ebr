@@ -1,0 +1,12 @@
+Bundle-SymbolicName: com.springsource.org.apache.batik.css
+Bundle-Name: Apache Batik CSS engine
+Bundle-Vendor: SpringSource
+Bundle-ManifestVersion: 2
+Import-Template: 
+ org.apache.batik.i18n.*;version="[1.7.0, 1.7.0]",
+ org.apache.batik.util.*;version="[1.7.0, 1.7.0]",
+ org.w3c.css.*;version="0";resolution:=optional,
+ org.w3c.dom.css.*;version="0";resolution:=optional,
+ org.w3c.dom.events.*;version="0";resolution:=optional,
+ org.w3c.dom.svg.*;version="0";resolution:=optional,
+ org.w3c.dom.views.*;version="0";resolution:=optional

@@ -1,0 +1,15 @@
+Bundle-SymbolicName: com.springsource.com.sun.jini.reggie
+Bundle-Name: Apache River Reggie
+Bundle-Vendor: SpringSource
+Bundle-ManifestVersion: 2
+Excluded-Exports: 
+ com.sun.jini.action,
+ com.sun.jini.constants,
+ com.sun.jini.logging
+Import-Package: com.sun.jini.action;version="[2.1.1.osgi,2.1.1.osgi]",
+ com.sun.jini.constants;version="[2.1.1.osgi,2.1.1.osgi]"
+Import-Template: 
+ com.sun.jini.*;version="[2.1.1.osgi, 2.1.1.osgi]",
+ net.jini.*;version="[2.1.1.osgi, 2.1.1.osgi]"
+Unversioned-Imports: 
+ javax.security.*

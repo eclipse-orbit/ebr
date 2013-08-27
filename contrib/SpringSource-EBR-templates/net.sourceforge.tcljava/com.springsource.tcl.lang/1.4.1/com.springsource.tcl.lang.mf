@@ -1,0 +1,5 @@
+Bundle-SymbolicName: com.springsource.tcl.lang
+Bundle-Name: TCL Java API
+Bundle-Vendor: SpringSource
+Bundle-ManifestVersion: 2
+Excluded-Imports: tcl.lang

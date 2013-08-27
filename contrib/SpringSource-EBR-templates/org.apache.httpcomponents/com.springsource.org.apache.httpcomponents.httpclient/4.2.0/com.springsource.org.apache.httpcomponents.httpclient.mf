@@ -1,0 +1,8 @@
+Bundle-SymbolicName: com.springsource.org.apache.httpcomponents.httpclient
+Bundle-Name: HttpComponents Client
+Bundle-Vendor: SpringSource
+Bundle-ManifestVersion: 2
+Import-Template:
+ org.apache.commons.codec.*;version="[1.4.0, 2.0.0)",
+ org.apache.commons.logging.*;version="[1.1.1, 2.0.0)",
+ org.apache.http.*;version="[4.2.0, 4.2.0]"

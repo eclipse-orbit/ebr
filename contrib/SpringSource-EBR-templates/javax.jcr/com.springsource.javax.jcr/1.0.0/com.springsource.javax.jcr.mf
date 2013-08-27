@@ -1,0 +1,6 @@
+Bundle-SymbolicName: com.springsource.javax.jcr
+Bundle-Name: Content Repository for Java technology API
+Bundle-Vendor: SpringSource
+Bundle-ManifestVersion: 2
+Unversioned-Imports: 
+ org.xml.sax.*

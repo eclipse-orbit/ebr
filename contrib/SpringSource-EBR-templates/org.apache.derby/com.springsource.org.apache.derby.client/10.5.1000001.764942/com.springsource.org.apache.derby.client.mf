@@ -1,0 +1,10 @@
+Bundle-SymbolicName: com.springsource.org.apache.derby.client
+Bundle-Name: Apache Derby Client
+Bundle-Vendor: SpringSource
+Bundle-ManifestVersion: 2
+Import-Template: 
+ javax.crypto.*;version="0",
+ javax.naming.*;version="0",
+ javax.net.*;version="0",
+ javax.sql;version="0",
+ javax.transaction.xa;version="[1.0.1,2.0.0)"

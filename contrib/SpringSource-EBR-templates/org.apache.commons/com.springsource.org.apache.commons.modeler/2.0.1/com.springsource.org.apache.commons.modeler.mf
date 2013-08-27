@@ -1,0 +1,14 @@
+Bundle-SymbolicName: com.springsource.org.apache.commons.modeler
+Bundle-Name: Apache Commons Modeler
+Bundle-Vendor: SpringSource
+Bundle-ManifestVersion: 2
+Import-Template: 
+ org.apache.commons.digester.*;version="[1.4.1, 2.0.0)",
+ org.apache.commons.logging.*;version="[1.1.1, 2.0.0)",
+ org.apache.tools.ant.*;version="[1.7.0, 2.0.0)";resolution:=optional
+Unversioned-Imports: 
+ javax.management.*,
+ javax.naming.*,
+ javax.xml.*,
+ org.w3c.dom.*,
+ org.xml.sax.*

@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="org.eclipse.core.jobs">
+	<property name="version" value="3.5.100.v20110404"/>
+	<property name="release.type" value="external"/>
+	<import file="${basedir}/../../../../spring-build/no-osgi/default.xml"/>
+</project>

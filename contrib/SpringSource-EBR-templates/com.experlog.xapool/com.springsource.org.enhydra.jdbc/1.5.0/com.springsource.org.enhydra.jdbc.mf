@@ -1,0 +1,12 @@
+Bundle-SymbolicName: com.springsource.org.enhydra.jdbc
+Bundle-Name: Open Source XA Pool
+Bundle-Vendor: SpringSource
+Bundle-ManifestVersion: 2
+Import-Template: 
+ javax.transaction.*;version="[1.0.1, 2.0.0)";resolution:=optional,
+ oracle.jdbc.xa.*;version="[10.2.0.2, 11.0.0.0)";resolution:=optional,
+ org.apache.commons.logging.*;version="[1.1.1, 2.0.0)",
+ org.enhydra.instantdb.*;version="[3.1.4, 4.0.0)";resolution:=optional
+Unversioned-Imports: 
+ javax.naming.*,
+ javax.sql.*

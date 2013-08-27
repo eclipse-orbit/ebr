@@ -1,0 +1,11 @@
+Bundle-SymbolicName: com.springsource.com.sun.xml.bind
+Bundle-Name: Java Architecture for XML Binding (JAXB) Implementation
+Bundle-Vendor: SpringSource
+Bundle-ManifestVersion: 2
+Import-Template: 
+ com.sun.msv.datatype.*;version="[0.0.0.20060615, 1.0.0)";resolution:=optional,
+ com.sun.msv.grammar.*;version="[1.0.6, 2.0.0)";resolution:=optional,
+ com.sun.msv.util;version="[1.0.6, 2.0.0)";resolution:=optional,
+ com.sun.msv.verifier.*;version="[1.0.6, 2.0.0)";resolution:=optional,
+ org.iso_relax.verifier.impl;version="[1.0.6, 2.0.0)";resolution:=optional,
+ org.relaxng.datatype.*;version="[0.0.20020414, 1.0.0)";resolution:=optional

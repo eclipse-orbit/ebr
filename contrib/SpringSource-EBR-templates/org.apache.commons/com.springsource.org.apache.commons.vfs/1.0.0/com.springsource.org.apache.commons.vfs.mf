@@ -1,0 +1,14 @@
+Bundle-SymbolicName: com.springsource.org.apache.commons.vfs
+Bundle-Name: Apache Commons Virtual File System
+Bundle-Vendor: SpringSource
+Bundle-ManifestVersion: 2
+Import-Template: 
+ com.jcraft.jsch.*;version="[0.1.25, 0.2.0)";resolution:=optional,
+ org.apache.commons.collections.*;version="[3.2.0, 4.0.0)",
+ org.apache.commons.httpclient.*;version="[3.1.0, 4.0.0)";resolution:=optional,
+ org.apache.commons.logging.*;version="[1.1.1, 2.0.0)",
+ org.apache.commons.net.*;version="[1.4.1, 2.0.0)";resolution:=optional,
+ org.apache.tools.ant.*;version="[1.7.0, 2.0.0)";resolution:=optional,
+Unversioned-Imports: 
+ javax.xml.parsers.*,
+ org.w3c.dom.*

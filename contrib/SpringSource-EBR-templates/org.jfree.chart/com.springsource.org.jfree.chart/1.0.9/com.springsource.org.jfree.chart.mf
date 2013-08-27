@@ -1,0 +1,20 @@
+Bundle-SymbolicName: com.springsource.org.jfree.chart
+Bundle-Name: JFree Chart
+Bundle-Vendor: SpringSource
+Bundle-ManifestVersion: 2
+Import-Template: 
+ com.keypoint.*;version="[1.0.12, 2.0.0)",
+ org.jfree;version="[1.0.12, 2.0.0)",
+ org.jfree.base.*;version="[1.0.12, 2.0.0)",
+ org.jfree.date.*;version="[1.0.12, 2.0.0)",
+ org.jfree.io.*;version="[1.0.12, 2.0.0)",
+ org.jfree.layout.*;version="[1.0.12, 2.0.0)",
+ org.jfree.text.*;version="[1.0.12, 2.0.0)",
+ org.jfree.ui.*;version="[1.0.12, 2.0.0)",
+ org.jfree.util.*;version="[1.0.12, 2.0.0)",
+ javax.servlet.*;version="[2.4.0, 3.0.0)"
+Unversioned-Imports: 
+ javax.imageio.*,
+ javax.swing.*,
+ javax.xml.parsers.*,
+ org.xml.sax.*

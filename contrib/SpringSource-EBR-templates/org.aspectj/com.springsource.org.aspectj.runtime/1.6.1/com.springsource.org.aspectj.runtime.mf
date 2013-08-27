@@ -1,0 +1,4 @@
+Bundle-SymbolicName: com.springsource.org.aspectj.runtime
+Bundle-Name: AspectJ Runtime
+Bundle-Vendor: SpringSource
+Bundle-ManifestVersion: 2

@@ -1,0 +1,14 @@
+Bundle-SymbolicName: com.springsource.org.apache.openjpa.java5
+Bundle-Name: Apache OpenJPA Java Persistence API
+Bundle-Vendor: SpringSource
+Bundle-ManifestVersion: 2
+Fragment-Host: com.springsource.org.apache.openjpa;bundle-version="[1.0.2, 1.0.2]"
+Bundle-RequiredExecutionEnvironment: J2SE-1.5
+Import-Template: 
+ org.apache.openjpa.lib.*;version="[1.0.2, 1.0.2]",
+ serp.*;version="[1.13.1, 1.14.0)"
+Excluded-Imports: 
+ org.apache.openjpa.conf.*,
+ org.apache.openjpa.meta.*,
+ org.apache.openjpa.util.*,
+ org.apache.openjpa.enhance

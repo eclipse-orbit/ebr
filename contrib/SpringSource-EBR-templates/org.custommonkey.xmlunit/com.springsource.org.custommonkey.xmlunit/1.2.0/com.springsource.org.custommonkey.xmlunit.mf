@@ -1,0 +1,11 @@
+Bundle-SymbolicName: com.springsource.org.custommonkey.xmlunit
+Bundle-Name: XMLUnit for Java
+Bundle-Vendor: SpringSource
+Bundle-ManifestVersion: 2
+Import-Template: 
+ junit.*;version="[3.8.2, 4.0.0)";resolution:=optional
+Unversioned-Imports: 
+ javax.swing.*,
+ javax.xml.*,
+ org.w3c.dom.*,
+ org.xml.sax.*

@@ -1,0 +1,8 @@
+Bundle-SymbolicName: com.springsource.org.apache.xml.resolver
+Bundle-Name: Apache XML Commons Resolver
+Bundle-Vendor: SpringSource
+Bundle-ManifestVersion: 2
+Unversioned-Imports: 
+ javax.xml.*,
+ org.w3c.dom.*,
+ org.xml.sax.*

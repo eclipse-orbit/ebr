@@ -1,0 +1,21 @@
+Bundle-SymbolicName: com.springsource.org.apache.openjpa.jdbc
+Bundle-Name: Apache OpenJPA Java Persistence API JDBC support
+Bundle-Vendor: SpringSource
+Bundle-ManifestVersion: 2
+Import-Template: 
+ serp.*;version="[1.13.1, 1.14.0)",
+ javax.transaction.*;version="[1.0.1, 2.0.0)";resolution:=optional,
+ org.apache.commons.collections.*;version="[3.2.0, 4.0.0)",
+ org.apache.commons.lang.*;version="[2.1.0, 3.0.0)",
+ org.apache.openjpa.conf.*;version="[1.0.2, 1.0.2]",
+ org.apache.openjpa.ee.*;version="[1.0.2, 1.0.2]",
+ org.apache.openjpa.enhance.*;version="[1.0.2, 1.0.2]",
+ org.apache.openjpa.event.*;version="[1.0.2, 1.0.2]",
+ org.apache.openjpa.kernel.*;version="[1.0.2, 1.0.2]",
+ org.apache.openjpa.meta.*;version="[1.0.2, 1.0.2]",
+ org.apache.openjpa.util.*;version="[1.0.2, 1.0.2]",
+ org.apache.openjpa.lib.*;version="[1.0.2, 1.0.2]",
+ org.apache.tools.ant.*;version="[1.7.0, 2.0.0)";resolution:=optional
+Unversioned-Imports: 
+ javax.sql.*,
+ org.xml.sax.*

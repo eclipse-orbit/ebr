@@ -1,0 +1,4 @@
+Bundle-SymbolicName: com.springsource.org.apache.lucene
+Bundle-Name: Lucene Search Engine: core
+Bundle-Vendor: SpringSource
+Bundle-ManifestVersion: 2

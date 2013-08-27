@@ -1,0 +1,14 @@
+Bundle-SymbolicName: com.ctc.wstx
+Bundle-Name: Woodstox High Performance StAX XML Processor
+Bundle-Vendor: SpringSource
+Bundle-ManifestVersion: 2
+Import-Template: 
+ com.sun.msv.*;version="[0.0.0, 1.0.0]",
+ org.relaxng.datatype;version="[1.0.0, 2.0.0)"
+Unversioned-Imports: 
+ javax.xml.namespace.*,
+ javax.xml.parsers.*,
+ javax.xml.stream.*,
+ javax.xml.transform.*,
+ org.w3c.dom.*,
+ org.xml.sax.*

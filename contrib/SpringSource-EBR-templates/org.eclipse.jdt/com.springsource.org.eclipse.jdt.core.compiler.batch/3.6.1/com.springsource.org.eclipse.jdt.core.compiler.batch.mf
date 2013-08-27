@@ -1,0 +1,6 @@
+Bundle-SymbolicName: com.springsource.org.eclipse.jdt.core.compiler.batch
+Bundle-Name: Eclipse JDT Batch Compile
+Bundle-Vendor: SpringSource
+Bundle-ManifestVersion: 2
+Excluded-Imports: 
+ *

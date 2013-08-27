@@ -1,0 +1,7 @@
+Bundle-SymbolicName: org.eclipse.text
+Bundle-Name: org.eclipse.text
+Bundle-Vendor: SpringSource
+Bundle-ManifestVersion: 2
+Import-Template: 
+Unversioned-Imports: 
+Excluded-Imports: 

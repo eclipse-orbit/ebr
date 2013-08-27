@@ -1,0 +1,9 @@
+Bundle-SymbolicName: com.springsource.bsh
+Bundle-Name: BeanShell (bsh)
+Bundle-Vendor: SpringSource
+Bundle-ManifestVersion: 2
+Import-Template: 
+ javax.servlet.*;version="[2.5.0, 3.0.0)",
+ org.apache.bsf.*;version="[2.4.0, 3.0.0)";resolution:=optional
+Unversioned-Imports: 
+ javax.swing.*

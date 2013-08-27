@@ -1,0 +1,46 @@
+Bundle-SymbolicName: com.springsource.org.eclipse.persistence
+Bundle-Name: Eclipse Persistent Services Project (EclipseLink)
+Bundle-Vendor: SpringSource
+Bundle-ManifestVersion: 2
+Ignored-Existing-Headers: 
+ Created-By,
+ Export-Package,
+ Import-Package,
+ Require-Bundle
+Import-Template: 
+ javax.activation.*;version="[1.1.0, 2.0.0)";resolution:=optional,
+ javax.jms.*;version="[1.1.0, 2.0.0)";resolution:=optional,
+ javax.mail.*;version="[1.4.0, 2.0.0)";resolution:=optional,
+ javax.persistence.*;version="[1.0.0, 2.0.0)",
+ javax.resource.*;version="[1.5.0, 2.0.0)";resolution:=optional,
+ javax.transaction.*;version="[1.1.0, 2.0.0)",
+ javax.xml.bind.*;version="[2.0.0, 3.0.0)",
+ javax.xml.stream.*;version="[1.0.1, 2.0.0)",
+ org.apache.tools.ant.*;version="[1.7.0, 2.0.0)";resolution:=optional,
+ org.osgi.*;version="[3.4.2, 4.0.0)",
+ oracle.AQ.*;version="[10.1.0.1, 11.0.0)";resolution:=optional,
+ oracle.jdbc.*;version="[10.2.0.2, 11.0.0)";resolution:=optional,
+ oracle.spatial.geometry.*;version="[10.2.0.1, 11.0.0)";resolution:=optional,
+ oracle.sql.*;version="[10.2.0.2, 11.0.0)";resolution:=optional,
+ oracle.xdb.*;version="[10.2.0.2, 11.0.0)";resolution:=optional,
+ oracle.xml.*;version="[10.2.0.2, 11.0.0)";resolution:=optional,
+ org.eclipse.persistence.internal.libraries.antlr.*;version="[1.0.1, 2.0.0)",
+ org.eclipse.persistence.internal.libraries.asm.*;version="[1.0.1, 2.0.0)"
+Unversioned-Imports: 
+ javax.crypto.*,
+ javax.imageio.*,
+ javax.management.*,
+ javax.naming.*,
+ javax.rmi.*,
+ javax.sql.*,
+ javax.xml.namespace.*,
+ javax.xml.parsers.*,
+ javax.xml.transform.*,
+ javax.xml.validation.*,
+ javax.xml.xpath.*,
+ org.omg.CORBA.*,
+ org.omg.CORBA_2_3.*,
+ org.w3c.dom.*,
+ org.xml.sax.*
+Excluded-Imports: 
+ commonj.sdo.*

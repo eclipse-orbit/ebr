@@ -1,0 +1,15 @@
+Bundle-SymbolicName: com.springsource.javax.persistence
+Bundle-Name: Java Persistence API
+Bundle-Vendor: SpringSource
+Bundle-ManifestVersion: 2
+Ignored-Existing-Headers: 
+ Import-Package,
+ Export-Package,
+ Bundle-Activator,
+ Bundle-RequiredExecutionEnvironment,
+ TSTAMP,
+ DSTAMP,
+ TODAY,
+ Tool,
+ Bnd-LastModified,
+ Private-Package

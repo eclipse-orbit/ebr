@@ -1,0 +1,19 @@
+Bundle-SymbolicName: com.springsource.org.apache.batik.dom
+Bundle-Name: Apache Batik DOM implementation
+Bundle-Vendor: SpringSource
+Bundle-ManifestVersion: 2
+Import-Template: 
+ org.apache.batik.css.*;version="[1.7.0, 1.7.0]",
+ org.apache.batik.i18n.*;version="[1.7.0, 1.7.0]",
+ org.apache.batik.util.*;version="[1.7.0, 1.7.0]",
+ org.apache.batik.xml.*;version="[1.7.0, 1.7.0]",
+ org.apache.xpath.*;version="[2.7.0, 3.0.0)",
+ org.apache.xml.*;version="[2.7.0, 3.0.0)",
+ org.w3c.css.*;version="0";resolution:=optional,
+ org.w3c.dom.css.*;version="0";resolution:=optional,
+ org.w3c.dom.events.*;version="0";resolution:=optional,
+ org.w3c.dom.smil.*;version="0";resolution:=optional,
+ org.w3c.dom.stylesheets.*;version="0";resolution:=optional,
+ org.w3c.dom.traversal.*;version="0";resolution:=optional,
+ org.w3c.dom.views.*;version="0";resolution:=optional,
+ org.w3c.dom.xpath.*;version="0";resolution:=optional

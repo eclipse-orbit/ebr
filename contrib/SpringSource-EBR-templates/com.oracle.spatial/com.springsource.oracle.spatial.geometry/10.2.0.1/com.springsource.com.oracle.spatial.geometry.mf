@@ -1,0 +1,5 @@
+Bundle-SymbolicName: com.springsource.oracle.spatial.geometry
+Bundle-Name: Oracle Spatial Geometry API
+Bundle-ManifestVersion: 2
+Import-Template: 
+ oracle.sql.*;version="[10.2.0.2, 11.0.0.0)"

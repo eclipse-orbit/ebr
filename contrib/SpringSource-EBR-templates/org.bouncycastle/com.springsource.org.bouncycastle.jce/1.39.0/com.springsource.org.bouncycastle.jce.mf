@@ -1,0 +1,10 @@
+Bundle-SymbolicName: com.springsource.org.bouncycastle.jce
+Bundle-Name: The Bouncy Castle Crypto APIs
+Bundle-Vendor: SpringSource
+Bundle-ManifestVersion: 2
+Import-Template: 
+ junit.*;version="[3.8.2, 4.0.0)";resolution:=optional
+Unversioned-Imports: 
+ javax.crypto.*,
+ javax.naming.*,
+ javax.security.*

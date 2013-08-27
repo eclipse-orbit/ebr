@@ -1,0 +1,5 @@
+Bundle-SymbolicName: com.springsource.com.fasterxml.jackson.core.jackson-annotations
+Bundle-Name: FasterXML Jackson Annotations
+Bundle-Vendor: SpringSource
+Bundle-ManifestVersion: 2
+

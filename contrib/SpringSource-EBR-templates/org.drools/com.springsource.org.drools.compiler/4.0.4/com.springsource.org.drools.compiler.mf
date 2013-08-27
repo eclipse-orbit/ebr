@@ -1,0 +1,14 @@
+Bundle-SymbolicName: com.springsource.org.drools.compiler
+Bundle-Name: Drools Rules Engine Compiler
+Bundle-Vendor: SpringSource
+Bundle-ManifestVersion: 2
+Import-Template: 
+ com.thoughtworks.xstream.*;version="[1.2.2, 2.0.0)";resolution:=optional,
+ org.antlr.runtime.*;version="[3.0.1, 4.0.0)";resolution:=optional,
+ org.codehaus.janino.*;version="[2.4.3, 3.0.0)",
+ org.drools.*;version="[4.0.4, 5.0.0)",
+ org.eclipse.jdt.*;version="[3.3.0, 4.0.0)",
+ org.mvel.*;version="[1.2.21,2.0.0)"
+Unversioned-Imports: 
+ javax.xml.parsers.*,
+ org.xml.sax.*

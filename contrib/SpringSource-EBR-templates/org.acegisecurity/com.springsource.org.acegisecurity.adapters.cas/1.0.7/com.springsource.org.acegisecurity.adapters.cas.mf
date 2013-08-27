@@ -1,0 +1,19 @@
+Bundle-SymbolicName: com.springsource.org.acegisecurity.adapters.cas
+Bundle-Name: Acegi Security - Adapters for CAS
+Bundle-Vendor: SpringSource
+Bundle-ManifestVersion: 2
+Import-Template: 
+ edu.yale.its.tp.cas.auth;version="",
+ javax.servlet;version="",
+ javax.servlet.http;version="",
+ org.acegisecurity;version="",
+ org.acegisecurity.providers;version="",
+ org.apache.commons.logging;version="",
+ org.jasig.cas.authentication.handler;version="",
+ org.jasig.cas.authentication.handler.support;version="",
+ org.jasig.cas.authentication.principal;version="",
+ org.springframework.beans.factory;version="",
+ org.springframework.context;version="",
+ org.springframework.util;version="",
+ org.springframework.web.context;version="",
+ org.springframework.web.context.support;version=""

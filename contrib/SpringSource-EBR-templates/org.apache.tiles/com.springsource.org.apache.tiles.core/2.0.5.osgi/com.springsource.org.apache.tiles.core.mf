@@ -1,0 +1,12 @@
+Bundle-SymbolicName: com.springsource.org.apache.tiles.core
+Bundle-Name: Apache Tiles 2 Core
+Bundle-Vendor: SpringSource
+Bundle-ManifestVersion: 2
+Import-Template: 
+ javax.portlet.*;version="[1.0.0, 2.0.0)";resolution:=optional,
+ javax.servlet.*;version="[2.4.0, 3.0.0)",
+ org.apache.commons.digester;version="[1.8.0, 2.0.0)",
+ org.apache.commons.logging;version="[1.1.0, 2.0.0)",
+ org.apache.tiles.*;version="[2.0.5, 2.0.5]"
+Unversioned-Imports: 
+ org.xml.sax.*

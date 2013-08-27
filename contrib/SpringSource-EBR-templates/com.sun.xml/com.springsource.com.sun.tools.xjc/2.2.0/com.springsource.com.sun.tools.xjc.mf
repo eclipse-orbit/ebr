@@ -1,0 +1,33 @@
+Bundle-SymbolicName: com.springsource.com.sun.tools.xjc
+Bundle-Name: Java Architecture for XML Binding (JAXB) Compile
+Bundle-Vendor: SpringSource
+Bundle-ManifestVersion: 2
+Import-Template: 
+ com.sun.istack.*;version="[2.2.0, 2.2.0]",
+ com.sun.mirror.*;version="0";resolution:=optional,
+ com.sun.msv.datatype.*;version="[0.0.0.20060615, 0.0.0.20060615]";resolution:=optional,
+ com.sun.msv.grammar.*;version="[0.0.0.20081113, 0.0.0.20081113]";resolution:=optional,
+ com.sun.msv.reader.*;version="[0.0.0.20081113, 0.0.0.20081113]";resolution:=optional,
+ com.sun.msv.scanner.dtd.*;version="[0.0.0.20081113, 0.0.0.20081113]";resolution:=optional,
+ com.sun.msv.verifier.*;version="[0.0.0.20081113, 0.0.0.20081113]";resolution:=optional,
+ com.sun.msv.util.*;version="[0.0.0.20081113, 0.0.0.20081113]";resolution:=optional,
+ com.sun.msv.writer.*;version="[0.0.0.20081113, 0.0.0.20081113]";resolution:=optional,
+ com.sun.org.apache.*;version="0";resolution:=optional,
+ com.sun.xml.bind.*;version="[2.2.0, 2.2.0]",
+ com.sun.xml.txw2.*;version="[2.2.0, 2.2.0]",
+ com.sun.xml.util;version="[0.0.0.20060615, 0.0.0.20060615]";resolution:=optional,
+ javax.activation.*;version="[1.1.0, 2.0.0)",
+ javax.xml.bind.*;version="[2.2.0, 2.2.0]",
+ javax.xml.stream.*;version="[1.0.1, 2.0.0)",
+ org.apache.tools.ant.*;version="[1.7.1, 2.0.0)";resolution:=optional,
+ org.dom4j.*;version="[1.6.1, 2.0.0)",
+ org.iso_relax.*;version="[0.0.0.20041111, 1.0.0)";resolution:=optional,
+ javax.swing.*;version="0",
+ javax.xml.datatype.*;version="0",
+ javax.xml.namespace.*;version="0",
+ javax.xml.parsers.*;version="0",
+ javax.xml.transform.*;version="0",
+ javax.xml.validation.*;version="0",
+ javax.xml.xpath.*;version="0",
+ org.w3c.dom.*;version="0",
+ org.xml.sax.*;version="0"

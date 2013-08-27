@@ -1,0 +1,27 @@
+Bundle-SymbolicName: com.springsource.com.sun.faces
+Bundle-Name: Sun JSF Reference Implementation
+Bundle-Vendor: SpringSource
+Bundle-ManifestVersion: 2
+Ignored-Existing-Headers: 
+ Bnd-LastModified,
+ Import-Package,
+ Export-Package,
+ Tool
+Import-Template: 
+ com.sun.enterprise.*;version="0";resolution:=optional,
+ groovy.*;version="0";resolution:=optional,
+ javax.annotation;version="0",
+ javax.crypto.*;version="0",
+ javax.el;version="[1.0.0, 2.0.0)",
+ javax.naming.*;version="0",
+ javax.servlet.*;version="[2.5.0, 3.0.0)",
+ javax.servlet.jsp.*;version="[2.1.0, 3.0.0)",
+ javax.servlet.jsp.jstl.*;version="[1.2.0, 2.0.0)",
+ javax.xml.*;version="0",
+ org.mortbay.jetty.*;version="0";resolution:=optional,
+ org.w3c.dom.*;version="0",
+ org.xml.sax.*;version="0"
+Excluded-Imports: 
+ javax.faces.*,
+ org.apache
+Fragment-Host: com.springsource.javax.faces;bundle-version="[2.0.0.PR2,2.0.0.PR2]"

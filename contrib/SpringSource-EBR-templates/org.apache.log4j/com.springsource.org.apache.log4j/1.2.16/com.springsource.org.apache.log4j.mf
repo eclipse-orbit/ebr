@@ -1,0 +1,16 @@
+Bundle-SymbolicName: com.springsource.org.apache.log4j
+Bundle-Name: Apache Log4J
+Bundle-Vendor: SpringSource
+Bundle-ManifestVersion: 2
+Import-Template: 
+ com.sun.jdmk.*;version="[5.1.0, 5.1.0]";resolution:=optional,
+ javax.jms.*;version="[1.1.0, 2.0.0)";resolution:=optional,
+ javax.mail.*;version="[1.4.0, 2.0.0)";resolution:=optional,
+ java.management.*;resolution:=optional
+Unversioned-Imports: 
+ javax.management.*,
+ javax.naming.*,
+ javax.swing.*,
+ javax.xml.parsers.*,
+ org.w3c.dom.*,
+ org.xml.sax.*

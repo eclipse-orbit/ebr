@@ -1,0 +1,7 @@
+Bundle-SymbolicName: com.springsource.oracle.toplink
+Bundle-Name: Oracle TopLink API
+Bundle-Vendor: SpringSource
+Bundle-ManifestVersion: 2
+Unversioned-Imports: 
+ javax.naming.*,
+ javax.sql.*

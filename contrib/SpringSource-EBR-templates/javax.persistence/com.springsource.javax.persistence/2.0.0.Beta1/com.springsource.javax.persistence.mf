@@ -1,0 +1,6 @@
+Bundle-SymbolicName: com.springsource.javax.persistence
+Bundle-Name: Java Persistence API
+Bundle-Vendor: SpringSource
+Bundle-ManifestVersion: 2
+Import-Template: 
+ javax.sql;version="0"

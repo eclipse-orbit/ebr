@@ -1,0 +1,13 @@
+Bundle-SymbolicName: com.springsource.net.jini.platform
+Bundle-Name: Apache River Platform
+Bundle-Vendor: SpringSource
+Bundle-ManifestVersion: 2
+Import-Template: 
+Unversioned-Imports: 
+ javax.net.*,
+ javax.rmi.*,
+ javax.security.*,
+ org.ietf.jgss.*,
+ org.omg.CORBA.*
+Excluded-Imports: 
+ com.sun.security.jgss.*

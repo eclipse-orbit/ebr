@@ -1,0 +1,18 @@
+Bundle-SymbolicName: com.springsource.org.apache.wicket
+Bundle-Name: Apache Wicket
+Bundle-Vendor: SpringSource
+Bundle-ManifestVersion: 2
+Import-Template: 
+ javax.portlet.*;version="[1.0.0, 2.0.0)";resolution:=optional,
+ javax.servlet.*;version="[2.5.0, 3.0.0)",
+ junit.*;version="[3.8.2, 4.0.0)";resolution:=optional,
+ org.apache.portals.bridges.*;version="[1.0.4, 2.0.0)";resolution:=optional,
+ org.slf4j.*;version="[1.5.0, 2.0.0)"
+Unversioned-Imports: 
+ javax.crypto.*,
+ javax.imageio.*,
+ javax.swing.*,
+ javax.xml.parsers.*,
+ javax.xml.transform.*,
+ org.w3c.dom.*,
+ org.xml.sax.*

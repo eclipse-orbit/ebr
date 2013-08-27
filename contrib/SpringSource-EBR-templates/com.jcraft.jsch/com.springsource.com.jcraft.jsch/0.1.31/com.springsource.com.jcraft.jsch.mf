@@ -1,0 +1,6 @@
+Bundle-SymbolicName: com.springsource.com.jcraft.jsch
+Bundle-Name: Java Secure Channel
+Bundle-Vendor: SpringSource
+Bundle-ManifestVersion: 2
+Import-Template: 
+ com.jcraft.jzlib.*;version="[1.0.7, 2.0.0)";resolution:=optional

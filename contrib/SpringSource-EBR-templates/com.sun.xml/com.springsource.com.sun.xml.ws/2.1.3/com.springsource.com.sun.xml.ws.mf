@@ -1,0 +1,33 @@
+Bundle-SymbolicName: com.springsource.com.sun.xml.ws
+Bundle-Name: Java API for XML Web Services (JAX-WS) Reference Implementation
+Bundle-Vendor: SpringSource
+Bundle-ManifestVersion: 2
+Import-Template: 
+ com.sun.istack;version="[2.1.6,3.0.0)",
+ com.sun.net.httpserver;version="0";resolution:=optional,
+ com.sun.org.apache.xml.internal.resolver.*;version="[2.1.7,3.0.0)",
+ com.sun.xml.bind.*;version="[2.1.6,3.0.0)",
+ com.sun.xml.txw2.*;version="[2.1.6,3.0.0)",
+ com.sun.xml.fastinfoset.*;version="[1.2.2,2.0.0)",
+ com.sun.xml.stream.buffer.*;version="[0.5.0,1.0.0)",
+ javax.activation;version="[1.1.0,2.0.0)",
+ javax.annotation;version="[1.0.0,2.0.0)",
+ javax.imageio.*;version="0",
+ javax.jws.*;version="0",
+ javax.management;version="0",
+ javax.net.ssl.*;version="0";resolution:=optional,
+ javax.servlet.*;version="[2.5.0,3.0.0)",
+ javax.xml.bind.*;version="[2.1.7,3.0.0)",
+ javax.xml.namespace.*;version="0",
+ javax.xml.parsers.*;version="0",
+ javax.xml.soap;version="[1.3.0,2.0.0)",
+ javax.xml.stream.*;version="0",
+ javax.xml.transform.*;version="0",
+ javax.xml.validation.*;version="0",
+ javax.xml.ws.*;version="[2.1.1,3.0.0)",
+ org.jvnet.fastinfoset;version="[1.2.2,2.0.0)",
+ org.jvnet.mimepull;version="[1.1.0,2.0.0)",
+ org.jvnet.staxex;version="[1.0.0,2.0.0)",
+ org.w3c.dom.*;version="0",
+ org.xml.sax.*;version="0"
+

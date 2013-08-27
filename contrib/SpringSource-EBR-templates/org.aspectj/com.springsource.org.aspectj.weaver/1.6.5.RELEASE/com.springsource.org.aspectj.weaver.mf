@@ -1,0 +1,11 @@
+Bundle-SymbolicName: com.springsource.org.aspectj.weaver
+Bundle-Name: AspectJ Weaver
+Bundle-Vendor: SpringSource
+Bundle-ManifestVersion: 2
+Import-Template: 
+ javax.xml.parsers;version="0",
+ org.apache.commons.logging;version="[1.1.1, 2.0.0)";resolution:=optional,
+ org.xml.sax.*;version="0"
+Excluded-Imports: 
+ com.bea.jvm,
+ org.objectweb.asm

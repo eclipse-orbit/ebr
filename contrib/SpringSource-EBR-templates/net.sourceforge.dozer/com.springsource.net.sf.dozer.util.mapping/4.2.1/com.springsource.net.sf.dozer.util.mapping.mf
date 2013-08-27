@@ -1,0 +1,16 @@
+Bundle-SymbolicName: com.springsource.net.sf.dozer.util.mapping
+Bundle-Name: Dozer Java Bean Mapping Framework
+Bundle-Vendor: SpringSource
+Bundle-ManifestVersion: 2
+Import-Template: 
+ org.apache.commons.beanutils.*;version="[1.7.0, 2.0.0)",
+ org.apache.commons.collections.*;version="[3.1.0, 4.0.0)",
+ org.apache.commons.lang.*;version="[2.1.0, 3.0.0)",
+ org.apache.commons.logging.*;version="[1.0.3, 2.0.0)",
+ org.springframework.beans.*;version="[2.5.0, 3.0.0)",
+ org.springframework.core.*;version="[2.5.0, 3.0.0)"
+Unversioned-Imports: 
+ javax.xml.parsers.*,
+ org.w3c.dom.*,
+ org.xml.sax.*
+Excluded-Imports: 

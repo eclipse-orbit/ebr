@@ -1,0 +1,14 @@
+Bundle-SymbolicName: com.springsource.org.apache.directory.server.core.partition.impl.btree.jdbm
+Bundle-Name: Apache Directory Server JDBM BTree Impl
+Bundle-Vendor: SpringSource
+Bundle-ManifestVersion: 2
+Import-Template: 
+ jdbm.*;version="[1.5.5, 1.5.5]",
+ org.apache.directory.server.core.*;version="[1.5.5, 1.5.5]",
+ org.apache.directory.server.core.avltree;version="[1.5.5, 1.5.5]",
+ org.apache.directory.server.core.entry;version="[1.5.5, 1.5.5]",
+ org.apache.directory.server.schema.*;version="[1.5.5, 1.5.5]",
+ org.apache.directory.server.xdbm;version="[1.5.5, 1.5.5]",
+ org.apache.directory.shared.asn1.*;version="[0.9.15, 0.9.15]",
+ org.apache.directory.shared.ldap.*;version="[0.9.15, 0.9.15]",
+ org.slf4j;version="[1.5.6, 2.0.0)"

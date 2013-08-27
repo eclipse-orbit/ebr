@@ -1,0 +1,10 @@
+Bundle-SymbolicName: com.springsource.slf4j.nop
+Bundle-Name: SLF4J No-OP Binding
+Bundle-Vendor: SpringSource
+Bundle-ManifestVersion: 2
+Ignored-Existing-Headers: 
+ Bundle-RequiredExecutionEnvironment,
+ Require-Bundle
+Import-Template: 
+ org.slf4j.*;version="[1.5.0, 2.0.0)"
+Fragment-Host: com.springsource.slf4j.api

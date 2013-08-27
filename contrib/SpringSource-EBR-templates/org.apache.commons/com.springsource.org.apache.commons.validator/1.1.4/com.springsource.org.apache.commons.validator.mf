@@ -1,0 +1,12 @@
+Bundle-SymbolicName: com.springsource.org.apache.commons.validator
+Bundle-Name: Apache Commons Validator
+Bundle-Vendor: SpringSource
+Bundle-ManifestVersion: 2
+Import-Template: 
+ org.apache.commons.beanutils.*;version="[1.7.0, 2.0.0)",
+ org.apache.commons.collections.*;version="[3.2.0, 4.0.0)",
+ org.apache.commons.digester.*;version="[1.8.0, 2.0.0)",
+ org.apache.commons.logging.*;version="[1.1.1, 2.0.0)",
+ org.apache.oro.*;version="[2.0.8, 3.0.0)",
+Unversioned-Imports: 
+ org.xml.sax.*

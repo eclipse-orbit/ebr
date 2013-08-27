@@ -1,0 +1,6 @@
+Bundle-SymbolicName: com.springsource.javax.servlet
+Bundle-Name: Java Servlet API
+Bundle-Vendor: SpringSource
+Bundle-ManifestVersion: 2
+Export-Package: 
+ javax.servlet.resources;version="2.5.0"

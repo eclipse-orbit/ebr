@@ -1,0 +1,8 @@
+Bundle-SymbolicName: com.springsource.org.cyberneko.html
+Bundle-Name: Cyberneko HTML Parser
+Bundle-Vendor: SpringSource
+Bundle-ManifestVersion: 2
+Import-Template: 
+ org.apache.xerces.*;version="[2.0.2, 3.0.0]",
+ org.w3c.dom.*;version="0",
+ org.xml.sax.*;version="0"

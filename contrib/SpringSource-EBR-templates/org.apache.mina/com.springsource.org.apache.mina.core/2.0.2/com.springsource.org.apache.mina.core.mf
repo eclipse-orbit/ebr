@@ -1,0 +1,11 @@
+Bundle-SymbolicName: com.springsource.org.apache.mina.core
+Bundle-Name: Apache MINA Core
+Bundle-Vendor: SpringSource
+Bundle-ManifestVersion: 2
+Ignored-Existing-Headers: 
+ Import-Package,
+ Export-Package,
+ Tool,
+ Bnd-LastModified
+Import-Template: 
+ org.slf4j.*;version="[1.5.6, 2.0.0)"

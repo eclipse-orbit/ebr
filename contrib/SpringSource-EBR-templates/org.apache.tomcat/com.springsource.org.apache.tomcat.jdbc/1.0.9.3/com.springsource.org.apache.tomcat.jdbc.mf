@@ -1,0 +1,6 @@
+Bundle-SymbolicName: com.springsource.org.apache.tomcat.jdbc
+Bundle-Name: Apache Tomcat JDBC Pool
+Bundle-Vendor: SpringSource
+Bundle-ManifestVersion: 2
+Import-Template: 
+ org.apache.juli.logging.*;version="[6.0.24, 7.0.0)"

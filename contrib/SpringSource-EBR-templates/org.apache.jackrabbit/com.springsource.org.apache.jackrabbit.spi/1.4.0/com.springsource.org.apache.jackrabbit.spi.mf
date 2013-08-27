@@ -1,0 +1,8 @@
+Bundle-SymbolicName: com.springsource.org.apache.jackrabbit.spi
+Bundle-Name: Apache Jackrabbit SPI
+Bundle-Vendor: SpringSource
+Bundle-ManifestVersion: 2
+Import-Template: 
+ javax.jcr.*;version="[1.0.0, 2.0.0)"
+Unversioned-Imports: 
+ javax.transaction.xa.*

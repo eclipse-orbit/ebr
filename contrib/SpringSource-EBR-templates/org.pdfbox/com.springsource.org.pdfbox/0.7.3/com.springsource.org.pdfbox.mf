@@ -1,0 +1,16 @@
+Bundle-SymbolicName: com.springsource.org.pdfbox
+Bundle-Name: PDFBox - Java PDF Library
+Bundle-Vendor: SpringSource
+Bundle-ManifestVersion: 2
+Import-Template: 
+ junit.*;version="[3.8.2, 4.0.0)";resolution:=optional,
+ org.apache.lucene.*;version="[2.3.0, 3.0.0)";resolution:=optional,
+ org.apache.tools.ant.*;version="[1.7.0, 2.0.0)";resolution:=optional,
+ org.bouncycastle.*;version="[1.39.0, 2.0.0)";resolution:=optional,
+ org.fontbox.*;version="[0.1.0, 1.0.0)"
+Unversioned-Imports: 
+ javax.crypto.*,
+ javax.imageio.*,
+ javax.swing.*,
+ javax.xml.parsers.*,
+ org.w3c.dom.*

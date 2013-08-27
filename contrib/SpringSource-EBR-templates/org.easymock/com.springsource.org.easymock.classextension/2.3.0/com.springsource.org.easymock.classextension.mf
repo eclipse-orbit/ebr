@@ -1,0 +1,7 @@
+Bundle-SymbolicName: com.springsource.org.easymock.classextension
+Bundle-Name: EasyMock Class Extension
+Bundle-Vendor: SpringSource
+Bundle-ManifestVersion: 2
+Import-Template: 
+ net.sf.cglib.*;version="[2.1.3, 3.0.0)",
+ org.easymock.*;version="[2.3.0, 3.0.0)"

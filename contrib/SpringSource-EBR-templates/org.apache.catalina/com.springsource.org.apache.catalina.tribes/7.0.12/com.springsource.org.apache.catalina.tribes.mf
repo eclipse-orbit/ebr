@@ -1,0 +1,9 @@
+Bundle-SymbolicName: com.springsource.org.apache.catalina.tribes
+Bundle-Name: Apache Tomcat Catalina Tribes
+Bundle-Vendor: SpringSource
+Bundle-ManifestVersion: 2
+Fragment-Host: com.springsource.org.apache.catalina;bundle-version="[7.0.12, 7.0.12]"
+Import-Package: 
+ org.apache.catalina.ha.session;version="[7.0.12, 7.0.12]"
+Import-Template: 
+ org.apache.juli.*;version="[7.0.12, 7.0.12]"

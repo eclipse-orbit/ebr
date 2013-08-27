@@ -1,0 +1,12 @@
+Bundle-SymbolicName: com.springsource.com.sun.xml.fastinfoset
+Bundle-Name: Fast Infoset
+Bundle-Vendor: SpringSource
+Bundle-ManifestVersion: 2
+Import-Template: 
+ javax.xml.stream.*;version="[1.0.1, 2.0.0)"
+Unversioned-Imports: 
+ javax.xml.namespace.*,
+ javax.xml.parsers.*,
+ javax.xml.transform.*,
+ org.w3c.dom.*,
+ org.xml.sax.*

@@ -1,0 +1,29 @@
+Bundle-SymbolicName: com.springsource.org.codehaus.groovy
+Bundle-Name: The Groovy scripting languge
+Bundle-Vendor: SpringSource
+Bundle-ManifestVersion: 2
+Import-Template: 
+ antlr.*;version="[2.7.6, 3.0.0)",
+ com.mockobjects.*;version="[0.09.0, 1.0.0)";resolution:=optional,
+ com.thoughtworks.xstream.*;version="[1.2.2, 2.0.0)";resolution:=optional,
+ javax.servlet;version="[2.4.0, 3.0.0)";resolution:=optional,
+ javax.servlet.http.*;version="[2.4.0, 3.0.0)";resolution:=optional,
+ javax.servlet.jsp.*;version="[2.0.0, 3.0.0)";resolution:=optional,
+ jline.*;version="[0.9.94, 1.0.0)";resolution:=optional,
+ junit.*;version="[3.8.2, 4.0.0)";resolution:=optional,
+ org.apache.bsf.*;version="[2.4.0, 3.0.0)";resolution:=optional,
+ org.apache.commons.cli.*;version="[1.1.0, 2.0.0)";resolution:=optional,
+ org.apache.tools.ant.*;version="[1.7.0, 2.0.0)";resolution:=optional,
+ org.objectweb.asm;version="[2.2.0,3.0.0)",
+ org.objectweb.asm.tree;version="[2.2.0,3.0.0)",
+ org.objectweb.asm.tree.analysis;version="[2.2.0,3.0.0)",
+ org.objectweb.asm.util;version="[2.2.0,3.0.0)"
+Unversioned-Imports: 
+ javax.management.*,
+ javax.sql.*,
+ javax.print.*,
+ javax.swing.*,
+ javax.xml.parsers.*,
+ javax.xml.transform.*,
+ org.w3c.dom.*,
+ org.xml.sax.*

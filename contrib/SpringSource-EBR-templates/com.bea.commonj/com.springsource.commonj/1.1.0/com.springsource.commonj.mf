@@ -1,0 +1,4 @@
+Bundle-SymbolicName: com.springsource.commonj
+Bundle-Name: CommonJ Timer and Work Manager for Application Servers
+Bundle-Vendor: SpringSource
+Bundle-ManifestVersion: 2

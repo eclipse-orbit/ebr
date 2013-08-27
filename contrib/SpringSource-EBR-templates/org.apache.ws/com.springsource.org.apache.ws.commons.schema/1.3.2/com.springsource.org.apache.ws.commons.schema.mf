@@ -1,0 +1,11 @@
+Bundle-SymbolicName: com.springsource.org.apache.ws.commons.schema
+Bundle-Name: Apache Web Services Commons XmlSchema
+Bundle-Vendor: SpringSource
+Bundle-ManifestVersion: 2
+Unversioned-Imports: 
+ javax.xml.namespace.*,
+ javax.xml.parsers.*,
+ javax.xml.transform.*,
+ org.w3c.dom.*,
+ org.xml.sax.*
+

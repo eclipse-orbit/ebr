@@ -1,0 +1,10 @@
+Bundle-SymbolicName: com.springsource.javax.xml.stream
+Bundle-Name: Java XML Stream API (StAX)
+Bundle-Vendor: SpringSource
+Bundle-ManifestVersion: 2
+Import-Template: 
+ javax.xml.transform.*;version="0"
+Excluded-Imports: 
+ javax.xml.namespace.*
+Excluded-Exports: 
+ javax.xml.namespace.*

@@ -1,0 +1,7 @@
+Bundle-SymbolicName: com.springsource.org.apache.commons.beanutils
+Bundle-Name: Apache Commons Bean Utilities
+Bundle-Vendor: SpringSource
+Bundle-ManifestVersion: 2
+Import-Template: 
+ org.apache.commons.collections.*;version="[2.0.0, 3.0.0)",
+ org.apache.commons.logging;version="[1.0.0, 2.0.0)"

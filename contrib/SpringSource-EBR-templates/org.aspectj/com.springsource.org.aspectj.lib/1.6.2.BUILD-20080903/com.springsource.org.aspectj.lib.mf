@@ -1,0 +1,6 @@
+Bundle-SymbolicName: com.springsource.org.aspectj.lib
+Bundle-Name: AspectJ Utility Aspects 
+Bundle-Vendor: SpringSource
+Bundle-ManifestVersion: 2
+Import-Template: 
+ org.aspectj.lang.*;version="[1.6.2.BUILD-20080903, 1.6.2.BUILD-20080903]"

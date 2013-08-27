@@ -1,0 +1,5 @@
+Bundle-SymbolicName: com.springsource.org.apache.log4j
+Bundle-Name: Apache Log4J
+Bundle-Vendor: SpringSource
+Bundle-ManifestVersion: 2
+

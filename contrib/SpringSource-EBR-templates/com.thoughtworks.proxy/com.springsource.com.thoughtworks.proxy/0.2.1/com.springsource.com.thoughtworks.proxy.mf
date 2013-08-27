@@ -1,0 +1,6 @@
+Bundle-SymbolicName: com.springsource.com.thoughtworks.proxy
+Bundle-Name: ProxyToys
+Bundle-Vendor: SpringSource
+Bundle-ManifestVersion: 2
+Import-Template: 
+ net.sf.cglib.*;version="[2.1.0, 3.0.0)";resolution:=optional

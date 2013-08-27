@@ -1,0 +1,9 @@
+Bundle-SymbolicName: com.springsource.javax.ws.rs
+Bundle-Name: JAX-RS: Java API for RESTful Web Services
+Bundle-Vendor: SpringSource
+Bundle-ManifestVersion: 2
+Ignored-Existing-Headers: 
+ Bnd-LastModified,
+ Export-Package,
+ Import-Package,
+ Tool

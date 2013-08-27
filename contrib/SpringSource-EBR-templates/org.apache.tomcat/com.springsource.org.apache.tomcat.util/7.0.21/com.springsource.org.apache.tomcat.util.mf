@@ -1,0 +1,9 @@
+Bundle-SymbolicName: com.springsource.org.apache.tomcat.util
+Bundle-Name: Apache Tomcat Util
+Bundle-Vendor: SpringSource
+Bundle-ManifestVersion: 2
+Fragment-Host: com.springsource.org.apache.catalina;bundle-version="[7.0.21, 7.0.21]"
+Import-Template: 
+ javax.servlet.*;version="[3.0.0, 4.0.0)",
+ org.apache.juli.*;version="[7.0.21, 7.0.21]",
+ org.apache.tomcat.*;version="[7.0.21, 7.0.21]"

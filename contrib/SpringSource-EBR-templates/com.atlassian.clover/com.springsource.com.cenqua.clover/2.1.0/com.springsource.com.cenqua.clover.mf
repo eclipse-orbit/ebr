@@ -1,0 +1,14 @@
+Bundle-SymbolicName: com.springsource.com.cenqua.clover
+Bundle-Name: Atlassian Clover
+Bundle-Vendor: SpringSource
+Bundle-ManifestVersion: 2
+Import-Template: 
+ *;resolution:=optional
+Unversioned-Imports: 
+ *
+Excluded-Exports: 
+ clover.*,
+ cloverantlr.*,
+ com.keypoint.*,
+ com.lowagie.*,
+ org.apache.*

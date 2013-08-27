@@ -1,0 +1,21 @@
+Bundle-SymbolicName: com.springsource.org.mortbay.util
+Bundle-Name: Jetty Utilities
+Bundle-Vendor: SpringSource
+Bundle-ManifestVersion: 2
+Import-Template: 
+ javax.servlet;version="[2.5.0, 3.0.0)",
+ javax.servlet.http.*;version="[2.5.0, 3.0.0)",
+ org.slf4j.*;version="[1.5.0, 2.0.0)";resolution:=optional
+Ignored-Existing-Headers: 
+ Bnd-LastModified,
+ Import-Package,
+ Export-Package,
+ Ignore-Package,
+ Tool
+Excluded-Imports: 
+ org.mortbay.component,
+ org.mortbay.log,
+ org.mortbay.servlet,
+ org.mortbay.thread,
+ org.mortbay.util,
+ org.mortbay.util.ajax

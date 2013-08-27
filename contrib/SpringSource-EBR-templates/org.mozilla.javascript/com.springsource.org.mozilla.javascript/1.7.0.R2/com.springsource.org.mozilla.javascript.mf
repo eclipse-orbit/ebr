@@ -1,0 +1,13 @@
+Bundle-SymbolicName: com.springsource.org.mozilla.javascript
+Bundle-Name: Rhino: JavaScript for Java
+Bundle-Vendor: SpringSource
+Bundle-ManifestVersion: 2
+Import-Template: 
+ org.apache.xmlbeans.*;version="[2.2.0, 3.0.0)";resolution:=optional
+Unversioned-Imports: 
+ javax.swing.*,
+ javax.xml.namespace.*,
+ javax.xml.parsers.*,
+ javax.xml.transform.*,
+ org.w3c.dom.*,
+ org.xml.sax.*

@@ -1,0 +1,6 @@
+Bundle-SymbolicName: com.springsource.slf4j.bridge
+Bundle-Name: JUL to SLF4J bridge
+Bundle-Vendor: SpringSource
+Bundle-ManifestVersion: 2
+Import-Template: 
+ org.slf4j.*;version="[1.5.10, 1.5.10]"

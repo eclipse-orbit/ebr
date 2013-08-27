@@ -1,0 +1,11 @@
+Bundle-SymbolicName: com.springsource.org.drools.decisiontable
+Bundle-Name: Drools Spreadsheet Compiler
+Bundle-Vendor: SpringSource
+Bundle-ManifestVersion: 2
+Import-Template: 
+ jxl.*;version="[2.4.2, 3.0.0)",
+ org.drools;version="[4.0.4, 5.0.0)",
+ org.drools.compiler.*;version="[4.0.4, 5.0.0)",
+ org.drools.rule.*;version="[4.0.4, 5.0.0)",
+ org.drools.util.*;version="[4.0.4, 5.0.0)",
+ org.mvel.*;version="[1.2.21, 2.0.0)"

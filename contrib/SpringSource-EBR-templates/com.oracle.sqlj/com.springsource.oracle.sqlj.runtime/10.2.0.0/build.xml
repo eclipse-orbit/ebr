@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="com.springsource.oracle.sqlj.runtime">
+	<property name="version" value="10.2.0.0"/>
+	<property name="circular.dependency" value="true"/>
+	<property name="release.type" value="external"/>
+	<property name="publish.bucket" value="private.repository.springsource.com"/>
+	<import file="${basedir}/../../../../spring-build/add-osgi/default.xml"/>
+</project>

@@ -1,0 +1,7 @@
+Bundle-SymbolicName: com.springsource.jline
+Bundle-Name: Read/Edit Line Input for Java
+Bundle-Vendor: SpringSource
+Bundle-ManifestVersion: 2
+Ignored-Existing-Headers: 
+ Import-Bundle,
+ Export-Bundle

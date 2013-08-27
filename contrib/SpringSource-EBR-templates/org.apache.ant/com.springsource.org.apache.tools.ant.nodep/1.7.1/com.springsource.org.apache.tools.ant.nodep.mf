@@ -1,0 +1,7 @@
+Bundle-SymbolicName: com.springsource.org.apache.tools.ant.nodep
+Bundle-Name: Apache ANT - No Dependency
+Bundle-Vendor: SpringSource
+Bundle-ManifestVersion: 2
+Fragment-Host: com.springsource.org.apache.tools.ant;bundle-version="[1.7.1, 1.7.1]"
+Excluded-Imports:
+ org.apache.tools.ant.*

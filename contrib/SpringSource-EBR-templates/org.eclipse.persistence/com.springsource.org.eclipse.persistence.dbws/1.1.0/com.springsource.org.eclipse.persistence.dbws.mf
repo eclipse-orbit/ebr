@@ -1,0 +1,20 @@
+Bundle-SymbolicName: com.springsource.org.eclipse.persistence.dbws
+Bundle-Name: EclipseLink DBWS
+Bundle-Vendor: SpringSource
+Bundle-ManifestVersion: 2
+Ignored-Existing-Headers: 
+ Import-Package,
+ Export-Package,
+ Require-Bundle,
+ HK2-Bundle-Name
+Import-Template: 
+ javax.activation.*;version="[1.1.0, 2.0.0)",
+ javax.servlet.*;version="[2.4.0, 3.0.0)",
+ javax.xml.namespace.*;version="0",
+ javax.xml.soap.*;version="[1.3.0, 2.0.0)",
+ javax.xml.transform.*;version="0",
+ javax.xml.ws.*;version="[2.0.0, 3.0.0)",
+ org.eclipse.persistence.*;version="[1.1.0, 2.0.0)",
+ org.w3c.dom;version="0",
+ org.xml.sax;version="0"
+

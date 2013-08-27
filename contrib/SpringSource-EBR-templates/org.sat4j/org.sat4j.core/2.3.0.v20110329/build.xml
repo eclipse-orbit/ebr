@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="org.sat4j.core">
+	<property name="version" value="2.3.0.v20110329"/>
+	<property name="release.type" value="external"/>
+	<import file="${basedir}/../../../../spring-build/no-osgi/default.xml"/>
+</project>

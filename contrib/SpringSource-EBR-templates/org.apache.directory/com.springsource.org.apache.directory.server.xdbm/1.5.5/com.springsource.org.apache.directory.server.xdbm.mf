@@ -1,0 +1,9 @@
+Bundle-SymbolicName: com.springsource.org.apache.directory.server.xdbm
+Bundle-Name: Apache Directory Server XDBM
+Bundle-Vendor: SpringSource
+Bundle-ManifestVersion: 2
+Import-Template: 
+ org.apache.directory.server.core.entry;version="[1.5.5, 1.5.5]",
+ org.apache.directory.server.schema;version="[1.5.5, 1.5.5]",
+ org.apache.directory.server.schema.registries;version="[1.5.5, 1.5.5]",
+ org.apache.directory.shared.ldap.*;version="[0.9.15, 0.9.15]"

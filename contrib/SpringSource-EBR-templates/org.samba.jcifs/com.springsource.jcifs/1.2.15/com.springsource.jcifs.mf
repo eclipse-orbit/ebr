@@ -1,0 +1,6 @@
+Bundle-SymbolicName: com.springsource.jcifs
+Bundle-Name: Samba CIFS/SMB Client Library
+Bundle-Vendor: SpringSource
+Bundle-ManifestVersion: 2
+Import-Template: 
+ javax.servlet.*;version="[2.5.0, 3.0.0)";resolution:=optional

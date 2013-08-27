@@ -1,0 +1,10 @@
+Bundle-SymbolicName: com.springsource.org.apache.commons.httpclient
+Bundle-Name: Apache Commons HTTP Client
+Bundle-Vendor: SpringSource
+Bundle-ManifestVersion: 2
+Import-Template: 
+ org.apache.commons.codec.*;version="[1.3.0, 2.0.0)",
+ org.apache.commons.logging.*;version="[1.1.1, 2.0.0)"
+Unversioned-Imports: 
+ javax.crypto.*,
+ javax.net.*

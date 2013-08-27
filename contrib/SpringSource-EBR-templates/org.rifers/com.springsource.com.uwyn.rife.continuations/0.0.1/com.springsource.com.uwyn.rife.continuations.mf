@@ -1,0 +1,8 @@
+Bundle-SymbolicName: com.springsource.com.uwyn.rife.continuations
+Bundle-Name: RIFE Continuations
+Bundle-Vendor: SpringSource
+Bundle-ManifestVersion: 2
+Import-Template: 
+ junit.*;version="[3.8.2, 4.0.0)";resolution:=optional
+Unversioned-Imports: 
+ sun.security.*

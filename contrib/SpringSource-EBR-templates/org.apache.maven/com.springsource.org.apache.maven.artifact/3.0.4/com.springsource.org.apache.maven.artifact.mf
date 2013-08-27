@@ -1,0 +1,6 @@
+Bundle-SymbolicName: com.springsource.org.apache.maven.artifact
+Bundle-Name: Apache Maven Ant Tasks
+Bundle-Vendor: SpringSource
+Bundle-ManifestVersion: 2
+Import-Template: 
+ org.codehaus.plexus.util;version="0"

@@ -1,0 +1,6 @@
+Bundle-SymbolicName: com.springsource.org.jboss.classloading.spi
+Bundle-Name: JBoss ClassLoading SPI
+Bundle-Vendor: SpringSource
+Bundle-ManifestVersion: 2
+Import-Template: 
+ org.jboss.util.loading;version="[2.2.8.GA, 3.0.0)"

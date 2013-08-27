@@ -1,0 +1,14 @@
+Bundle-SymbolicName: com.springsource.org.eclipse.persistence.internal.jpa.modelgen
+Bundle-Vendor: SpringSource
+Bundle-Name: EclipseLink JPA ModelGen
+Bundle-ManifestVersion: 2
+Ignored-Existing-Headers: 
+ Eclipse-SourceBundle
+Fragment-Host: 
+ com.springsource.org.eclipse.persistence.jpa;bundle-version="[2.0.0, 2.0.0]"
+Import-Template: 
+ javax.persistence.*;version="[2.0.0, 3.0.0)",
+ org.eclipse.persistence.*;version="[2.0.0, 2.0.0]"
+Excluded-Imports: 
+ org.eclipse.persistence.jpa.*,
+ org.eclipse.persistence.internal.jpa.*

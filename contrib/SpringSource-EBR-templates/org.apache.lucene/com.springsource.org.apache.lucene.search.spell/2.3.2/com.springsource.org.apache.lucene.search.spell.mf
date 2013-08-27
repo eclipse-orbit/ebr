@@ -1,0 +1,11 @@
+Bundle-SymbolicName: com.springsource.org.apache.lucene.search.spell
+Bundle-Name: Lucene Search Engine: spellchecker
+Bundle-Vendor: SpringSource
+Bundle-ManifestVersion: 2
+Import-Template: 
+ org.apache.lucene.analysis;version="[2.3.2, 2.3.2]",
+ org.apache.lucene.document;version="[2.3.2, 2.3.2]",
+ org.apache.lucene.index;version="[2.3.2, 2.3.2]",
+ org.apache.lucene.search;version="[2.3.2, 2.3.2]",
+ org.apache.lucene.store;version="[2.3.2, 2.3.2]",
+ org.apache.lucene.util;version="[2.3.2, 2.3.2]"

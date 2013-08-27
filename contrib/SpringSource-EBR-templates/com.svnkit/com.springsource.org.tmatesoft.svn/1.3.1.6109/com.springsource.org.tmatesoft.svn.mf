@@ -1,0 +1,11 @@
+Bundle-SymbolicName: com.springsource.org.tmatesoft.svn
+Bundle-Name: SVNKit
+Bundle-Vendor: SpringSource
+Bundle-ManifestVersion: 2
+Import-Template: 
+ com.sun.jna.*;version="[3.1.0, 4.0.0)";resolution:=optional,
+ com.trilead.ssh2.*;version="[0.0.0.build213-svnkit-13-patch, 0.0.0.build213-svnkit-13-patch]";resolution:=optional,
+ org.tmatesoft.sqljet.*;version="[1.0.0.b616, 2.0.0)";resolution:=optional
+Excluded-Imports: 
+ org.eclipse.core.runtime,
+ org.tigris.subversion.javahl

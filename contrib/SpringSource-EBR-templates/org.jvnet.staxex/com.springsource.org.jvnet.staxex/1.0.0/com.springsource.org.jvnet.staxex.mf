@@ -1,0 +1,9 @@
+Bundle-SymbolicName: com.springsource.org.jvnet.staxex
+Bundle-Name: Extended StAX API
+Bundle-Vendor: SpringSource
+Bundle-ManifestVersion: 2
+Import-Template: 
+ javax.xml.stream.*;version="[1.0.0, 2.0.0)"
+Unversioned-Imports: 
+ javax.activation.*,
+ javax.xml.namespace.*

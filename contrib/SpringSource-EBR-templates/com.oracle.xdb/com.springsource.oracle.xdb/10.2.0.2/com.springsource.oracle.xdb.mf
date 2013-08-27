@@ -1,0 +1,14 @@
+Bundle-SymbolicName: com.springsource.oracle.xdb
+Bundle-Name: Oracle XML Database
+Bundle-Vendor: SpringSource
+Bundle-ManifestVersion: 2
+Import-Template: 
+ javax.servlet.*;version="[2.5.0, 3.0.0)";resolution:=optional,
+ oracle.aurora.*;version="[10.2.0.2, 10.3.0.0)";resolution:=optional,
+ oracle.jdbc.*;version="[10.2.0.2, 10.3.0.0)",
+ oracle.sql.*;version="[10.2.0.2, 10.3.0.0)",
+ oracle.xml.parser.v2.*;version="[10.2.0.2, 10.3.0.0)"
+Unversioned-Imports: 
+ javax.naming.*,
+ org.w3c.dom.*,
+ org.xml.sax.*

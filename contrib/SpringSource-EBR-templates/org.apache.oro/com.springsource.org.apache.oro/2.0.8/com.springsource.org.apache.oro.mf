@@ -1,0 +1,4 @@
+Bundle-SymbolicName: com.springsource.org.apache.oro
+Bundle-Name: Apache Oro Regular Expressions
+Bundle-Vendor: SpringSource
+Bundle-ManifestVersion: 2

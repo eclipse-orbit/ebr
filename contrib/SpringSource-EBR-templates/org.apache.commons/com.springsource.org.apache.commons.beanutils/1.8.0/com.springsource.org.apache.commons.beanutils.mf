@@ -1,0 +1,21 @@
+Bundle-SymbolicName: com.springsource.org.apache.commons.beanutils
+Bundle-Name: Apache Commons Bean Utilities
+Bundle-Vendor: SpringSource
+Bundle-ManifestVersion: 2
+Ignored-Existing-Headers: 
+ Bnd-LastModified,
+ Tool,
+ Ignore-Package,
+ Private-Package,
+ Import-Package
+Import-Template: 
+ org.apache.commons.collections.comparators.*;version="[3.2.1, 4.0.0)",
+ org.apache.commons.collections.keyvalue.*;version="[3.2.1, 4.0.0)",
+ org.apache.commons.collections.list.*;version="[3.2.1, 4.0.0)",
+ org.apache.commons.collections.set.*;version="[3.2.1, 4.0.0)",
+ org.apache.commons.logging.*;version="[1.1.1, 2.0.0)"
+Excluded-Imports: 
+ org.apache.commons.collections
+Excluded-Exports: 
+ org.apache.commons.collections
+

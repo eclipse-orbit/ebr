@@ -1,0 +1,10 @@
+Bundle-SymbolicName: com.springsource.org.apache.commons.dbcp
+Bundle-Name: Apache Commons Database Connection Pool
+Bundle-Vendor: SpringSource
+Bundle-ManifestVersion: 2
+Import-Template: 
+ org.apache.commons.pool.*;version="[1.3.0, 2.0.0)"
+Unversioned-Imports: 
+ javax.naming.*,
+ javax.sql.*,
+ org.xml.sax.*

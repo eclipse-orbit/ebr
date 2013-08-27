@@ -1,0 +1,6 @@
+Bundle-SymbolicName: com.springsource.com.mockobjects
+Bundle-Name: Mock Objects Framework
+Bundle-Vendor: SpringSource
+Bundle-ManifestVersion: 2
+Import-Template: 
+ junit.*;version="[3.8.2, 4.0.0)";resolution:=optional

@@ -1,0 +1,8 @@
+Bundle-SymbolicName: com.springsource.commonj.sdo
+Bundle-Name: EclipseLink Service Data Objects
+Bundle-Vendor: SpringSource
+Bundle-ManifestVersion: 2
+Fragment-Host: 
+ com.springsource.org.eclipse.persistence;bundle-version="[1.0.1, 2.0.0)"
+Unversioned-Imports: 
+ javax.xml.transform

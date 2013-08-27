@@ -1,0 +1,13 @@
+Bundle-SymbolicName: com.springsource.com.mchange.v2.c3p0
+Bundle-Name: c3p0 Connection Pool
+Bundle-Vendor: SpringSource
+Bundle-ManifestVersion: 2
+Import-Template: 
+ javax.management.*;resolution:=optional,
+ org.apache.log4j.*;version="[1.2.15, 1.3.0)";resolution:=optional
+Unversioned-Imports: 
+ javax.management.*,
+ javax.naming.*,
+ javax.sql.*,
+ javax.xml.parsers.*,
+ org.w3c.dom.*

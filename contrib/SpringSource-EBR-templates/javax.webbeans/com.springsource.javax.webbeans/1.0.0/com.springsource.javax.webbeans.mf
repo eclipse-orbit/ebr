@@ -1,0 +1,4 @@
+Bundle-SymbolicName: com.springsource.javax.webbeans
+Bundle-Name: JSR 299 WebBeans API
+Bundle-Vendor: SpringSource
+Bundle-ManifestVersion: 2

@@ -1,0 +1,12 @@
+Bundle-SymbolicName: com.springsource.org.h2
+Bundle-Name: H2 Database Engine
+Bundle-Vendor: SpringSource
+Bundle-ManifestVersion: 2
+Import-Template: 
+ javax.transaction.*;version="[1.0.1, 2.0.0)";resolution:=optional,
+ javax.servlet.*;version="[2.5.0, 3.0.0)";resolution:=optional,
+ org.apache.lucene.*;version="[2.3.0, 3.0.0)";resolution:=optional
+Unversioned-Imports: 
+ javax.naming.*,
+ javax.net.*,
+ javax.sql.*

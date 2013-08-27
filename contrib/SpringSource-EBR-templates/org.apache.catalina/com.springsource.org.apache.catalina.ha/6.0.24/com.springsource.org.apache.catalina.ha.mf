@@ -1,0 +1,19 @@
+Bundle-SymbolicName: com.springsource.org.apache.catalina.ha
+Bundle-Name: Apache Tomcat Catalina HA
+Bundle-Vendor: SpringSource
+Bundle-ManifestVersion: 2
+Import-Template: 
+ javax.servlet.*;version="[2.5.0, 3.0.0)",
+ org.apache.catalina;version="[6.0.24, 6.0.24]",
+ org.apache.catalina.authenticator;version="[6.0.24, 6.0.24]",
+ org.apache.catalina.connector;version="[6.0.24, 6.0.24]",
+ org.apache.catalina.core;version="[6.0.24, 6.0.24]",
+ org.apache.catalina.realm;version="[6.0.24, 6.0.24]",
+ org.apache.catalina.session;version="[6.0.24, 6.0.24]",
+ org.apache.catalina.tribes.*;version="[6.0.24, 6.0.24]",
+ org.apache.catalina.util;version="[6.0.24, 6.0.24]",
+ org.apache.catalina.valves;version="[6.0.24, 6.0.24]",
+ org.apache.juli.logging.*;version="[6.0.24, 6.0.24]",
+ org.apache.tomcat.util.*;version="[6.0.24, 6.0.24]"
+Unversioned-Imports: 
+ javax.management.*

@@ -1,0 +1,11 @@
+Bundle-SymbolicName: com.springsource.org.apache.derby.drda
+Bundle-Name: Derby Network Server
+Bundle-Vendor: SpringSource
+Bundle-ManifestVersion: 2
+Import-Template: 
+ javax.crypto.*;version="0",
+ javax.net.*;version="0",
+ javax.servlet.*;version="[2.4.0, 3.0.0)",
+ javax.sql.*;version="0",
+ javax.transaction.*;version="0",
+ org.apache.derby.*;version="[10.5.1000001.764942, 10.5.1000001.764942]"

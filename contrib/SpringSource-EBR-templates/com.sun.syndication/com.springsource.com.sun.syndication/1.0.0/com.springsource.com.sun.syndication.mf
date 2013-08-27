@@ -1,0 +1,13 @@
+Bundle-SymbolicName: com.springsource.com.sun.syndication
+Bundle-Name: ROME: RSS/Atom syndication and publishing tools
+Bundle-Vendor: SpringSource
+Bundle-ManifestVersion: 2
+Ignored-Existing-Headers: 
+ Tool,
+ Bnd-LastModified,
+ Export-Package,
+ Import-Package
+Import-Template: 
+ org.jdom.*;version="[1.0.0, 2.0.0)",
+ org.w3c.dom.*;version="0",
+ org.xml.sax.*;version="0"

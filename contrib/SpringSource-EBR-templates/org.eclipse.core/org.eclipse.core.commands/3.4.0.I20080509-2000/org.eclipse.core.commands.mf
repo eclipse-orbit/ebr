@@ -1,0 +1,7 @@
+Bundle-SymbolicName: org.eclipse.core.commands
+Bundle-Name: org.eclipse.core.commands
+Bundle-Vendor: SpringSource
+Bundle-ManifestVersion: 2
+Import-Template: 
+Unversioned-Imports: 
+Excluded-Imports: 

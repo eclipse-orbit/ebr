@@ -1,0 +1,30 @@
+Bundle-SymbolicName: com.springsource.org.apache.jackrabbit.core
+Bundle-Name: Apache Jackrabbit Core
+Bundle-Vendor: SpringSource
+Bundle-ManifestVersion: 2
+Import-Template: 
+ EDU.oswego.cs.dl.util.concurrent.*;version="[1.3.4, 2.0.0)",
+ javax.jcr.*;version="[1.0.0, 2.0.0)",
+ javax.transaction.*;version="[1.0.1, 2.0.0)",
+ org.apache.commons.collections.*;version="[3.1.0, 4.0.0)",
+ org.apache.lucene.*;version="[2.2.0, 3.0.0)",
+ org.apache.jackrabbit;version="[1.4.2, 2.0.0)",
+ org.apache.jackrabbit.api.*;version="[1.4.0, 2.0.0)",
+ org.apache.jackrabbit.commons.*;version="[1.4.2, 2.0.0)",
+ org.apache.jackrabbit.extractor.*;version="[1.4.0, 2.0.0)",
+ org.apache.jackrabbit.spi;version="[1.4.0, 2.0.0)",
+ org.apache.jackrabbit.spi.commons.*;version="[1.4.0, 2.0.0)",
+ org.apache.jackrabbit.util.*;version="[1.4.2, 2.0.0)",
+ org.apache.jackrabbit.uuid.*;version="[1.4.2, 2.0.0)",
+ org.apache.jackrabbit.value.*;version="[1.4.2, 2.0.0)",
+ org.slf4j.*;version="[1.3.0, 2.0.0)"
+Unversioned-Imports: 
+ javax.imageio.*,
+ javax.naming.*,
+ javax.security.*,
+ javax.sql.*,
+ javax.transaction.xa.*,
+ javax.xml.parsers.*,
+ javax.xml.transform.*,
+ org.w3c.dom.*,
+ org.xml.sax.*

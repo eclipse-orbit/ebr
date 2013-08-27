@@ -1,0 +1,20 @@
+Bundle-SymbolicName: com.springsource.org.apache.coyote
+Bundle-Name: Apache Tomcat/Coyote
+Bundle-Vendor: SpringSource
+Bundle-ManifestVersion: 2
+Fragment-Host: com.springsource.org.apache.catalina;bundle-version="[7.0.21, 7.0.21]"
+Import-Template: 
+ javax.servlet.*;version="[3.0.0, 4.0.0)",
+ org.apache.catalina.*;version="[7.0.21, 7.0.21]",
+ org.apache.juli.logging.*;version="[7.0.21, 7.0.21]",
+ org.apache.tomcat.util.res;version="[7.0.21, 7.0.21]"
+Unversioned-Imports: 
+ javax.management.*,
+ javax.naming.*,
+ javax.net.*,
+ javax.xml.parsers.*,
+ javax.security.*,
+ javax.xml.transform.*,
+ org.w3c.dom.*,
+ org.xml.sax.*
+

@@ -1,0 +1,6 @@
+Bundle-SymbolicName: com.springsource.edu.oswego.cs.dl.util.concurrent
+Bundle-Name: Concurrent
+Bundle-Vendor: SpringSource
+Bundle-ManifestVersion: 2
+Unversioned-Imports: 
+ javax.swing.*

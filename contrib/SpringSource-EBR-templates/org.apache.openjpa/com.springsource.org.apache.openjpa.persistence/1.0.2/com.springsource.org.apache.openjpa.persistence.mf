@@ -1,0 +1,23 @@
+Bundle-SymbolicName: com.springsource.org.apache.openjpa.persistence
+Bundle-Name: Apache OpenJPA Java Persistence API
+Bundle-Vendor: SpringSource
+Bundle-ManifestVersion: 2
+Import-Template: 
+ serp.*;version="[1.13.1, 1.14.0)",
+ javax.persistence.*;version="[1.0.0, 2.0.0)",
+ org.apache.commons.collections.*;version="[3.2.0, 4.0.0)",
+ org.apache.commons.lang.*;version="[2.1.0, 3.0.0)",
+ org.apache.openjpa.conf.*;version="[1.0.2, 1.0.2]",
+ org.apache.openjpa.datacache.*;version="[1.0.2, 1.0.2]",
+ org.apache.openjpa.ee.*;version="[1.0.2, 1.0.2]",
+ org.apache.openjpa.enhance.*;version="[1.0.2, 1.0.2]",
+ org.apache.openjpa.event.*;version="[1.0.2, 1.0.2]",
+ org.apache.openjpa.kernel.*;version="[1.0.2, 1.0.2]",
+ org.apache.openjpa.meta.*;version="[1.0.2, 1.0.2]",
+ org.apache.openjpa.util.*;version="[1.0.2, 1.0.2]",
+ org.apache.openjpa.lib.*;version="[1.0.2, 1.0.2]"
+Unversioned-Imports: 
+ javax.naming.*,
+ javax.rmi.*,
+ javax.sql.*,
+ org.xml.sax.*

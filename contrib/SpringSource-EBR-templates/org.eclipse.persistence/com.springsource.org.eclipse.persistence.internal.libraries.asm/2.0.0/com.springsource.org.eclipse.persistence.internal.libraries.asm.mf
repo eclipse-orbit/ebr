@@ -1,0 +1,13 @@
+Bundle-SymbolicName: com.springsource.org.eclipse.persistence.internal.libraries.asm
+Bundle-Name: EclipseLink ASM
+Bundle-Vendor: SpringSource
+Ignored-Existing-Headers: 
+ TODAY,
+ Bundle-RequiredExecutionEnvironment,
+ HK2-Bundle-Name,
+ Export-Package,
+ TSTAMP,
+ Bnd-LastModified,
+ Tool,
+ Import-Package,
+ DSTAMP

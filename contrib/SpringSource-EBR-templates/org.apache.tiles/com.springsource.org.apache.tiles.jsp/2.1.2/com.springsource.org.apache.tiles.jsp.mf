@@ -1,0 +1,17 @@
+Bundle-SymbolicName: com.springsource.org.apache.tiles.jsp
+Bundle-Name: Apache Tiles 2 JSP
+Bundle-Vendor: SpringSource
+Bundle-ManifestVersion: 2
+Ignored-Existing-Headers: 
+ Bnd-LastModified,
+ Import-Package,
+ Export-Package,
+ Tool
+Fragment-Host: 
+ com.springsource.org.apache.tiles.core;bundle-version="[2.1.2.osgi, 2.1.2.osgi]"
+Import-Template: 
+ javax.el;version="[1.0.0, 2.0.0)",
+ javax.servlet.*;version="[2.4.0, 3.0.0)",
+ javax.servlet.jsp.*;version="[2.0.0, 3.0.0)",
+ org.apache.commons.logging;version="[1.1.0, 2.0.0)",
+ org.apache.tiles.*;version="[2.1.2, 2.1.3)"

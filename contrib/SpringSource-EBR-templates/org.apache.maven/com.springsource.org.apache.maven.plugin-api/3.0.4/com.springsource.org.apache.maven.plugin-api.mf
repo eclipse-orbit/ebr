@@ -1,0 +1,20 @@
+Bundle-SymbolicName: com.springsource.org.apache.maven.plugin-api
+Bundle-Name: Apache Maven Ant Tasks
+Bundle-Vendor: SpringSource
+Bundle-ManifestVersion: 2
+Import-Template: 
+ org.codehaus.plexus.logging;version="0",
+ org.codehaus.plexus.configuration;version="0",
+ org.codehaus.plexus.configuration.xml;version="0",
+ org.codehaus.plexus.component;version="0",
+ org.codehaus.plexus.component.repository;version="0",
+ org.codehaus.plexus.classworlds.realm;version="0",
+ org.codehaus.plexus.util;version="0",
+ org.codehaus.plexus.util.xml;version="0",
+ org.codehaus.plexus.util.xml.pull;version="0",
+ org.apache.maven.plugin.lifecycle.io.xpp3;version="0",
+ org.apache.maven.plugin.lifecycle;version="0",
+ org.apache.maven.model;version="0",
+ org.apache.maven.artifact;version="0"
+Excluded-Imports: 
+ org.apache.maven.plugin.lifecycle

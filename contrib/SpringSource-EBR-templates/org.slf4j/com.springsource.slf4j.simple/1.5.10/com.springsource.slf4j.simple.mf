@@ -1,0 +1,12 @@
+Bundle-SymbolicName: com.springsource.slf4j.simple
+Bundle-Name: SLF4J Simple Binding
+Bundle-Vendor: SpringSource
+Bundle-ManifestVersion: 2
+Ignored-Existing-Headers: 
+ Bundle-RequiredExecutionEnvironment,
+ Require-Bundle,
+ Import-Package,
+ Export-Package
+Import-Template: 
+ org.slf4j.*;version="[1.5.10, 1.5.10]"
+Fragment-Host: com.springsource.slf4j.api;bundle-version="[1.5.10, 1.5.10]"

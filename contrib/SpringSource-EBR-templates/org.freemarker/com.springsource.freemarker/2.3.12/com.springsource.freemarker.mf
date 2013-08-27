@@ -1,0 +1,30 @@
+Bundle-SymbolicName: com.springsource.freemarker
+Bundle-Name: Freemarker Templating Engine
+Bundle-Vendor: SpringSource
+Bundle-ManifestVersion: 2
+Import-Template: 
+ javax.el.*;version="[1.0.0, 2.0.0)";resolution:=optional,
+ javax.servlet;version="[2.5.0, 3.0.0)";resolution:=optional,
+ javax.servlet.http;version="[2.5.0, 3.0.0)";resolution:=optional,
+ javax.servlet.jsp;version="[2.1.0, 3.0.0)";resolution:=optional,
+ javax.servlet.jsp.el;version="[2.1.0, 3.0.0)";resolution:=optional,
+ javax.servlet.jsp.tagext;version="[2.1.0, 3.0.0)";resolution:=optional,
+ org.apache.log.*;version="[1.0.1, 1.0.1]";resolution:=optional,
+ org.apache.log4j.*;version="[1.2.15, 2.0.0)",
+ org.apache.tools.ant.*;version="[1.7.0, 2.0.0)";resolution:=optional,
+ org.apache.xml.*;version="[2.7.0, 3.0.0)";resolution:=optional,
+ org.apache.xpath.*;version="[2.7.0, 3.0.0)";resolution:=optional,
+ org.dom4j.*;version="[1.6.1, 2.0.0)";resolution:=optional,
+ org.jaxen.*;version="[1.1.1, 2.0.0)";resolution:=optional,
+ org.jdom.*;version="[1.0.0, 2.0.0)";resolution:=optional,
+ org.mozilla.javascript.*;resolution:=optional,
+ org.python.*;version="[2.2.1, 2.3.0)";resolution:=optional
+Unversioned-Imports: 
+ javax.swing.*,
+ javax.xml.*,
+ org.mozilla.javascript.*,
+ org.w3c.dom,,
+ org.xml.sax.*
+Excluded-Imports: 
+ com.sun.org.apache.*,
+ org.w3c.dom.traversal.*

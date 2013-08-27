@@ -1,0 +1,9 @@
+Bundle-SymbolicName: com.springsource.net.sf.xslthl
+Bundle-Name: XSLT for Syntax Highlighting
+Bundle-Vendor: SpringSource
+Bundle-ManifestVersion: 2
+Unversioned-Imports: 
+ com.icl.saxon.*,
+ javax.xml.parsers.*,
+ org.w3c.dom.*,
+ org.xml.sax.*

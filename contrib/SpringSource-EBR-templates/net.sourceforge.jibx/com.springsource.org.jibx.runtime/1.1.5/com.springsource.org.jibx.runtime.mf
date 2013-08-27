@@ -1,0 +1,9 @@
+Bundle-SymbolicName: com.springsource.org.jibx.runtime
+Bundle-Name: JiBX - XML Data Binding for Java Runtime
+Bundle-Vendor: SpringSource
+Bundle-ManifestVersion: 2
+Import-Template: 
+ javax.xml.stream.*;version="[1.0.1, 2.0.0)",
+ org.xmlpull.v1.*;version="[1.1.4, 2.0.0)"
+Unversioned-Imports: 
+Excluded-Imports: 

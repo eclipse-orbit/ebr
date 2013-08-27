@@ -1,0 +1,18 @@
+Bundle-SymbolicName: com.springsource.com.sun.jini.start
+Bundle-Name: Apache River Start
+Bundle-Vendor: SpringSource
+Bundle-ManifestVersion: 2
+Excluded-Exports: 
+ com.sun.jini.action,
+ com.sun.jini.collection,
+ com.sun.jini.config,
+ com.sun.jini.logging
+Import-Template: 
+ net.jini.*;version="[2.1.1.osgi, 2.1.1.osgi]"
+Unversioned-Imports: 
+ javax.security.*
+Import-Package: 
+ com.sun.jini.logging;version="[2.1.1.osgi,2.1.1.osgi]",
+ com.sun.jini.action;version="[2.1.1.osgi,2.1.1.osgi]",
+ com.sun.jini.collection;version="[2.1.1.osgi,2.1.1.osgi]",
+ com.sun.jini.config;version="[2.1.1.osgi,2.1.1.osgi]"

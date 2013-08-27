@@ -1,0 +1,14 @@
+Bundle-SymbolicName: com.springsource.org.apache.velocity.tools.view
+Bundle-Name: Apache Velocity View Tools
+Bundle-Vendor: SpringSource
+Bundle-ManifestVersion: 2
+Import-Template: 
+ javax.servlet.*;version="[2.5.0, 3.0.0)",
+ org.apache.commons.beanutils.*;version="[1.7.0, 2.0.0)",
+ org.apache.commons.collections.*;version="[3.2.0, 4.0.0)",
+ org.apache.commons.digester.*;version="[1.8.0, 2.0.0)",
+ org.apache.commons.lang.*;version="[2.1.0, 3.0.0)",
+ org.apache.commons.logging;version="[1.1.0, 2.0.0)",
+ org.apache.velocity.*;version="[1.5.0, 2.0.0)"
+Unversioned-Imports: 
+ org.xml.sax.*

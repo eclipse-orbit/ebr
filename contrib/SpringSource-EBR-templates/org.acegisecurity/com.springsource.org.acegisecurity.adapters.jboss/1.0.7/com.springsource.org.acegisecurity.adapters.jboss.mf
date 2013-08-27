@@ -1,0 +1,22 @@
+Bundle-SymbolicName: com.springsource.org.acegisecurity.adapters.jboss
+Bundle-Name: Acegi Security - Adapters for JBoss
+Bundle-Vendor: SpringSource
+Bundle-ManifestVersion: 2
+Import-Template: 
+ javax.naming;version="",
+ javax.security.auth;version="",
+ javax.security.auth.callback;version="",
+ javax.security.auth.login;version="",
+ javax.servlet;version="",
+ org.acegisecurity;version="",
+ org.acegisecurity.adapters;version="",
+ org.acegisecurity.context;version="",
+ org.acegisecurity.providers;version="",
+ org.apache.commons.logging;version="",
+ org.jboss.logging;version="",
+ org.jboss.security;version="",
+ org.jboss.security.auth.spi;version="",
+ org.springframework.beans.factory;version="",
+ org.springframework.beans.factory.access;version="",
+ org.springframework.context;version="",
+ org.springframework.context.support;version=""

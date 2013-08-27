@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="http://ivyrep.jayasoft.org/ivy-doc.xsl"?>
+<ivy-module
+		xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+		xsi:noNamespaceSchemaLocation="http://incubator.apache.org/ivy/schemas/ivy.xsd"
+		version="1.3">
+
+	<info organisation="com.sun.xml" module="com.springsource.com.sun.tools.xjc"/>
+
+	<configurations>
+		<include file="${spring.build.dir}/common/default-ivy-configurations.xml"/>
+	</configurations>
+
+	<publications>
+		<artifact name="${ant.project.name}"/>
+		<artifact name="${ant.project.name}-sources" type="src" ext="jar"/>
+		<artifact name="license" type="license" ext="txt"/>
+	</publications>
+
+	<dependencies>
+		<dependency org="com.sun.msv" name="com.springsource.com.sun.msv" rev="0.0.0.20081113" conf="optional->compile"/>
+		<dependency org="com.sun.msv" name="com.springsource.com.sun.msv.datatype" rev="0.0.0.20060615" conf="optional->compile"/>
+		<dependency org="com.sun.xml" name="com.springsource.com.sun.xml.bind" rev="2.1.7" conf="compile->compile"/>
+		<dependency org="com.sun.xml" name="com.springsource.com.sun.xml.bind.jaxb1" rev="2.1.7" conf="compile->compile"/>
+		<dependency org="javax.activation" name="com.springsource.javax.activation" rev="1.1.0" conf="provided->compile"/>
+		<dependency org="javax.xml.bind" name="com.springsource.javax.xml.bind" rev="2.1.7" conf="compile->compile"/>
+		<dependency org="javax.xml.stream" name="com.springsource.javax.xml.stream" rev="1.0.1" conf="provided->compile"/>
+		<dependency org="org.apache.ant" name="com.springsource.org.apache.tools.ant" rev="1.7.0" conf="provided->compile"/>
+		<dependency org="org.dom4j" name="com.springsource.org.dom4j" rev="1.6.1" conf="compile->compile"/>
+		<dependency org="net.sourceforge.iso-relax" name="com.springsource.org.iso_relax.verifier" rev="0.0.0.20041111" conf="compile->compile"/>
+	</dependencies>
+
+</ivy-module>

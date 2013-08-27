@@ -1,0 +1,11 @@
+Bundle-SymbolicName: com.springsource.org.logicalcobwebs.cglib.core
+Bundle-Name: Proxool JDBC connection pool - re-packaged CGLib version
+Bundle-Vendor: SpringSource
+Bundle-ManifestVersion: 2
+Import-Template: 
+ net.sf.cglib.*;version="[2.1.3, 3.0.0)",
+ org.apache.tools.ant.*;version="[1.7.0, 2.0.0)";resolution:=optional,
+ org.codehaus.aspectwerkz.*;version="[0.8.1, 0.9.0)";resolution:=optional
+Excluded-Imports: 
+ org.objectweb.asm.*,
+ org.logicalcobwebs.cglib.asm.util.*

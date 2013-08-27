@@ -1,0 +1,32 @@
+Bundle-SymbolicName: com.springsource.org.apache.myfaces
+Bundle-Name: Apache MyFaces JSF Implementation
+Bundle-Vendor: SpringSource
+Bundle-ManifestVersion: 2
+Fragment-Host: com.springsource.org.apache.myfaces.javax.faces;bundle-version="[1.2.2, 1.3.0)"
+Import-Template: 
+ com.google.inject.*;version="[1.0.0, 2.0.0)";resolution:=optional,
+ javax.annotation.*;version="[1.0.0, 2.0.0)",
+ javax.ejb.*;version="[3.0.0, 4.0.0)";resolution:=optional,
+ javax.el.*;version="[1.0.0, 2.0.0)",
+ javax.persistence.*;version="[1.0.0, 2.0.0)",
+ javax.portlet.*;version="[1.0.0, 2.0.0)";resolution:=optional,
+ javax.servlet;version="[2.5.0, 3.0.0)",
+ javax.servlet.http;version="[2.5.0, 3.0.0)",
+ javax.servlet.jsp;version="[2.1.0, 3.0.0)",
+ javax.servlet.jsp.jstl.*;version="[1.1.2, 2.0.0)",
+ javax.servlet.jsp.tagext;version="[2.1.0, 3.0.0)",
+ org.apache;version="[6.0.16, 7.0.0)",
+ org.apache.commons.beanutils.*;version="[1.7.0, 2.0.0)",
+ org.apache.commons.codec.*;version="[1.3.0, 2.0.0)",
+ org.apache.commons.collections.*;version="[3.2.0, 4.0.0)",
+ org.apache.commons.digester.*;version="[1.8.0, 2.0.0)",
+ org.apache.commons.discovery.*;version="[0.4.0, 1.0.0)",
+ org.apache.commons.logging.*;version="[1.1.1, 2.0.0)"
+Unversioned-Imports: 
+ javax.crypto.*,
+ javax.naming.*,
+ javax.xml.*,
+ org.w3c.dom.*,
+ org.xml.sax.*
+Excluded-Imports: 
+ javax.faces.*

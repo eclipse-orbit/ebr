@@ -1,0 +1,13 @@
+Bundle-SymbolicName: com.springsource.com.lowagie.text
+Bundle-Name: Lowagie iText
+Bundle-Vendor: SpringSource
+Bundle-ManifestVersion: 2
+Import-Template: 
+ org.bouncycastle.*;version="[117, 117]";resolution:=optional
+Unversioned-Imports: 
+ javax.crypto.*,
+ javax.imageio.*,
+ javax.swing.*,
+ javax.xml.*,
+ org.w3c.dom.*,
+ org.xml.sax.*

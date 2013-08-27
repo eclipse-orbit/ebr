@@ -1,0 +1,21 @@
+Bundle-SymbolicName: com.springsource.org.eclipse.persistence.dbws
+Bundle-Name: EclipseLink DBWS
+Bundle-Vendor: SpringSource
+Bundle-ManifestVersion: 2
+Ignored-Existing-Headers: 
+ Import-Package,
+ Export-Package,
+ Require-Bundle,
+ HK2-Bundle-Name,
+ TODAY,
+ Bundle-RequiredExecutionEnvironment,
+ TSTAMP,
+ Include-Resource,
+ Bnd-LastModified,
+ Tool,
+ Private-Package,
+ DSTAMP
+Import-Template: 
+ javax.servlet;version="[2.4.0, 3.0.0)";resolution:=optional,
+ org.eclipse.persistence.*;version="[2.0.0, 2.0.0]",
+ org.eclipse.persistence.internal.libraries.asm;version="[2.0.0, 2.0.0]"

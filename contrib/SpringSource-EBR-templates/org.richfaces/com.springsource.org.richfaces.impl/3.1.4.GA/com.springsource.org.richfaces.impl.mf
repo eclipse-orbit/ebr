@@ -1,0 +1,36 @@
+Bundle-SymbolicName: com.springsource.org.richfaces.impl
+Bundle-Name: RichFaces JSF Component Library Implementation
+Bundle-Vendor: SpringSource
+Bundle-ManifestVersion: 2
+Fragment-Host: 
+ com.springsource.org.richfaces;bundle-version="[3.1.4.GA, 3.1.4.GA]"
+Import-Template: 
+ com.opensymphony.oscache.*;version="[2.1.0, 3.0.0)";resolution:=optional,
+ com.sun.facelets.*;version="[1.1.14, 2.0.0)";resolution:=optional,
+ javax.el.*;version="[1.0.0, 2.0.0)",
+ javax.faces.*;version="[1.1.0, 2.0.0)",
+ javax.servlet;version="[2.5.0, 3.0.0)",
+ javax.servlet.http;version="[2.5.0, 3.0.0)",
+ javax.servlet.jsp;version="[2.1.0, 3.0.0)",
+ javax.servlet.jsp.jstl.sql;version="[1.1.2, 2.0.0)",
+ org.apache.commons.beanutils.*;version="[1.7.0, 2.0.0)",
+ org.apache.commons.collections.*;version="[3.2.0, 4.0.0)",
+ org.apache.commons.digester.*;version="[1.8.0, 2.0.0)",
+ org.apache.commons.logging.*;version="[1.1.1, 2.0.0)",
+ org.apache.html.*;version="[2.8.1, 3.0.0)";resolution:=optional,
+ org.apache.log4j.*;version="[1.2.15, 2.0.0)",
+ org.apache.xerces.*;version="[2.8.1, 3.0.0)";resolution:=optional,
+ org.cyberneko.*;version="[0.9.5, 1.0.0)"
+Unversioned-Imports: 
+ javax.crypto.*,
+ javax.imageio.*,
+ javax.xml.*,
+ org.w3c.dom.*,
+ org.xml.sax.*
+Excluded-Imports: 
+ org.ajax4jsf.*,
+ org.richfaces.component.*,
+ org.richfaces.model.*,
+ org.richfaces.skin.*
+Excluded-Exports: 
+ org.ajax4jsf.*

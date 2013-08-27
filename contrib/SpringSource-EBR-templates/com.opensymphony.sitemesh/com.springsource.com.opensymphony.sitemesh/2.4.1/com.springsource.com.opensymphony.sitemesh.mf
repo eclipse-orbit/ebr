@@ -1,0 +1,10 @@
+Bundle-SymbolicName: com.springsource.com.opensymphony.sitemesh
+Bundle-Name: SiteMesh Page Decorator Plugin
+Bundle-Vendor: SpringSource
+Bundle-ManifestVersion: 2
+Import-Template: 
+ freemarker.*;version="[2.3.12, 3.0.0)";resolution:=optional,
+ javax.servlet.*;version="[2.3.0, 3.0.0)",
+ javax.servlet.jsp.*;version="[1.2.0, 3.0.0)",
+ org.apache.tapestry.*;version="[3.0.1, 5.0.0)";resolution:=optional,
+ org.apache.velocity.*;version="[1.3.1, 2.0.0)";resolution:=optional

@@ -1,0 +1,7 @@
+Bundle-SymbolicName: com.springsource.com.steadystate.css
+Bundle-Name: SteadyState CSS Parser
+Bundle-Vendor: SpringSource
+Bundle-ManifestVersion: 2
+Import-Template: 
+ org.w3c.css.*;version="[1.3.0, 2.0.0)";resolution:=optional,
+ org.w3c.dom.*;version="0"

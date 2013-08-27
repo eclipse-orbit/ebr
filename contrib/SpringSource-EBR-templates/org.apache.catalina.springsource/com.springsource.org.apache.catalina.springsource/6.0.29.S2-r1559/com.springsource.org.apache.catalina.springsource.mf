@@ -1,0 +1,23 @@
+Bundle-SymbolicName: com.springsource.org.apache.catalina.springsource
+Bundle-Name: Apache Tomcat Catalina
+Bundle-Vendor: SpringSource
+Bundle-ManifestVersion: 2
+Import-Template: 
+ javax.annotation.*;version="[1.0.0, 2.0.0)",
+ javax.ejb.*;version="[3.0.0, 4.0.0)",
+ javax.mail.*;version="[1.4.0, 2.0.0)",
+ javax.persistence.*;version="[1.0.0, 2.0.0)",
+ javax.servlet.*;version="[2.5.0, 3.0.0)",
+ javax.xml.ws.*;version="[2.1.1, 3.0.0)",
+ org.apache.coyote.*;version="[6.0.29.S2-r1559, 6.0.29.S2-r1559]",
+ org.apache.juli.*;version="[6.0.29.S2-r1559, 6.0.29.S2-r1559]",
+ org.apache.tomcat.*;version="[6.0.29.S2-r1559, 6.0.29.S2-r1559]"
+Unversioned-Imports: 
+ javax.management.*,
+ javax.naming.*,
+ javax.security.*,
+ javax.sql.*,
+ javax.xml.parsers.*,
+ javax.xml.transform.*,
+ org.w3c.dom.*,
+ org.xml.sax.*

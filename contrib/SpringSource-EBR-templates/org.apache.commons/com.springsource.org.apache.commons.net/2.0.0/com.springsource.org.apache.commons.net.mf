@@ -1,0 +1,9 @@
+Bundle-SymbolicName: com.springsource.org.apache.commons.net
+Bundle-Name: Apache Commons Net
+Bundle-Vendor: SpringSource
+Bundle-ManifestVersion: 2
+Ignored-Existing-Headers: 
+ Export-Package,
+ Tool,
+ Bnd-LastModified,
+ Import-Package

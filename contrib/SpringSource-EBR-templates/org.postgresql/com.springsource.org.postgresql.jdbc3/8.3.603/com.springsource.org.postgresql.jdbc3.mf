@@ -1,0 +1,10 @@
+Bundle-SymbolicName: com.springsource.org.postgresql.jdbc3
+Bundle-Name: PostgreSQL JDBC3 Driver
+Bundle-Vendor: SpringSource
+Bundle-ManifestVersion: 2
+Import-Template: 
+ javax.transaction.*;version="[1.0.1, 2.0.0)";resolution:=optional
+Unversioned-Imports: 
+ javax.naming.*,
+ javax.net.*,
+ javax.sql.*

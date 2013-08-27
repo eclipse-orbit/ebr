@@ -1,0 +1,11 @@
+Bundle-SymbolicName: com.springsource.org.mvel
+Bundle-Name: MVFlex Expression Language
+Bundle-Vendor: SpringSource
+Bundle-ManifestVersion: 2
+Import-Template: 
+ javax.servlet.*;version="[2.4.0, 3.0.0)";resolution:=optional,
+ junit.*;version="[3.8.2, 4.0.0)";resolution:=optional,
+ ognl.*;version="[2.6.9, 3.0.0)";resolution:=optional,
+ javax.swing.*;resolution:=optional
+Unversioned-Imports: 
+ javax.swing.*

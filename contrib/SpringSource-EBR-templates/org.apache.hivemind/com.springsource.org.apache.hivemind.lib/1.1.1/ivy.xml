@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="http://ivyrep.jayasoft.org/ivy-doc.xsl"?>
+<ivy-module
+		xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+		xsi:noNamespaceSchemaLocation="http://incubator.apache.org/ivy/schemas/ivy.xsd"
+		version="1.3">
+
+	<info organisation="org.apache.hivemind" module="com.springsource.org.apache.hivemind.lib"/>
+
+	<configurations>
+		<include file="${spring.build.dir}/common/default-ivy-configurations.xml"/>
+	</configurations>
+
+	<publications>
+		<artifact name="${ant.project.name}"/>
+		<artifact name="${ant.project.name}-sources" type="src" ext="jar"/>
+		<artifact name="license" type="license" ext="txt"/>
+	</publications>
+
+	<dependencies>
+		<dependency org="org.codehaus.groovy" name="com.springsource.org.codehaus.groovy" rev="1.5.1" conf="optional->compile"/>
+		<dependency org="org.aopalliance" name="com.springsource.org.aopalliance" rev="1.0.0" conf="optional->compile"/>
+		<dependency org="org.apache.commons" name="com.springsource.org.apache.commons.logging" rev="1.1.1" conf="compile->compile"/>
+		<dependency org="org.apache.hivemind" name="com.springsource.org.apache.hivemind" rev="1.1.1" conf="compile->compile"/>
+		<dependency org="org.springframework" name="org.springframework.beans" rev="2.5.4.A" conf="optional->compile"/>
+	</dependencies>
+
+</ivy-module>

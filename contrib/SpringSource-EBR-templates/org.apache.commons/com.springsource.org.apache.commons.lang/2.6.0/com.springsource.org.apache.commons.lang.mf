@@ -1,0 +1,9 @@
+Bundle-SymbolicName: com.springsource.org.apache.commons.lang
+Bundle-Name: Apache Commons Lang
+Bundle-Vendor: SpringSource
+Bundle-ManifestVersion: 2
+Ignored-Existing-Headers: 
+ Bnd-LastModified,
+ Import-Package,
+ Export-Package,
+ Tool

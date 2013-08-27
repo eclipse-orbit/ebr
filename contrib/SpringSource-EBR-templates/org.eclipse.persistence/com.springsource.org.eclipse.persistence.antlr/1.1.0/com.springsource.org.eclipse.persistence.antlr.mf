@@ -1,0 +1,7 @@
+Bundle-SymbolicName: com.springsource.org.eclipse.persistence.antlr
+Bundle-Vendor: SpringSource
+Bundle-Name: EclipseLink ANTLR
+Bundle-ManifestVersion: 2
+Ignored-Existing-Headers: 
+ HK2-Bundle-Name,
+ Export-Package

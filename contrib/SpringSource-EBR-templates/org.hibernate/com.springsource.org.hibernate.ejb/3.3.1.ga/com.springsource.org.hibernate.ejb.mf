@@ -1,0 +1,38 @@
+Bundle-SymbolicName: com.springsource.org.hibernate.ejb
+Bundle-Name: JBoss Hibernate Entity Manager
+Bundle-Vendor: SpringSource
+Bundle-ManifestVersion: 2
+Fragment-Host: com.springsource.org.hibernate;bundle-version="[3.2.6.ga, 3.3.0)"
+Import-Template: 
+ javassist.*;version="[3.3.0.ga, 4.0.0)",
+ javax.persistence.*;version="[1.0.0, 2.0.0)",
+ javax.transaction.*;version="[1.0.1, 2.0.0)";resolution:=optional,
+ org.apache.commons.logging.*;version="[1.1.1, 2.0.0)",
+ org.hibernate.annotations.common.*;version="[3.3.0.ga, 3.4.0)",
+ org.jboss.util.*;version="[2.0.4.GA, 3.0.0)",
+ org.dom4j.*;version="[1.6.1, 2.0.0)"
+Unversioned-Imports: 
+ javax.naming.*,
+ javax.sql.*,
+ javax.xml.*,
+ org.w3c.dom.*,
+ org.xml.sax.*
+Excluded-Imports: 
+ org.hibernate,
+ org.hibernate.bytecode.*,
+ org.hibernate.cfg.*,
+ org.hibernate.classic.*,
+ org.hibernate.connection.*,
+ org.hibernate.engine.*,
+ org.hibernate.event.*,
+ org.hibernate.exception.*,
+ org.hibernate.hql.*,
+ org.hibernate.jdbc.*,
+ org.hibernate.mapping.*,
+ org.hibernate.metadata.*,
+ org.hibernate.persister.*,
+ org.hibernate.proxy.*,
+ org.hibernate.secure.*,
+ org.hibernate.transaction.*,
+ org.hibernate.type.*,
+ org.hibernate.util.*

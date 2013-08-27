@@ -1,0 +1,14 @@
+Bundle-SymbolicName: com.springsource.org.apache.wicket.spring.injection.annot
+Bundle-Name: Wicket Spring Integration through Annotations
+Bundle-Vendor: SpringSource
+Bundle-ManifestVersion: 2
+Import-Template: 
+ javax.servlet.*;version="[2.5.0, 3.0.0)",
+ org.apache.wicket;version="[1.3.3, 1.3.3]",
+ org.apache.wicket.application.*;version="[1.3.3, 1.3.3]",
+ org.apache.wicket.injection.*;version="[1.3.3, 1.3.3]",
+ org.apache.wicket.protocol.*;version="[1.3.3, 1.3.3]",
+ org.apache.wicket.proxy.*;version="[1.3.3, 1.3.3]",
+ org.apache.wicket.spring.*;version="[1.3.3, 1.3.3]",
+ org.springframework.context.*;version="[2.5.4.A, 3.0.0)",
+ org.springframework.web.*;version="[2.5.4.A, 3.0.0)"

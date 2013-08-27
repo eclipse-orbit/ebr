@@ -1,0 +1,6 @@
+Bundle-Name: jsr166
+Bundle-Vendor: SpringSource
+Bundle-ManifestVersion: 2
+Bundle-SymbolicName: jsr166
+Import-Package: 
+ sun.misc;version="0";resolution:=optional

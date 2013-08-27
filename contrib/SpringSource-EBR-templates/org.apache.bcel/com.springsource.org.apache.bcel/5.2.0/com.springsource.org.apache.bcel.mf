@@ -1,0 +1,6 @@
+Bundle-SymbolicName: com.springsource.org.apache.bcel
+Bundle-Name: Apache Byte Code Engineering Library
+Bundle-Vendor: SpringSource
+Bundle-ManifestVersion: 2
+Import-Template: 
+ javax.swing.*;version="0";resolution:=optional

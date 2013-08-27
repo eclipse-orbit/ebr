@@ -1,0 +1,16 @@
+Bundle-SymbolicName: com.springsource.org.codehaus.jackson.mapper
+Bundle-Name: Jackson JSON mapper
+Bundle-Vendor: SpringSource
+Bundle-ManifestVersion: 2
+Ignored-Existing-Headers: 
+ Bnd-LastModified,
+ Import-Package,
+ Export-Package,
+ Tool,
+ Private-Package
+Import-Template: 
+ org.codehaus.jackson.*;version="[0.9.9.4, 1.0.0)"
+Excluded-Exports: 
+ org.codehaus.jackson.map.introspect,
+ org.codehaus.jackson.map.type,
+ org.codehaus.jackson.map.util

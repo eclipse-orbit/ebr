@@ -1,0 +1,8 @@
+Bundle-SymbolicName: com.springsource.commonj.sdo
+Bundle-Name: EclipseLink Service Data Objects
+Bundle-Vendor: SpringSource
+Bundle-ManifestVersion: 2
+Ignored-Existing-Headers: 
+ Export-Package
+Import-Template: 
+ javax.xml.transform.*;version="0"

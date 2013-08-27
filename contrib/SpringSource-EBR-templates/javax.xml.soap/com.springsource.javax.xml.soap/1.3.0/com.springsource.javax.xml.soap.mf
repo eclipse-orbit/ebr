@@ -1,0 +1,12 @@
+Bundle-SymbolicName: com.springsource.javax.xml.soap
+Bundle-Name: Java SOAP API
+Bundle-Vendor: SpringSource
+Bundle-ManifestVersion: 2
+Import-Template: 
+ javax.activation.*;version="[1.1.0, 2.0.0)"
+Unversioned-Imports: 
+ javax.xml.namespace.*,
+ javax.xml.transform.*,
+ org.w3c.dom.*
+Excluded-Exports: 
+ javax.xml.namespace.*

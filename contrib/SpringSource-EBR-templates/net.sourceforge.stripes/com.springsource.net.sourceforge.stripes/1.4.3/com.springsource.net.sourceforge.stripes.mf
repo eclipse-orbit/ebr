@@ -1,0 +1,18 @@
+Bundle-SymbolicName: com.springsource.net.sourceforge.stripes
+Bundle-Name: Stripes
+Bundle-Vendor: SpringSource
+Bundle-ManifestVersion: 2
+Import-Template: 
+ com.oreilly.servlet.*;version="[0.0.0.BUILD-20021105, 1.0.0)";resolution:=optional,
+ javax.mail.*;version="[1.4.0, 2.0.0)";resolution:=optional,
+ javax.servlet;version="[2.5.0, 3.0.0)";resolution:=optional,
+ javax.servlet.http.*;version="[2.5.0, 3.0.0)";resolution:=optional,
+ javax.servlet.jsp.*;version="[2.1.0, 3.0.0)";resolution:=optional,
+ org.apache.commons.fileupload.*;version="[1.2.0, 2.0.0)";resolution:=optional,
+ org.apache.commons.logging.*;version="[1.1.1, 2.0.0)",
+ org.springframework.context.*;version="[2.5.4.A, 3.0.0)";resolution:=optional,
+ org.springframework.core.*;version="[2.5.4.A, 3.0.0)";resolution:=optional,
+ org.springframework.web.*;version="[2.5.4.A, 3.0.0)";resolution:=optional
+Unversioned-Imports: 
+ com.sun.mirror.*,
+ javax.crypto.*

@@ -1,0 +1,5 @@
+Bundle-SymbolicName: com.springsource.org.apache.directory.server.core.shared
+Bundle-Name: Apache Directory Server Core Shared
+Bundle-Vendor: SpringSource
+Bundle-ManifestVersion: 2
+Import-Template: org.apache.directory.shared.ldap.util.*;version="[0.9.5.5,1.0.0)"

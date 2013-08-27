@@ -1,0 +1,22 @@
+Bundle-SymbolicName: com.springsource.org.apache.derby
+Bundle-Name: Derby Java Database
+Bundle-Vendor: SpringSource
+Bundle-ManifestVersion: 2
+Import-Template: 
+ javax.transaction.*;version="[1.0.1, 2.0.0)";resolution:=optional,
+ org.apache.xalan.*;version="[2.7.0, 3.0.0)";resolution:=optional,
+ org.apache.xml.*;version="[2.7.0, 3.0.0)";resolution:=optional,
+ org.apache.xpath.*;version="[2.7.0, 3.0.0)";resolution:=optional,
+ org.osgi.framework.*;version="[1.4.0, 2.0.0)";resolution:=optional
+Unversioned-Imports: 
+ javax.crypto.*,
+ javax.management.*,
+ javax.naming.*,
+ javax.net.*,
+ javax.sql.*,
+ javax.security.*,
+ javax.xml.*,
+ org.w3c.dom.*,
+ org.xml.sax.*
+Ignored-Existing-Headers: 
+ DynamicImport-Package

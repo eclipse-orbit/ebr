@@ -1,0 +1,6 @@
+Bundle-SymbolicName: com.springsource.org.eclipse.persistence.antlr
+Bundle-Vendor: SpringSource
+Ignored-Existing-Headers: 
+ Bundle-SymbolicName,
+ Created-By,
+ Export-Package

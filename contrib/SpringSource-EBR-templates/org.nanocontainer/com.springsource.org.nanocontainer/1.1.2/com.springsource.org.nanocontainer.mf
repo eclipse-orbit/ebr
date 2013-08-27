@@ -1,0 +1,12 @@
+Bundle-SymbolicName: com.springsource.org.nanocontainer
+Bundle-Name: NanoContainer Core
+Bundle-Vendor: SpringSource
+Bundle-ManifestVersion: 2
+Import-Template: 
+ com.thoughtworks.xstream.*;version="[1.2.1, 2.0.0)",
+ org.apache.commons.cli;version="[1.0.0, 2.0.0)";resolution:=optional,
+ org.picocontainer.*;version="[1.2.0, 2.0.0)"
+Unversioned-Imports: 
+ javax.xml.parsers.*,
+ org.w3c.dom.*,
+ org.xml.sax.*

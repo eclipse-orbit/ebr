@@ -1,0 +1,20 @@
+Bundle-SymbolicName: com.springsource.org.testng
+Bundle-Name: Next Generation Java Testing
+Bundle-Vendor: SpringSource
+Bundle-ManifestVersion: 2
+Import-Template: 
+ javax.servlet.*;version="[2.4.0, 3.0.0)";resolution:=optional,
+ junit.framework;version="[3.8.1, 4.0.0)";resolution:=optional,
+ org.apache.bsf.*;version="[2.4.0, 3.0.0)";resolution:=optional,
+ org.apache.tools.ant.*;version="[1.6.1, 2.0.0)";resolution:=optional,
+ net.sf.cglib.*;version="[2.2.0, 3.0.0)",
+ org.aopalliance.*;version="[1.0.0, 2.0.0)",
+ org.objectweb.*;version="[3.2.0, 4.0.0)"
+Excluded-Imports: 
+ com.sun.javadoc,
+ com.sun.tools.javadoc,
+ com.google.inject.internal.asm.util
+Excluded-Exports:
+ com.google.inject.*,
+ com.thoughtworks.qdox.*,
+ bsh.*

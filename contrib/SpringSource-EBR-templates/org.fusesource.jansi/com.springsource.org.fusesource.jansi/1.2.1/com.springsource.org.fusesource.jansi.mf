@@ -1,0 +1,12 @@
+Bundle-SymbolicName: com.springsource.org.fusesource.jansi
+Bundle-Name: Jansi
+Bundle-Vendor: SpringSource
+Bundle-ManifestVersion: 2
+Ignored-Existing-Headers: 
+ Export-Package,
+ Ignore-Package,
+ Tool,
+ Bnd-LastModified,
+ Import-Package
+Import-Template:
+ com.sun.jna.*;version="[3.2.3, 4.0.0)";resolution:=optional

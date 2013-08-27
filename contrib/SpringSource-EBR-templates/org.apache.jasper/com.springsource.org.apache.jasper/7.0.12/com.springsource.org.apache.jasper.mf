@@ -1,0 +1,24 @@
+Bundle-SymbolicName: com.springsource.org.apache.jasper
+Bundle-Name: Apache Jasper JSP support
+Bundle-Vendor: SpringSource
+Bundle-ManifestVersion: 2
+Fragment-Host: com.springsource.org.apache.catalina;bundle-version="[7.0.12, 7.0.12]"
+Import-Template: 
+ javax.el.*;version="[1.0.0, 3.0.0)",
+ javax.servlet.*;version="[3.0.0, 4.0.0)",
+ javax.servlet.jsp.*;version="[2.2.0, 3.0.0)",
+ org.apache.tools.ant.*;version="[1.7.0, 2.0.0)";resolution:="optional",
+ org.apache.tomcat.*;version="[7.0.12, 7.0.12]",
+ org.apache.juli.*;version="[7.0.12, 7.0.12]",
+ org.eclipse.jdt.core.compiler.*;version="0",
+ org.eclipse.jdt.internal.compiler.*;version="0"
+Import-Package: 
+ org.apache.el;version="[7.0.12, 7.0.12]",
+ org.apache.el.lang;version="[7.0.12, 7.0.12]",
+ javax.servlet.resources;version="[3.0.0, 4.0.0)",
+ javax.servlet.jsp.resources;version="[2.2.0, 3.0.0)"
+Unversioned-Imports: 
+ javax.xml.parsers.*,
+ org.w3c.dom.*,
+ org.xml.sax.*
+

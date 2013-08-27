@@ -1,0 +1,23 @@
+Bundle-SymbolicName: com.springsource.org.apache.directory.server.core
+Bundle-Name: Apache Directory Server
+Bundle-Vendor: SpringSource
+Bundle-ManifestVersion: 2
+Fragment-Host: 
+ com.springsource.org.apache.directory.server.core.partition.impl.btree.jdbm;bundle-version="[1.5.5, 1.5.5]"
+Import-Template: 
+ jdbm.*;version="[1.5.5, 1.5.5]",
+ org.apache.commons.collections.*;version="[3.2.1, 4.0.0)",
+ org.apache.commons.lang;version="[2.4.0, 3.0.0)",
+ org.apache.directory.server.core.entry;version="[1.5.5, 1.5.5]",
+ org.apache.directory.server.schema;version="[1.5.5, 1.5.5]",
+ org.apache.directory.server.schema.bootstrap.*;version="[1.5.5, 1.5.5]",
+ org.apache.directory.server.schema.registries;version="[1.5.5, 1.5.5]",
+ org.apache.directory.server.utils;version="[1.5.5, 1.5.5]",
+ org.apache.directory.server.xdbm.*;version="[1.5.5, 1.5.5]",
+ org.apache.directory.server.xdbm.search.impl;version="[1.5.5, 1.5.5]",
+ org.apache.directory.shared.ldap.*;version="[0.9.15, 0.9.15]",
+ org.apache.directory.shared.ldap.constants;version="[0.9.15, 0.9.15]",
+ org.bouncycastle.*;version="[1.39.0, 2.0.0]",
+ org.slf4j;version="[1.5.6, 2.0.0)"
+Excluded-Imports: 
+ org.apache.directory.server.core.partition.impl.btree.jdbm

@@ -1,0 +1,16 @@
+Bundle-SymbolicName: com.springsource.oracle.jdbc
+Bundle-Name: Oracle JDBC Driver
+Bundle-Vendor: SpringSource
+Bundle-ManifestVersion: 2
+Import-Template: 
+ javax.resource.*;version="[1.5.0, 2.0.0)",
+ javax.transaction.*;version="[1.0.1, 2.0.0)";resolution:=optional,
+ oracle.*;version="[10.2.0.2, 10.3.0.0)";resolution:=optional
+Unversioned-Imports: 
+ javax.naming.*,
+ javax.net.*,
+ javax.security.*,
+ javax.sql.*,
+ javax.xml.*,
+ org.w3c.dom.*,
+ org.xml.sax.*

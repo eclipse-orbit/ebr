@@ -1,0 +1,10 @@
+Bundle-SymbolicName: com.springsource.org.castor.anttask
+Bundle-Name: Castor Data Binding Framework ANT Tasks
+Bundle-Vendor: SpringSource
+Bundle-ManifestVersion: 2
+Import-Template: 
+ org.apache.tools.ant.*;version="[1.7.0, 2.0.0)",
+ org.castor.*;version="[1.2.0, 1.2.0]",
+ org.exolab.*;version="[1.2.0, 1.2.0]"
+Unversioned-Imports: 
+ org.xml.sax.*

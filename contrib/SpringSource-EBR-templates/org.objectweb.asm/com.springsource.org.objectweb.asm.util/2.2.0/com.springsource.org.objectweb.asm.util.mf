@@ -1,0 +1,10 @@
+Bundle-SymbolicName: com.springsource.org.objectweb.asm.util
+Bundle-Name: ObjectWeb ASM Utilities
+Bundle-Vendor: SpringSource
+Bundle-ManifestVersion: 2
+Import-Template: 
+ org.objectweb.asm;version="[2.2.0, 2.2.0]",
+ org.objectweb.asm.attrs;version="[2.2.0, 2.2.0]",
+ org.objectweb.asm.tree;version="[2.2.0, 2.2.0]",
+ org.objectweb.asm.tree.analysis;version="[2.2.0, 2.2.0]",
+ org.objectweb.asm.signature;version="[2.2.0, 2.2.0]"

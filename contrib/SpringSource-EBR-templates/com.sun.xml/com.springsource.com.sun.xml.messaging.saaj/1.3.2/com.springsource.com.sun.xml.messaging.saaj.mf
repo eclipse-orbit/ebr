@@ -1,0 +1,6 @@
+Bundle-SymbolicName: com.springsource.com.sun.xml.messaging.saaj
+Bundle-Name: Sun SOAP Implementation
+Bundle-Vendor: SpringSource
+Bundle-ManifestVersion: 2
+Import-Template:
+ com.sun.org.apache.xerces.internal.*;version="0";resolution:=optional

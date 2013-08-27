@@ -1,0 +1,24 @@
+Bundle-SymbolicName: com.springsource.net.sf.navigator
+Bundle-Name: Struts Menu
+Bundle-Vendor: SpringSource
+Bundle-ManifestVersion: 2
+Import-Template: 
+ javax.servlet;version="[2.3.0, 3.0.0)",
+ javax.servlet.http;version="[2.3.0, 3.0.0)",
+ javax.servlet.jsp;version="[2.0.0, 3.0.0)",
+ javax.servlet.jsp.jstl.*;version="[1.0.6, 2.0.0)";resolution:=optional,
+ javax.servlet.jsp.tagext;version="[2.0.0, 3.0.0)",
+ org.apache.commons.collections.*;version="[3.2.0, 4.0.0)",
+ org.apache.commons.digester.*;version="[1.8.0, 2.0.0)",
+ org.apache.commons.lang.*;version="[2.1.0, 3.0.0)",
+ org.apache.commons.logging.*;version="[1.1.1, 2.0.0)",
+ org.apache.struts.*;version="[1.2.9, 2.0.0)";resolution:=optional,
+ org.apache.taglibs.standard.*;version="[1.0.6, 2.0.0)";resolution:=optional,
+ org.apache.velocity;version="[1.4.0, 2.0.0)",
+ org.apache.velocity.app.*;version="[1.4.0, 2.0.0)",
+ org.apache.velocity.context.*;version="[1.4.0, 2.0.0)",
+ org.apache.velocity.exception.*;version="[1.4.0, 2.0.0)",
+ org.apache.velocity.runtime.*;version="[1.4.0, 2.0.0)",
+ org.apache.velocity.tools.*;version="[1.1.0, 2.0.0)",
+ org.springframework.context.*;version="[2.5.5.A, 3.0.0)";resolution:=optional,
+ org.springframework.web.context.*;version="[2.5.5.A, 3.0.0)";resolution:=optional

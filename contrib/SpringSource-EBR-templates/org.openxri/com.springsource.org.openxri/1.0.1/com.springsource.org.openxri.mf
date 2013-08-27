@@ -1,0 +1,6 @@
+Bundle-SymbolicName: com.springsource.org.openxri
+Bundle-Name: OASIS Extensible Resource Identifier (XRI)
+Bundle-Vendor: SpringSource
+Bundle-ManifestVersion: 2
+Import-Template: 
+ com.ibm.icu.*;version="[3.4.5, 4.0.0)";resolution:=optional

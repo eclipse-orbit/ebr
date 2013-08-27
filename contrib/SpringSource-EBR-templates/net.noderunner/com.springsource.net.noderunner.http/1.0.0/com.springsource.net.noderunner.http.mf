@@ -1,0 +1,6 @@
+Bundle-SymbolicName: com.springsource.net.noderunner.http
+Bundle-Name: e-XML: HTTP
+Bundle-Vendor: SpringSource
+Bundle-ManifestVersion: 2
+Import-Template: 
+ javax.servlet.*;version="[2.4.0, 3.0.0)"

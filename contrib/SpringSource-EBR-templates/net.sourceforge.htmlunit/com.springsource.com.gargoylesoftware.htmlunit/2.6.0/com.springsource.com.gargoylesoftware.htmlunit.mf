@@ -1,0 +1,19 @@
+Bundle-SymbolicName: com.springsource.com.gargoylesoftware.htmlunit
+Bundle-Name: HTMLUnit
+Bundle-Vendor: SpringSource
+Bundle-ManifestVersion: 2
+Import-Template: 
+ com.steadystate.css.*;version="[0.9.5, 1.0.0)",
+ net.sourceforge.htmlunit.corejs.*;version="[2.6.0, 2.6.0]",
+ org.apache.commons.codec.*;version="[1.4.0, 2.0.0)",
+ org.apache.commons.collections.*;version="[3.2.1, 4.0.0)",
+ org.apache.commons.httpclient.*;version="[3.1.0, 4.0.0)",
+ org.apache.commons.io;version="[1.4.0, 2.0.0)",
+ org.apache.commons.lang.*;version="[2.4.0, 3.0.0)",
+ org.apache.commons.logging.*;version="[1.1.1, 2.0.0)",
+ org.apache.xalan.*;version="[2.7.1, 3.0.0)",
+ org.apache.xerces.*;version="[2.9.1, 3.0.0)",
+ org.apache.xml.*;version="[2.7.1, 3.0.0)",
+ org.apache.xpath.*;version="[2.7.1, 3.0.0)",
+ org.cyberneko.html;version="[1.9.13, 2.0.0)",
+ org.w3c.css.sac;version="[1.3.0, 2.0.0)"

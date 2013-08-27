@@ -1,0 +1,6 @@
+Bundle-SymbolicName: com.springsource.javax.activation
+Bundle-Name: Java Activation API
+Bundle-Vendor: SpringSource
+Bundle-ManifestVersion: 2
+Excluded-Exports: 
+ com.sun.*

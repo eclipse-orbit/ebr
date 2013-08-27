@@ -1,0 +1,15 @@
+Bundle-SymbolicName: com.springsource.org.apache.sshd.core
+Bundle-Name: Apache Mina SSHD :: Core
+Bundle-Vendor: SpringSource
+Bundle-ManifestVersion: 2
+Ignored-Existing-Headers: 
+ Import-Package,
+ Export-Package,
+ Tool,
+ Bnd-LastModified
+Import-Template: 
+ com.jcraft.jzlib.*;version="[1.0.7, 2.0.0)";resolution:=optional,
+ org.apache.mina.*;version="[2.0.0.M6, 2.1.0)",
+ org.bouncycastle.*;version="[1.39.0, 2.0.0)";resolution:=optional,
+ org.slf4j.*;version="[1.5.6, 2.0.0)",
+ org.apache.tomcat.*;version="0";resolution:=optional

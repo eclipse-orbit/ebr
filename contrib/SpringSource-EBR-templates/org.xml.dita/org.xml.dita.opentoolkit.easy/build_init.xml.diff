@@ -1,0 +1,26 @@
+--- DITA-OT1.4.2.1/build_init.xml	2008-04-08 15:47:48.000000000 +0100
++++ DITA-OT1.4.2.1-mod/build_init.xml	2009-02-04 09:48:23.000000000 +0000
+@@ -27,8 +27,9 @@
+   </condition>
+ 
+   <path id="dost.jar.path">
+-    <pathelement
+-      location="${dita.dir}${file.separator}lib${file.separator}dost.jar" />
++    <fileset dir="${dita.dir}${file.separator}lib">
++      <include name="*.jar" />
++    </fileset>
+   </path>
+ 
+   <taskdef name="pipeline"
+@@ -101,9 +102,9 @@
+   </target>
+   
+   <target name="use-init" depends="use-init.envhhcdir,use-init.hhcdir">
+-    <available classname="com.icl.saxon.StyleSheet" property="hasSaxon" />
++    <available classname="com.icl.saxon.StyleSheet" property="hasSaxon" classpathref="dost.jar.path"/>
+     <available classname="org.apache.fop.tools.anttasks.Fop"
+-      property="hasFOP" />    
++      property="hasFOP" classpathref="dost.jar.path"/>
+   </target>
+ 
+   <!-- property value validation begin -->

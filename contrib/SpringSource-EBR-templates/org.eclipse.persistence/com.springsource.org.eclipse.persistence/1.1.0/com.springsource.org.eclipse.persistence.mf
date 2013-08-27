@@ -1,0 +1,37 @@
+Bundle-SymbolicName: com.springsource.org.eclipse.persistence
+Bundle-Name: EclipseLink (Eclipse Persistent Services Project)
+Bundle-Vendor: SpringSource
+Bundle-ManifestVersion: 2
+Ignored-Existing-Headers: 
+ Require-Bundle,
+ HK2-Bundle-Name,
+ Import-Package,
+ Export-Package
+Import-Template: 
+ javax.activation.*;version="[1.1.0,2.0.0)";resolution:=optional,
+ javax.jms.*;version="[1.1.0,2.0.0)";resolution:=optional,
+ javax.mail.*;version="[1.4.0,2.0.0)";resolution:=optional,
+ javax.resource.*;version="[1.5.0,2.0.0)";resolution:=optional,
+ javax.persistence.*;version="[1.0.0,2.0.0)";resolution:=optional,
+ javax.transaction.*;version="[1.1.0,2.0.0)";resolution:=optional,
+ org.eclipse.persistence.internal.libraries.antlr.*;version="[1.1.0,2.0.0)";resolution:=optional,
+ org.eclipse.persistence.internal.libraries.asm.*;version="[1.1.0,2.0.0)";resolution:=optional,
+ javax.crypto.*;version="0",
+ javax.imageio.*;version="0",
+ javax.management.*;version="0",
+ javax.naming.*;version="0",
+ javax.rmi.*;version="0",
+ javax.sql.*;version="0",
+ javax.xml.datatype.*;version="0",
+ javax.xml.namespace.*;version="0",
+ javax.xml.parsers.*;version="0",
+ javax.xml.transform.*;version="0",
+ javax.xml.validation.*;version="0",
+ javax.xml.xpath.*;version="0",
+ org.omg.CORBA.*;version="0",
+ org.omg.CORBA_2_3.*;version="0",
+ org.w3c.dom.*;version="0";resolution:=optional,
+ org.xml.sax.*;version="0"
+Export-Package: 
+ xsd;version="1.1.0"
+

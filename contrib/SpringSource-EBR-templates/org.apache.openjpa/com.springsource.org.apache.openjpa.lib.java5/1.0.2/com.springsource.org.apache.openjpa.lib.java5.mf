@@ -1,0 +1,7 @@
+Bundle-SymbolicName: com.springsource.org.apache.openjpa.lib.java5
+Bundle-Name: Apache OpenJPA Java Persistence API Java 5 library functions
+Bundle-RequiredExecutionEnvironment: J2SE-1.5
+Bundle-Vendor: SpringSource
+Bundle-ManifestVersion: 2
+Fragment-Host: com.springsource.org.apache.openjpa.lib;bundle-version="[1.0.2, 1.0.2]"
+Excluded-Imports: org.apache.openjpa.lib.util

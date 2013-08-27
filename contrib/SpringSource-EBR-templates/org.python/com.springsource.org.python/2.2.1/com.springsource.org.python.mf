@@ -1,0 +1,18 @@
+Bundle-SymbolicName: com.springsource.org.python
+Bundle-Name: Jython
+Bundle-Vendor: SpringSource
+Bundle-ManifestVersion: 2
+Import-Template: 
+ com.informix.jdbc.*;version="[3.0.0.JC1, 4.0.0)";resolution:=optional,
+ javax.servlet.*;version="[2.4.0, 3.0.0)";resolution:=optional,
+ jline.*;version="[0.9.94, 1.0.0)";resolution:=optional,
+ oracle.jdbc.driver.*;version="[10.2.0.2, 11.0.0.0)";resolution:=optional,
+ oracle.sql.*;version="[10.2.0.2, 11.0.0.0)";resolution:=optional,
+ org.apache.tools.ant.*;version="[1.7.0, 2.0.0)";resolution:=optional,
+ org.gnu.readline.*;version="[0.8.0, 1.0.0)";resolution:=optional
+Unversioned-Imports: 
+ javax.naming.*,
+ javax.sql
+Excluded-Imports: 
+ org.python.modules._weakref,
+ org.python.modules.cStringIO 

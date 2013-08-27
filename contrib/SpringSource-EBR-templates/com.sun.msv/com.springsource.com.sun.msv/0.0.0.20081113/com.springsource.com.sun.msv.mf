@@ -1,0 +1,14 @@
+Bundle-SymbolicName: com.springsource.com.sun.msv
+Bundle-Name: Sun Multi-Schema Validator
+Bundle-Vendor: SpringSource
+Bundle-ManifestVersion: 2
+Import-Template: 
+ com.sun.msv.datatype.*;version="[0.0.0.20060615, 1.0.0]",
+ org.apache.xml.resolver.*;version="[1.2.0, 2.0.0)",
+ org.iso_relax.*;version="[0.0.0.20041111, 1.0.0)",
+ org.relaxng.datatype.*;version="[1.0.0, 2.0.0)"
+Unversioned-Imports: 
+ javax.xml.parsers.*,
+ org.w3c.dom.*,
+ org.xml.sax.*
+Excluded-Imports: 

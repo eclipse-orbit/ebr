@@ -1,0 +1,19 @@
+Bundle-SymbolicName: com.springsource.org.apache.velocity
+Bundle-Name: Apache Velocity Engine
+Bundle-Vendor: SpringSource
+Bundle-ManifestVersion: 2
+Import-Template: 
+ com.werken.xpath.*;version="[0.9.4, 1.0.0)";resolution:=optional,
+ javax.servlet.*;version="[2.5.0, 3.0.0)";resolution:=optional,
+ org.apache.commons.collections.*;version="[3.2.0, 4.0.0)",
+ org.apache.commons.digester.*;version="[1.8.0, 2.0.0)",
+ org.apache.commons.lang.*;version="[2.1.0, 3.0.0)",
+ org.apache.log.*;version="[1.0.1, 1.0.1]";resolution:=optional,
+ org.apache.log4j.*;version="[1.2.15, 2.0.0)";resolution:=optional,
+ org.apache.tools.ant.*;version="[1.7.0, 2.0.0)";resolution:=optional,
+ org.apache.oro.*;version="[2.0.8, 3.0.0)";resolution:=optional,
+ org.jdom.*;version="[1.0.0, 2.0.0)"
+Unversioned-Imports: 
+ javax.naming.*,
+ javax.sql.*,
+ org.xml.sax.*

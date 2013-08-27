@@ -1,0 +1,6 @@
+Bundle-SymbolicName: com.springsource.com.rabbitmq.client
+Bundle-Name: RabbitMQ Java AMQP client library 
+Bundle-Vendor: SpringSource
+Bundle-ManifestVersion: 2
+Import-Template: 
+ org.apache.commons.io.*;version="[1.4.0,2.0.0)"

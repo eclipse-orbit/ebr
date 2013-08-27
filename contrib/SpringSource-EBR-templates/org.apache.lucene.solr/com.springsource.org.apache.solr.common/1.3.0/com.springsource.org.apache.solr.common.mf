@@ -1,0 +1,4 @@
+Bundle-SymbolicName: com.springsource.org.apache.solr.common
+Bundle-Name: Apache Solr - Common
+Bundle-Vendor: SpringSource
+Bundle-ManifestVersion: 2

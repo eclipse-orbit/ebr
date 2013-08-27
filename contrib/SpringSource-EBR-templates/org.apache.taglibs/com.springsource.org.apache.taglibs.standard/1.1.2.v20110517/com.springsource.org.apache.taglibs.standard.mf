@@ -1,0 +1,22 @@
+Bundle-SymbolicName: com.springsource.org.apache.taglibs.standard
+Bundle-Name: Apache Standard Tag Libraries
+Bundle-Vendor: SpringSource
+Bundle-ManifestVersion: 2
+Import-Template: 
+ javax.servlet;version="[2.5.0, 3.1)",
+ javax.servlet.http;version="[2.5.0, 3.1)",
+ javax.servlet.jsp;version="[2.1.0, 3.0.0)",
+ javax.servlet.jsp.el;version="[2.1.0, 3.0.0)",
+ javax.servlet.jsp.jstl.*;version="[1.1.2, 2.0.0)",
+ javax.servlet.jsp.tagext;version="[2.1.0, 3.0.0)",
+ org.apache.xalan.*;version="[2.7.0, 3.0.0)";resolution:=optional,
+ org.apache.xml.*;version="[2.7.0, 3.0.0)";resolution:=optional,
+ org.apache.xpath.*;version="[2.7.0, 3.0.0)";resolution:=optional
+Unversioned-Imports: 
+ javax.naming.*,
+ javax.sql.*,
+ javax.xml.*,
+ org.w3c.dom.*,
+ org.xml.sax.*
+Excluded-Imports: 
+ org.w3c.dom.traversal.*

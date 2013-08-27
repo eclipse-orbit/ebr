@@ -1,0 +1,8 @@
+Bundle-SymbolicName: com.springsource.org.eclipse.persistence.asm
+Bundle-Vendor: SpringSource
+Ignored-Existing-Headers: 
+ Bundle-SymbolicName,
+ Export-Package
+Unversioned-Imports: 
+ javax.xml.transform.*,
+ org.xml.sax.*

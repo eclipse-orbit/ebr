@@ -1,0 +1,15 @@
+Bundle-SymbolicName: com.springsource.org.apache.batik.script
+Bundle-Name: Apache Batik Scripting Language Classes
+Bundle-Vendor: SpringSource
+Bundle-ManifestVersion: 2
+Import-Template: 
+ org.apache.batik.bridge.*;version="[1.7.0, 1.7.0]",
+ org.apache.batik.dom;version="[1.7.0, 1.7.0]",
+ org.apache.batik.dom.svg.*;version="[1.7.0, 1.7.0]",
+ org.apache.batik.dom.svg12.*;version="[1.7.0, 1.7.0]",
+ org.apache.batik.i18n.*;version="[1.7.0, 1.7.0]",
+ org.apache.batik.util.*;version="[1.7.0, 1.7.0]",
+ org.mozilla.javascript.*;version="0";resolution:=optional
+Unversioned-Imports: 
+ org.mozilla.javascript.*,
+ org.w3c.dom.*

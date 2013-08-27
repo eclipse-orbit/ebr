@@ -1,0 +1,4 @@
+Bundle-SymbolicName: com.springsource.org.gnu.readline
+Bundle-Name: Java Readline
+Bundle-Vendor: SpringSource
+Bundle-ManifestVersion: 2
