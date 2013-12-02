@@ -1,0 +1,12 @@
+Bundle-SymbolicName: org.springframework.ldap.ldif.batch
+Bundle-Name: Spring LDAP LDIF Batch
+Bundle-Vendor: SpringSource
+Bundle-ManifestVersion: 2
+Import-Template: 
+ javax.naming.*;version="0",
+ org.apache.commons.logging;version="[1.0.4, 2.0.0)",
+ org.springframework.beans.*;version="[3.0.5.RELEASE, 4.0.0)",
+ org.springframework.core.*;version="[3.0.5.RELEASE, 4.0.0)",
+ org.springframework.util;version="[3.0.5.RELEASE, 4.0.0)",
+ org.springframework.ldap.*;version="[1.3.1.RELEASE, 1.3.1.RELEASE]",
+ org.springframework.batch.*;version="[2.0.3.RELEASE, 2.0.3.RELEASE]"

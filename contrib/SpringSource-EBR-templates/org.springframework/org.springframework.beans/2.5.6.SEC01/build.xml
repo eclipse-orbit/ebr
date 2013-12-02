@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="org.springframework.beans">
+	<property name="version" value="2.5.6.SEC01"/>
+	<property name="release.type" value="release"/>
+	<import file="${basedir}/../../../../spring-build/no-osgi/default.xml"/>
+</project>

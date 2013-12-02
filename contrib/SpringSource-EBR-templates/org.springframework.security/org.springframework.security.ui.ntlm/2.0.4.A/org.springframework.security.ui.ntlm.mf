@@ -1,0 +1,16 @@
+Bundle-SymbolicName: org.springframework.security.ui.ntlm
+Bundle-Name: Spring Security NTLM UI
+Bundle-Vendor: SpringSource
+Bundle-ManifestVersion: 2
+Import-Template: 
+ javax.servlet.*;version="[2.4.0, 3.0.0)",
+ jcifs.*;version="[1.2.15, 2.0.0)",
+ org.apache.commons.logging.*;version="[1.1.1, 2.0.0)",
+ org.springframework.beans.*;version="[2.5.5.A, 3.0.0)",
+ org.springframework.context.support.*;version="[2.5.5.A, 3.0.0)",
+ org.springframework.core.*;version="[2.5.5.A, 3.0.0)",
+ org.springframework.ldap.*;version="[1.2.1.A, 2.0.0)";resolution:=optional,
+ org.springframework.security.*;version="[2.0.4.A, 3.0.0)",
+ org.springframework.util.*;version="[2.5.5.A, 3.0.0)"
+Unversioned-Imports: 
+ javax.naming.*

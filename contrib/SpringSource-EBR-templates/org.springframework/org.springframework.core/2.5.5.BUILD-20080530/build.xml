@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="org.springframework.core">
+	<property name="release.type" value="integration"/>
+	<property name="version" value="2.5.5.BUILD-20080530"/>
+	<import file="${basedir}/../../../../spring-build/add-osgi/default.xml"/>
+</project>

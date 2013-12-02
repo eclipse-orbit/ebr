@@ -1,0 +1,11 @@
+Bundle-SymbolicName: org.springframework.security.adapters.catalina
+Bundle-Name: Spring Security Catalina Adapter
+Bundle-Vendor: SpringSource
+Bundle-ManifestVersion: 2
+Excluded-Imports: org.springframework.security.adapters
+Fragment-Host: org.springframework.security;bundle-version="[2.0.4.A,2.0.4.A]"
+Import-Template: 
+ org.apache.catalina.*;version="[6.0.16, 7.0.0)",
+ org.apache.commons.logging.*;version="[1.1.1, 2.0.0)",
+ org.springframework.context.support.*;version="[2.5.5.A, 3.0.0)",
+ org.springframework.security.*;version="[2.0.4.A, 2.0.4.A]"

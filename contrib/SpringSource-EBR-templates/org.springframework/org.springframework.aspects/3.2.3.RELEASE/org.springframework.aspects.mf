@@ -1,0 +1,24 @@
+Bundle-SymbolicName: org.springframework.aspects
+Bundle-Name: Spring Aspects
+Bundle-Vendor: SpringSource
+Bundle-ManifestVersion: 2
+Import-Template: 
+ javax.persistence;version="[1.0.0,3.0.0)";resolution:=optional,
+ org.apache.commons.logging.*;version="[1.1.1, 2.0.0)",
+ org.aspectj.*;version="[1.7.1, 2.0.0)";resolution:=optional,
+ org.springframework.aop.*;version="[3.2.3.RELEASE, 3.2.3.RELEASE]",
+ org.springframework.context.*;version="[3.2.3.RELEASE, 3.2.3.RELEASE]",
+ org.springframework.beans.*;version="[3.2.3.RELEASE, 3.2.3.RELEASE]",
+ org.springframework.cache.*;version="[3.2.3.RELEASE, 3.2.3.RELEASE]";resolution:=optional,
+ org.springframework.core.*;version="[3.2.3.RELEASE, 3.2.3.RELEASE]",
+ org.springframework.dao.*;version="[3.2.3.RELEASE, 3.2.3.RELEASE]";resolution:=optional,
+ org.springframework.orm.*;version="[3.2.3.RELEASE, 3.2.3.RELEASE]";resolution:=optional,
+ org.springframework.scheduling.*;version="[3.2.3.RELEASE, 3.2.3.RELEASE]";resolution:=optional,
+ org.springframework.transaction.*;version="[3.2.3.RELEASE, 3.2.3.RELEASE]";resolution:=optional,
+ org.springframework.cglib.*;version="[3.2.3.RELEASE,3.2.3.RELEASE]"
+Ignored-Existing-Headers: 
+ Bnd-LastModified,
+ Import-Package,
+ Tool
+Excluded-Imports:
+ org.springframework.context.*

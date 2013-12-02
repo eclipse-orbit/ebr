@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="org.springframework.security.acls">
+	<property name="version" value="3.0.0.M1"/>
+	<property name="release.type" value="milestone"/>
+	<import file="${basedir}/../../../../spring-build/no-osgi/default.xml"/>
+</project>

@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="org.springframework.web.struts">
+	<property name="release.type" value="integration"/>
+	<property name="version" value="2.5.5.BUILD-20080608"/>
+	<import file="${basedir}/../../../../spring-build/add-osgi/default.xml"/>
+</project>

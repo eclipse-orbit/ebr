@@ -1,0 +1,20 @@
+Bundle-SymbolicName: org.springframework.security.providers.cas
+Bundle-Name: Spring Security CAS Provider
+Bundle-Vendor: SpringSource
+Bundle-ManifestVersion: 2
+Ignored-Existing-Headers: 
+ Bnd-LastModified,
+ Export-Package,
+ Import-Package,
+ Tool
+Import-Template: 
+ javax.servlet.*;version="[2.4.0, 3.0.0)",
+ net.sf.ehcache.*;version="[1.4.1, 2.0.0)",
+ org.apache.commons.logging.*;version="[1.1.1, 2.0.0)",
+ org.jasig.cas.*;version="[3.1.1, 4.0.0)",
+ org.springframework.beans.*;version="[2.5.5.A, 3.0.0)",
+ org.springframework.context;version="[2.5.5.A, 3.0.0)",
+ org.springframework.context.support;version="[2.5.5.A, 3.0.0)",
+ org.springframework.dao;version="[2.5.5.A, 3.0.0)",
+ org.springframework.security.*;version="[2.0.4.A, 2.0.4.A]",
+ org.springframework.util.*;version="[2.5.5.A, 3.0.0)"

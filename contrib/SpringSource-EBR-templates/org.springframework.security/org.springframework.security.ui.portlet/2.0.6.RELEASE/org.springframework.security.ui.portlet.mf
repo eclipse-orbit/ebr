@@ -1,0 +1,13 @@
+Bundle-SymbolicName: org.springframework.security.ui.portlet
+Bundle-Name: Spring Security Portlet UI
+Bundle-Vendor: SpringSource
+Bundle-ManifestVersion: 2
+Fragment-Host: org.springframework.security;bundle-version="[2.0.6.RELEASE, 3.0.0)"
+Excluded-Imports: 
+ org.springframework.security.*;version="[2.0.6.RELEASE, 2.0.6.RELEASE]"
+Import-Template: 
+ javax.portlet.*;version="[1.0.0, 2.0.0)",
+ org.apache.commons.logging.*;version="[1.1.1, 2.0.0)",
+ org.springframework.beans.*;version="[2.5.5.A, 3.0.0)",
+ org.springframework.util.*;version="[2.5.5.A, 3.0.0)",
+ org.springframework.web.portlet.*;version="[2.5.5.A, 3.0.0)"

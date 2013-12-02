@@ -1,0 +1,19 @@
+Bundle-SymbolicName: org.springframework.struts
+Bundle-Name: Spring Web Struts
+Bundle-Vendor: SpringSource
+Bundle-ManifestVersion: 2
+Import-Template: 
+ javax.servlet.*;version="[2.4.0, 3.0.0)",
+ org.apache.commons.beanutils.*;version="[1.7.0, 2.0.0)",
+ org.apache.commons.logging.*;version="[1.1.1, 2.0.0)",
+ org.apache.struts.*;version="[1.2.9, 2.0.0)",
+ org.springframework.beans.*;version="[2.5.5.A, 2.5.5.A]",
+ org.springframework.context.*;version="[2.5.5.A, 2.5.5.A]",
+ org.springframework.util.*;version="[2.5.5.A, 2.5.5.A]",
+ org.springframework.validation.*;version="[2.5.5.A, 2.5.5.A]",
+ org.springframework.web.*;version="[2.5.5.A, 2.5.5.A]"
+Ignored-Existing-Headers: 
+ Bnd-LastModified,
+ Import-Package,
+ Export-Package,
+ Tool

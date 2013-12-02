@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="org.springframework.transaction">
+	<property name="version" value="2.5.7"/>
+	<property name="release.type" value="release"/>
+	<property name="publish.bucket" value="private.repository.springsource.com"/>
+	<import file="${basedir}/../../../../spring-build/no-osgi/default.xml"/>
+</project>

@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="org.springframework.integration.event">
+	<property name="version" value="1.0.3.RELEASE"/>
+	<property name="release.type" value="release"/>
+	<import file="${basedir}/../../../../spring-build/no-osgi/default.xml"/>
+</project>

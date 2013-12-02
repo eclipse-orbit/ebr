@@ -1,0 +1,13 @@
+Bundle-SymbolicName: org.springframework.security.annotation
+Bundle-Name: Spring Security Annotations
+Bundle-Vendor: SpringSource
+Bundle-ManifestVersion: 2
+Ignored-Existing-Headers: 
+ Bnd-LastModified,
+ Import-Package,
+ Export-Package,
+ Tool
+Import-Template: 
+ javax.annotation.*;version="[1.0.0, 2.0.0)",
+ org.springframework.core.*;version="[2.5.5.A, 3.0.0)",
+ org.springframework.security.*;version="[2.0.4.A, 2.0.4.A]"

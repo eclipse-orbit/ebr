@@ -1,0 +1,8 @@
+Bundle-SymbolicName: org.springframework.ldap.core.simple
+Bundle-Name: Spring LDAP Tiger Classes
+Bundle-Vendor: SpringSource
+Bundle-ManifestVersion: 2
+Import-Template: 
+ org.springframework.ldap.core.*;version="[1.2.1.A, 1.2.1.A]"
+Unversioned-Imports: 
+ javax.naming.directory.*

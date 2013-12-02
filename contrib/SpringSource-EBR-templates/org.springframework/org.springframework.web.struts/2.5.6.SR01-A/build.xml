@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="org.springframework.web.struts">
+	<property name="version" value="2.5.6.SR01-A"/>
+	<property name="release.type" value="release"/>
+	<property name="publish.bucket" value="private.repository.springsource.com"/>
+	<import file="${basedir}/../../../../spring-build/add-osgi/default.xml"/>
+</project>

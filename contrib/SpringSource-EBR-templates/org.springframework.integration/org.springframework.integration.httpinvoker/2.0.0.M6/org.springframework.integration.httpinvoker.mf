@@ -1,0 +1,11 @@
+Bundle-SymbolicName: org.springframework.integration.httpinvoker
+Bundle-Name: Spring Integration HttpInvoker Support
+Bundle-Vendor: SpringSource
+Bundle-ManifestVersion: 2
+Import-Template: 
+ javax.servlet.*;version="[2.4.0, 3.0.0)";resolution:="optional",
+ org.springframework.beans.*;version="[3.0.0, 4.0.0)",
+ org.springframework.integration.*;version="[2.0.0, 2.0.1)",
+ org.springframework.remoting.httpinvoker;version="[3.0.0, 4.0.0)",
+ org.springframework.web;version="[3.0.0, 4.0.0)";resolution:="optional",
+ org.w3c.dom;version="0"

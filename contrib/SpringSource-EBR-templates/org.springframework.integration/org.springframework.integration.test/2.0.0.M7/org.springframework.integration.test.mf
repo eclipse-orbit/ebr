@@ -1,0 +1,14 @@
+Bundle-SymbolicName: org.springframework.integration.test
+Bundle-Name: Spring Integration Test Support
+Bundle-Vendor: SpringSource
+Bundle-ManifestVersion: 2
+Import-Template: 
+ org.hamcrest;version="[1.1.0, 1.1.0]",
+ org.hamcrest.core;version="[1.1.0, 1.1.0]",
+ org.junit;version="[4.6.0, 4.7.0)",
+ org.mockito;version="[1.6.0, 2.0.0)",
+ org.springframework.beans.*;version="[3.0.3, 4.0.0)",
+ org.springframework.context.support;version="[3.0.3, 4.0.0)",
+ org.springframework.integration.*;version="[2.0.0, 2.0.1)",
+ org.springframework.scheduling.*;version="[3.0.3, 4.0.0)",
+ org.springframework.util;version="[3.0.3, 4.0.0)"

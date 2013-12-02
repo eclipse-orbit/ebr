@@ -1,0 +1,12 @@
+Bundle-SymbolicName: org.springframework.integration.file
+Bundle-Name: Spring Integration File Adapters
+Bundle-Vendor: SpringSource
+Bundle-ManifestVersion: 2
+Import-Template: 
+ groovy.lang;version="[1.7.3, 2.0.0)",
+ org.springframework.beans.factory.*;version="[3.0.3, 4.0.0)",
+ org.springframework.core.io;version="[3.0.3, 4.0.0)",
+ org.springframework.integration.*;version="[2.0.0, 2.0.1)",
+ org.springframework.scripting.*;version="[3.0.3, 4.0.0)",
+ org.springframework.util.*;version="[3.0.3, 4.0.0)",
+ org.w3c.dom;version="0"

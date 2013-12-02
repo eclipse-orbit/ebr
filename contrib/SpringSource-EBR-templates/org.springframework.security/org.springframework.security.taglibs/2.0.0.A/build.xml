@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="org.springframework.security.taglibs">
+	<property name="release.type" value="release"/>
+	<property name="version" value="2.0.0.A"/>
+	<import file="${basedir}/../../../../spring-build/add-osgi/default.xml"/>
+</project>

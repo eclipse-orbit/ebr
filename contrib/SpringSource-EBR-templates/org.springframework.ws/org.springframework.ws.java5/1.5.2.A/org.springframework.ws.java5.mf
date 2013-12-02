@@ -1,0 +1,27 @@
+Bundle-SymbolicName: org.springframework.ws.java5
+Bundle-Name: Spring Web Services Core (Java 5)
+Bundle-Vendor: SpringSource
+Bundle-ManifestVersion: 2
+Bundle-RequiredExecutionEnvironment: J2SE-1.5
+Fragment-Host: org.springframework.ws;bundle-version="[1.5.2.A, 1.5.2.A]"
+Import-Template: 
+ org.springframework.aop.*;version="[2.5.4.A, 3.0.0)",
+ org.springframework.beans.*;version="[2.5.4.A, 3.0.0)",
+ org.springframework.core.*;version="[2.5.4.A, 3.0.0)",
+ org.springframework.oxm.*;version="[1.5.2.A, 1.5.2.A]",
+ org.springframework.stereotype;version="[2.5.4.A, 2.5.4.A]",
+ org.springframework.util.*;version="[2.5.4.A, 3.0.0)",
+ org.springframework.validation.*;version="[2.5.4.A, 3.0.0)",
+ org.springframework.xml.*;version="[1.5.2.A, 1.5.2.A]"
+Unversioned-Imports: 
+ javax.xml.namespace.*,
+ javax.xml.transform.*,
+ javax.xml.xpath.*,
+ org.w3c.dom.*
+Excluded-Imports: 
+ org.springframework.ws.*
+Ignored-Existing-Headers: 
+ Bnd-LastModified,
+ Export-Package,
+ Import-Package,
+ Tool

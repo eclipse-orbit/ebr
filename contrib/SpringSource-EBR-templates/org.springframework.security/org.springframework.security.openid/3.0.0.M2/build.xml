@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="org.springframework.security.openid">
+	<property name="version" value="3.0.0.M2"/>
+	<property name="release.type" value="milestone"/>
+	<import file="${basedir}/../../../../spring-build/add-osgi/default.xml"/>
+</project>

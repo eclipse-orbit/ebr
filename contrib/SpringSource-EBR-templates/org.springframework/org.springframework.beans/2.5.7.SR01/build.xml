@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="org.springframework.beans">
+	<property name="version" value="2.5.7.SR01"/>
+	<property name="release.type" value="release"/>
+	<property name="publish.bucket" value="private.repository.springsource.com"/>
+	<import file="${basedir}/../../../../spring-build/no-osgi/default.xml"/>
+</project>

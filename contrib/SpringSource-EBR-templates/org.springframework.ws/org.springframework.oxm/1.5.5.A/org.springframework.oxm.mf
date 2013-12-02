@@ -1,0 +1,31 @@
+Bundle-SymbolicName: org.springframework.oxm
+Bundle-Name: Spring Object/XML Mapping
+Bundle-Vendor: SpringSource
+Bundle-ManifestVersion: 2
+Import-Template: 
+ javax.activation.*;version="[1.1.0, 2.0.0)";resolution:=optional,
+ javax.jms.*;version="[1.1.0, 2.0.0)";resolution:=optional,
+ javax.servlet.*;version="[2.5.0, 3.0.0)";resolution:=optional,
+ javax.xml.bind.*;version="[2.0.0, 3.0.0)";resolution:=optional,
+ javax.xml.stream.*;version="[1.0.1, 2.0.0)",
+ com.thoughtworks.xstream.*;version="[1.2.2, 2.0.0)";resolution:=optional,
+ org.apache.commons.logging.*;version="[1.1.1, 2.0.0)",
+ org.apache.xmlbeans.*;version="[2.2.0, 3.0.0)";resolution:=optional,
+ org.exolab.castor.*;version="[1.2.0, 2.0.0)";resolution:=optional,
+ org.jibx.runtime.*;version="[1.1.5, 2.0.0)";resolution:=optional,
+ org.springframework.beans.*;version="[2.5.6, 3.0.0)",
+ org.springframework.core.*;version="[2.5.6, 3.0.0)",
+ org.springframework.jms.*;version="[2.5.6, 3.0.0)";resolution:=optional,
+ org.springframework.util.*;version="[2.5.6, 3.0.0)",
+ org.springframework.web.*;version="[2.5.6, 3.0.0)";resolution:=optional,
+ org.springframework.xml.*;version="[1.5.5.A, 1.5.5.A]"
+Unversioned-Imports: 
+ javax.xml.transform.*,
+ javax.xml.parsers.*,
+ org.w3c.dom.*,
+ org.xml.sax.*
+Ignored-Existing-Headers: 
+ Bnd-LastModified,
+ Export-Package,
+ Import-Package,
+ Tool

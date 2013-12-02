@@ -1,0 +1,18 @@
+Bundle-ManifestVersion: 2
+Bundle-Name: Spring Batch - Infrastructure
+Ignored-Existing-Headers: Import-Package
+Import-Template: 
+ com.ibatis.*;version="[2.3.0.677,3.0.0)",
+ edu.emory.mathcs.backport.*;version="[3.0.0,4.0.0)";resolution:=optional,
+ javax.jms;version="[1.1.0,2.0.0)",
+ javax.xml.stream.*;version="[1.0.1,2.0.0)",
+ org.apache.commons.logging;version="[1.1.1,2.0.0)",
+ org.aopalliance.*;version="[1.0.0,2.0.0)";resolution:=optional,
+ org.hibernate.*;version="[3.2.6.ga,3.0.0)";resolution:=optional,
+ org.springframework.*;version="[2.5.4.A,3.0.0);resolution:=optional",
+ org.springframework.oxm.*;version="[1.5.1.A,2.0.0);resolution:=optional",
+ org.springframework.xml.*;version="[1.5.1.A,2.0.0);resolution:=optional"
+Unversioned-Imports: 
+ javax.sql,
+ javax.xml.namespace,
+ javax.xml.transform

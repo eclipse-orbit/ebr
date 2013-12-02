@@ -1,0 +1,18 @@
+Bundle-SymbolicName: org.springframework.security.acls
+Bundle-Name: Spring Security Access Control Lists
+Bundle-Vendor: SpringSource
+Bundle-ManifestVersion: 2
+Fragment-Host: 
+ org.springframework.security.core;bundle-version="[2.0.6.RELEASE, 2.0.6.RELEASE]"
+Excluded-Imports: 
+ org.springframework.security.*
+Import-Template: 
+ javax.sql;version="0";resolution:="optional",
+ net.sf.ehcache;version="[1.4.1, 2.0.0)";resolution:="optional",
+ org.apache.commons.logging;version="[1.0.4, 2.0.0)",
+ org.springframework.context.*;version="[2.0.8, 3.1.0)";resolution:="optional",
+ org.springframework.dao;version="[2.0.8, 3.1.0)";resolution:="optional",
+ org.springframework.jdbc.core;version="[2.0.8, 3.1.0)";resolution:="optional",
+ org.springframework.security.*;version="[2.0.6.RELEASE, 2.0.6.RELEASE]",
+ org.springframework.transaction.support;version="[2.0.8, 3.1.0)";resolution:="optional",
+ org.springframework.util;version="[2.0.8, 3.1.0)";resolution:="optional"

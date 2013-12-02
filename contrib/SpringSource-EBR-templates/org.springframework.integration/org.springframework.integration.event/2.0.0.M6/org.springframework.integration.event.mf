@@ -1,0 +1,10 @@
+Bundle-SymbolicName: org.springframework.integration.event
+Bundle-Name: Spring Integration ApplicationEvent Support
+Bundle-Vendor: SpringSource
+Bundle-ManifestVersion: 2
+Import-Template: 
+ org.springframework.beans.factory.*;version="[3.0.0, 4.0.0)",
+ org.springframework.context;version="[3.0.0, 4.0.0)",
+ org.springframework.integration.*;version="[2.0.0, 2.0.1)",
+ org.springframework.util;version="[3.0.0, 4.0.0)",
+ org.w3c.dom;version="0"
