@@ -1,0 +1,131 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+
+  <groupId>org.eclipse.ebr.bundles</groupId>
+  <artifactId>ebr-bundles-parent</artifactId>
+  <version>1.0.0-SNAPSHOT</version>
+  <packaging>pom</packaging>
+
+  <name>Eclipse EBR :: Maven Parent</name>
+  <description>Maven parent for EBR receipts.</description>
+
+  <prerequisites>
+    <maven>3.0.0</maven>
+  </prerequisites>
+
+  <scm>
+    <connection>scm:git:git.eclipse.org:/gitroot/ebr/org.eclipse.ebr.recipes.git</connection>
+    <developerConnection>scm:git:git.eclipse.org:/gitroot/ebr/org.eclipse.ebr.recipes.git</developerConnection>
+    <url>http://git.eclipse.org/c/ebr/org.eclipse.ebr.recipes.git/</url>
+  </scm>
+
+  <properties>
+
+    <!-- include everything from all dependencies by default -->
+    <recipe.includes>**/*</recipe.includes>
+
+    <!-- but filter out maven instructions, we'll generate new ones below -->
+    <recipe.excludes>META-INF/maven/**/*.*</recipe.excludes>
+
+    <!-- BND specific instructions which can be overridden by recipe -->
+    <recipe.Bundle-Name>%bundleName</recipe.Bundle-Name>
+    <recipe.Bundle-Description/>
+    <recipe.Bundle-Vendor>%bundleVendor</recipe.Bundle-Vendor>
+
+    <!-- remove some clutter from the generated manifests -->
+    <recipe.removeheaders>Ignore-Package,Include-Resource,Private-Package,Embed-Dependency,Built-By,Build-Jdk,Bnd-*,Tool</recipe.removeheaders>
+
+    <!-- read BND settings from 'osgi.bnd' located next to pom.xml -->
+    <recipe.bndfile>osgi.bnd</recipe.bndfile>
+
+    <!-- project defaults -->
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+
+    <!-- versions used for plug-ins below -->
+    <tycho-version>0.19.0</tycho-version>
+    <ebr-version>1.0.0-SNAPSHOT</ebr-version>
+
+  </properties>
+
+
+  <build>
+    <plugins>
+
+      <!-- enable Tycho -->
+      <plugin>
+        <groupId>org.eclipse.tycho</groupId>
+        <artifactId>tycho-maven-plugin</artifactId>
+        <extensions>true</extensions>
+      </plugin>
+
+
+      <!-- generate build qualifier based on Git commit information -->
+      <plugin>
+        <groupId>org.eclipse.tycho</groupId>
+        <artifactId>tycho-packaging-plugin</artifactId>
+        <version>${tycho-version}</version>
+        <dependencies>
+          <dependency>
+            <groupId>org.eclipse.tycho.extras</groupId>
+            <artifactId>tycho-buildtimestamp-jgit</artifactId>
+            <version>${tycho-version}</version>
+          </dependency>
+          <dependency>
+            <groupId>org.eclipse.tycho.extras</groupId>
+            <artifactId>tycho-sourceref-jgit</artifactId>
+            <version>${tycho-version}</version>
+          </dependency>
+        </dependencies>
+        <configuration>
+          <!-- generate bundle .qualifier from Git tags/commits -->
+          <timestampProvider>jgit</timestampProvider>
+          <format>'v'yyyyMMdd-HHmm</format>
+          <!-- generate bundle Eclipse-SourceReferences header -->
+          <sourceReferences>
+            <generate>true</generate>
+          </sourceReferences>
+        </configuration>
+      </plugin>
+
+      <!-- configure bundle build so that properties defined above will be considered -->
+      <plugin>
+        <groupId>org.eclipse.ebr</groupId>
+        <artifactId>ebr-maven-plugin</artifactId>
+        <extensions>true</extensions>
+        <configuration>
+          <includes>${recipe.includes}</includes>
+          <excludes>${recipe.excludes}</excludes>
+          <bndInstructions>
+            <Bundle-Name>${recipe.Bundle-Name}</Bundle-Name>
+            <Bundle-Vendor>${recipe.Bundle-Vendor}</Bundle-Vendor>
+            <Bundle-Description>${recipe.Bundle-Description}</Bundle-Description>
+            <_removeheaders>${recipe.removeheaders}</_removeheaders>
+            <_include>-${recipe.bndfile}</_include>
+          </bndInstructions>
+        </configuration>
+      </plugin>
+
+    </plugins>
+    <pluginManagement>
+      <plugins>
+        <plugin>
+          <groupId>org.eclipse.tycho</groupId>
+          <artifactId>tycho-maven-plugin</artifactId>
+          <version>${tycho-version}</version>
+        </plugin>
+        <plugin>
+          <groupId>org.eclipse.tycho</groupId>
+          <artifactId>tycho-packaging-plugin</artifactId>
+          <version>${tycho-version}</version>
+        </plugin>
+        <plugin>
+          <groupId>org.eclipse.ebr</groupId>
+          <artifactId>ebr-maven-plugin</artifactId>
+          <version>${ebr-version}</version>
+        </plugin>
+      </plugins>
+    </pluginManagement>
+  </build>
+
+</project>

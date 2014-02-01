@@ -1,1 +1,10 @@
+bin/
+target/
+*~
+*.rej
+*.bak
 .DS_Store
+.Trashes
+*.swp
+*.lock
+pom.versionBackup
