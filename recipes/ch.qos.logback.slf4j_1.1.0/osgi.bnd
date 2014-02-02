@@ -1,0 +1,8 @@
+Export-Package: org.slf4j.*;version="1.7.5"
+Import-Package: \
+ org.slf4j.spi.*;version="[1.7.5,1.8)", \
+ org.slf4j.*;version="[1.7.5,2.0)", \
+ ch.qos.logback.*;version="[1.1.0,1.1.1)", \
+ *
+Provide-Capability: org.slf4j.impl; org.slf4j.impl="logback"; version:Version="1.7.5"
+Fragment-Host: org.slf4j.api;bundle-version="[1.7.5,1.7.6)"

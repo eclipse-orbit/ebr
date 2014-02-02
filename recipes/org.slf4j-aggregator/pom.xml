@@ -1,0 +1,28 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+
+  <modelVersion>4.0.0</modelVersion>
+
+  <parent>
+    <groupId>org.eclipse.ebr.bundles</groupId>
+    <artifactId>ebr-bundles-parent</artifactId>
+    <version>1.0.0-SNAPSHOT</version>
+  </parent>
+
+  <groupId>org.eclipse.ebr.bundles</groupId>
+  <artifactId>org.slf4j-aggregator</artifactId>
+  <packaging>pom</packaging>
+
+  <name>SLF4J Bundle Aggregator</name>
+
+  <modules>
+    <module>../org.slf4j.api_1.7.5</module>
+    <module>../org.slf4j.impl.log4j12_1.7.5</module>
+    <module>../org.slf4j.impl.nop_1.7.5</module>
+    <module>../org.slf4j.impl.simple_1.7.5</module>
+    <module>../org.slf4j.jcl_1.7.5</module>
+    <module>../org.slf4j.jul_1.7.5</module>
+    <module>../org.slf4j.log4j_1.7.5</module>
+  </modules>
+
+</project>

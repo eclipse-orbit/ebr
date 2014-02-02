@@ -1,0 +1,6 @@
+Export-Package: ch.qos.logback.*;version="1.1.0"
+Import-Package: \
+ ch.qos.logback.*;version="[1.1.0,1.1.1)", \
+ org.slf4j.spi.*;version="[1.7.5,1.8)", \
+ org.slf4j.*;version="[1.7.5,2.0)", \
+ *;resolution:=optional

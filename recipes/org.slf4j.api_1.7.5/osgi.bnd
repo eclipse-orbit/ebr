@@ -1,3 +1,9 @@
 Export-Package: org.slf4j.*;version="1.7.5"
-Import-Package: org.slf4j.impl;version="[1.7.5,1.7.6)";resolution:=optional
-Require-Capability: org.slf4j.impl; filter:="(version=1.7.5)"
+
+#
+# based on org.slf4j.LoggerFactory#API_COMPATIBILITY_LIST and #versionSanityCheck()
+# 1.6 as well as 1.7 are allowed 'prefixes'
+# we are a bit more strict here and prevent future versions
+
+Import-Package: org.slf4j.impl;version="[1.6.0,1.7.6)";resolution:=optional
+Require-Capability: org.slf4j.impl; filter:="(&(version>=1.6.0)(version<1.7.6))"
