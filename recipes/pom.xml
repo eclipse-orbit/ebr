@@ -39,12 +39,18 @@
     <!-- read BND settings from 'osgi.bnd' located next to pom.xml -->
     <recipe.bndfile>osgi.bnd</recipe.bndfile>
 
+    <!-- pattern/format used for the qualifier -->
+    <recipe.qualifier.format>'v'yyyyMMdd-HHmm</recipe.qualifier.format>
+
     <!-- project defaults -->
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 
     <!-- versions used for plug-ins below -->
     <tycho-version>0.19.0</tycho-version>
     <ebr-version>1.0.0-SNAPSHOT</ebr-version>
+
+    <!-- property for generating Eclipse source reference bundle headers -->
+    <tycho.scmUrl>scm:git:https://git.eclipse.org/r/p/ebr/org.eclipse.ebr.recipes.git</tycho.scmUrl>
 
   </properties>
 
@@ -56,37 +62,27 @@
         <activeByDefault>true</activeByDefault>
       </activation>
       <build>
-        <plugins>
-
-          <!-- generate build qualifier based on Git commit information -->
-          <plugin>
-            <groupId>org.eclipse.tycho</groupId>
-            <artifactId>tycho-packaging-plugin</artifactId>
-            <version>${tycho-version}</version>
-            <dependencies>
-              <dependency>
-                <groupId>org.eclipse.tycho.extras</groupId>
-                <artifactId>tycho-buildtimestamp-jgit</artifactId>
-                <version>${tycho-version}</version>
-              </dependency>
-              <dependency>
-                <groupId>org.eclipse.tycho.extras</groupId>
-                <artifactId>tycho-sourceref-jgit</artifactId>
-                <version>${tycho-version}</version>
-              </dependency>
-            </dependencies>
-            <configuration>
-              <!-- generate bundle .qualifier from Git tags/commits -->
-              <timestampProvider>jgit</timestampProvider>
-              <format>'v'yyyyMMdd-HHmm</format>
-              <!-- generate bundle Eclipse-SourceReferences header -->
-              <sourceReferences>
-                <generate>true</generate>
-              </sourceReferences>
-            </configuration>
-          </plugin>
-
-        </plugins>
+        <pluginManagement>
+          <plugins>
+            <!-- generate build qualifier based on Git commit information -->
+            <plugin>
+              <groupId>org.eclipse.tycho</groupId>
+              <artifactId>tycho-packaging-plugin</artifactId>
+              <version>${tycho-version}</version>
+              <dependencies>
+                <dependency>
+                  <groupId>org.eclipse.tycho.extras</groupId>
+                  <artifactId>tycho-buildtimestamp-jgit</artifactId>
+                  <version>${tycho-version}</version>
+                </dependency>
+              </dependencies>
+              <configuration>
+                <!-- generate bundle .qualifier from Git tags/commits -->
+                <timestampProvider>jgit</timestampProvider>
+              </configuration>
+            </plugin>
+          </plugins>
+        </pluginManagement>
       </build>
     </profile>
   </profiles>
@@ -100,6 +96,28 @@
         <artifactId>tycho-maven-plugin</artifactId>
         <extensions>true</extensions>
       </plugin>
+
+
+      <!-- configure build qualifier generation as well as source reference headers -->
+      <plugin>
+        <groupId>org.eclipse.tycho</groupId>
+        <artifactId>tycho-packaging-plugin</artifactId>
+        <version>${tycho-version}</version>
+        <dependencies>
+          <dependency>
+            <groupId>org.eclipse.tycho.extras</groupId>
+            <artifactId>tycho-sourceref-jgit</artifactId>
+            <version>${tycho-version}</version>
+          </dependency>
+        </dependencies>
+        <configuration>
+          <format>${recipe.qualifier.format}</format>
+          <sourceReferences>
+            <generate>true</generate>
+          </sourceReferences>
+        </configuration>
+      </plugin>
+
 
       <!-- configure bundle build so that properties defined above will be considered -->
       <plugin>
