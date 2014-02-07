@@ -1,0 +1,3 @@
+Export-Package: *;version="${version;===;${Bundle-Version}}"
+jersey-common-imports= *;resolution:=optional
+Import-Package: ${jersey-common-imports}

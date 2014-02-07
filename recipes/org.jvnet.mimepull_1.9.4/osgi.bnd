@@ -1,0 +1,15 @@
+package-version=${version;===;${Bundle-Version}}
+
+Export-Package: \
+ *.internal*;x-internal:=true;version="${package-version}", \
+ *.impl*;x-internal:=true;version="${package-version}", \
+ *;version="${package-version}"
+
+Import-Package: \
+ com.google.common.*;version="14", \
+ javax.ws.*;version="[2.0,3)", \
+ javax.servlet.*;version="[2.6,4)", \
+ javax.inject.*, \
+ javax.annotation.*, \
+ *;resolution:=optional
+

@@ -1,0 +1,4 @@
+Export-Package: *;version="1.0.1"
+Import-Package: \
+ org.osgi.framework.*;version="[1.7,2)", \
+ *;resolution:=optional

@@ -1,0 +1,48 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+
+  <modelVersion>4.0.0</modelVersion>
+
+  <parent>
+    <groupId>org.eclipse.ebr.bundles</groupId>
+    <artifactId>ebr-bundles-parent</artifactId>
+    <version>1.0.0-SNAPSHOT</version>
+  </parent>
+
+  <artifactId>hk2-parent</artifactId>
+  <version>1.0.0-SNAPSHOT</version>
+  <packaging>pom</packaging>
+
+  <name>HK2</name>
+
+  <!-- https://java.net/jira/browse/HK2-186 -->
+  <repositories>
+    <repository>
+      <id>java-net-releases</id>
+      <url>https://maven.java.net/content/repositories/releases/</url>
+      <releases>
+        <enabled>true</enabled>
+      </releases>
+      <snapshots>
+        <enabled>false</enabled>
+      </snapshots>
+    </repository>
+  </repositories>
+
+  <properties>
+    <!-- the HK2 version suffix -->
+    <hk2.version.suffix/>
+    <!-- add special qualifier for HK2 -->
+    <recipe.qualifier.format>'${hk2.version.suffix}-v'yyyyMMdd-HHmm</recipe.qualifier.format>
+  </properties>
+
+
+  <modules>
+    <module>org.glassfish.hk2.utils_2.3.0</module>
+    <module>org.glassfish.hk2.api_2.3.0</module>
+    <module>org.glassfish.hk2.locator_2.3.0</module>
+    <module>org.glassfish.hk2.osgiresourcelocator_1.0.1</module>
+    <module>org.glassfish.hk2.external.asm_2.3.0</module>
+  </modules>
+
+</project>

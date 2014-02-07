@@ -1,0 +1,5 @@
+-include: ~../org.glassfish.jersey.core.common_2.6.0/osgi.bnd
+
+Import-Package: \
+  org.jvnet.mimepull.*;version="[1.9,2)", \
+  ${jersey-common-imports}
