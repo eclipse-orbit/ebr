@@ -14,6 +14,9 @@ package org.eclipse.ebr.maven;
 import static aQute.bnd.osgi.Constants.CREATED_BY;
 import static aQute.bnd.osgi.Constants.SNAPSHOT;
 import static java.lang.String.format;
+import static org.eclipse.ebr.maven.OsgiLocalizationUtil.I18N_KEY_BUNDLE_NAME;
+import static org.eclipse.ebr.maven.OsgiLocalizationUtil.I18N_KEY_BUNDLE_VENDOR;
+import static org.eclipse.ebr.maven.OsgiLocalizationUtil.I18N_KEY_PREFIX;
 import static org.osgi.framework.Constants.BUNDLE_LOCALIZATION;
 import static org.osgi.framework.Constants.BUNDLE_LOCALIZATION_DEFAULT_BASENAME;
 import static org.osgi.framework.Constants.BUNDLE_MANIFESTVERSION;
@@ -86,12 +89,6 @@ import org.twdata.maven.mojoexecutor.MojoExecutor.Element;
 public class BundleMojo extends ManifestPlugin {
 
 	private static final String CLASSIFIER_SOURCES = "sources";
-
-	private static final String I18N_KEY_PREFIX = "%";
-
-	private static final String I18N_KEY_BUNDLE_VENDOR = "bundleVendor";
-
-	private static final String I18N_KEY_BUNDLE_NAME = "bundleName";
 
 	/**
 	 * The project output directory where all classes and resources will be
