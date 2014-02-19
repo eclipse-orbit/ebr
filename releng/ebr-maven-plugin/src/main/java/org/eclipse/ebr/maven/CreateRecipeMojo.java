@@ -11,6 +11,7 @@
  *******************************************************************************/
 package org.eclipse.ebr.maven;
 
+import static com.google.common.base.Preconditions.checkNotNull;
 import static java.lang.String.format;
 import static org.apache.commons.lang3.CharEncoding.UTF_8;
 import static org.apache.commons.lang3.StringEscapeUtils.escapeHtml4;
@@ -41,6 +42,8 @@ import java.util.List;
 import java.util.Locale;
 import java.util.Map;
 
+import org.eclipse.aether.repository.RepositoryPolicy;
+
 import org.apache.commons.io.FileUtils;
 import org.apache.commons.io.FilenameUtils;
 import org.apache.commons.io.IOUtils;
@@ -49,12 +52,19 @@ import org.apache.commons.lang3.SystemUtils;
 import org.apache.commons.lang3.text.StrBuilder;
 import org.apache.felix.utils.properties.Properties;
 import org.apache.maven.artifact.Artifact;
-import org.apache.maven.artifact.DefaultArtifact;
 import org.apache.maven.artifact.InvalidRepositoryException;
-import org.apache.maven.artifact.handler.manager.ArtifactHandlerManager;
 import org.apache.maven.artifact.repository.ArtifactRepository;
+import org.apache.maven.artifact.repository.DefaultRepositoryRequest;
+import org.apache.maven.artifact.repository.RepositoryRequest;
+import org.apache.maven.artifact.repository.metadata.ArtifactRepositoryMetadata;
+import org.apache.maven.artifact.repository.metadata.Metadata;
+import org.apache.maven.artifact.repository.metadata.RepositoryMetadata;
+import org.apache.maven.artifact.repository.metadata.RepositoryMetadataManager;
+import org.apache.maven.artifact.repository.metadata.Versioning;
 import org.apache.maven.artifact.resolver.ArtifactResolutionRequest;
 import org.apache.maven.artifact.resolver.ArtifactResolutionResult;
+import org.apache.maven.artifact.versioning.ArtifactVersion;
+import org.apache.maven.artifact.versioning.DefaultArtifactVersion;
 import org.apache.maven.execution.MavenSession;
 import org.apache.maven.model.Dependency;
 import org.apache.maven.model.Developer;
@@ -124,7 +134,7 @@ public class CreateRecipeMojo extends AbstractMojo {
 		public Artifact resolveArtifactPom(final String groupId, final String artifactId, final String version) throws UnresolvableModelException {
 			getLog().debug(format("Resolving POM for artifact %s:%s:%s.", groupId, artifactId, version));
 
-			final Artifact requestedArtifact = new DefaultArtifact(groupId, artifactId, version, null, "pom", null, artifactHandlerManager.getArtifactHandler("pom"));
+			final Artifact requestedArtifact = repositorySystem.createArtifact(groupId, artifactId, version, "pom");
 			final ArtifactResolutionRequest request = new ArtifactResolutionRequest();
 			request.setArtifact(requestedArtifact);
 			request.setRemoteRepositories(new ArrayList<>(repositoryById.values()));
@@ -150,6 +160,8 @@ public class CreateRecipeMojo extends AbstractMojo {
 		}
 	}
 
+	private static final String SNAPSHOT_SUFFIX = "-SNAPSHOT";
+
 	private static final String DOT_PROJECT = ".project";
 
 	private static final String OSGI_BND = "osgi.bnd";
@@ -171,6 +183,9 @@ public class CreateRecipeMojo extends AbstractMojo {
 	RepositorySystem repositorySystem;
 
 	@Component
+	private RepositoryMetadataManager repositoryMetadataManager;
+
+	@Component
 	private ModelBuilder modelBuilder;
 
 	@Parameter(property = "groupId", required = true)
@@ -179,8 +194,10 @@ public class CreateRecipeMojo extends AbstractMojo {
 	@Parameter(property = "artifactId", required = true)
 	private String artifactId;
 
-	@Parameter(property = "version", required = true)
-	private String version;
+	@Parameter(property = "version", defaultValue = "RELEASE")
+	private String artifactVersion;
+
+	private ArtifactVersion version;
 
 	@Parameter(property = "bundleSymbolicName", required = true)
 	private String bundleSymbolicName;
@@ -197,9 +214,6 @@ public class CreateRecipeMojo extends AbstractMojo {
 	protected MavenXpp3Reader modelReader = new MavenXpp3Reader();
 
 	protected MavenXpp3Writer modelWriter = new MavenXpp3Writer();
-
-	@Component
-	private ArtifactHandlerManager artifactHandlerManager;
 
 	private void appendAndDownloadLicenseInfo(final StrBuilder text, final File downloadDir, final Artifact artifact, final Model artifactPom) {
 		boolean first = true;
@@ -310,12 +324,12 @@ public class CreateRecipeMojo extends AbstractMojo {
 		}
 	}
 
-	private Model buildEffectiveModel(final Artifact resolvedPomArtifact) throws MojoExecutionException {
-		getLog().debug(format("Building effective model for artifact %s:%s:%s.", groupId, artifactId, version));
+	private Model buildEffectiveModel(final File pomFile) throws MojoExecutionException {
+		getLog().debug(format("Building effective model for pom '%s'.", pomFile));
 
 		final DefaultModelBuildingRequest request = new DefaultModelBuildingRequest();
 		request.setModelResolver(getResolver());
-		request.setPomFile(resolvedPomArtifact.getFile());
+		request.setPomFile(pomFile);
 		request.setValidationLevel(ModelBuildingRequest.VALIDATION_LEVEL_MINIMAL);
 		request.setProcessPlugins(false);
 		request.setTwoPhaseBuilding(false);
@@ -330,7 +344,7 @@ public class CreateRecipeMojo extends AbstractMojo {
 			result = modelBuilder.build(request);
 		} catch (final ModelBuildingException e) {
 			getLog().debug(e);
-			throw new MojoExecutionException(format("Unable to build model for artifact %s:%s:%s. %s", groupId, artifactId, version, e.getMessage()));
+			throw new MojoExecutionException(format("Unable to build model for pom '%s'. %s", pomFile, e.getMessage()));
 		}
 
 		if (getLog().isDebugEnabled()) {
@@ -338,6 +352,20 @@ public class CreateRecipeMojo extends AbstractMojo {
 		}
 
 		return result.getEffectiveModel();
+	}
+
+	private void configureReqpositoryRequest(final RepositoryRequest request) throws MojoExecutionException {
+		request.setLocalRepository(mavenSession.getLocalRepository());
+		if (!mavenSession.isOffline()) {
+			try {
+				request.setRemoteRepositories(Arrays.asList(repositorySystem.createDefaultRemoteRepository()));
+			} catch (final InvalidRepositoryException e) {
+				getLog().debug(e);
+				throw new MojoExecutionException(format("Unable to create the default remote repository. Please verify the Maven configuration. %s", e.getMessage()));
+			}
+		}
+		request.setOffline(mavenSession.isOffline());
+		request.setForceUpdate(RepositoryPolicy.UPDATE_POLICY_ALWAYS.equals(mavenSession.getRepositorySession().getUpdatePolicy()));
 	}
 
 	private String downloadLicenseFile(final File licenseOutputDir, final License license, final URL licenseUrl) throws IOException {
@@ -384,10 +412,10 @@ public class CreateRecipeMojo extends AbstractMojo {
 		final File parentPomFile = findParentPom();
 		if (!parentPomFile.isFile())
 			throw new MojoExecutionException(format("No parent pom.xml found at '%s'.", parentPomFile.getAbsolutePath()));
-		final Model parentPom = readPom(parentPomFile);
+		final Model parentPom = buildEffectiveModel(parentPomFile);
 
 		final Artifact resolvedPomArtifact = resolveArtifactPom();
-		final Model artifactPom = buildEffectiveModel(resolvedPomArtifact);
+		final Model artifactPom = buildEffectiveModel(resolvedPomArtifact.getFile());
 
 		logDependencies(artifactPom, resolvedPomArtifact);
 
@@ -637,7 +665,7 @@ public class CreateRecipeMojo extends AbstractMojo {
 	}
 
 	private File getProjectDir(final Model recipePom) throws MojoExecutionException {
-		final File projectDir = new File(baseDir, recipePom.getArtifactId() + "_" + StringUtils.removeEnd(recipePom.getVersion(), "-SNAPSHOT"));
+		final File projectDir = new File(baseDir, recipePom.getArtifactId() + "_" + StringUtils.removeEnd(recipePom.getVersion(), SNAPSHOT_SUFFIX));
 		getLog().debug("Using project directory: " + projectDir);
 		try {
 			FileUtils.forceMkdir(projectDir);
@@ -657,7 +685,7 @@ public class CreateRecipeMojo extends AbstractMojo {
 
 		recipePom.setArtifactId(bundleSymbolicName);
 
-		final String version = getRecipePomVersion(resolvedPomArtifact);
+		final String version = getRecipePomVersion();
 		recipePom.setVersion(version);
 
 		recipePom.setName(artifactPom.getName());
@@ -670,11 +698,8 @@ public class CreateRecipeMojo extends AbstractMojo {
 		return recipePom;
 	}
 
-	private String getRecipePomVersion(final Artifact resolvedPomArtifact) {
-		String version = resolvedPomArtifact.getBaseVersion();
-		if (!version.endsWith("-SNAPSHOT")) {
-			version += "-SNAPSHOT";
-		}
+	private String getRecipePomVersion() {
+		final String version = format("%d.%d.%d%s", this.version.getMajorVersion(), this.version.getMinorVersion(), this.version.getIncrementalVersion(), SNAPSHOT_SUFFIX);
 		getLog().debug("Using recipe pom.xml version: " + version);
 		return version;
 	}
@@ -748,19 +773,6 @@ public class CreateRecipeMojo extends AbstractMojo {
 		}
 	}
 
-	private Model readPom(final File file) throws MojoExecutionException {
-		XmlStreamReader reader = null;
-		try {
-			reader = ReaderFactory.newXmlReader(file);
-			return modelReader.read(reader);
-		} catch (final Exception e) {
-			getLog().debug(e);
-			throw new MojoExecutionException(format("Error reading '%s': %s", file.getAbsolutePath(), e.getMessage()));
-		} finally {
-			IOUtils.closeQuietly(reader);
-		}
-	}
-
 	private Model readPomTemplate() throws MojoExecutionException {
 		XmlStreamReader reader = null;
 		try {
@@ -781,12 +793,51 @@ public class CreateRecipeMojo extends AbstractMojo {
 	private Artifact resolveArtifactPom() throws MojoExecutionException {
 		getLog().info(format("Resolving POM for artifact %s:%s:%s.", groupId, artifactId, version));
 
+		// find latest version
+		final ArtifactVersion resolvedVersion = resolveArtifactVersion(artifactVersion);
+		if (StringUtils.equals("RELEASE", artifactVersion) || StringUtils.isBlank(artifactVersion) || StringUtils.equals("LATEST", artifactVersion)) {
+			version = resolvedVersion;
+			getLog().info(format("   Using verson %s.", version));
+		} else {
+			version = new DefaultArtifactVersion(artifactVersion);
+			if (resolvedVersion.compareTo(version) > 0) {
+				getLog().info(format("   Using verson %s. The latest available release is %s.", version, resolvedVersion));
+			}
+		}
+
+		// resolve POM
 		try {
-			return getResolver().resolveArtifactPom(groupId, artifactId, version);
+			return getResolver().resolveArtifactPom(groupId, artifactId, version.toString());
 		} catch (final UnresolvableModelException e) {
 			getLog().debug(e);
-			throw new MojoExecutionException(format("Unable to resulve POM for artifact %s:%s:%s. %s", groupId, artifactId, version, e.getMessage()));
+			throw new MojoExecutionException(format("Unable to resolve POM for artifact %s:%s:%s. %s", groupId, artifactId, version, e.getMessage()));
 
+		}
+	}
+
+	private ArtifactVersion resolveArtifactVersion(final String version) throws MojoExecutionException {
+		getLog().debug(format("Reading version metadata for artifact %s:%s.", groupId, artifactId));
+
+		final RepositoryRequest request = new DefaultRepositoryRequest();
+		configureReqpositoryRequest(request);
+
+		final Artifact artifact = repositorySystem.createArtifact(groupId, artifactId, "", null, "pom");
+		try {
+			final RepositoryMetadata metadata = new ArtifactRepositoryMetadata(artifact);
+			repositoryMetadataManager.resolve(metadata, request);
+
+			final Metadata repositoryMetadata = checkNotNull(metadata.getMetadata(), "No repository metadata loaded.");
+			final Versioning metadataVersions = checkNotNull(repositoryMetadata.getVersioning(), "No versioning information available in repository metadata.");
+			if (StringUtils.equals("LATEST", version)) {
+				getLog().debug(format("Resolving '%s' to latest version.", version));
+				return new DefaultArtifactVersion(metadataVersions.getLatest());
+			} else {
+				getLog().debug(format("Resolving '%s' to release version.", version));
+				return new DefaultArtifactVersion(metadataVersions.getRelease());
+			}
+		} catch (final Exception e) {
+			getLog().debug(e);
+			throw new MojoExecutionException(format("Unable to retrieve available versions for artifact %s:%s:%s. %s", groupId, artifactId, version, e.getMessage()));
 		}
 	}
 
