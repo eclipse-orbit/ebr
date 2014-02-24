@@ -27,7 +27,6 @@ import java.io.InputStream;
 import java.io.OutputStream;
 import java.io.OutputStreamWriter;
 import java.io.Writer;
-import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.text.DateFormat;
@@ -51,6 +50,12 @@ import org.apache.commons.lang3.StringUtils;
 import org.apache.commons.lang3.SystemUtils;
 import org.apache.commons.lang3.text.StrBuilder;
 import org.apache.felix.utils.properties.Properties;
+import org.apache.http.HttpEntity;
+import org.apache.http.client.methods.CloseableHttpResponse;
+import org.apache.http.client.methods.HttpGet;
+import org.apache.http.entity.ContentType;
+import org.apache.http.impl.client.CloseableHttpClient;
+import org.apache.http.impl.client.HttpClients;
 import org.apache.maven.artifact.Artifact;
 import org.apache.maven.artifact.InvalidRepositoryException;
 import org.apache.maven.artifact.repository.ArtifactRepository;
@@ -381,27 +386,35 @@ public class CreateRecipeMojo extends AbstractMojo {
 			}
 		} else if (mavenSession.isOffline())
 			throw new IOException("Maven is offline.");
-		final HttpURLConnection connection = (HttpURLConnection) licenseUrl.openConnection();
-		connection.addRequestProperty("Accept", "text/plain,text/html");
-		connection.connect();
-		final String contentType = StringUtils.substringBefore(connection.getContentType(), ";");
-		if (StringUtils.equalsIgnoreCase(contentType, "text/plain")) {
-			licenseFileName = licenseFileName + ".txt";
-		} else if (StringUtils.equalsIgnoreCase(contentType, "text/html")) {
-			licenseFileName = licenseFileName + ".html";
-		} else
-			throw new IOException(format("Unexpected content type (%s) returned by remot server.", contentType));
+		try (CloseableHttpClient client = HttpClients.createDefault()) {
+			final HttpGet get = new HttpGet(licenseUrl.toExternalForm());
+			get.setHeader("Accept", "text/plain,text/html");
+			try (final CloseableHttpResponse response = client.execute(get)) {
+				if (response.getStatusLine().getStatusCode() != 200)
+					throw new IOException(format("Download failed: %s", response.getStatusLine().toString()));
+				final HttpEntity entity = response.getEntity();
+				if (entity == null)
+					throw new IOException("Download faild. Empty respose.");
 
-		final InputStream is = connection.getInputStream();
-		try {
-			final FileOutputStream os = FileUtils.openOutputStream(new File(licenseOutputDir, licenseFileName));
-			try {
-				IOUtils.copy(is, os);
-			} finally {
-				IOUtils.closeQuietly(os);
+				try (final InputStream is = entity.getContent()) {
+					final ContentType contentType = ContentType.getOrDefault(entity);
+					if (StringUtils.equalsIgnoreCase(contentType.getMimeType(), "text/plain")) {
+						licenseFileName = licenseFileName + ".txt";
+					} else if (StringUtils.equalsIgnoreCase(contentType.getMimeType(), "text/html")) {
+						licenseFileName = licenseFileName + ".html";
+					} else {
+						getLog().warn(format("Unexpected content type (%s) returned by remote server. Falling back to text/plain.", contentType));
+						licenseFileName = licenseFileName + ".txt";
+					}
+
+					final FileOutputStream os = FileUtils.openOutputStream(new File(licenseOutputDir, licenseFileName));
+					try {
+						IOUtils.copy(is, os);
+					} finally {
+						IOUtils.closeQuietly(os);
+					}
+				}
 			}
-		} finally {
-			IOUtils.closeQuietly(is);
 		}
 		return licenseFileName;
 	}
