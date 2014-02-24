@@ -59,6 +59,7 @@ import org.osgi.framework.Version;
 
 import org.apache.commons.io.FileUtils;
 import org.apache.commons.lang3.StringUtils;
+import org.apache.commons.lang3.exception.ExceptionUtils;
 import org.apache.felix.bundleplugin.ManifestPlugin;
 import org.apache.maven.archiver.MavenArchiveConfiguration;
 import org.apache.maven.archiver.MavenArchiver;
@@ -588,25 +589,38 @@ public class BundleMojo extends ManifestPlugin {
 	private void publishP2Metedata() throws MojoExecutionException {
 		// copy into output directory
 		getLog().debug("Publishing p2 metadata...");
-		// @formatter:off
-		executeMojo(
-			    plugin(
-			        groupId("org.eclipse.tycho"),
-			        artifactId("tycho-p2-plugin"),
-			        version(tychoPluginVersion)
-			    ),
-			    goal("p2-metadata"),
-			    configuration(
-			    		element("supportedProjectTypes",
-			    				element("supportedProjectType", "eclipse-bundle-recipe"))
-			    ),
-			    executionEnvironment(
-			        project,
-			        session,
-			        pluginManager
-			    )
-			);
-		// @formatter:on
+		try {
+			// @formatter:off
+			executeMojo(
+				    plugin(
+				        groupId("org.eclipse.tycho"),
+				        artifactId("tycho-p2-plugin"),
+				        version(tychoPluginVersion)
+				    ),
+				    goal("p2-metadata"),
+				    configuration(
+				    		element("supportedProjectTypes",
+				    				element("supportedProjectType", "eclipse-bundle-recipe"))
+				    ),
+				    executionEnvironment(
+				        project,
+				        session,
+				        pluginManager
+				    )
+				);
+			// @formatter:on
+		} catch (final MojoExecutionException e) {
+			// check for http://eclip.se/428950
+			final Throwable rootCause = ExceptionUtils.getRootCause(e);
+			if ((rootCause instanceof IllegalArgumentException) && StringUtils.isBlank(rootCause.getMessage())) {
+				final String[] trace = ExceptionUtils.getRootCauseStackTrace(e);
+				if ((trace.length > 1) && (trace[1].indexOf("P2GeneratorImpl.getCanonicalArtifact") > 0)) {
+					getLog().debug(e);
+					throw new MojoExecutionException(format("The generated bundle manifest is broken. Unfortunately, the error is hard to discover (see http://eclip.se/428950). Try running Maven with '-Dosgi.logfile=/tmp/tycho-eclipse.log' to get a log file of the embedded Equinox OSGi framework."));
+				}
+			}
+			throw new MojoExecutionException(format("Unable to generate p2 metadata. Please check the generated bundle manifest and any bnd instructions. Try running Maven with '-Dosgi.logfile=/tmp/tycho-eclipse.log' to get a log file of the embedded Equinox OSGi framework. %s"), e);
+		}
 
 	}
 
