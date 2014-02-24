@@ -2,20 +2,25 @@
 <project xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd" xmlns="http://maven.apache.org/POM/4.0.0"
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
   <modelVersion>4.0.0</modelVersion>
+
   <parent>
     <groupId>org.eclipse.ebr.bundles</groupId>
-    <artifactId>ebr-bundles-parent</artifactId>
+    <artifactId>google-parent</artifactId>
     <version>1.0.0-SNAPSHOT</version>
   </parent>
-  <artifactId>org.jvnet.mimepull</artifactId>
-  <version>1.9.4-SNAPSHOT</version>
+
+  <artifactId>com.google.guava</artifactId>
+  <version>16.0.1-SNAPSHOT</version>
   <packaging>eclipse-bundle-recipe</packaging>
-  <name>MIME streaming extension</name>
+  
+  <name>Guava: Google Core Libraries for Java</name>
+  
   <dependencies>
     <dependency>
-      <groupId>org.jvnet.mimepull</groupId>
-      <artifactId>mimepull</artifactId>
-      <version>1.9.4</version>
+      <groupId>com.google.guava</groupId>
+      <artifactId>guava</artifactId>
+      <version>16.0.1</version>
     </dependency>
   </dependencies>
+
 </project>

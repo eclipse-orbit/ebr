@@ -4,7 +4,7 @@
   <modelVersion>4.0.0</modelVersion>
   <parent>
     <groupId>org.eclipse.ebr.bundles</groupId>
-    <artifactId>ebr-bundles-parent</artifactId>
+    <artifactId>unsorted-parent</artifactId>
     <version>1.0.0-SNAPSHOT</version>
   </parent>
   <artifactId>com.google.code.findbugs.jsr305</artifactId>

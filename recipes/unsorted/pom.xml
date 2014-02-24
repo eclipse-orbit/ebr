@@ -9,18 +9,16 @@
     <version>1.0.0-SNAPSHOT</version>
   </parent>
 
-  <groupId>org.eclipse.ebr.bundles</groupId>
-  <artifactId>jawax.ws.rs-jersey-aggregator</artifactId>
+  <artifactId>unsorted-parent</artifactId>
+  <version>1.0.0-SNAPSHOT</version>
   <packaging>pom</packaging>
 
-  <name>JAX-RS and Jersey Bundle Aggregator</name>
+  <name>Misc</name>
 
   <modules>
-    <module>../javax.ws.rs_2.0.0</module>
-    <module>../hk2</module>
-    <module>../jersey</module>
-    <module>../org.jvnet.mimepull_1.9.4</module>
-    <module>../org.javassist_3.18.1</module>
+    <module>com.google.code.findbugs.jsr305_2.0.3</module>
+    <module>org.javassist_3.18.1</module>
+    <module>org.jvnet.mimepull_1.9.4</module>
   </modules>
 
 </project>

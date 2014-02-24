@@ -9,16 +9,14 @@
     <version>1.0.0-SNAPSHOT</version>
   </parent>
 
-  <groupId>org.eclipse.ebr.bundles</groupId>
-  <artifactId>ch.qos.logback-aggregator</artifactId>
+  <artifactId>google-parent</artifactId>
+  <version>1.0.0-SNAPSHOT</version>
   <packaging>pom</packaging>
 
-  <name>Logback Bundle Aggregator</name>
+  <name>Google</name>
 
   <modules>
-    <module>../ch.qos.logback.core_1.1.0</module>
-    <module>../ch.qos.logback.classic_1.1.0</module>
-    <module>../ch.qos.logback.slf4j_1.1.0</module>
+    <module>com.google.guava_16.0.1</module>
   </modules>
 
 </project>
