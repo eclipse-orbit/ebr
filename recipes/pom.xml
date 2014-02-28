@@ -54,7 +54,6 @@
 
   </properties>
 
-
   <profiles>
     <profile>
       <id>git-qualifier</id>
