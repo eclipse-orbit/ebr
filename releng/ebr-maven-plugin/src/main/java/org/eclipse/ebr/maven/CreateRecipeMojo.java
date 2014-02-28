@@ -804,7 +804,7 @@ public class CreateRecipeMojo extends AbstractMojo {
 	}
 
 	private Artifact resolveArtifactPom() throws MojoExecutionException {
-		getLog().info(format("Resolving POM for artifact %s:%s:%s.", groupId, artifactId, version));
+		getLog().info(format("Resolving POM for artifact %s:%s:%s.", groupId, artifactId, artifactVersion));
 
 		// find latest version
 		final ArtifactVersion resolvedVersion = resolveArtifactVersion(artifactVersion);
@@ -824,7 +824,6 @@ public class CreateRecipeMojo extends AbstractMojo {
 		} catch (final UnresolvableModelException e) {
 			getLog().debug(e);
 			throw new MojoExecutionException(format("Unable to resolve POM for artifact %s:%s:%s. %s", groupId, artifactId, version, e.getMessage()));
-
 		}
 	}
 
