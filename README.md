@@ -60,6 +60,26 @@ This is not difficult at all. Just change into the directory of the recipe to bu
 The resulting bundle will be available in the recipes `target` folder.
 
 
+Creating your own recipes
+-------------------------
+
+Create new recipes with something like the following:
+
+    $ cd recipes/unsorted
+    $ mvn org.eclipse.ebr:ebr-maven-plugin::create-recipe \
+      -DbundleSymbolicName=org.joda.time \
+      -DgroupId=joda-time \
+      -DartifactId=joda-time \
+      -Dversion=1.6
+
+This command will create an EBR project in a directory named
+`org.joda.time_1.6.0` within the current directory.  `groupId`,
+`artifactId`, and `version` are the artifact coordinates in Maven
+Central.  `version` is optional, and can also be `LATEST` or
+`RELEASE`.
+
+You can create other groupings under `recipes/` as required.  Copy
+and modify a `pom.xml` as required.
 
 
 
@@ -92,3 +112,4 @@ How the Maven plug-in works
     manifest generated before.)
  7. Final source bundle jar is produced.
  8. p2 metadata is generated (via Tycho p2 plug-in).
+
