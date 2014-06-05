@@ -52,6 +52,9 @@
     <!-- property for generating Eclipse source reference bundle headers -->
     <tycho.scmUrl>scm:git:https://git.eclipse.org/r/p/ebr/org.eclipse.ebr.recipes.git</tycho.scmUrl>
 
+    <!-- by default complain if working tree is dirty (error|warning|ignore) -->
+    <jgit.dirtyWorkingTree>error</jgit.dirtyWorkingTree>
+
   </properties>
 
   <profiles>
@@ -78,6 +81,8 @@
               <configuration>
                 <!-- generate bundle .qualifier from Git tags/commits -->
                 <timestampProvider>jgit</timestampProvider>
+                <!-- allow to ignore dirty working trees -->
+                <jgit.dirtyWorkingTree>${jgit.dirtyWorkingTree}</jgit.dirtyWorkingTree>
               </configuration>
             </plugin>
           </plugins>
