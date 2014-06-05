@@ -4,6 +4,7 @@ Eclipse Bundle Recipes
 This repositories hosts recipes and tools for building OSGi bundles from Java Maven artifacts.
 
 
+
 No bundles to download
 ----------------------
 
@@ -11,10 +12,11 @@ Due to legal reasons, this project does not offer any OSGi bundles as direct dow
 look at alternate services which may provide ready to use bundles based on these recipies.
 
 
+
 How to build all bundles yourself
 ---------------------------------
 
-1. Clone this repository.
+1. Clone this repository and go into the repository root folder.
 2. `cd recipes`
 3. `mvn clean install`
 
@@ -22,9 +24,10 @@ This will publish all OSGi bundles produced by the recipes into your local Maven
 the bundles directly from Maven in any Tycho build. By convention, the bundles will be published using the
 Maven group id `org.eclipse.ebr.bundles`.
 
+
 ### Generate p2 repository
 
-1. Switch to the repository root
+1. Go into the repository root folder.
 2. `cd releng/p2`
 3. `mvn clean package`
 
@@ -33,14 +36,17 @@ The repository will be made available as archive in `releng/p2/repository/target
 Note, you **must** build the recipes first and *install* the result into your local Maven repository. Otherwise
 the p2 build won't find any bundles.
 
+
 ### How to build just a single recipe?
 
 This is not difficult at all. Just change into the directory of the recipe to build and execute Maven from there.
 
-1. `cd recipes/<path/to/recipe>
+1. `cd recipes/\<path/to/recipe\>`
 2. `mvn clean package`
 
 The resulting bundle will be available in the recipes `target` folder.
+
+
 
 
 
