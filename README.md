@@ -22,7 +22,7 @@ How to build all bundles yourself
 
 This will publish all OSGi bundles produced by the recipes into your local Maven repository. You can consume
 the bundles directly from Maven in any Tycho build. By convention, the bundles will be published using the
-Maven group id `org.eclipse.ebr.bundles`.
+Maven group id `MY_EBR_BUNDLES_GROUP`.
 
 
 ### Generate p2 repository
