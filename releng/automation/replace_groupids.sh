@@ -1,5 +1,5 @@
 #!/bin/bash
-set -eu
+set -eux
 
 #
 # This script can be used to replace the Eclipse group id with soomething else.
