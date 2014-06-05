@@ -8,10 +8,10 @@
   <packaging>pom</packaging>
 
   <name>Eclipse EBR :: Maven Parent</name>
-  <description>Maven parent for EBR receipts.</description>
+  <description>Maven parent for EBR recipes.</description>
 
   <prerequisites>
-    <maven>3.0.0</maven>
+    <maven>3.1.0</maven>
   </prerequisites>
 
   <scm>
