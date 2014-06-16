@@ -13,6 +13,19 @@ look at alternate services which may provide ready to use bundles based on these
 
 
 
+Prerequisites
+-------------
+
+This project uses Maven for assembling of OSGi bundles based on artifacts in Maven Central or
+any other accessible Maven repository. A Maven plug-in is provided which must be installed
+in your local Maven repository for any of the builds to be successful.
+
+1. Install Java (at least Java 7) and Maven
+2. Clone this repository and go into the repository root folder.
+3. `mvn -f ebr/releng/ebr-maven-plugin/pom.xml install`
+
+
+
 How to build all bundles yourself
 ---------------------------------
 
