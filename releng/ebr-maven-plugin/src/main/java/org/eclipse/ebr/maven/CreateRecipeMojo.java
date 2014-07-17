@@ -8,6 +8,7 @@
  * Contributors:
  *    Gunnar Wagenknecht - initial API and implementation
  *    Sonatype Inc. - methods for reading OSGi I10N properties from Tycho
+ *    Brian de Alwis - avoid NPEs on logging
  *******************************************************************************/
 package org.eclipse.ebr.maven;
 
@@ -251,7 +252,7 @@ public class CreateRecipeMojo extends AbstractMojo {
 
 				} catch (final MalformedURLException e) {
 					getLog().debug(e);
-					getLog().warn(format("Invalide license url '%s' in artifact pom '%s'.", url, artifact.getFile()));
+					getLog().warn(format("Invalid license url '%s' in artifact pom '%s'.", url, artifact.getFile()));
 				}
 			}
 			text.append(escapeHtml4(license.getName()));
@@ -504,7 +505,7 @@ public class CreateRecipeMojo extends AbstractMojo {
 			return;
 		}
 		final Properties l10nProps = new Properties();
-		l10nProps.put(I18N_KEY_BUNDLE_NAME, recipePom.getName());
+		l10nProps.put(I18N_KEY_BUNDLE_NAME, recipePom.getName() != null ? recipePom.getName() : recipePom.getArtifactId());
 		l10nProps.put(I18N_KEY_BUNDLE_VENDOR, bundleVendor);
 		l10nProps.setHeader(Arrays.asList("# Bundle Localization"));
 		try {
@@ -605,7 +606,7 @@ public class CreateRecipeMojo extends AbstractMojo {
 	private String getLicenseInfo(final Artifact resolvedPomArtifact, final Model artifactPom, final File resourcesDir) {
 		final StrBuilder licenseInfo = new StrBuilder();
 		if (artifactPom.getLicenses().isEmpty()) {
-			getLog().warn("No licensing information found for artifact %s:%s:%s. Please fill in information in about.html manually!");
+			getLog().warn(format("No licensing information found for artifact %s:%s:%s. Please fill in information in about.html manually!", artifactPom.getGroupId(), artifactPom.getArtifactId(), artifactPom.getVersion()));
 			licenseInfo.append(escapeHtml4(artifactPom.getName())).append(" is distributed without licensing information.");
 			if (!artifactPom.getDevelopers().isEmpty()) {
 				licenseInfo.append("Please contact the ");
