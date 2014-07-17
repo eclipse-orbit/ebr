@@ -8,7 +8,7 @@
  * Contributors:
  *    Gunnar Wagenknecht - initial API and implementation
  *    Sonatype Inc. - methods for reading OSGi I10N properties from Tycho
- *    Brian de Alwis - avoid NPEs on logging
+ *    Brian de Alwis - avoid NPEs on logging and resolving version metadata unless required
  *******************************************************************************/
 package org.eclipse.ebr.maven;
 
@@ -840,13 +840,17 @@ public class CreateRecipeMojo extends AbstractMojo {
 			repositoryMetadataManager.resolve(metadata, request);
 
 			final Metadata repositoryMetadata = checkNotNull(metadata.getMetadata(), "No repository metadata loaded.");
-			final Versioning metadataVersions = checkNotNull(repositoryMetadata.getVersioning(), "No versioning information available in repository metadata.");
 			if (StringUtils.equals("LATEST", version)) {
+				final Versioning metadataVersions = checkNotNull(repositoryMetadata.getVersioning(), "No versioning information available in repository metadata.");
 				getLog().debug(format("Resolving '%s' to latest version.", version));
 				return new DefaultArtifactVersion(metadataVersions.getLatest());
-			} else {
+			} else if (StringUtils.equals("RELEASE", version)) {
+				final Versioning metadataVersions = checkNotNull(repositoryMetadata.getVersioning(), "No versioning information available in repository metadata.");
 				getLog().debug(format("Resolving '%s' to release version.", version));
 				return new DefaultArtifactVersion(metadataVersions.getRelease());
+			} else {
+				getLog().debug(format("Resolving '%s' to version.", version));
+				return new DefaultArtifactVersion(version);
 			}
 		} catch (final Exception e) {
 			getLog().debug(e);
