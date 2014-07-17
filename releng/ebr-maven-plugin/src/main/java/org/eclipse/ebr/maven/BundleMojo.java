@@ -8,6 +8,7 @@
  * Contributors:
  *    Gunnar Wagenknecht - initial API and implementation
  *    Sonatype Inc. - methods for reading OSGi I10N properties from Tycho
+ *    Brian de Alwis - handle artifacts that lack source
  *******************************************************************************/
 package org.eclipse.ebr.maven;
 
@@ -301,22 +302,28 @@ public class BundleMojo extends ManifestPlugin {
 		getLog().info("Gathering sources");
 		// @formatter:off
 		final List<Element> unpackConfigurationSource = getUnpackConfiguration(dependenciesSourcesDirectory, dependencies, CLASSIFIER_SOURCES);
-		executeMojo(
-			    plugin(
-			        groupId("org.apache.maven.plugins"),
-			        artifactId("maven-dependency-plugin"),
-			        version(mavenDependencyPluginVersion)
-			    ),
-			    goal("unpack"),
-			    configuration(
-			    		unpackConfigurationSource.toArray(new Element[unpackConfigurationSource.size()])
-			    ),
-			    executionEnvironment(
-			        project,
-			        session,
-			        pluginManager
-			    )
-			);
+		try {
+			executeMojo(
+				    plugin(
+					groupId("org.apache.maven.plugins"),
+					artifactId("maven-dependency-plugin"),
+					version(mavenDependencyPluginVersion)
+				    ),
+				    goal("unpack"),
+				    configuration(
+						unpackConfigurationSource.toArray(new Element[unpackConfigurationSource.size()])
+				    ),
+				    executionEnvironment(
+					project,
+					session,
+					pluginManager
+				    )
+				);
+		} catch(MojoExecutionException e) {
+			getLog().warn("Unable to resolve source jar; skipping source bundle");
+			getLog().debug(e);
+			return;
+		}
 		// @formatter:on
 
 		// create sources JAR
