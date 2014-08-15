@@ -137,6 +137,12 @@ public class CreateRecipeMojo extends AbstractMojo {
 			}
 		}
 
+		@Override
+		public void resetRepositories() {
+			getLog().debug("Clearing repositories.");
+			repositoryById.clear();
+		}
+
 		public Artifact resolveArtifactPom(final String groupId, final String artifactId, final String version) throws UnresolvableModelException {
 			getLog().debug(format("Resolving POM for artifact %s:%s:%s.", groupId, artifactId, version));
 
@@ -157,6 +163,11 @@ public class CreateRecipeMojo extends AbstractMojo {
 			if (result.getArtifacts().size() > 1)
 				throw new UnresolvableModelException(format("More than one POM found for artifact %s:%s:%s. This is unexpected. Please re-try with a more specific version or report this error.", groupId, artifactId, version), groupId, artifactId, version);
 			return result.getArtifacts().iterator().next();
+		}
+
+		@Override
+		public ModelSource resolveModel(final Parent parent) throws UnresolvableModelException {
+			return resolveModel(parent.getGroupId(), parent.getArtifactId(), parent.getVersion());
 		}
 
 		@Override
@@ -360,7 +371,7 @@ public class CreateRecipeMojo extends AbstractMojo {
 		return result.getEffectiveModel();
 	}
 
-	private void configureReqpositoryRequest(final RepositoryRequest request) throws MojoExecutionException {
+	void configureRepositoryRequest(final RepositoryRequest request) throws MojoExecutionException {
 		request.setLocalRepository(mavenSession.getLocalRepository());
 		if (!mavenSession.isOffline()) {
 			try {
@@ -474,21 +485,21 @@ public class CreateRecipeMojo extends AbstractMojo {
 		}
 		String aboutHtmlText = readAboutHtmlTemplate();
 		aboutHtmlText = StringUtils.replaceEach(aboutHtmlText, new String[] {// @formatter:off
-                "@DATE@",
-                "@DEPENDENCY_HEADLINE@",
-                "@DEPENDENCY_BY@",
-                "@DEPENDENCY_NAME@",
-                "@DEPENDENCY_LICENSING@",
-                "@DEPENDENCY_ORIGIN@"
-                }, new String[] {
-                DateFormat.getDateInstance(DateFormat.LONG, Locale.US).format(new Date()),
-                escapeHtml4(recipePom.getName()),
-                getDevelopedByInfo(resolvedPomArtifact, artifactPom),
-                escapeHtml4(recipePom.getName()),
-                getLicenseInfo(resolvedPomArtifact, artifactPom, resourcesDir),
-                getOriginInfo(resolvedPomArtifact, artifactPom)
-                });
-        // @formatter:on
+				"@DATE@",
+				"@DEPENDENCY_HEADLINE@",
+				"@DEPENDENCY_BY@",
+				"@DEPENDENCY_NAME@",
+				"@DEPENDENCY_LICENSING@",
+				"@DEPENDENCY_ORIGIN@"
+		}, new String[] {
+				DateFormat.getDateInstance(DateFormat.LONG, Locale.US).format(new Date()),
+				escapeHtml4(recipePom.getName()),
+				getDevelopedByInfo(resolvedPomArtifact, artifactPom),
+				escapeHtml4(recipePom.getName()),
+				getLicenseInfo(resolvedPomArtifact, artifactPom, resourcesDir),
+				getOriginInfo(resolvedPomArtifact, artifactPom)
+		});
+		// @formatter:on
 
 		try {
 			FileUtils.writeStringToFile(aboutHtmlFile, aboutHtmlText, UTF_8);
@@ -534,11 +545,11 @@ public class CreateRecipeMojo extends AbstractMojo {
 		}
 		String eclipseProjectFileText = readEclipseProjectFileTemplate();
 		eclipseProjectFileText = StringUtils.replaceEach(eclipseProjectFileText, new String[] {// @formatter:off
-                "@RECIPE_PROJECT_NAME@"
-                }, new String[] {
+				"@RECIPE_PROJECT_NAME@"
+		}, new String[] {
 				projectDir.getName()
-                });
-        // @formatter:on
+		});
+		// @formatter:on
 
 		try {
 			FileUtils.writeStringToFile(eclipseProjectFile, eclipseProjectFileText, UTF_8);
@@ -719,18 +730,15 @@ public class CreateRecipeMojo extends AbstractMojo {
 	}
 
 	private MavenModelResolver getResolver() throws MojoExecutionException {
-		MavenModelResolver resolver;
 		if (!mavenSession.isOffline()) {
 			try {
-				resolver = new MavenModelResolver(Arrays.asList(repositorySystem.createDefaultRemoteRepository()));
+				return new MavenModelResolver(Arrays.asList(repositorySystem.createDefaultRemoteRepository()));
 			} catch (final InvalidRepositoryException e) {
 				getLog().debug(e);
 				throw new MojoExecutionException(format("Unable to create the default remote repository. Please verify the Maven configuration. %s", e.getMessage()));
 			}
-		} else {
-			resolver = new MavenModelResolver(Collections.<ArtifactRepository> emptyList());
-		}
-		return resolver;
+		} else
+			return new MavenModelResolver(Collections.<ArtifactRepository> emptyList());
 	}
 
 	private InputStream getTemplate(final String name) throws FileNotFoundException {
@@ -832,7 +840,7 @@ public class CreateRecipeMojo extends AbstractMojo {
 		getLog().debug(format("Reading version metadata for artifact %s:%s.", groupId, artifactId));
 
 		final RepositoryRequest request = new DefaultRepositoryRequest();
-		configureReqpositoryRequest(request);
+		configureRepositoryRequest(request);
 
 		final Artifact artifact = repositorySystem.createArtifact(groupId, artifactId, "", null, "pom");
 		try {
