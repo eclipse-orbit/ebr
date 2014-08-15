@@ -38,11 +38,11 @@
 
 
   <modules>
-    <module>org.glassfish.hk2.utils_2.3.0</module>
-    <module>org.glassfish.hk2.api_2.3.0</module>
-    <module>org.glassfish.hk2.locator_2.3.0</module>
-    <module>org.glassfish.hk2.osgiresourcelocator_1.0.1</module>
-    <module>org.glassfish.hk2.external.asm_2.3.0</module>
+    <module>org.glassfish.hk2.utils.ebr_2.3.0</module>
+    <module>org.glassfish.hk2.api.ebr_2.3.0</module>
+    <module>org.glassfish.hk2.locator.ebr_2.3.0</module>
+    <module>org.glassfish.hk2.osgiresourcelocator.ebr_1.0.1</module>
+    <module>org.glassfish.hk2.external.asm.ebr_2.3.0</module>
   </modules>
 
 </project>

@@ -1,0 +1,15 @@
+package-version=${version;===;${Bundle-Version}}.${hk2.version.suffix}
+
+Export-Package: \
+ *.internal*;x-internal:=true;version="${package-version}", \
+ *.impl*;x-internal:=true;version="${package-version}", \
+ *;version="${package-version}"
+
+hk2-common-imports= \
+ javax.inject.*;version="${range;[==,+);1.0}", \
+ javax.annotation.*;version="${range;[==,+);1.2}", \
+ org.glassfish.hk2.osgiresourcelocator.*;version="${range;[==,+);1.0}", \
+ org.*.hk2.*;version="${range;[===,=+);${version;===;${package-version}}}", \
+ *;resolution:=optional
+
+Import-Package: ${hk2-common-imports}

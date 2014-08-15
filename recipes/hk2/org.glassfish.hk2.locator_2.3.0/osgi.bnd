@@ -1,5 +1,0 @@
--include: ~../hk2_2.3.0.bnd
-
-Import-Package: \
- javassist.*;version="${range;[==,+);3.18}", \
- ${hk2-common-imports}
