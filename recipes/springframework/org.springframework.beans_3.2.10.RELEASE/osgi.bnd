@@ -1,0 +1,20 @@
+package-version=${version;===;${Bundle-Version}}
+
+Export-Package: \
+ !about.html,!about_files, \
+ *.internal*;x-internal:=true;version="${package-version}", \
+ *.impl*;x-internal:=true;version="${package-version}", \
+ *;version="${package-version}"
+
+Import-Package: \
+ javax.el.*;version="[1.0.0, 3.0.0)";resolution:="optional", \
+ javax.inject.*;version="[1.0.0, 2.0.0)";resolution:="optional", \
+ org.apache.commons.logging;version="[1.1.1, 2.0.0)", \
+ org.springframework.cglib.*;version="[3.2.10, 3.2.10]", \
+ org.springframework.core.*;version="[3.2.10, 3.2.10]", \
+ org.springframework.util.*;version="[3.2.10, 3.2.10]", \
+ javax.xml.parsers;version="0";resolution:="optional", \
+ org.w3c.dom;version="0";resolution:="optional", \
+ org.xml.sax;version="0";resolution:="optional", \
+ *
+

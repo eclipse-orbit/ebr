@@ -1,0 +1,15 @@
+call mvn org.eclipse.ebr:ebr-maven-plugin:1.0.0-SNAPSHOT::create-recipe -DbundleSymbolicName=org.springframework.aop -DgroupId=org.springframework -DartifactId=spring-aop -Dversion=3.2.10.RELEASE
+call mvn org.eclipse.ebr:ebr-maven-plugin:1.0.0-SNAPSHOT::create-recipe -DbundleSymbolicName=org.springframework.aspects -DgroupId=org.springframework -DartifactId=spring-aspects -Dversion=3.2.10.RELEASE
+call mvn org.eclipse.ebr:ebr-maven-plugin:1.0.0-SNAPSHOT::create-recipe -DbundleSymbolicName=org.springframework.beans -DgroupId=org.springframework -DartifactId=spring-beans -Dversion=3.2.10.RELEASE
+call mvn org.eclipse.ebr:ebr-maven-plugin:1.0.0-SNAPSHOT::create-recipe -DbundleSymbolicName=org.springframework.context -DgroupId=org.springframework -DartifactId=spring-context -Dversion=3.2.10.RELEASE
+call mvn org.eclipse.ebr:ebr-maven-plugin:1.0.0-SNAPSHOT::create-recipe -DbundleSymbolicName=org.springframework.context.support -DgroupId=org.springframework -DartifactId=spring-context-support -Dversion=3.2.10.RELEASE
+call mvn org.eclipse.ebr:ebr-maven-plugin:1.0.0-SNAPSHOT::create-recipe -DbundleSymbolicName=org.springframework.core -DgroupId=org.springframework -DartifactId=spring-core -Dversion=3.2.10.RELEASE
+call mvn org.eclipse.ebr:ebr-maven-plugin:1.0.0-SNAPSHOT::create-recipe -DbundleSymbolicName=org.springframework.expression -DgroupId=org.springframework -DartifactId=spring-expression -Dversion=3.2.10.RELEASE
+call mvn org.eclipse.ebr:ebr-maven-plugin:1.0.0-SNAPSHOT::create-recipe -DbundleSymbolicName=org.springframework.jdbc -DgroupId=org.springframework -DartifactId=spring-jdbc -Dversion=3.2.10.RELEASE
+call mvn org.eclipse.ebr:ebr-maven-plugin:1.0.0-SNAPSHOT::create-recipe -DbundleSymbolicName=org.springframework.jms -DgroupId=org.springframework -DartifactId=spring-jms -Dversion=3.2.10.RELEASE
+call mvn org.eclipse.ebr:ebr-maven-plugin:1.0.0-SNAPSHOT::create-recipe -DbundleSymbolicName=org.springframework.orm -DgroupId=org.springframework -DartifactId=spring-orm -Dversion=3.2.10.RELEASE
+call mvn org.eclipse.ebr:ebr-maven-plugin:1.0.0-SNAPSHOT::create-recipe -DbundleSymbolicName=org.springframework.oxm -DgroupId=org.springframework -DartifactId=spring-oxm -Dversion=3.2.10.RELEASE
+call mvn org.eclipse.ebr:ebr-maven-plugin:1.0.0-SNAPSHOT::create-recipe -DbundleSymbolicName=org.springframework.transaction -DgroupId=org.springframework -DartifactId=spring-tx -Dversion=3.2.10.RELEASE
+call mvn org.eclipse.ebr:ebr-maven-plugin:1.0.0-SNAPSHOT::create-recipe -DbundleSymbolicName=org.springframework.web -DgroupId=org.springframework -DartifactId=spring-web -Dversion=3.2.10.RELEASE
+call mvn org.eclipse.ebr:ebr-maven-plugin:1.0.0-SNAPSHOT::create-recipe -DbundleSymbolicName=org.springframework.web.portlet -DgroupId=org.springframework -DartifactId=spring-webmvc-portlet -Dversion=3.2.10.RELEASE
+call mvn org.eclipse.ebr:ebr-maven-plugin:1.0.0-SNAPSHOT::create-recipe -DbundleSymbolicName=org.springframework.web.servlet -DgroupId=org.springframework -DartifactId=spring-webmvc -Dversion=3.2.10.RELEASE
