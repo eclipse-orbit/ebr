@@ -46,12 +46,12 @@
 
   <distributionManagement>
     <repository>
-      <id>ebr-releases</id>
+      <id>repo.eclipse.org</id>
       <name>EBR Eclipse Maven Repository - Releases</name>
       <url>https://repo.eclipse.org/content/repositories/ebr-releases/</url>
     </repository>
     <snapshotRepository>
-      <id>ebr-snapshots</id>
+      <id>repo.eclipse.org</id>
       <name>EBR Eclipse Maven Repository - Snapshots</name>
       <url>https://repo.eclipse.org/content/repositories/ebr-snapshots/</url>
     </snapshotRepository>
