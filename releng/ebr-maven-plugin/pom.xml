@@ -44,6 +44,19 @@
     </developer>
   </developers>
 
+  <distributionManagement>
+    <repository>
+      <id>ebr-releases</id>
+      <name>EBR Eclipse Maven Repository - Releases</name>
+      <url>https://repo.eclipse.org/content/repositories/ebr-releases/</url>
+    </repository>
+    <snapshotRepository>
+      <id>ebr-snapshots</id>
+      <name>EBR Eclipse Maven Repository - Snapshots</name>
+      <url>https://repo.eclipse.org/content/repositories/ebr-snapshots/</url>
+    </snapshotRepository>
+  </distributionManagement>
+
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 
