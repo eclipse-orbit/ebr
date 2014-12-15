@@ -181,8 +181,8 @@ public class BundleMojo extends ManifestPlugin {
 	@Parameter(defaultValue = "${buildQualifier}")
 	protected String qualifier;
 
-	@Parameter(defaultValue = "0.19.0", property = "tycho-plugin.version", required = true)
-	protected String tychoPluginVersion = "0.19.0";
+	@Parameter(defaultValue = "0.21.0", property = "tycho-plugin.version", required = true)
+	protected String tychoPluginVersion = "0.21.0";
 
 	@Parameter(defaultValue = "2.6", property = "maven-resource-plugin.version", required = true)
 	protected String mavenResourcesPluginVersion = "2.6";
@@ -228,45 +228,45 @@ public class BundleMojo extends ManifestPlugin {
 		// @formatter:off
 		final List<Element> unpackConfiguration = getUnpackConfiguration(dependenciesDirectory, dependencies, null);
 		executeMojo(
-			    plugin(
-			        groupId("org.apache.maven.plugins"),
-			        artifactId("maven-dependency-plugin"),
-			        version(mavenDependencyPluginVersion)
-			    ),
-			    goal("unpack"),
-			    configuration(
-			    		unpackConfiguration.toArray(new Element[unpackConfiguration.size()])
-			    ),
-			    executionEnvironment(
-			        project,
-			        session,
-			        pluginManager
-			    )
-			);
+				plugin(
+						groupId("org.apache.maven.plugins"),
+						artifactId("maven-dependency-plugin"),
+						version(mavenDependencyPluginVersion)
+						),
+						goal("unpack"),
+						configuration(
+								unpackConfiguration.toArray(new Element[unpackConfiguration.size()])
+								),
+								executionEnvironment(
+										project,
+										session,
+										pluginManager
+										)
+				);
 		// @formatter:on
 
 		// copy into output directory
 		getLog().info("Merging collected dependencies");
 		// @formatter:off
 		executeMojo(
-			    plugin(
-			        groupId("org.apache.maven.plugins"),
-			        artifactId("maven-resources-plugin"),
-			        version(mavenResourcesPluginVersion)
-			    ),
-			    goal("copy-resources"),
-			    configuration(
-			    		element("outputDirectory", "${project.build.outputDirectory}"),
-			    		element("resources",
-			    				element("resource", element("directory", dependenciesDirectory))
-			    		)
-			    ),
-			    executionEnvironment(
-			        project,
-			        session,
-			        pluginManager
-			    )
-			);
+				plugin(
+						groupId("org.apache.maven.plugins"),
+						artifactId("maven-resources-plugin"),
+						version(mavenResourcesPluginVersion)
+						),
+						goal("copy-resources"),
+						configuration(
+								element("outputDirectory", "${project.build.outputDirectory}"),
+								element("resources",
+										element("resource", element("directory", dependenciesDirectory))
+										)
+								),
+								executionEnvironment(
+										project,
+										session,
+										pluginManager
+										)
+				);
 		// @formatter:on
 
 		// generate manifest based on output only
@@ -304,22 +304,22 @@ public class BundleMojo extends ManifestPlugin {
 		final List<Element> unpackConfigurationSource = getUnpackConfiguration(dependenciesSourcesDirectory, dependencies, CLASSIFIER_SOURCES);
 		try {
 			executeMojo(
-				    plugin(
-					groupId("org.apache.maven.plugins"),
-					artifactId("maven-dependency-plugin"),
-					version(mavenDependencyPluginVersion)
-				    ),
-				    goal("unpack"),
-				    configuration(
-						unpackConfigurationSource.toArray(new Element[unpackConfigurationSource.size()])
-				    ),
-				    executionEnvironment(
-					project,
-					session,
-					pluginManager
-				    )
-				);
-		} catch(MojoExecutionException e) {
+					plugin(
+							groupId("org.apache.maven.plugins"),
+							artifactId("maven-dependency-plugin"),
+							version(mavenDependencyPluginVersion)
+							),
+							goal("unpack"),
+							configuration(
+									unpackConfigurationSource.toArray(new Element[unpackConfigurationSource.size()])
+									),
+									executionEnvironment(
+											project,
+											session,
+											pluginManager
+											)
+					);
+		} catch(final MojoExecutionException e) {
 			getLog().warn("Unable to resolve source jar; skipping source bundle");
 			getLog().debug(e);
 			return;
@@ -545,25 +545,25 @@ public class BundleMojo extends ManifestPlugin {
 		final List<Element> artifactItems = new ArrayList<Element>();
 		for (final Artifact artifact : dependencies) {
 			// @formatter:off
-					if(classifier != null) {
-						artifactItems.add(
-								element("artifactItem",
-										element("groupId", artifact.getGroupId()),
-										element("artifactId", artifact.getArtifactId()),
-										element("version", artifact.getVersion()),
-										element("classifier", classifier)
+			if(classifier != null) {
+				artifactItems.add(
+						element("artifactItem",
+								element("groupId", artifact.getGroupId()),
+								element("artifactId", artifact.getArtifactId()),
+								element("version", artifact.getVersion()),
+								element("classifier", classifier)
 								)
-							);
-					}
-					else {
-						artifactItems.add(
-								element("artifactItem",
-										element("groupId", artifact.getGroupId()),
-										element("artifactId", artifact.getArtifactId()),
-										element("version", artifact.getVersion())
+						);
+			}
+			else {
+				artifactItems.add(
+						element("artifactItem",
+								element("groupId", artifact.getGroupId()),
+								element("artifactId", artifact.getArtifactId()),
+								element("version", artifact.getVersion())
 								)
-							);
-					// @formatter:on
+						);
+				// @formatter:on
 			}
 		}
 		unpackConfiguration.add(element("artifactItems", artifactItems.toArray(new Element[artifactItems.size()])));
@@ -599,22 +599,22 @@ public class BundleMojo extends ManifestPlugin {
 		try {
 			// @formatter:off
 			executeMojo(
-				    plugin(
-				        groupId("org.eclipse.tycho"),
-				        artifactId("tycho-p2-plugin"),
-				        version(tychoPluginVersion)
-				    ),
-				    goal("p2-metadata"),
-				    configuration(
-				    		element("supportedProjectTypes",
-				    				element("supportedProjectType", "eclipse-bundle-recipe"))
-				    ),
-				    executionEnvironment(
-				        project,
-				        session,
-				        pluginManager
-				    )
-				);
+					plugin(
+							groupId("org.eclipse.tycho"),
+							artifactId("tycho-p2-plugin"),
+							version(tychoPluginVersion)
+							),
+							goal("p2-metadata"),
+							configuration(
+									element("supportedProjectTypes",
+											element("supportedProjectType", "eclipse-bundle-recipe"))
+									),
+									executionEnvironment(
+											project,
+											session,
+											pluginManager
+											)
+					);
 			// @formatter:on
 		} catch (final MojoExecutionException e) {
 			// check for http://eclip.se/428950
@@ -623,10 +623,10 @@ public class BundleMojo extends ManifestPlugin {
 				final String[] trace = ExceptionUtils.getRootCauseStackTrace(e);
 				if ((trace.length > 1) && (trace[1].indexOf("P2GeneratorImpl.getCanonicalArtifact") > 0)) {
 					getLog().debug(e);
-					throw new MojoExecutionException(format("The generated bundle manifest is broken. Unfortunately, the error is hard to discover (see http://eclip.se/428950). Try running Maven with '-Dosgi.logfile=/tmp/tycho-eclipse.log' to get a log file of the embedded Equinox OSGi framework."));
+					throw new MojoExecutionException("The generated bundle manifest is broken. Unfortunately, the error is hard to discover (see http://eclip.se/428950). Try running Maven with '-Dosgi.logfile=/tmp/tycho-eclipse.log' to get a log file of the embedded Equinox OSGi framework.");
 				}
 			}
-			throw new MojoExecutionException(format("Unable to generate p2 metadata. Please check the generated bundle manifest and any bnd instructions. Try running Maven with '-Dosgi.logfile=/tmp/tycho-eclipse.log' to get a log file of the embedded Equinox OSGi framework. %s"), e);
+			throw new MojoExecutionException(format("Unable to generate p2 metadata. Please check the generated bundle manifest and any bnd instructions. Try running Maven with '-Dosgi.logfile=/tmp/tycho-eclipse.log' to get a log file of the embedded Equinox OSGi framework. %s", e.getMessage()), e);
 		}
 
 	}

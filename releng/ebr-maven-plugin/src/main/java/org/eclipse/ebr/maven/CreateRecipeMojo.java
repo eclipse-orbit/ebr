@@ -113,14 +113,19 @@ public class CreateRecipeMojo extends AbstractMojo {
 
 		public MavenModelResolver(final Collection<ArtifactRepository> repositories) {
 			for (final ArtifactRepository repository : repositories) {
-				putRepositoryIfAbsent(repository);
+				putRepository(repository, false);
 			}
 		}
 
 		@Override
 		public void addRepository(final Repository repository) throws org.apache.maven.model.resolution.InvalidRepositoryException {
+			addRepository(repository, false);
+		}
+
+		@Override
+		public void addRepository(final Repository repository, final boolean replace) throws org.apache.maven.model.resolution.InvalidRepositoryException {
 			try {
-				putRepositoryIfAbsent(repositorySystem.buildArtifactRepository(repository));
+				putRepository(repositorySystem.buildArtifactRepository(repository), replace);
 			} catch (final InvalidRepositoryException e) {
 				throw new org.apache.maven.model.resolution.InvalidRepositoryException(e.getMessage(), repository, e);
 			}
@@ -131,13 +136,12 @@ public class CreateRecipeMojo extends AbstractMojo {
 			return new MavenModelResolver(repositoryById.values());
 		}
 
-		private void putRepositoryIfAbsent(final ArtifactRepository repository) {
-			if (!repositoryById.containsKey(repository.getId())) {
+		private void putRepository(final ArtifactRepository repository, final boolean replace) {
+			if (replace || !repositoryById.containsKey(repository.getId())) {
 				repositoryById.put(repository.getId(), repository);
 			}
 		}
 
-		@Override
 		public void resetRepositories() {
 			getLog().debug("Clearing repositories.");
 			repositoryById.clear();
@@ -175,6 +179,7 @@ public class CreateRecipeMojo extends AbstractMojo {
 			getLog().debug(format("Resolving model for artifact %s:%s:%s.", groupId, artifactId, version));
 			return new FileModelSource(resolveArtifactPom(groupId, artifactId, version).getFile());
 		}
+
 	}
 
 	private static final String SNAPSHOT_SUFFIX = "-SNAPSHOT";
