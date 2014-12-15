@@ -1,6 +1,7 @@
 package-version=${version;===;${Bundle-Version}}.${hk2.version.suffix}
 
 Export-Package: \
+ !about.html,!about_files, \
  *.internal*;x-internal:=true;version="${package-version}", \
  *.impl*;x-internal:=true;version="${package-version}", \
  *;version="${package-version}"

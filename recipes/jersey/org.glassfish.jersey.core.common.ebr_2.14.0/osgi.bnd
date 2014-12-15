@@ -3,6 +3,7 @@ hk2-version=2.4
 osgiresourcelocator-version=1.0.1
 
 Export-Package: \
+ !about.html,!about_files, \
  *.internal*;x-internal:=true;version="${package-version}", \
  *.impl*;x-internal:=true;version="${package-version}", \
  *;version="${package-version}"
