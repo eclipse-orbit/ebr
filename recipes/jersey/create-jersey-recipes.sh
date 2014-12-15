@@ -24,4 +24,5 @@ mvn -U -e -V ebr:create-recipe -DgroupId=org.glassfish.jersey.media -DartifactId
 
 # other
 mvn -U -e -V ebr:create-recipe -DgroupId=org.glassfish.jersey.bundles.repackaged -DartifactId=jersey-guava -DbundleSymbolicName=org.glassfish.jersey.repackaged.guava.ebr
+mvn -U -e -V ebr:create-recipe -DgroupId=org.glassfish.jersey.bundles.repackaged -DartifactId=jersey-jsr166e -DbundleSymbolicName=org.glassfish.jersey.repackaged.jsr166e.ebr
 

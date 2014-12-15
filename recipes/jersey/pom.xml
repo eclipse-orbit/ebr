@@ -41,6 +41,7 @@
     <module>org.glassfish.jersey.media.multipart.ebr_2.14.0</module>
     <module>org.glassfish.jersey.media.sse.ebr_2.14.0</module>
     <module>org.glassfish.jersey.repackaged.guava.ebr_2.14.0</module>
+    <module>org.glassfish.jersey.repackaged.jsr166e.ebr_2.14.0</module>
   </modules>
 
 </project>
