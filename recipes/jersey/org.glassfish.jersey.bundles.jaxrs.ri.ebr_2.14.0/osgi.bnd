@@ -1,0 +1,11 @@
+-include: ~../org.glassfish.jersey.core.common.ebr_2.14.0/osgi.bnd
+
+jaxrs-api-version=2.0.1
+
+Export-Package: \
+ javax.ws.rs.*;version="${jaxrs-api-version}",\
+ ${jersey-common-exports}
+
+Import-Package: \
+ javax.ws.rs.*;version="${jaxrs-api-version}",\
+ ${jersey-common-imports}
