@@ -28,6 +28,19 @@
     <module>org.glassfish.jersey.media.multipart.ebr_2.11.0</module>
     <module>org.glassfish.jersey.media.sse.ebr_2.11.0</module>
     <module>org.glassfish.jersey.repackaged.guava.ebr_2.11.0</module>
+
+    <module>org.glassfish.jersey.connectors.apache.ebr_2.14.0</module>
+    <module>org.glassfish.jersey.connectors.jetty.ebr_2.14.0</module>
+    <module>org.glassfish.jersey.containers.servlet.core.ebr_2.14.0</module>
+    <module>org.glassfish.jersey.containers.servlet.ebr_2.14.0</module>
+    <module>org.glassfish.jersey.core.client.ebr_2.14.0</module>
+    <module>org.glassfish.jersey.core.common.ebr_2.14.0</module>
+    <module>org.glassfish.jersey.core.server.ebr_2.14.0</module>
+    <module>org.glassfish.jersey.ext.entityfiltering.ebr_2.14.0</module>
+    <module>org.glassfish.jersey.media.moxy.ebr_2.14.0</module>
+    <module>org.glassfish.jersey.media.multipart.ebr_2.14.0</module>
+    <module>org.glassfish.jersey.media.sse.ebr_2.14.0</module>
+    <module>org.glassfish.jersey.repackaged.guava.ebr_2.14.0</module>
   </modules>
 
 </project>
