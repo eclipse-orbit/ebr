@@ -44,10 +44,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
 import java.util.ArrayList;
-import java.util.HashSet;
-import java.util.Iterator;
 import java.util.LinkedHashMap;
-import java.util.LinkedHashSet;
 import java.util.List;
 import java.util.Map;
 import java.util.Properties;
@@ -55,8 +52,6 @@ import java.util.Set;
 import java.util.jar.Attributes;
 import java.util.jar.Attributes.Name;
 import java.util.jar.Manifest;
-
-import org.osgi.framework.Version;
 
 import org.apache.commons.io.FileUtils;
 import org.apache.commons.lang3.StringUtils;
@@ -355,7 +350,6 @@ public class BundleMojo extends ManifestPlugin {
 	private File generateFinalBundleManifest() throws MojoExecutionException {
 		try {
 			File mfile = new File(outputDirectory, "META-INF/MANIFEST.MF");
-
 			final InputStream is = new FileInputStream(mfile);
 			Manifest mf;
 			try {
@@ -463,40 +457,17 @@ public class BundleMojo extends ManifestPlugin {
 	}
 
 	private String getBundleVersion() {
-		final String version = project.getVersion();
-		if (version.endsWith("-SNAPSHOT"))
-			return version.replace("-SNAPSHOT", ".qualifier");
-		return version;
+		return BundleUtil.getBundleVersion(project.getVersion());
 	}
 
 	private Set<Artifact> getDependenciesToInclude() {
-		getLog().debug("Computing direct dependencies to include");
-
-		// start with direct dependencies
-		final Set<Artifact> dependencies = new LinkedHashSet<Artifact>(project.getDependencyArtifacts());
-
-		// prepare set of artifact ids to exclude
-		final Set<String> excludedArtifactIds = new HashSet<String>();
-		if (StringUtils.isNotBlank(excludeDependencies)) {
-			final String[] tokens = StringUtils.split(excludeDependencies, ',');
-			for (final String t : tokens) {
-				excludedArtifactIds.add(t.trim());
-			}
-		}
-
-		// remove all dependencies which should not be in the list
-		for (final Iterator<Artifact> stream = dependencies.iterator(); stream.hasNext();) {
-			final Artifact artifact = stream.next();
-			if (!isAllowedDependency(artifact, excludedArtifactIds)) {
-				stream.remove();
-			}
-		}
-		return dependencies;
+		final DependencyUtil dependencyUtil = new DependencyUtil(getLog(), session);
+		dependencyUtil.initializeExcludeDependencies(excludeDependencies);
+		return dependencyUtil.getDependenciesToInclude(project);
 	}
 
 	private String getExpandedVersion() {
-		final Version version = Version.parseVersion(getBundleVersion());
-		return new Version(version.getMajor(), version.getMinor(), version.getMicro(), qualifier).toString();
+		return BundleUtil.getExpandedVersion(getBundleVersion(), qualifier);
 	}
 
 	private FileSet getFileSet(final File basedir) {
@@ -574,23 +545,6 @@ public class BundleMojo extends ManifestPlugin {
 		if (StringUtils.isBlank(bndInstructions.get(key))) {
 			bndInstructions.put(key, value);
 		}
-	}
-
-	private boolean isAllowedDependency(final Artifact artifact, final Set<String> excludedArtifactIds) {
-		if (excludedArtifactIds.contains(artifact.getArtifactId())) {
-			getLog().debug(format("Dependency '%s' excluded per configuration.", artifact.getArtifactId()));
-			return false;
-		}
-		if (!artifact.getArtifactHandler().isAddedToClasspath()) {
-			getLog().debug(format("Dependency '%s' not part of classpath.", artifact.getArtifactId()));
-			return false;
-		}
-		if (!StringUtils.equals(artifact.getScope(), Artifact.SCOPE_COMPILE)) {
-			getLog().debug(format("Dependency '%s' scope is not COMPILE.", artifact.getArtifactId()));
-			return false;
-		}
-		getLog().debug(format("Dependency '%s' allowed.", artifact.getArtifactId()));
-		return true;
 	}
 
 	private void publishP2Metedata() throws MojoExecutionException {
