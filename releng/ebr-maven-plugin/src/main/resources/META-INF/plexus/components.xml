@@ -17,25 +17,25 @@
                 org.eclipse.tycho:tycho-packaging-plugin:${tycho-plugin.version}:validate-version
               </validate>
               <process-resources>
-                org.apache.maven.plugins:maven-resources-plugin:${resources-plugin.version}:resources
+                org.apache.maven.plugins:maven-resources-plugin:resources
               </process-resources>
               <compile>
-                org.apache.maven.plugins:maven-compiler-plugin:${compiler-plugin.version}:compile
+                org.apache.maven.plugins:maven-compiler-plugin:compile
               </compile>
               <process-test-resources></process-test-resources>
               <test-compile></test-compile>
               <test></test>
               <package>
-                org.eclipse.ebr:ebr-maven-plugin:${project.version}:bundle,
+                org.eclipse.ebr:ebr-maven-plugin:bundle,
                 org.eclipse.tycho:tycho-p2-plugin:${tycho-plugin.version}:p2-metadata-default
               </package>
               <integration-test></integration-test>
               <install>
-                org.apache.maven.plugins:maven-install-plugin:${install-plugin.version}:install,
+                org.apache.maven.plugins:maven-install-plugin:install,
                 org.eclipse.tycho:tycho-p2-plugin:${tycho-plugin.version}:update-local-index
               </install>
               <deploy>
-                org.apache.maven.plugins:maven-deploy-plugin:${deploy-plugin.version}:deploy
+                org.apache.maven.plugins:maven-deploy-plugin:deploy
               </deploy>
             </phases>
           </lifecycle>

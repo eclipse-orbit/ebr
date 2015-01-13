@@ -59,16 +59,11 @@
 
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-
     <maven-version>3.2.3</maven-version>
+    <maven-compiler-plugin.version>3.2</maven-compiler-plugin.version>
 
-    <!-- these are referenced from src/main/resources/META-INF/plexus/components.xml -->
-    <compiler-plugin.version>3.1</compiler-plugin.version>
-    <resources-plugin.version>2.4.3</resources-plugin.version>
-    <install-plugin.version>2.3.1</install-plugin.version>
-    <deploy-plugin.version>2.5</deploy-plugin.version>
-    <clean-plugin.version>2.4.1</clean-plugin.version>
-    <tycho-plugin.version>0.21.0</tycho-plugin.version>
+    <!-- specify tycho plug-in version for components.xml due to https://bugs.eclipse.org/457314 -->
+    <tycho-plugin.version>0.22.0</tycho-plugin.version>
   </properties>
 
   <prerequisites>
@@ -137,7 +132,7 @@
     <plugins>
       <plugin>
         <artifactId>maven-compiler-plugin</artifactId>
-        <version>${compiler-plugin.version}</version>
+        <version>${maven-compiler-plugin.version}</version>
         <configuration>
           <source>1.7</source>
           <target>1.7</target>
