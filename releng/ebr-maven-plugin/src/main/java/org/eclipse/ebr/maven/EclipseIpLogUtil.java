@@ -483,7 +483,24 @@ public class EclipseIpLogUtil extends LicenseProcessingUtility {
 	}
 
 	private String getProjectLocation(final Model recipePom, final Xpp3Dom existingIpLog) {
-		return getProjectInfo(existingIpLog, "location");
+		final String existingValue = getProjectInfo(existingIpLog, "location");
+		if (existingValue != null)
+			return existingValue;
+
+		final Scm scm = recipePom.getScm();
+		if (scm != null) {
+			final String url = getScmUrl(scm);
+
+			// by definition, we return everything after to the last ".git"
+			if (url != null) {
+				final int lastIndexOf = StringUtils.lastIndexOf(url, ".git");
+				if (lastIndexOf >= 0)
+					return StringUtils.removeStart(url.substring(lastIndexOf + 4), "/");
+				return url;
+			}
+		}
+
+		return null;
 	}
 
 	private String getProjectName(final Model recipePom, final Xpp3Dom existingIpLog) {
@@ -539,11 +556,15 @@ public class EclipseIpLogUtil extends LicenseProcessingUtility {
 
 		final Scm scm = recipePom.getScm();
 		if (scm != null) {
-			if (null != scm.getDeveloperConnection())
-				return scm.getDeveloperConnection();
-			if (null != scm.getConnection())
-				return scm.getConnection();
-			return scm.getUrl();
+			final String url = getScmUrl(scm);
+
+			// by definition, we return everything up to the last ".git"
+			if (url != null) {
+				final int lastIndexOf = StringUtils.lastIndexOf(url, ".git");
+				if (lastIndexOf >= 0)
+					return url.substring(0, lastIndexOf + 4);
+				return url;
+			}
 		}
 
 		return null;
@@ -560,6 +581,17 @@ public class EclipseIpLogUtil extends LicenseProcessingUtility {
 
 		final Version version = Version.parseVersion(StringUtils.removeEnd(recipePom.getVersion(), "-SNAPSHOT"));
 		return format("%d.%d.%d", version.getMajor(), version.getMinor(), version.getMicro());
+	}
+
+	private String getScmUrl(final Scm scm) {
+		String url = scm.getDeveloperConnection();
+		if (null == url) {
+			url = scm.getConnection();
+		}
+		if (null == url) {
+			url = scm.getUrl();
+		}
+		return url;
 	}
 
 	private Server getServer(final String serverId, final Settings settings, final SettingsDecrypter settingsDecrypter) {
