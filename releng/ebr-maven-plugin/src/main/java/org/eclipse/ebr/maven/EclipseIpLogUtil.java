@@ -198,6 +198,9 @@ public class EclipseIpLogUtil extends LicenseProcessingUtility {
 	public void enableSubmissionOfCqs(final String projectId, final String cqCryptography, final Settings settings, final SettingsDecrypter settingsDecrypter, final File outputDirectory) throws MojoExecutionException {
 		getLog().debug("Enabling automatic submission of CQs to portal.eclipse.org");
 
+		if (projectId.toLowerCase().equals("tools.orbit"))
+			throw new MojoExecutionException("It's not allowed to submit 3rd party CQs directly to Orbit. Please submit it to any other project and create an ATO ('Add To Orbit') CQ using the portal.");
+
 		server = getServer("portal.eclipse.org", settings, settingsDecrypter);
 		if (server == null)
 			throw new MojoExecutionException("Unable to enable automatic CQ submission. Please configure a server with id 'portal.eclipse.org' in the Maven settings and specify username and password.");
