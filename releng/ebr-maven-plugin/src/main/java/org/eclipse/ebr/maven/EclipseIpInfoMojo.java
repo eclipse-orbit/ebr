@@ -136,7 +136,7 @@ public class EclipseIpInfoMojo extends AbstractMojo {
 	@Parameter(property = "submitCqsToProject")
 	protected String submitCqsToProject;
 
-	@Parameter(property = "cq.cryptography", defaultValue = "Unknown")
+	@Parameter(property = "cqCryptography")
 	protected String cqCryptography;
 
 	@Component
