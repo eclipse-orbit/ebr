@@ -243,11 +243,11 @@ public class EclipseIpLogUtil extends LicenseProcessingUtility {
 		}
 	}
 
-	public void generateIpLogXmlFile(final Model recipePom, final SortedMap<Artifact, Model> dependencies, final File outputDirectory) throws MojoExecutionException {
+	public File generateIpLogXmlFile(final Model recipePom, final SortedMap<Artifact, Model> dependencies, final File outputDirectory) throws MojoExecutionException {
 		final File iplogXmlFile = new File(outputDirectory, IP_LOG_XML);
 		if (iplogXmlFile.isFile() && !isForce()) {
 			getLog().warn(format("Found existing ip_log.xml file at '%s'. %s", iplogXmlFile, REQUIRES_FORCE_TO_OVERRIDE_MESSAGE));
-			return;
+			return iplogXmlFile;
 		}
 
 		// read existing ip log if available
@@ -273,6 +273,8 @@ public class EclipseIpLogUtil extends LicenseProcessingUtility {
 			getLog().debug(e);
 			throw new MojoExecutionException(format("Unable to write ip_log.xml file '%s'. %s", iplogXmlFile, e.getMessage()));
 		}
+
+		return iplogXmlFile;
 	}
 
 	private Xpp3Dom getContact(final Xpp3Dom existingIpLog) {

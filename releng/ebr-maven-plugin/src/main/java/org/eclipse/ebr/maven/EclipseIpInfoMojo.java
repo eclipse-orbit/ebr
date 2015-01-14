@@ -312,7 +312,10 @@ public class EclipseIpInfoMojo extends AbstractMojo {
 		// generate ip_log.xml
 		final Model recipePom = getModelUtil().buildEffectiveModel(project.getFile());
 		final File eclipseDir = new File(getProjectDir(), "src/eclipse");
-		ipLogUtil.generateIpLogXmlFile(recipePom, effectiveModels, eclipseDir);
+		final File ipLogXmlFile = ipLogUtil.generateIpLogXmlFile(recipePom, effectiveModels, eclipseDir);
+
+		// attach ip_log.xml to project
+		projectHelper.attachArtifact(project, "xml", "ip_log", ipLogXmlFile);
 	}
 
 }
