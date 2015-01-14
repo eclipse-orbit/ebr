@@ -20,6 +20,7 @@ import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
+import java.util.Set;
 
 import org.eclipse.ebr.maven.eclipseip.KnownLicense;
 import org.eclipse.ebr.maven.eclipseip.KnownLicenses;
@@ -33,6 +34,8 @@ import org.apache.maven.model.License;
 import org.apache.maven.model.Model;
 import org.apache.maven.plugin.MojoExecutionException;
 import org.apache.maven.plugin.logging.Log;
+
+import com.google.common.base.Joiner;
 
 public abstract class LicenseProcessingUtility extends BaseUtility {
 
@@ -73,13 +76,21 @@ public abstract class LicenseProcessingUtility extends BaseUtility {
 	 * @throws MojoExecutionException
 	 */
 	private KnownLicense findKnownLicense(final String license) throws MojoExecutionException {
-		final KnownLicense l = KnownLicenses.getInstance().findByName(license);
-		if (l == null) {
-			getLog().error(format("Unable to map license '%s' to a known license.", license));
-			logKnownLicenses();
-			throw new MojoExecutionException(format("Invalid license '%s'. Please select one that is known in the Eclipse Foundation IP database.", license));
+		final KnownLicense l = KnownLicenses.getInstance().getByName(license);
+		if (l != null)
+			return l;
+
+		final Set<KnownLicense> similarLicenses = KnownLicenses.getInstance().findSimilarLicensesByName(license);
+		if (similarLicenses.size() == 1)
+			return similarLicenses.iterator().next();
+		if (similarLicenses.size() > 1) {
+			getLog().error(format("Multiple known licenses found for '%s': %s", license, Joiner.on(", ").join(similarLicenses)));
 		}
-		return l;
+
+		// give up
+		getLog().error(format("Unable to map license '%s' to a known license.", license));
+		logKnownLicenses();
+		throw new MojoExecutionException(format("Invalid license '%s'. Please select one that is known in the Eclipse Foundation IP database.", license));
 	}
 
 	private String getArtifactKey(final Artifact artifact) {
@@ -103,14 +114,24 @@ public abstract class LicenseProcessingUtility extends BaseUtility {
 	public KnownLicense getSimilarLicense(final License pomLicense) {
 		KnownLicense license = null;
 
-		// try url first
-		if (null != pomLicense.getUrl()) {
+		// try exact name first
+		if (null != pomLicense.getName()) {
+			license = KnownLicenses.getInstance().getByName(pomLicense.getName());
+		}
+
+		// try url match
+		if ((license == null) && (null != pomLicense.getUrl())) {
 			license = KnownLicenses.getInstance().findByUrl(pomLicense.getUrl());
 		}
 
-		// check name if still null
+		// try similar licenses if still none found
 		if ((license == null) && (null != pomLicense.getName())) {
-			license = KnownLicenses.getInstance().findByName(pomLicense.getName());
+			final Set<KnownLicense> similarLicenses = KnownLicenses.getInstance().findSimilarLicensesByName(pomLicense.getName());
+			if (similarLicenses.size() == 1)
+				return similarLicenses.iterator().next();
+			if (similarLicenses.size() > 1) {
+				getLog().warn(format("Multiple known licenses found for '%s': %s", license, Joiner.on(", ").join(similarLicenses)));
+			}
 		}
 
 		return license;

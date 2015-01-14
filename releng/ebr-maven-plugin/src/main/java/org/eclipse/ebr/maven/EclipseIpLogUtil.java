@@ -345,7 +345,7 @@ public class EclipseIpLogUtil extends LicenseProcessingUtility {
 		if (license == null) {
 			getLog().error(format("No known license configured for artifact %s:%s:%s.", artifact.getGroupId(), artifact.getArtifactId(), artifact.getVersion()));
 			logKnownLicenses();
-			throw new MojoExecutionException(format("Please configura a known license for artifact %s.", artifact.getArtifactId()));
+			throw new MojoExecutionException(format("Please configure a known license for artifact %s.", artifact.getArtifactId()));
 		}
 		return license.getName();
 	}

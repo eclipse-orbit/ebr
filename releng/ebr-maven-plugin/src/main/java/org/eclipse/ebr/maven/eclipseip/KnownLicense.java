@@ -79,4 +79,12 @@ public class KnownLicense {
 		return l;
 	}
 
+	@Override
+	public String toString() {
+		if ((knownUrls != null) && (knownUrls.size() >= 1))
+			return name + " (" + knownUrls.iterator().next() + ")";
+
+		return name;
+	}
+
 }

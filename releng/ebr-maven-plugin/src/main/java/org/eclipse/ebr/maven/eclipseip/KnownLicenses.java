@@ -12,7 +12,9 @@
 package org.eclipse.ebr.maven.eclipseip;
 
 import java.util.HashMap;
+import java.util.HashSet;
 import java.util.Map;
+import java.util.Set;
 import java.util.SortedSet;
 import java.util.TreeSet;
 
@@ -57,23 +59,6 @@ public class KnownLicenses {
 		return l;
 	}
 
-	public KnownLicense findByName(final String name) {
-		final KnownLicense license = licensesByName.get(name);
-		if (license != null)
-			return license;
-
-		for (final KnownLicense l : licensesByName.values()) {
-			if (isSimilar(name, l.getName()))
-				return l;
-			for (final String alternateName : l.getAlternateNames()) {
-				if (isSimilar(name, alternateName))
-					return l;
-			}
-		}
-
-		return null;
-	}
-
 	public KnownLicense findByUrl(final String url) {
 		for (final KnownLicense l : licensesByName.values()) {
 			for (final String knownUrl : l.getKnownUrls()) {
@@ -83,6 +68,23 @@ public class KnownLicenses {
 		}
 
 		return null;
+	}
+
+	public Set<KnownLicense> findSimilarLicensesByName(final String name) {
+		final Set<KnownLicense> similarLicenses = new HashSet<KnownLicense>();
+		for (final KnownLicense l : licensesByName.values()) {
+			if (isSimilar(name, l.getName())) {
+				similarLicenses.add(l);
+				continue;
+			}
+			for (final String alternateName : l.getAlternateNames()) {
+				if (isSimilar(name, alternateName)) {
+					similarLicenses.add(l);
+					continue;
+				}
+			}
+		}
+		return similarLicenses;
 	}
 
 	public SortedSet<String> getAllLicenseNames() {
@@ -109,7 +111,6 @@ public class KnownLicenses {
 
 	private boolean isSimilar(final String name, final String alternateName) {
 		final double distance = StringUtils.getJaroWinklerDistance(name, alternateName);
-		System.out.printf("---->>>>>>> Similarity '%s' to '%s': %s %n", name, alternateName, String.valueOf(distance));
 		return distance >= 0.9;
 	}
 
