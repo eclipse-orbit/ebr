@@ -160,7 +160,7 @@ public class CreateRecipeMojo extends AbstractMojo {
 		final SortedMap<Artifact, Model> dependencies = new TreeMap<>();
 		dependencies.put(resolvedPomArtifact, artifactPom);
 
-		final AboutFilesUtil aboutFilesUtil = new AboutFilesUtil(getLog(), mavenSession, force);
+		final AboutFilesUtil aboutFilesUtil = new AboutFilesUtil(getLog(), mavenSession, force, true);
 		if (license != null) {
 			aboutFilesUtil.setLicense(resolvedPomArtifact, license);
 		}

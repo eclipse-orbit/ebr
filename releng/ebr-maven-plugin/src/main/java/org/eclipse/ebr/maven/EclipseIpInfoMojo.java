@@ -137,6 +137,9 @@ public class EclipseIpInfoMojo extends AbstractMojo {
 	@Parameter(defaultValue = "false", property = "force")
 	private boolean force;
 
+	@Parameter(defaultValue = "false", property = "forceDownload")
+	private boolean forceDownload;
+
 	@Parameter(property = "submitCqsToProject")
 	protected String submitCqsToProject;
 
@@ -283,7 +286,7 @@ public class EclipseIpInfoMojo extends AbstractMojo {
 		final SortedMap<Artifact, Model> effectiveModels = getModelUtil().buildEffectiveModels(dependencies);
 
 		// populate license information
-		final AboutFilesUtil aboutFilesUtil = new AboutFilesUtil(getLog(), mavenSession, force);
+		final AboutFilesUtil aboutFilesUtil = new AboutFilesUtil(getLog(), mavenSession, force, forceDownload);
 		populateLicenseInformation(aboutFilesUtil, dependencies);
 
 		// generate about files

@@ -56,10 +56,14 @@ import org.apache.maven.plugin.logging.Log;
  */
 public class AboutFilesUtil extends LicenseProcessingUtility {
 
+	private static final String REQUIRES_FORCE_DOWNLOAD_MESSAGE = "Please set the forceDownload property to true in order to download it again (eg. '-DforceDownload=true' via command line).";
 	private static final String ABOUT_HTML = "about.html";
 
-	public AboutFilesUtil(final Log log, final MavenSession mavenSession, final boolean force) {
+	private final boolean forceDownload;
+
+	public AboutFilesUtil(final Log log, final MavenSession mavenSession, final boolean force, final boolean forceDownload) {
 		super(log, mavenSession, force);
+		this.forceDownload = forceDownload;
 	}
 
 	private void appendAndDownloadLicenseInfo(final StrBuilder text, final File downloadDir, final Artifact artifact, final List<License> licenses) throws MojoExecutionException {
@@ -163,8 +167,8 @@ public class AboutFilesUtil extends LicenseProcessingUtility {
 		String licenseFileName = "about_files/" + sanitizeFileName(license.getName()).toUpperCase();
 		final String existingLicense = findExistingLicenseFile(licenseOutputDir, licenseFileName);
 		if (existingLicense != null) {
-			if (!isForce()) {
-				getLog().warn(format("Found existing license file at '%s'. %s", existingLicense, REQUIRES_FORCE_TO_OVERRIDE_MESSAGE));
+			if (!forceDownload) {
+				getLog().info(format("Found existing license file at '%s'. %s", existingLicense, REQUIRES_FORCE_DOWNLOAD_MESSAGE));
 				return existingLicense;
 			} else if (getMavenSession().isOffline()) {
 				getLog().warn(format("Re-using existing license file at '%s'. Maven is offline.", existingLicense));
