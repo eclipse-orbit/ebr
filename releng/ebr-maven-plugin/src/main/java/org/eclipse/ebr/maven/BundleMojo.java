@@ -85,6 +85,10 @@ import org.twdata.maven.mojoexecutor.MojoExecutor.Element;
 @Mojo(name = "bundle", requiresDependencyResolution = ResolutionScope.COMPILE_PLUS_RUNTIME, requiresDependencyCollection = ResolutionScope.COMPILE_PLUS_RUNTIME)
 public class BundleMojo extends ManifestPlugin {
 
+	static boolean isRecipeProject(final MavenProject project) {
+		return "eclipse-bundle-recipe".equals(project.getPackaging());
+	}
+
 	private static final String CLASSIFIER_SOURCES = "sources";
 
 	/**
@@ -338,12 +342,14 @@ public class BundleMojo extends ManifestPlugin {
 
 	@Override
 	public void execute() throws MojoExecutionException {
+		if (!isRecipeProject(project)) {
+			getLog().debug(format("Skipping execution for project with packaging type \"%s\"", project.getPackaging()));
+			return;
+		}
+
 		final Set<Artifact> dependencies = getDependenciesToInclude();
-
 		buildBundle(dependencies);
-
 		buildSourceBundle(dependencies);
-
 		publishP2Metedata();
 	}
 

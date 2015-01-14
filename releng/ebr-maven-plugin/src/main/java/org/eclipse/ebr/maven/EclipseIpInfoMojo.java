@@ -192,8 +192,12 @@ public class EclipseIpInfoMojo extends AbstractMojo {
 
 	@Override
 	public void execute() throws MojoExecutionException {
-		final Set<Artifact> dependencies = getDependenciesToInclude();
+		if (!BundleMojo.isRecipeProject(project)) {
+			getLog().debug(format("Skipping execution for project with packaging type \"%s\"", project.getPackaging()));
+			return;
+		}
 
+		final Set<Artifact> dependencies = getDependenciesToInclude();
 		collectSources(dependencies);
 		refreshAboutFiles(dependencies);
 		refreshIpLog(dependencies);
