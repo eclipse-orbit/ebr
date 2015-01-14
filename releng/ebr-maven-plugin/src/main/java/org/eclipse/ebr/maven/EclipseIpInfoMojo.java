@@ -29,6 +29,7 @@ import java.util.ArrayList;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Map.Entry;
 import java.util.Set;
 import java.util.SortedMap;
 
@@ -73,6 +74,9 @@ import org.twdata.maven.mojoexecutor.MojoExecutor.Element;
  *               &lt;licenseMappings&gt;
  *                 &lt;logback-core&gt;Eclipse Public License&lt;/logback-core&gt;
  *               &lt;/licenseMappings&gt;
+ *               &lt;localLicenseFiles&gt;
+ *                 &lt;SLF4J-LICENSE.txt&gt;MIT License&lt;/SLF4J-LICENSE.txt&gt;
+ *               &lt;/localLicenseFiles&gt;
  *             &lt;/configuration&gt;
  *           &lt;/execution&gt;
  *         &lt;/executions&gt;
@@ -148,6 +152,13 @@ public class EclipseIpInfoMojo extends AbstractMojo {
 	 */
 	@Parameter
 	protected Map<String, String> licenseMappings = new LinkedHashMap<String, String>();
+
+	/**
+	 * Custom about_files mappings (key is the local license file name within
+	 * the about_files folder, value is the license name it represents)
+	 */
+	@Parameter
+	protected Map<String, String> localLicenseFiles = new LinkedHashMap<String, String>();
 
 	private void collectSources(final Set<Artifact> dependencies) throws MojoExecutionException {
 		// collect sources
@@ -259,6 +270,9 @@ public class EclipseIpInfoMojo extends AbstractMojo {
 			if (license != null) {
 				licenseProcessingUtility.setLicense(artifact, license);
 			}
+		}
+		for (final Entry<String, String> e : localLicenseFiles.entrySet()) {
+			licenseProcessingUtility.setLicenseFile(e.getValue(), e.getKey());
 		}
 	}
 

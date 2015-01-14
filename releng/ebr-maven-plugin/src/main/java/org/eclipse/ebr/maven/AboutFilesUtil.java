@@ -62,7 +62,7 @@ public class AboutFilesUtil extends LicenseProcessingUtility {
 		super(log, mavenSession, force);
 	}
 
-	private void appendAndDownloadLicenseInfo(final StrBuilder text, final File downloadDir, final Artifact artifact, final List<License> licenses) {
+	private void appendAndDownloadLicenseInfo(final StrBuilder text, final File downloadDir, final Artifact artifact, final List<License> licenses) throws MojoExecutionException {
 		boolean first = true;
 		for (final Iterator<License> stream = licenses.iterator(); stream.hasNext();) {
 			final License license = stream.next();
@@ -73,10 +73,16 @@ public class AboutFilesUtil extends LicenseProcessingUtility {
 			} else {
 				first = false;
 			}
+			final String localLicenseFile = getLocalLicenseFile(downloadDir, license);
 			final String url = license.getUrl();
 			boolean wroteUrl = false;
 			String licenseFileName = null;
-			if (isPotentialWebUrl(url)) {
+			if (null != localLicenseFile) {
+				// prefer configured local if available
+				getLog().info(format("Using local license file (%s) for '%s'.", localLicenseFile, license.getName()));
+				licenseFileName = localLicenseFile;
+			} else if (isPotentialWebUrl(url)) {
+				// try download if we have a web url
 				try {
 					final URL licenseUrl = toUrl(url); // parse as url to avoid surprises
 					text.append("<a href=\"").append(licenseUrl.toExternalForm()).append("\" target=\"_blank\">");
@@ -271,7 +277,7 @@ public class AboutFilesUtil extends LicenseProcessingUtility {
 		return developedByInfo.toString();
 	}
 
-	private String getLicenseInfo(final Artifact resolvedPomArtifact, final Model artifactPom, final File resourcesDir) {
+	private String getLicenseInfo(final Artifact resolvedPomArtifact, final Model artifactPom, final File resourcesDir) throws MojoExecutionException {
 		final StrBuilder licenseInfo = new StrBuilder();
 		final KnownLicense knownLicense = getLicense(resolvedPomArtifact);
 		List<License> licenses = artifactPom.getLicenses();
@@ -307,6 +313,20 @@ public class AboutFilesUtil extends LicenseProcessingUtility {
 			}
 		}
 		return licenseInfo.toString();
+	}
+
+	private String getLocalLicenseFile(final File licenseOutputDir, final License license) throws MojoExecutionException {
+		final String localLicenseFile = getLicenseFile(license.getName());
+		if (localLicenseFile == null)
+			return null; // no local license configures
+
+		final String licenseFileName = "about_files/" + localLicenseFile;
+		final File licenseFile = new File(licenseOutputDir, licenseFileName);
+		getLog().debug(format("Searching for existing local license file '%s' at '%s'.", licenseFileName, licenseFile));
+		if (!licenseFile.isFile())
+			throw new MojoExecutionException(format("Local license file '%s' configured for license '%s' not found at '%s'.", localLicenseFile, license.getName(), licenseFileName));
+
+		return licenseFileName;
 	}
 
 	private String getOriginInfo(final Artifact artifact, final Model artifactPom) {

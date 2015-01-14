@@ -43,7 +43,8 @@ public abstract class LicenseProcessingUtility extends BaseUtility {
 	private static final String HTTPS_PREFIX = "https://";
 
 	/** key is groupId + ":" + artifactId */
-	private final Map<String, KnownLicense> licensesByArtifact = new HashMap<String, KnownLicense>();
+	private final Map<String, KnownLicense> licensesByArtifact = new HashMap<>();
+	private final Map<String, String> licenseFilesByLicenseName = new HashMap<>();
 
 	public LicenseProcessingUtility(final Log log, final MavenSession mavenSession, final boolean force) {
 		super(log, mavenSession);
@@ -109,6 +110,17 @@ public abstract class LicenseProcessingUtility extends BaseUtility {
 	 */
 	public KnownLicense getLicense(final Artifact artifact) {
 		return licensesByArtifact.get(getArtifactKey(artifact));
+	}
+
+	/**
+	 * Returns the name of a locally available license file for use.
+	 *
+	 * @param license
+	 *            the license
+	 * @return the name of the license file (maybe <code>null</code>)
+	 */
+	public String getLicenseFile(final String license) {
+		return licenseFilesByLicenseName.get(license);
 	}
 
 	public KnownLicense getSimilarLicense(final License pomLicense) {
@@ -182,6 +194,20 @@ public abstract class LicenseProcessingUtility extends BaseUtility {
 	public void setLicense(final Artifact artifact, final String license) throws MojoExecutionException {
 		getLog().debug(format("Using license '%s' for artifact %s:%s:%s", license, artifact.getGroupId(), artifact.getArtifactId(), artifact.getVersion()));
 		licensesByArtifact.put(getArtifactKey(artifact), findKnownLicense(license));
+	}
+
+	/**
+	 * Sets a locally available license file to use for the specified license.
+	 *
+	 * @param license
+	 *            the license
+	 * @param licenseFileName
+	 *            the file name
+	 * @throws MojoExecutionException
+	 */
+	public void setLicenseFile(final String license, final String licenseFileName) throws MojoExecutionException {
+		getLog().debug(format("Using local license file '%s' for license named '%s'", licenseFileName, license));
+		licenseFilesByLicenseName.put(license, licenseFileName);
 	}
 
 	protected URL toUrl(final String url) throws MalformedURLException {
