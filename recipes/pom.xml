@@ -46,7 +46,7 @@
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 
     <!-- versions used for plug-ins below -->
-    <tycho-version>0.21.0</tycho-version>
+    <tycho-version>0.22.0</tycho-version>
     <ebr-version>1.0.0-SNAPSHOT</ebr-version>
 
     <!-- property for generating Eclipse source reference bundle headers -->
