@@ -163,4 +163,17 @@
     </pluginManagement>
   </build>
 
+  <modules>
+  	<module>apache-commons</module>
+  	<module>apache-lucene-solr</module>
+  	<module>google</module>
+  	<module>hk2</module>
+  	<module>javax</module>
+  	<module>jersey</module>
+  	<module>logback</module>
+  	<module>slf4j</module>
+  	<module>springframework</module>
+  	<module>square</module>
+  	<module>unsorted</module>
+  </modules>
 </project>
