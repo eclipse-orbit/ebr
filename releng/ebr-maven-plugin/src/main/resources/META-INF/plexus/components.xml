@@ -13,8 +13,8 @@
             <id>default</id>
             <phases>
               <validate>
-                org.eclipse.tycho:tycho-packaging-plugin:${tycho-plugin.version}:build-qualifier,
-                org.eclipse.tycho:tycho-packaging-plugin:${tycho-plugin.version}:validate-version
+                org.eclipse.tycho:tycho-packaging-plugin:build-qualifier,
+                org.eclipse.tycho:tycho-packaging-plugin:validate-version
               </validate>
               <process-resources>
                 org.apache.maven.plugins:maven-resources-plugin:resources
@@ -27,12 +27,12 @@
               <test></test>
               <package>
                 org.eclipse.ebr:ebr-maven-plugin:bundle,
-                org.eclipse.tycho:tycho-p2-plugin:${tycho-plugin.version}:p2-metadata-default
+                org.eclipse.tycho:tycho-p2-plugin:p2-metadata-default
               </package>
               <integration-test></integration-test>
               <install>
                 org.apache.maven.plugins:maven-install-plugin:install,
-                org.eclipse.tycho:tycho-p2-plugin:${tycho-plugin.version}:update-local-index
+                org.eclipse.tycho:tycho-p2-plugin:update-local-index
               </install>
               <deploy>
                 org.apache.maven.plugins:maven-deploy-plugin:deploy

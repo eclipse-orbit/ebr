@@ -61,9 +61,6 @@
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <maven-version>3.2.3</maven-version>
     <maven-compiler-plugin.version>3.2</maven-compiler-plugin.version>
-
-    <!-- specify tycho plug-in version for components.xml due to https://bugs.eclipse.org/457314 -->
-    <tycho-plugin.version>0.22.0</tycho-plugin.version>
   </properties>
 
   <prerequisites>

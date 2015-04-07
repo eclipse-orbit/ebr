@@ -61,6 +61,7 @@ import org.apache.maven.archiver.MavenArchiveConfiguration;
 import org.apache.maven.archiver.MavenArchiver;
 import org.apache.maven.artifact.Artifact;
 import org.apache.maven.execution.MavenSession;
+import org.apache.maven.model.Plugin;
 import org.apache.maven.plugin.BuildPluginManager;
 import org.apache.maven.plugin.MojoExecutionException;
 import org.apache.maven.plugins.annotations.Component;
@@ -85,11 +86,11 @@ import org.twdata.maven.mojoexecutor.MojoExecutor.Element;
 @Mojo(name = "bundle", requiresDependencyResolution = ResolutionScope.COMPILE_PLUS_RUNTIME, requiresDependencyCollection = ResolutionScope.COMPILE_PLUS_RUNTIME)
 public class BundleMojo extends ManifestPlugin {
 
+	private static final String CLASSIFIER_SOURCES = "sources";
+
 	static boolean isRecipeProject(final MavenProject project) {
 		return "eclipse-bundle-recipe".equals(project.getPackaging());
 	}
-
-	private static final String CLASSIFIER_SOURCES = "sources";
 
 	/**
 	 * The project output directory where all classes and resources will be
@@ -108,7 +109,9 @@ public class BundleMojo extends ManifestPlugin {
 	@Parameter(defaultValue = "${project.build.directory}/dependency-bin", readonly = true, required = true)
 	protected String dependenciesDirectory;
 
-	/** The directory for gathering and extracting sources of all dependencies */
+	/**
+	 * The directory for gathering and extracting sources of all dependencies
+	 */
 	@Parameter(defaultValue = "${project.build.directory}/dependency-src", readonly = true, required = true)
 	protected String dependenciesSourcesDirectory;
 
@@ -180,14 +183,14 @@ public class BundleMojo extends ManifestPlugin {
 	@Parameter(defaultValue = "${buildQualifier}")
 	protected String qualifier;
 
-	@Parameter(defaultValue = "0.21.0", property = "tycho-plugin.version", required = true)
-	protected String tychoPluginVersion = "0.21.0";
+	@Parameter(defaultValue = "0.22", property = "tycho-plugin.version", required = true)
+	protected String tychoPluginVersionFallback;
 
-	@Parameter(defaultValue = "2.6", property = "maven-resource-plugin.version", required = true)
-	protected String mavenResourcesPluginVersion = "2.6";
+	@Parameter(defaultValue = "2.7", property = "maven-resource-plugin.version", required = true)
+	protected String mavenResourcesPluginVersionFallback;
 
-	@Parameter(defaultValue = "2.8", property = "maven-dependency-plugin.version", required = true)
-	protected String mavenDependencyPluginVersion = "2.8";
+	@Parameter(defaultValue = "2.10", property = "maven-dependency-plugin.version", required = true)
+	protected String mavenDependencyPluginVersionFallback;
 
 	private File assembleJar(final String jarName, final File manifest, final File directory, final MavenArchiveConfiguration archiveConfiguration) throws MojoExecutionException {
 		try {
@@ -230,7 +233,7 @@ public class BundleMojo extends ManifestPlugin {
 				plugin(
 						groupId("org.apache.maven.plugins"),
 						artifactId("maven-dependency-plugin"),
-						version(mavenDependencyPluginVersion)
+						version(detectPluginVersion("org.apache.maven.plugins", "maven-dependency-plugin", mavenDependencyPluginVersionFallback))
 						),
 						goal("unpack"),
 						configuration(
@@ -251,7 +254,7 @@ public class BundleMojo extends ManifestPlugin {
 				plugin(
 						groupId("org.apache.maven.plugins"),
 						artifactId("maven-resources-plugin"),
-						version(mavenResourcesPluginVersion)
+						version(detectPluginVersion("org.apache.maven.plugins", "maven-resources-plugin", mavenResourcesPluginVersionFallback))
 						),
 						goal("copy-resources"),
 						configuration(
@@ -306,7 +309,7 @@ public class BundleMojo extends ManifestPlugin {
 					plugin(
 							groupId("org.apache.maven.plugins"),
 							artifactId("maven-dependency-plugin"),
-							version(mavenDependencyPluginVersion)
+							version(detectPluginVersion("org.apache.maven.plugins", "maven-dependency-plugin", mavenDependencyPluginVersionFallback))
 							),
 							goal("unpack"),
 							configuration(
@@ -338,6 +341,18 @@ public class BundleMojo extends ManifestPlugin {
 	private File createSourcesJar() throws MojoExecutionException {
 		sourceArchive.setAddMavenDescriptor(false); // no maven descriptors in source bundle
 		return assembleJar(finalName + "-sources.jar", generateSourceBundleManifest(), new File(dependenciesSourcesDirectory), sourceArchive);
+	}
+
+	private String detectPluginVersion(final String groupId, final String artifactId, final String fallbackVersion) {
+		final List<Plugin> plugins = project.getPluginManagement().getPlugins();
+		for (final Plugin plugin : plugins) {
+			if (groupId.equals(plugin.getGroupId()) && artifactId.equals(plugin.getArtifactId())) {
+				getLog().debug("Using managed version " + plugin.getVersion() + " for plugin " + groupId + ":" + artifactId + ".");
+				return plugin.getVersion();
+			}
+		}
+		getLog().warn(format("No version defined in the efective model for plugin %s:%s. Please consider defining one in the pluginManagement section. Falling back to version \"%s\"", groupId, artifactId, fallbackVersion));
+		return fallbackVersion;
 	}
 
 	@Override
@@ -562,7 +577,7 @@ public class BundleMojo extends ManifestPlugin {
 					plugin(
 							groupId("org.eclipse.tycho"),
 							artifactId("tycho-p2-plugin"),
-							version(tychoPluginVersion)
+							version(detectPluginVersion("org.eclipse.tycho", "tycho-p2-plugin", tychoPluginVersionFallback))
 							),
 							goal("p2-metadata"),
 							configuration(
