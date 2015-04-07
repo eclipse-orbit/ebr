@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<site>
+	<category-def name="javax" label="Bundles By Name: javax.*"/>
+	<iu>
+		<category name="javax"/>
+		<!-- queries don't work yet: https://bugs.eclipse.org/371983 -->
+		<query><expression type="match">id ~= /javax.*/</expression></query>
+	</iu>
+
+	<!-- queries don't work yet: https://bugs.eclipse.org/371983 -->
+	<!-- thus, we need to list ALL IUs manually below -->
+	<iu id="javax.servlet"/>
+	<iu id="javax.servlet.source"/>
+	<iu id="javax.annotation"/>
+	<iu id="javax.annotation.source"/>
+	<iu id="javax.ws.rs.ebr"/>
+	<iu id="javax.ws.rs.ebr.source"/>
+</site>
