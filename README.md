@@ -41,7 +41,7 @@ Maven group id `MY_EBR_BUNDLES_GROUP`.
 ### Generate p2 repository
 
 1. Go into the repository root folder.
-2. `cd releng/p2`
+2. `cd releng/p2/repository`
 3. `mvn clean package`
 
 The repository will be made available as archive in `releng/p2/repository/target`.
