@@ -5,14 +5,6 @@ This repositories hosts recipes and tools for building OSGi bundles from Java Ma
 
 
 
-No bundles to download
-----------------------
-
-Due to legal reasons, this project does not offer any OSGi bundles as direct downloads. Please
-look at alternate services which may provide ready to use bundles based on these recipies.
-
-
-
 Prerequisites
 -------------
 
