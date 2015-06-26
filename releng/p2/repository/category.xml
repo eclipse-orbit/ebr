@@ -15,4 +15,8 @@
 	<iu id="javax.annotation.source"/>
 	<iu id="javax.ws.rs.ebr"/>
 	<iu id="javax.ws.rs.ebr.source"/>
+    <iu id="com.sun.jna.ebr"/>
+	<iu id="com.sun.jna.ebr.source"/>
+    <iu id="com.sun.jna.platform.ebr"/>
+    <iu id="com.sun.jna.platform.ebr.source"/>
 </site>
