@@ -27,7 +27,9 @@ import java.io.OutputStream;
 import java.io.OutputStreamWriter;
 import java.io.Writer;
 import java.util.Arrays;
+import java.util.Collection;
 import java.util.List;
+import java.util.Objects;
 import java.util.SortedMap;
 import java.util.TreeMap;
 
@@ -58,6 +60,9 @@ import org.codehaus.plexus.util.IOUtil;
 import org.codehaus.plexus.util.ReaderFactory;
 import org.codehaus.plexus.util.xml.XmlStreamReader;
 
+import com.google.common.base.Predicate;
+import com.google.common.collect.Collections2;
+
 /**
  * A Maven plug-in for creating recipes.
  */
@@ -67,8 +72,6 @@ public class CreateRecipeMojo extends AbstractMojo {
 	private static final String SNAPSHOT_SUFFIX = "-SNAPSHOT";
 
 	private static final String DOT_PROJECT = ".project";
-
-	private static final String OSGI_BND = "osgi.bnd";
 
 	private static final String POM_XML = "pom.xml";
 
@@ -145,7 +148,7 @@ public class CreateRecipeMojo extends AbstractMojo {
 		generateBundleL10nFile(recipePom, resourcesDir);
 
 		getLog().info("Generating recipe osgi.bnd.");
-		generateOsgiBndFile(recipePom, projectDir);
+		generateOsgiBndFile(recipePom, projectDir, getCompileTimeDependencies(artifactPom));
 
 		getLog().info("Generating recipe about.html.");
 		generateAboutHtmlFile(resolvedPomArtifact, artifactPom, recipePom, resourcesDir);
@@ -202,11 +205,8 @@ public class CreateRecipeMojo extends AbstractMojo {
 			return;
 		}
 		String eclipseProjectFileText = readEclipseProjectFileTemplate();
-		eclipseProjectFileText = StringUtils.replaceEach(eclipseProjectFileText, new String[] {// @formatter:off
-				"@RECIPE_PROJECT_NAME@"
-		}, new String[] {
-				projectDir.getName()
-		});
+		eclipseProjectFileText = StringUtils.replaceEach(eclipseProjectFileText, new String[] { // @formatter:off
+				"@RECIPE_PROJECT_NAME@" }, new String[] { projectDir.getName() });
 		// @formatter:on
 
 		try {
@@ -217,20 +217,19 @@ public class CreateRecipeMojo extends AbstractMojo {
 		}
 	}
 
-	private void generateOsgiBndFile(final Model recipePom, final File projectDir) throws MojoExecutionException {
-		final File osgiBndFile = new File(projectDir, OSGI_BND);
-		if (osgiBndFile.isFile() && !force) {
-			getLog().warn(format("Found existing osgi.bnd file at '%s'. %s", osgiBndFile, REQUIRES_FORCE_TO_OVERRIDE_MESSAGE));
-			return;
-		}
-		final String osgiBndText = readOsgiBndTemplate();
+	private void generateOsgiBndFile(final Model recipePom, final File projectDir, final Collection<Dependency> compileTimeDependencies) throws MojoExecutionException {
+		final OsgiBndUtil osgiBndUtil = new OsgiBndUtil(getLog(), mavenSession, force);
+		osgiBndUtil.generateOsgiBndFile(projectDir, compileTimeDependencies);
+	}
 
-		try {
-			FileUtils.writeStringToFile(osgiBndFile, osgiBndText, UTF_8);
-		} catch (final IOException e) {
-			getLog().debug(e);
-			throw new MojoExecutionException(format("Unable to write osgi.bnd file '%s'. %s", osgiBndFile, e.getMessage()));
-		}
+	private Collection<Dependency> getCompileTimeDependencies(final Model artifactPom) {
+		return Collections2.filter(artifactPom.getDependencies(), new Predicate<Dependency>() {
+
+			@Override
+			public boolean apply(final Dependency input) {
+				return (input != null) && (Objects.equals(input.getScope(), Artifact.SCOPE_COMPILE) || Objects.equals(input.getScope(), Artifact.SCOPE_PROVIDED));
+			}
+		});
 	}
 
 	private ModelUtil getModelUtil() {
@@ -298,15 +297,6 @@ public class CreateRecipeMojo extends AbstractMojo {
 		} catch (final Exception e) {
 			getLog().debug(e);
 			throw new MojoExecutionException(format("Error reading .project template: %s", e.getMessage()));
-		}
-	}
-
-	private String readOsgiBndTemplate() throws MojoExecutionException {
-		try {
-			return IOUtils.toString(getTemplate("recipe-osgi.bnd"), UTF_8);
-		} catch (final Exception e) {
-			getLog().debug(e);
-			throw new MojoExecutionException(format("Error reading osgi.bnd template: %s", e.getMessage()));
 		}
 	}
 

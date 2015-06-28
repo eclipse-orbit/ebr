@@ -1,4 +1,4 @@
-package-version=${version;===;${Bundle-Version}}
+@VERSION_VARIABLES@
 
 Export-Package: \
  !about.html,!about_files, \
