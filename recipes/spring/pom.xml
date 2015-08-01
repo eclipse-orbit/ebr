@@ -1,0 +1,36 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+
+  <modelVersion>4.0.0</modelVersion>
+
+  <parent>
+    <groupId>MY_EBR_BUNDLES_GROUP</groupId>
+    <artifactId>ebr-bundles-parent</artifactId>
+    <version>1.0.0-SNAPSHOT</version>
+  </parent>
+
+  <artifactId>spring-parent</artifactId>
+  <version>1.0.0-SNAPSHOT</version>
+  <packaging>pom</packaging>
+
+  <name>Spring</name>
+
+  <modules>
+    <module>org.springframework.aop_3.2.10.RELEASE</module>
+    <module>org.springframework.aspects_3.2.10.RELEASE</module>
+    <module>org.springframework.beans_3.2.10.RELEASE</module>
+    <module>org.springframework.context_3.2.10.RELEASE</module>
+    <module>org.springframework.context.support_3.2.10.RELEASE</module>
+    <module>org.springframework.core_3.2.10.RELEASE</module>
+    <module>org.springframework.expression_3.2.10.RELEASE</module>
+    <module>org.springframework.jdbc_3.2.10.RELEASE</module>
+    <module>org.springframework.jms_3.2.10.RELEASE</module>
+    <module>org.springframework.orm_3.2.10.RELEASE</module>
+    <module>org.springframework.oxm_3.2.10.RELEASE</module>
+    <module>org.springframework.transaction_3.2.10.RELEASE</module>
+    <module>org.springframework.web_3.2.10.RELEASE</module>
+    <module>org.springframework.web.portlet_3.2.10.RELEASE</module>
+    <module>org.springframework.web.servlet_3.2.10.RELEASE</module>
+  </modules>
+
+</project>

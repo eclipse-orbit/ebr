@@ -218,15 +218,12 @@
   </build>
 
   <modules>
-  	<module>apache-commons</module>
-  	<module>apache-lucene-solr</module>
+  	<module>apache</module>
   	<module>google</module>
-  	<module>hk2</module>
+  	<module>glassfish</module>
   	<module>javax</module>
-  	<module>jersey</module>
-  	<module>logback</module>
-  	<module>slf4j</module>
-  	<module>springframework</module>
+  	<module>logging</module>
+  	<module>spring</module>
   	<module>square</module>
   	<module>unsorted</module>
   </modules>
