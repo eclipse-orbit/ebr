@@ -1,7 +1,7 @@
 Eclipse Bundle Recipes
 ======================
 
-This repositories hosts recipes and tools for building OSGi bundles from Java Maven artifacts. 
+This repositories hosts recipes and tools for building OSGi bundles from Java Maven artifacts.
 To learn more about Eclipse Bunde Recipes, please have a look at [this presentation](http://de.slideshare.net/guw/tasty-recipes-for-osgi-bundles).
 
 
@@ -53,27 +53,39 @@ This is not difficult at all. Just change into the directory of the recipe to bu
 The resulting bundle will be available in the recipes `target` folder.
 
 
-Creating your own recipes
--------------------------
+Adding a recipe
+---------------
 
 Create new recipes with something like the following:
 
     $ cd recipes/unsorted
     $ mvn org.eclipse.ebr:ebr-maven-plugin::create-recipe \
-      -DbundleSymbolicName=org.joda.time \
+      -DbundleSymbolicName=org.joda.time.ebr \
       -DgroupId=joda-time \
       -DartifactId=joda-time \
       -Dversion=1.6
 
 This command will create an EBR project in a directory named
-`org.joda.time_1.6.0` within the current directory.  `groupId`,
+`org.joda.time.ebr_1.6.0` within the current directory.  `groupId`,
 `artifactId`, and `version` are the artifact coordinates in Maven
 Central.  `version` is optional, and can also be `LATEST` or
 `RELEASE`.
 
-You can create other groupings under `recipes/` as required.  Copy
-and modify a `pom.xml` as required.
+Note, all recipes producing bundles for EBR should define `Bundle-SymbolicName`
+that ends with `.ebr`.
 
+You can create new categories as desired. See /Adding a category/.
+
+
+Adding a category
+-----------------
+
+Recipies are organized by categories. The recommendation is to go with
+a category per origin.
+
+ 1. Create folder within `recipes/`
+ 2. Add category entry and IU query to `releng/p2/repository/category.xml`
+ 3. Add `pom.xml` for category (use an existing category as template)
 
 
 How the Maven plug-in works
