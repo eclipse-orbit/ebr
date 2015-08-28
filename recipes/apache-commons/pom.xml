@@ -16,6 +16,7 @@
   <name>Apache Commons</name>
 
   <modules>
+  	<module>org.apache.commons.codec_1.10.0</module>
   </modules>
 
 </project>
