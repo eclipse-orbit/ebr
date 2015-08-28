@@ -1,0 +1,296 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<parent>
+		<groupId>MY_EBR_BUNDLES_GROUP</groupId>
+		<artifactId>apache-lucene-parent</artifactId>
+		<version>5.3.0-SNAPSHOT</version>
+	</parent>
+	<artifactId>lucene-repository</artifactId>
+	<packaging>pom</packaging>
+	<name>Lucene Updates</name>
+	<version>0.0.1-SNAPSHOT</version>
+
+	<properties>
+		<tycho.version>${tycho-version}</tycho.version>
+		<lucene.osgi.version>5.3.0-SNAPSHOT</lucene.osgi.version>
+	</properties>
+
+	<repositories>
+		<repository>
+			<id>mars</id>
+			<layout>p2</layout>
+			<url>http://download.eclipse.org/releases/mars/201506241002</url>
+		</repository>
+	</repositories>
+
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.eclipse.tycho</groupId>
+				<artifactId>tycho-maven-plugin</artifactId>
+				<extensions>true</extensions>
+			</plugin>
+			<plugin>
+				<groupId>org.eclipse.tycho</groupId>
+				<artifactId>target-platform-configuration</artifactId>
+				<version>${tycho.version}</version>
+				<configuration>
+					<pomDependencies>consider</pomDependencies>
+				</configuration>
+			</plugin>
+			<plugin>
+				<groupId>org.eclipse.tycho</groupId>
+				<artifactId>tycho-source-plugin</artifactId>
+				<version>${tycho-version}</version>
+				<configuration>
+					<strictSrcIncludes>false</strictSrcIncludes>
+				</configuration>
+				<executions>
+					<execution>
+						<id>plugin-source</id>
+						<goals>
+							<goal>plugin-source</goal>
+						</goals>
+					</execution>
+				</executions>
+			</plugin>
+			<plugin>
+				<groupId>org.eclipse.tycho.extras</groupId>
+				<artifactId>tycho-source-feature-plugin</artifactId>
+				<version>${tycho-version}</version>
+				<executions>
+					<execution>
+						<id>source-feature</id>
+						<phase>package</phase>
+						<goals>
+							<goal>source-feature</goal>
+						</goals>
+					</execution>
+				</executions>
+			</plugin>
+			<plugin>
+				<groupId>org.eclipse.tycho</groupId>
+				<artifactId>tycho-p2-plugin</artifactId>
+				<executions>
+					<execution>
+						<id>attach-p2-metadata</id>
+						<phase>package</phase>
+						<goals>
+							<goal>p2-metadata</goal>
+						</goals>
+					</execution>
+				</executions>
+			</plugin>
+		</plugins>
+	</build>
+
+	<dependencies>
+		<dependency>
+			<groupId>MY_EBR_BUNDLES_GROUP</groupId>
+			<artifactId>org.apache.lucene.analyzers.common</artifactId>
+			<version>${lucene.osgi.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>MY_EBR_BUNDLES_GROUP</groupId>
+			<artifactId>org.apache.lucene.analyzers.icu</artifactId>
+			<version>${lucene.osgi.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>MY_EBR_BUNDLES_GROUP</groupId>
+			<artifactId>org.apache.lucene.analyzers.phonetic</artifactId>
+			<version>${lucene.osgi.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>MY_EBR_BUNDLES_GROUP</groupId>
+			<artifactId>org.apache.lucene.analyzers.smartcn</artifactId>
+			<version>${lucene.osgi.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>MY_EBR_BUNDLES_GROUP</groupId>
+			<artifactId>org.apache.lucene.analyzers.kuromoji</artifactId>
+			<version>${lucene.osgi.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>MY_EBR_BUNDLES_GROUP</groupId>
+			<artifactId>org.apache.lucene.analyzers.stempel</artifactId>
+			<version>${lucene.osgi.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>MY_EBR_BUNDLES_GROUP</groupId>
+			<artifactId>org.apache.lucene.analyzers.morfologik</artifactId>
+			<version>${lucene.osgi.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>MY_EBR_BUNDLES_GROUP</groupId>
+			<artifactId>org.apache.lucene.analyzers.uima</artifactId>
+			<version>${lucene.osgi.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>MY_EBR_BUNDLES_GROUP</groupId>
+			<artifactId>org.apache.lucene.core</artifactId>
+			<version>${lucene.osgi.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>MY_EBR_BUNDLES_GROUP</groupId>
+			<artifactId>org.apache.lucene.codecs</artifactId>
+			<version>${lucene.osgi.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>MY_EBR_BUNDLES_GROUP</groupId>
+			<artifactId>org.apache.lucene.backward-codecs</artifactId>
+			<version>${lucene.osgi.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>MY_EBR_BUNDLES_GROUP</groupId>
+			<artifactId>org.apache.lucene.facet</artifactId>
+			<version>${lucene.osgi.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>MY_EBR_BUNDLES_GROUP</groupId>
+			<artifactId>org.apache.lucene.grouping</artifactId>
+			<version>${lucene.osgi.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>MY_EBR_BUNDLES_GROUP</groupId>
+			<artifactId>org.apache.lucene.join</artifactId>
+			<version>${lucene.osgi.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>MY_EBR_BUNDLES_GROUP</groupId>
+			<artifactId>org.apache.lucene.queryparser</artifactId>
+			<version>${lucene.osgi.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>MY_EBR_BUNDLES_GROUP</groupId>
+			<artifactId>org.apache.lucene.queries</artifactId>
+			<version>${lucene.osgi.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>MY_EBR_BUNDLES_GROUP</groupId>
+			<artifactId>org.apache.lucene.highlighter</artifactId>
+			<version>${lucene.osgi.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>MY_EBR_BUNDLES_GROUP</groupId>
+			<artifactId>org.apache.lucene.misc</artifactId>
+			<version>${lucene.osgi.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>MY_EBR_BUNDLES_GROUP</groupId>
+			<artifactId>org.apache.lucene.classification</artifactId>
+			<version>${lucene.osgi.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>MY_EBR_BUNDLES_GROUP</groupId>
+			<artifactId>org.apache.lucene.memory</artifactId>
+			<version>${lucene.osgi.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>MY_EBR_BUNDLES_GROUP</groupId>
+			<artifactId>org.apache.lucene.suggest</artifactId>
+			<version>${lucene.osgi.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>MY_EBR_BUNDLES_GROUP</groupId>
+			<artifactId>org.apache.lucene.spatial</artifactId>
+			<version>${lucene.osgi.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>MY_EBR_BUNDLES_GROUP</groupId>
+			<artifactId>org.apache.lucene.spatial3d</artifactId>
+			<version>${lucene.osgi.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>MY_EBR_BUNDLES_GROUP</groupId>
+			<artifactId>org.apache.lucene.expressions</artifactId>
+			<version>${lucene.osgi.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>com.spatial4j</groupId>
+			<artifactId>spatial4j</artifactId>
+			<version>0.4.1</version>
+		</dependency>
+		<dependency>
+			<groupId>com.spatial4j</groupId>
+			<artifactId>spatial4j</artifactId>
+			<version>0.4.1</version>
+			<classifier>sources</classifier>
+		</dependency>
+		<dependency>
+			<groupId>com.ibm.icu</groupId>
+			<artifactId>icu4j</artifactId>
+			<version>54.1</version>
+		</dependency>
+		<dependency>
+			<groupId>com.ibm.icu</groupId>
+			<artifactId>icu4j</artifactId>
+			<version>54.1</version>
+			<classifier>sources</classifier>
+		</dependency>
+		<!-- <dependency> -->
+		<!-- <groupId>org.ow2.asm</groupId> -->
+		<!-- <artifactId>asm</artifactId> -->
+		<!-- <version>4.1</version> -->
+		<!-- </dependency> -->
+		<!-- <dependency> -->
+		<!-- <groupId>org.ow2.asm</groupId> -->
+		<!-- <artifactId>asm-commons</artifactId> -->
+		<!-- <version>4.1</version> -->
+		<!-- </dependency> -->
+		<!-- <dependency> -->
+		<!-- <groupId>MY_EBR_BUNDLES_GROUP</groupId> -->
+		<!-- <artifactId>jakarta-regexp</artifactId> -->
+		<!-- <version>1.4-SNAPSHOT</version> -->
+		<!-- </dependency> -->
+		<!-- <dependency> -->
+		<!-- <groupId>oantlr</groupId> -->
+		<!-- <artifactId>antlr-runtime</artifactId> -->
+		<!-- <version>3.5-SNAPSHOT</version> -->
+		<!-- </dependency> -->
+		<dependency>
+			<groupId>MY_EBR_BUNDLES_GROUP</groupId>
+			<artifactId>org.carrot2.morfologik.fsa</artifactId>
+			<version>1.7.1-SNAPSHOT</version>
+		</dependency>
+		<dependency>
+			<groupId>MY_EBR_BUNDLES_GROUP</groupId>
+			<artifactId>org.carrot2.morfologik.stemming</artifactId>
+			<version>1.7.1-SNAPSHOT</version>
+		</dependency>
+		<dependency>
+			<groupId>MY_EBR_BUNDLES_GROUP</groupId>
+			<artifactId>org.carrot2.morfologik.polish</artifactId>
+			<version>1.7.1-SNAPSHOT</version>
+		</dependency>
+		<dependency>
+			<groupId>MY_EBR_BUNDLES_GROUP</groupId>
+			<artifactId>org.apache.uima.tagger</artifactId>
+			<version>2.3.1-SNAPSHOT</version>
+		</dependency>
+		<dependency>
+			<groupId>MY_EBR_BUNDLES_GROUP</groupId>
+			<artifactId>org.apache.uima.core</artifactId>
+			<version>2.3.1-SNAPSHOT</version>
+		</dependency>
+		<dependency>
+			<groupId>MY_EBR_BUNDLES_GROUP</groupId>
+			<artifactId>org.apache.uima.whitespacetokenizer</artifactId>
+			<version>2.3.1-SNAPSHOT</version>
+		</dependency>
+		<dependency>
+			<groupId>MY_EBR_BUNDLES_GROUP</groupId>
+			<artifactId>org.apache.commons.codec</artifactId>
+			<version>1.10.0-SNAPSHOT</version>
+		</dependency>
+		<dependency>
+			<groupId>MY_EBR_BUNDLES_GROUP</groupId>
+			<artifactId>com.carrotsearch.hppc</artifactId>
+			<version>0.5.4-SNAPSHOT</version>
+		</dependency>
+	</dependencies>
+	<modules>
+		<module>org.apache.lucene.feature</module>
+		<module>org.apache.lucene.repository</module>
+	</modules>
+</project>

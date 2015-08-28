@@ -1,0 +1,11 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <parent>
+    <groupId>MY_EBR_BUNDLES_GROUP</groupId>
+    <artifactId>lucene-repository</artifactId>
+    <version>0.0.1-SNAPSHOT</version>
+  </parent>
+  <artifactId>org.apache.lucene.repository</artifactId>
+  <packaging>eclipse-repository</packaging>
+  <name>Apache Lucene P2 Repository</name>
+</project>
