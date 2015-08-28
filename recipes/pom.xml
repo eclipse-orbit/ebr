@@ -220,6 +220,7 @@
   <modules>
   	<module>apache-commons</module>
   	<module>apache-lucene-solr</module>
+  	<module>apache-lucene</module>
   	<module>google</module>
   	<module>hk2</module>
   	<module>javax</module>

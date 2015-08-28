@@ -1,0 +1,57 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+
+	<modelVersion>4.0.0</modelVersion>
+
+	<parent>
+		<groupId>MY_EBR_BUNDLES_GROUP</groupId>
+		<artifactId>ebr-bundles-parent</artifactId>
+		<version>1.0.0-SNAPSHOT</version>
+	</parent>
+
+	<artifactId>apache-lucene-parent</artifactId>
+	<version>5.3.0-SNAPSHOT</version>
+	<packaging>pom</packaging>
+
+	<name>Apache Lucene</name>
+
+	<properties>
+		<lucene.version>5.3.0</lucene.version>
+	</properties>
+
+	<modules>
+		<module>org.apache.lucene.analyzers.common</module> 
+			<module>org.apache.lucene.analyzers.icu</module> 
+			<module>org.apache.lucene.analyzers.kuromoji</module> 
+			<module>org.apache.lucene.analyzers.morfologik</module> 
+			<module>org.apache.lucene.analyzers.phonetic</module> 
+			<module>org.apache.lucene.analyzers.smartcn</module> 
+			<module>org.apache.lucene.analyzers.stempel</module> 
+			<module>org.apache.lucene.analyzers.uima</module> 
+			<module>org.apache.lucene.classification</module> 
+			<module>org.apache.lucene.backward-codecs</module> 
+			<module>org.apache.lucene.codecs</module> 
+			<module>org.apache.lucene.core</module> 
+			<module>org.apache.lucene.expressions</module> 
+			<module>org.apache.lucene.facet</module> 
+			<module>org.apache.lucene.grouping</module> 
+			<module>org.apache.lucene.highlighter</module> 
+			<module>org.apache.lucene.join</module> 
+			<module>org.apache.lucene.memory</module> 
+			<module>org.apache.lucene.misc</module> 
+			<module>org.apache.lucene.queries</module> 
+			<module>org.apache.lucene.queryparser</module> 
+			<module>org.apache.lucene.replicator</module> 
+			<module>org.apache.lucene.spatial</module> 
+			<module>org.apache.lucene.spatial3d</module> 
+			<module>org.apache.lucene.suggest</module>
+			<module>repository</module>
+<!-- 			<module>org.apache.uima.core_2.3.1</module>  -->
+<!-- 			<module>org.apache.uima.tagger_2.3.1</module>  -->
+<!-- 			<module>org.apache.uima.whitespacetokenizer_2.3.1</module>  -->
+<!-- 			<module>org.carrot2.morfologik.fsa_1.7.1</module>  -->
+<!-- 			<module>org.carrot2.morfologik.polish_1.7.1</module>  -->
+<!-- 			<module>org.carrot2.morfologik.stemming_1.7.1</module>  -->
+	</modules>
+
+</project>

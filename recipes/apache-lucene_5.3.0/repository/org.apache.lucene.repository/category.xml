@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<site>
+   <feature url="org.apache.lucene.feature_5.3.0.qualifier.jar" id="org.apache.lucene.feature" version="5.3.0.qualifier">
+      <category name="org.apache.lucene"/>
+   </feature>
+   <feature url="org.apache.lucene.feature.source_5.3.0.qualifier.jar" id="org.apache.lucene.feature.source" version="5.3.0.qualifier">
+      <category name="org.apache.lucene"/>
+   </feature>
+   <category-def name="org.apache.lucene" label="Apache Lucene"/>
+</site>
