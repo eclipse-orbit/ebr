@@ -17,5 +17,4 @@
       <version>${lucene.version}</version>
     </dependency>
   </dependencies>
-  <version>s</version>
 </project>

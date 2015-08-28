@@ -30,7 +30,6 @@
 			<module>org.apache.lucene.analyzers.uima</module> 
 			<module>org.apache.lucene.classification</module> 
 			<module>org.apache.lucene.backward-codecs</module> 
-			<module>org.apache.lucene.benchmarks</module> 
 			<module>org.apache.lucene.codecs</module> 
 			<module>org.apache.lucene.core</module> 
 			<module>org.apache.lucene.expressions</module> 
@@ -46,12 +45,12 @@
 			<module>org.apache.lucene.spatial</module> 
 			<module>org.apache.lucene.spatial3d</module> 
 			<module>org.apache.lucene.suggest</module> 
-			<module>org.apache.uima.core_2.3.1</module> 
-			<module>org.apache.uima.tagger_2.3.1</module> 
-			<module>org.apache.uima.whitespacetokenizer_2.3.1</module> 
-			<module>org.carrot2.morfologik.fsa_1.7.1</module> 
-			<module>org.carrot2.morfologik.polish_1.7.1</module> 
-			<module>org.carrot2.morfologik.stemming_1.7.1</module> 
+<!-- 			<module>org.apache.uima.core_2.3.1</module>  -->
+<!-- 			<module>org.apache.uima.tagger_2.3.1</module>  -->
+<!-- 			<module>org.apache.uima.whitespacetokenizer_2.3.1</module>  -->
+<!-- 			<module>org.carrot2.morfologik.fsa_1.7.1</module>  -->
+<!-- 			<module>org.carrot2.morfologik.polish_1.7.1</module>  -->
+<!-- 			<module>org.carrot2.morfologik.stemming_1.7.1</module>  -->
 	</modules>
 
 </project>

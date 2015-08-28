@@ -15,7 +15,7 @@
     <dependency>
       <groupId>org.carrot2</groupId>
       <artifactId>morfologik-polish</artifactId>
-      <version>1.8.3</version>
+      <version>1.7.1</version>
     </dependency>
   </dependencies>
 </project>
