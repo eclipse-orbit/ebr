@@ -44,7 +44,8 @@
 			<module>org.apache.lucene.replicator</module> 
 			<module>org.apache.lucene.spatial</module> 
 			<module>org.apache.lucene.spatial3d</module> 
-			<module>org.apache.lucene.suggest</module> 
+			<module>org.apache.lucene.suggest</module>
+			<module>repository</module>
 <!-- 			<module>org.apache.uima.core_2.3.1</module>  -->
 <!-- 			<module>org.apache.uima.tagger_2.3.1</module>  -->
 <!-- 			<module>org.apache.uima.whitespacetokenizer_2.3.1</module>  -->

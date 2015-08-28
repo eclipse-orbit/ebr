@@ -6,5 +6,6 @@ Export-Package: \
  *;version="${package-version}"
 
 Import-Package: \
- *
+ org.apache.lucene.sandbox.*;resolution:=optional,\
+ *,
 
