@@ -1,0 +1,10 @@
+package-version=${version;===;${Bundle-Version}}
+
+Export-Package: \
+ *.internal*;x-internal:=true;version="${package-version}", \
+ *.impl*;x-internal:=true;version="${package-version}", \
+ *;version="${package-version}"
+
+Import-Package: \
+ *
+
