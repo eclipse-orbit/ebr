@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<extension>
+  <exportedPackages>
+    <exportedPackage>org.eclipse.ebr</exportedPackage>
+  </exportedPackages>
+
+  <exportedArtifacts>
+    <exportedArtifact>org.eclipse.ebr:ebr-maven-plugin</exportedArtifact>
+  </exportedArtifacts>
+</extension>
