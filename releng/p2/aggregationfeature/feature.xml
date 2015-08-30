@@ -4,7 +4,6 @@
       label="%featureName"
       version="1.0.0.qualifier"
       provider-name="%providerName">
-
   <description>%description</description>
   <copyright>%copyright</copyright>
   <license>%license</license>
@@ -12,11 +11,9 @@
   <!-- Please do NOT modify this file with the PDE Feature Editor. -->
   <!-- It will screw up any formatting. -->
 
-
   <plugin id="javax.ws.rs.ebr"    version="2.0.1.qualifier"/>
 
   <plugin id="com.sun.jna.ebr"           version="4.1.0.qualifier"/>
   <plugin id="com.sun.jna.platform.ebr"  version="4.1.0.qualifier"/>
-
 
 </feature>
