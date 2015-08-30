@@ -34,13 +34,13 @@ Maven group id `MY_EBR_BUNDLES_GROUP`.
 ### Generate p2 repository
 
 1. Go into the repository root folder.
-2. `cd releng/p2/repository`
+2. `cd releng/p2`
 3. `mvn clean package`
 
 The repository will be made available as archive in `releng/p2/repository/target`.
 
-Note, you **must** build the recipes first and *install* the result into your local Maven repository. Otherwise
-the p2 build won't find any bundles.
+Note, you **must** build the recipes first and *install* the result into your local Maven repository. Otherwise the p2 build won't find any bundles and
+the build fails.
 
 
 ### How to build just a single recipe?
@@ -75,6 +75,9 @@ Note, all recipes producing bundles for EBR should define `Bundle-SymbolicName`
 that ends with `.ebr`.
 
 You can create new categories as desired. See /Adding a category/.
+
+When your recipe is done and builds fine, add an entry to the aggregation feature
+`releng/p2/aggregationfeature/feature.xml`.
 
 
 Adding a category

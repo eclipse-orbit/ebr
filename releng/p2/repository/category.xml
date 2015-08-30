@@ -1,22 +1,51 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <site>
-	<category-def name="javax" label="Bundles By Name: javax.*"/>
+    <feature
+        id="org.eclipse.ebr.releng.feature.aggregation"
+        version="0.0.0">
+    </feature>
+    <feature
+        id="org.eclipse.ebr.releng.feature.aggregation.source"
+        version="0.0.0">
+    </feature>
+
+   <category-def name="all" label="All Bundles"/>
+   <iu>
+      <category name="all"/>
+      <query><expression type="match">providedCapabilities.exists(p | p.namespace == 'osgi.bundle')</expression></query>
+   </iu>
+
+	<category-def name="javax" label="javax.*"/>
 	<iu>
 		<category name="javax"/>
-		<!-- queries don't work yet: https://bugs.eclipse.org/371983 -->
 		<query><expression type="match">id ~= /javax.*/</expression></query>
 	</iu>
 
-	<!-- queries don't work yet: https://bugs.eclipse.org/371983 -->
-	<!-- thus, we need to list ALL IUs manually below -->
-	<iu id="javax.servlet"/>
-	<iu id="javax.servlet.source"/>
-	<iu id="javax.annotation"/>
-	<iu id="javax.annotation.source"/>
-	<iu id="javax.ws.rs.ebr"/>
-	<iu id="javax.ws.rs.ebr.source"/>
-    <iu id="com.sun.jna.ebr"/>
-	<iu id="com.sun.jna.ebr.source"/>
-    <iu id="com.sun.jna.platform.ebr"/>
-    <iu id="com.sun.jna.platform.ebr.source"/>
+	<category-def name="apache" label="Apache"/>
+	<iu>
+		<category name="apache"/>
+		<query><expression type="match">id ~= /org.apache.*/</expression></query>
+	</iu>
+
+	<category-def name="google" label="Google"/>
+	<iu>
+		<category name="google"/>
+		<query><expression type="match">id ~= /com.google.*/</expression></query>
+	</iu>
+
+	<category-def name="glassfish" label="Glassfish"/>
+	<iu>
+		<category name="glassfish"/>
+		<query><expression type="match">id ~= /org.glassfish.*/</expression></query>
+	</iu>
+
+	<category-def name="logging" label="Logging"/>
+	<iu>
+		<category name="logging"/>
+		<query><expression type="match">id ~= /ch.qos.logback.*/</expression></query>
+	</iu>
+	<iu>
+		<category name="logging"/>
+		<query><expression type="match">id ~= /org.slf4j.*/</expression></query>
+	</iu>
 </site>
