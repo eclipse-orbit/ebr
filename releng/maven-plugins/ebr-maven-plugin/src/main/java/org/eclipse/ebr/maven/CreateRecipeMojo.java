@@ -75,7 +75,7 @@ public class CreateRecipeMojo extends AbstractMojo {
 
 	private static final String POM_XML = "pom.xml";
 
-	@Component
+	@Parameter(defaultValue = "${session}", readonly = true)
 	private MavenSession mavenSession;
 
 	@Component

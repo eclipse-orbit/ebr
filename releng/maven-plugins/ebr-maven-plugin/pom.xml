@@ -2,33 +2,17 @@
   xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
   <modelVersion>4.0.0</modelVersion>
 
-  <groupId>org.eclipse.ebr</groupId>
   <artifactId>ebr-maven-plugin</artifactId>
-  <version>1.0.0-SNAPSHOT</version>
   <packaging>maven-plugin</packaging>
+
+  <parent>
+    <groupId>org.eclipse.ebr</groupId>
+    <artifactId>ebr-maven-plugins-parent</artifactId>
+    <version>1.0.0-SNAPSHOT</version>
+  </parent>
 
   <name>Eclipse Bundle Recipe Maven Plugin</name>
   <description>A Maven plug-in for generating OSGi bundles based on Maven artifacts listed as direct project dependencies.</description>
-
-  <url>http://www.eclipse.org/ebr</url>
-
-  <licenses>
-    <license>
-      <name>Eclipse Public License</name>
-      <url>http://www.eclipse.org/legal/epl-v10.html</url>
-      <distribution>repo</distribution>
-    </license>
-  </licenses>
-
-  <organization>
-    <name>Eclipse Foundation</name>
-    <url>http://www.eclipse.org/</url>
-  </organization>
-
-  <issueManagement>
-    <system>Bugzilla</system>
-    <url>https://bugs.eclipse.org/bugs/buglist.cgi?product=EBR</url>
-  </issueManagement>
 
   <scm>
     <connection>scm:git:git.eclipse.org:/gitroot/ebr/org.eclipse.ebr.recipes.git</connection>
@@ -36,52 +20,18 @@
     <url>http://git.eclipse.org/c/ebr/org.eclipse.ebr.recipes.git/</url>
   </scm>
 
-  <developers>
-    <developer>
-      <name>Gunnar Wagenknecht</name>
-      <organization>Tasktop Technologies</organization>
-      <organizationUrl>http://www.tasktop.com</organizationUrl>
-    </developer>
-  </developers>
-
-  <distributionManagement>
-    <repository>
-      <id>repo.eclipse.org</id>
-      <name>EBR Eclipse Maven Repository - Releases</name>
-      <url>https://repo.eclipse.org/content/repositories/ebr-releases/</url>
-    </repository>
-    <snapshotRepository>
-      <id>repo.eclipse.org</id>
-      <name>EBR Eclipse Maven Repository - Snapshots</name>
-      <url>https://repo.eclipse.org/content/repositories/ebr-snapshots/</url>
-    </snapshotRepository>
-  </distributionManagement>
-
-  <properties>
-    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-    <maven-version>3.2.3</maven-version>
-    <maven-compiler-plugin.version>3.2</maven-compiler-plugin.version>
-  </properties>
-
-  <prerequisites>
-    <maven>3.2.3</maven>
-  </prerequisites>
-
   <dependencies>
     <dependency>
       <groupId>org.apache.maven</groupId>
       <artifactId>maven-core</artifactId>
-      <version>${maven-version}</version>
     </dependency>
     <dependency>
       <groupId>org.apache.maven</groupId>
       <artifactId>maven-plugin-api</artifactId>
-      <version>${maven-version}</version>
     </dependency>
     <dependency>
       <groupId>org.apache.maven.plugin-tools</groupId>
       <artifactId>maven-plugin-annotations</artifactId>
-      <version>3.2</version>
       <scope>provided</scope>
     </dependency>
     <dependency>
@@ -128,17 +78,8 @@
     </resources>
     <plugins>
       <plugin>
-        <artifactId>maven-compiler-plugin</artifactId>
-        <version>${maven-compiler-plugin.version}</version>
-        <configuration>
-          <source>1.7</source>
-          <target>1.7</target>
-        </configuration>
-      </plugin>
-      <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-plugin-plugin</artifactId>
-        <version>3.2</version>
         <configuration>
           <goalPrefix>ebr</goalPrefix>
           <skipErrorNoDescriptorsFound>true</skipErrorNoDescriptorsFound>

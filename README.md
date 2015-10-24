@@ -15,7 +15,7 @@ in your local Maven repository for any of the builds to be successful.
 
 1. Install Java (at least Java 7) and Maven
 2. Clone this repository and go into the repository root folder
-3. `mvn -f releng/ebr-maven-plugin/pom.xml install`
+3. `mvn -f releng/maven-plugins/pom.xml install`
 
 
 
