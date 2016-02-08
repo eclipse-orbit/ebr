@@ -650,6 +650,7 @@ public class EclipseIpLogUtil extends LicenseProcessingUtility {
 				final String existingCq = existingCqs.get(artifact.getFile().getName());
 				if ((null == existingCq) || existingCq.trim().isEmpty()) {
 					if (httpclient != null) {
+						getLog().info(format("Creating CQ for artifact %s:%s:%s.", artifact.getGroupId(), artifact.getArtifactId(), artifact.getVersion()));
 						final String cqId = createCq(httpclient, artifact, dependency.getValue(), existingLicenses);
 						existingCqs.put(artifact.getFile().getName(), cqId);
 						getLog().info(format("Created CQ %s for artifact %s:%s:%s.", cqId, artifact.getGroupId(), artifact.getArtifactId(), artifact.getVersion()));
