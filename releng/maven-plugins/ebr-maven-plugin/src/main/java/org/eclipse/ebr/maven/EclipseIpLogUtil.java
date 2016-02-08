@@ -738,9 +738,20 @@ public class EclipseIpLogUtil extends LicenseProcessingUtility {
 					if (Strings.isNullOrEmpty(cqId)) {
 						logWarningOrFailBuild(failIfIpLogIsIncomplete, "Incomplete legal information in ip_log.xml. Reference to IPzilla CQ is required!");
 					}
-					final Xpp3Dom license = legal.getChild("license");
-					if ((license == null) || Strings.isNullOrEmpty(license.getValue())) {
+					final Xpp3Dom[] licenses = legal.getChildren("license");
+					if ((licenses == null) || (licenses.length == 0)) {
 						logWarningOrFailBuild(failIfIpLogIsIncomplete, "Incomplete legal information in ip_log.xml. Element 'license' with license information is required!");
+					} else {
+						for (final Xpp3Dom license : licenses) {
+							final Xpp3Dom name = license.getChild("name");
+							if ((name == null) || Strings.isNullOrEmpty(name.getValue())) {
+								logWarningOrFailBuild(failIfIpLogIsIncomplete, "Incomplete license information in ip_log.xml. Element 'name' is required and must not be empty!");
+							}
+							final Xpp3Dom reference = license.getChild("reference");
+							if ((reference == null) || Strings.isNullOrEmpty(reference.getValue())) {
+								logWarningOrFailBuild(failIfIpLogIsIncomplete, "Incomplete license information in ip_log.xml. Element 'reference' is required and must not be empty!");
+							}
+						}
 					}
 				}
 			}
