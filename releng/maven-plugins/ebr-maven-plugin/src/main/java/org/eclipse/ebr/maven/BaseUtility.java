@@ -24,6 +24,8 @@ import org.apache.maven.plugin.logging.Log;
  */
 public abstract class BaseUtility {
 
+	static final String REQUIRES_FORCE_TO_OVERRIDE_MESSAGE = "Please set the force property to true in order to update/override it (eg. '-Dforce=true' via command line).";
+
 	static InputStream getTemplate(final String name) throws FileNotFoundException {
 		final ClassLoader cl = BaseUtility.class.getClassLoader();
 		final InputStream is = cl.getResourceAsStream(name);
@@ -31,8 +33,6 @@ public abstract class BaseUtility {
 			throw new FileNotFoundException(format("Template '%s' cannot be found! Please check the plug-in packaging.", name));
 		return is;
 	}
-
-	static final String REQUIRES_FORCE_TO_OVERRIDE_MESSAGE = "Please set the force property to true in order to override it (eg. '-Dforce=true' via command line).";
 
 	private final Log log;
 

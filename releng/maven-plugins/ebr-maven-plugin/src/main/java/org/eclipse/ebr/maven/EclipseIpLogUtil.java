@@ -53,6 +53,7 @@ import org.apache.maven.model.MailingList;
 import org.apache.maven.model.Model;
 import org.apache.maven.model.Scm;
 import org.apache.maven.plugin.MojoExecutionException;
+import org.apache.maven.plugin.MojoFailureException;
 import org.apache.maven.plugin.logging.Log;
 import org.apache.maven.settings.Server;
 import org.apache.maven.settings.Settings;
@@ -277,12 +278,12 @@ public class EclipseIpLogUtil extends LicenseProcessingUtility {
 		return iplogXmlFile;
 	}
 
-	private Xpp3Dom getContact(final Xpp3Dom existingIpLog) {
+	private Xpp3Dom[] getContact(final Xpp3Dom existingIpLog) {
 		if (existingIpLog == null)
 			return null;
 		final Xpp3Dom project = existingIpLog.getChild("project");
 		if (project != null)
-			return project.getChild("contact");
+			return project.getChildren("contact");
 		return null;
 	}
 
@@ -392,9 +393,11 @@ public class EclipseIpLogUtil extends LicenseProcessingUtility {
 		createChild(info, "tag", getProjectTag(recipePom, existingIpLog));
 		project.addChild(info);
 
-		final Xpp3Dom existingContact = getContact(existingIpLog);
-		if (existingContact != null) {
-			project.addChild(existingContact);
+		final Xpp3Dom[] existingContacts = getContact(existingIpLog);
+		if ((existingContacts != null) && (existingContacts.length > 0)) {
+			for (final Xpp3Dom contact : existingContacts) {
+				project.addChild(contact);
+			}
 		} else {
 			final Xpp3Dom contact = new Xpp3Dom("contact");
 			createChild(contact, "name", "");
@@ -669,6 +672,12 @@ public class EclipseIpLogUtil extends LicenseProcessingUtility {
 		}
 	}
 
+	private void logWarningOrFailBuild(final boolean failBuildIfIpLogIsIncomplete, final String messageFormat, final Object... arguments) throws MojoFailureException {
+		if (failBuildIfIpLogIsIncomplete)
+			throw new MojoFailureException(format(messageFormat, arguments));
+		getLog().warn(format(messageFormat, arguments));
+	}
+
 	private Xpp3Dom readExistingIpLog(final File iplogXmlFile) throws MojoExecutionException {
 		final Xpp3Dom existingIpLog;
 		if (iplogXmlFile.isFile()) {
@@ -682,5 +691,59 @@ public class EclipseIpLogUtil extends LicenseProcessingUtility {
 			existingIpLog = null;
 		}
 		return existingIpLog;
+	}
+
+	public void verifyIpLogXmlFile(final File outputDirectory, final boolean failIfIpLogIsIncomplete) throws MojoFailureException, MojoExecutionException {
+		final File iplogXmlFile = new File(outputDirectory, IP_LOG_XML);
+
+		// read existing ip log
+		final Xpp3Dom existingIpLog = readExistingIpLog(iplogXmlFile);
+		if ((existingIpLog == null) || !iplogXmlFile.isFile()) {
+			logWarningOrFailBuild(failIfIpLogIsIncomplete, "Verification failed: No ip_log.xml file found at '%s'", iplogXmlFile);
+		}
+
+		// ensure there is at most one project
+		final Xpp3Dom[] projects = existingIpLog.getChildren("project");
+		if ((projects == null) || (projects.length == 0)) {
+			logWarningOrFailBuild(failIfIpLogIsIncomplete, "Missing project information in ip_log.xml.");
+		} else if (projects.length != 1) {
+			logWarningOrFailBuild(failIfIpLogIsIncomplete, "Too many 'project' elements. Only one 'project' element is expected in the ip_log.xml.");
+		}
+
+		// expect contact information
+		final Xpp3Dom[] contacts = getContact(existingIpLog);
+		if ((contacts == null) || (contacts.length == 0)) {
+			logWarningOrFailBuild(failIfIpLogIsIncomplete, "Missing contact information in ip_log.xml.");
+		} else {
+			for (final Xpp3Dom contact : contacts) {
+				final Xpp3Dom name = contact.getChild("name");
+				if ((name == null) || Strings.isNullOrEmpty(name.getValue())) {
+					logWarningOrFailBuild(failIfIpLogIsIncomplete, "Incomplete contact information in ip_log.xml. Element 'name' is required and must not be empty!");
+				}
+				final Xpp3Dom email = contact.getChild("email");
+				if ((email == null) || Strings.isNullOrEmpty(email.getValue())) {
+					logWarningOrFailBuild(failIfIpLogIsIncomplete, "Incomplete contact information in ip_log.xml. Element 'email' is required and must not be empty!");
+				}
+			}
+		}
+
+		// verify legal info
+		for (final Xpp3Dom project : projects) {
+			final Xpp3Dom[] legals = project.getChildren("legal");
+			if ((legals == null) || (legals.length == 0)) {
+				logWarningOrFailBuild(failIfIpLogIsIncomplete, "Missing legal information in ip_log.xml.");
+			} else {
+				for (final Xpp3Dom legal : legals) {
+					final String cqId = getCqId(legal);
+					if (Strings.isNullOrEmpty(cqId)) {
+						logWarningOrFailBuild(failIfIpLogIsIncomplete, "Incomplete legal information in ip_log.xml. Reference to IPzilla CQ is required!");
+					}
+					final Xpp3Dom license = legal.getChild("license");
+					if ((license == null) || Strings.isNullOrEmpty(license.getValue())) {
+						logWarningOrFailBuild(failIfIpLogIsIncomplete, "Incomplete legal information in ip_log.xml. Element 'license' with license information is required!");
+					}
+				}
+			}
+		}
 	}
 }

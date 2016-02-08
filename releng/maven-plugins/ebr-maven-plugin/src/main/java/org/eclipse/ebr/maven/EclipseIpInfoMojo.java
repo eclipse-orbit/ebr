@@ -42,6 +42,7 @@ import org.apache.maven.model.building.ModelBuilder;
 import org.apache.maven.plugin.AbstractMojo;
 import org.apache.maven.plugin.BuildPluginManager;
 import org.apache.maven.plugin.MojoExecutionException;
+import org.apache.maven.plugin.MojoFailureException;
 import org.apache.maven.plugins.annotations.Component;
 import org.apache.maven.plugins.annotations.Mojo;
 import org.apache.maven.plugins.annotations.Parameter;
@@ -140,6 +141,9 @@ public class EclipseIpInfoMojo extends AbstractMojo {
 	@Parameter(defaultValue = "false", property = "forceDownload")
 	private boolean forceDownload;
 
+	@Parameter(defaultValue = "true", property = "failBuildIfIpLogIsIncomplete")
+	private boolean failBuildIfIpLogIsIncomplete;
+
 	@Parameter(property = "submitCqsToProject")
 	protected String submitCqsToProject;
 
@@ -170,23 +174,8 @@ public class EclipseIpInfoMojo extends AbstractMojo {
 		// @formatter:off
 		final List<Element> copyConfigurationSource = getCopyConfiguration(outputDirectory.getAbsolutePath(), dependencies, CLASSIFIER_SOURCES);
 		try {
-			executeMojo(
-					plugin(
-							groupId("org.apache.maven.plugins"),
-							artifactId("maven-dependency-plugin"),
-							version(mavenDependencyPluginVersion)
-							),
-							goal("copy"),
-							configuration(
-									copyConfigurationSource.toArray(new Element[copyConfigurationSource.size()])
-									),
-									executionEnvironment(
-											project,
-											mavenSession,
-											pluginManager
-											)
-					);
-		} catch(final MojoExecutionException e) {
+			executeMojo(plugin(groupId("org.apache.maven.plugins"), artifactId("maven-dependency-plugin"), version(mavenDependencyPluginVersion)), goal("copy"), configuration(copyConfigurationSource.toArray(new Element[copyConfigurationSource.size()])), executionEnvironment(project, mavenSession, pluginManager));
+		} catch (final MojoExecutionException e) {
 			getLog().warn("Unable to resolve source jar; skipping Eclipse IP information");
 			getLog().debug(e);
 			return;
@@ -205,7 +194,7 @@ public class EclipseIpInfoMojo extends AbstractMojo {
 	}
 
 	@Override
-	public void execute() throws MojoExecutionException {
+	public void execute() throws MojoExecutionException, MojoFailureException {
 		if (!BundleMojo.isRecipeProject(project)) {
 			getLog().debug(format("Skipping execution for project with packaging type \"%s\"", project.getPackaging()));
 			return;
@@ -224,24 +213,10 @@ public class EclipseIpInfoMojo extends AbstractMojo {
 		final List<Element> artifactItems = new ArrayList<Element>();
 		for (final Artifact artifact : dependencies) {
 			// @formatter:off
-			if(classifier != null) {
-				artifactItems.add(
-						element("artifactItem",
-								element("groupId", artifact.getGroupId()),
-								element("artifactId", artifact.getArtifactId()),
-								element("version", artifact.getVersion()),
-								element("classifier", classifier)
-								)
-						);
-			}
-			else {
-				artifactItems.add(
-						element("artifactItem",
-								element("groupId", artifact.getGroupId()),
-								element("artifactId", artifact.getArtifactId()),
-								element("version", artifact.getVersion())
-								)
-						);
+			if (classifier != null) {
+				artifactItems.add(element("artifactItem", element("groupId", artifact.getGroupId()), element("artifactId", artifact.getArtifactId()), element("version", artifact.getVersion()), element("classifier", classifier)));
+			} else {
+				artifactItems.add(element("artifactItem", element("groupId", artifact.getGroupId()), element("artifactId", artifact.getArtifactId()), element("version", artifact.getVersion())));
 				// @formatter:on
 			}
 		}
@@ -294,7 +269,7 @@ public class EclipseIpInfoMojo extends AbstractMojo {
 		aboutFilesUtil.generateAboutHtmlFile(effectiveModels, resourcesDir);
 	}
 
-	private void refreshIpLog(final Set<Artifact> dependencies) throws MojoExecutionException {
+	private void refreshIpLog(final Set<Artifact> dependencies) throws MojoExecutionException, MojoFailureException {
 		getLog().info("Refreshing ip_log.xml");
 
 		// build models
@@ -313,6 +288,9 @@ public class EclipseIpInfoMojo extends AbstractMojo {
 		final Model recipePom = getModelUtil().buildEffectiveModel(project.getFile());
 		final File eclipseDir = new File(getProjectDir(), "src/eclipse");
 		final File ipLogXmlFile = ipLogUtil.generateIpLogXmlFile(recipePom, effectiveModels, eclipseDir);
+
+		// verify
+		ipLogUtil.verifyIpLogXmlFile(eclipseDir, failBuildIfIpLogIsIncomplete);
 
 		// attach ip_log.xml to project
 		projectHelper.attachArtifact(project, "xml", "ip_log", ipLogXmlFile);
