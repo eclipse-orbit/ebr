@@ -23,13 +23,13 @@ import org.apache.maven.model.License;
 
 public class KnownLicenses {
 
+	private static final KnownLicenses instance = new KnownLicenses();
+
 	public static KnownLicenses getInstance() {
 		return instance;
 	}
 
 	private final Map<String, KnownLicense> licensesByName = new HashMap<>();
-
-	private static final KnownLicenses instance = new KnownLicenses();
 
 	private KnownLicenses() {
 		addLicense("Apache Software License 1.1", "http://www.apache.org/licenses/LICENSE-1.1").setAlternateNames("Apache License, Version 1.0");
@@ -103,10 +103,8 @@ public class KnownLicenses {
 	 *         otherwise
 	 */
 	public boolean isDualLicense(final License license) {
-		if (StringUtils.containsAny(StringUtils.upperCase(license.getName()), "CDDL+GPL"))
-			return true;
-
-		return false;
+		final String upperCaseLicenseName = StringUtils.upperCase(license.getName());
+		return StringUtils.containsAny(upperCaseLicenseName, "GPL") && StringUtils.containsAny(upperCaseLicenseName, "CDDL");
 	}
 
 	private boolean isSimilar(final String name, final String alternateName) {
