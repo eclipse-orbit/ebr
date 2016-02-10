@@ -484,7 +484,7 @@ public class EclipseIpLogUtil extends LicenseProcessingUtility {
 		if ((licenses == null) || (licenses.length == 0)) {
 			getLog().debug("Unable to read license info: Incomplete legal information in ip_log.xml. Element 'license' with license information is required!");
 			return null;
-		} else if (legals.length != 1) {
+		} else if (licenses.length != 1) {
 			getLog().debug("Unable to read license info: Too many 'license' elements. Only one 'license' element is expected in the ip_log.xml.");
 			return null;
 		}
