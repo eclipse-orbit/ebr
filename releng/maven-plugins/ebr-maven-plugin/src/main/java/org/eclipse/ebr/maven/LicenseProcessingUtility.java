@@ -193,7 +193,9 @@ public abstract class LicenseProcessingUtility extends BaseUtility {
 	 */
 	public void setLicense(final Artifact artifact, final String license) throws MojoExecutionException {
 		getLog().debug(format("Using license '%s' for artifact %s:%s:%s", license, artifact.getGroupId(), artifact.getArtifactId(), artifact.getVersion()));
-		licensesByArtifact.put(getArtifactKey(artifact), findKnownLicense(license));
+		final KnownLicense knownLicense = findKnownLicense(license);
+		getLog().debug(format("Found known license '%s' for license '%s'", knownLicense, license));
+		licensesByArtifact.put(getArtifactKey(artifact), knownLicense);
 	}
 
 	/**

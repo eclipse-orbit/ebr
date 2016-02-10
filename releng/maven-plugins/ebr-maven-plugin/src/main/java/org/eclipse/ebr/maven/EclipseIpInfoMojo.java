@@ -55,6 +55,8 @@ import org.apache.maven.settings.crypto.SettingsDecrypter;
 
 import org.twdata.maven.mojoexecutor.MojoExecutor.Element;
 
+import com.google.common.base.Strings;
+
 /**
  * A Maven plug-on for collecting Eclipse IP information.
  *
@@ -193,6 +195,24 @@ public class EclipseIpInfoMojo extends AbstractMojo {
 		}
 	}
 
+	private void discoverLicenseFromExistingIpLog(final Set<Artifact> dependencies) throws MojoExecutionException {
+		getLog().info("Discovering license information from existing ip_log.xml");
+
+		// find license information
+		final EclipseIpLogUtil ipLogUtil = new EclipseIpLogUtil(getLog(), mavenSession, settings, force);
+		final String licenseName = ipLogUtil.getLicenseNameFromIpLogXmlFile(getIpLogXmlDirectory());
+
+		// populate license mappings
+		if (!Strings.isNullOrEmpty(licenseName)) {
+			for (final Artifact artifact : dependencies) {
+				if (!licenseMappings.containsKey(artifact.getArtifactId())) {
+					getLog().info(format("Discovered license '%s' for artifact %s:%s:%s.", licenseName, artifact.getGroupId(), artifact.getArtifactId(), artifact.getVersion()));
+					licenseMappings.put(artifact.getArtifactId(), licenseName);
+				}
+			}
+		}
+	}
+
 	@Override
 	public void execute() throws MojoExecutionException, MojoFailureException {
 		if (!BundleMojo.isRecipeProject(project)) {
@@ -201,6 +221,7 @@ public class EclipseIpInfoMojo extends AbstractMojo {
 		}
 
 		final Set<Artifact> dependencies = getDependenciesToInclude();
+		discoverLicenseFromExistingIpLog(dependencies);
 		collectSources(dependencies);
 		refreshAboutFiles(dependencies);
 		refreshIpLog(dependencies);
@@ -231,6 +252,10 @@ public class EclipseIpInfoMojo extends AbstractMojo {
 		return dependencyUtil.getDependenciesToInclude(project);
 	}
 
+	private File getIpLogXmlDirectory() throws MojoExecutionException {
+		return new File(getProjectDir(), "src/eclipse");
+	}
+
 	private ModelUtil getModelUtil() {
 		return new ModelUtil(getLog(), mavenSession, repositorySystem, repositoryMetadataManager, modelBuilder);
 	}
@@ -245,6 +270,7 @@ public class EclipseIpInfoMojo extends AbstractMojo {
 	private void populateLicenseInformation(final LicenseProcessingUtility licenseProcessingUtility, final Set<Artifact> dependencies) throws MojoExecutionException {
 		for (final Artifact artifact : dependencies) {
 			final String license = licenseMappings.get(artifact.getArtifactId());
+			getLog().debug(format("License mapping for artifact %s:%s:%s: %s", license, artifact.getGroupId(), artifact.getArtifactId(), artifact.getVersion(), license));
 			if (license != null) {
 				licenseProcessingUtility.setLicense(artifact, license);
 			}
@@ -286,7 +312,7 @@ public class EclipseIpInfoMojo extends AbstractMojo {
 
 		// generate ip_log.xml
 		final Model recipePom = getModelUtil().buildEffectiveModel(project.getFile());
-		final File eclipseDir = new File(getProjectDir(), "src/eclipse");
+		final File eclipseDir = getIpLogXmlDirectory();
 		final File ipLogXmlFile = ipLogUtil.generateIpLogXmlFile(recipePom, effectiveModels, eclipseDir);
 
 		// verify

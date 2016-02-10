@@ -226,7 +226,12 @@ public class AboutFilesUtil extends LicenseProcessingUtility {
 
 		String aboutHtmlText = readAboutHtmlTemplate();
 		aboutHtmlText = StringUtils.replaceEach(aboutHtmlText, new String[] { // @formatter:off
-				"@DATE@", "@THIRD_PARTY_INFO@" }, new String[] { DateFormat.getDateInstance(DateFormat.LONG, Locale.US).format(new Date()), getThirdPartyInfo(dependencies, outputDirectory) });
+				"@DATE@",
+				"@THIRD_PARTY_INFO@"
+			}, new String[] {
+				DateFormat.getDateInstance(DateFormat.LONG, Locale.US).format(new Date()),
+				getThirdPartyInfo(dependencies, outputDirectory) }
+		);
 		// @formatter:on
 
 		try {
@@ -397,7 +402,18 @@ public class AboutFilesUtil extends LicenseProcessingUtility {
 			final Artifact artifact = entry.getKey();
 			final Model artifactPom = entry.getValue();
 			thirdPartyInfo = StringUtils.replaceEach(thirdPartyInfo, new String[] { // @formatter:off
-					"@DEPENDENCY_HEADLINE@", "@DEPENDENCY_BY@", "@DEPENDENCY_NAME@", "@DEPENDENCY_LICENSING@", "@DEPENDENCY_ORIGIN@" }, new String[] { escapeHtml4(artifactPom.getName()), getDevelopedByInfo(artifact, artifactPom), escapeHtml4(artifactPom.getName()), getLicenseInfo(artifact, artifactPom, outputDirectory), getOriginInfo(artifact, artifactPom) });
+					"@DEPENDENCY_HEADLINE@",
+					"@DEPENDENCY_BY@",
+					"@DEPENDENCY_NAME@",
+					"@DEPENDENCY_LICENSING@",
+					"@DEPENDENCY_ORIGIN@"
+				}, new String[] {
+					escapeHtml4(artifactPom.getName()),
+					getDevelopedByInfo(artifact, artifactPom),
+					escapeHtml4(artifactPom.getName()),
+					getLicenseInfo(artifact, artifactPom, outputDirectory),
+					getOriginInfo(artifact, artifactPom)
+			});
 			// @formatter:on
 
 			thirdPartyInfoText.append(thirdPartyInfo);

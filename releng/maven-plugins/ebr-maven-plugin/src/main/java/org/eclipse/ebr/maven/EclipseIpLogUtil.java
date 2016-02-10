@@ -451,6 +451,52 @@ public class EclipseIpLogUtil extends LicenseProcessingUtility {
 		return null;
 	}
 
+	public String getLicenseNameFromIpLogXmlFile(final File outputDirectory) throws MojoExecutionException {
+		final File iplogXmlFile = new File(outputDirectory, IP_LOG_XML);
+
+		// read existing ip log
+		final Xpp3Dom existingIpLog = readExistingIpLog(iplogXmlFile);
+		if ((existingIpLog == null) || !iplogXmlFile.isFile()) {
+			getLog().debug(format("Unable to read license info: No ip_log.xml file found at '%s'", iplogXmlFile));
+			return null;
+		}
+
+		// ensure there is at most one project
+		final Xpp3Dom[] projects = existingIpLog.getChildren("project");
+		if ((projects == null) || (projects.length == 0)) {
+			getLog().debug("Unable to read license info: Missing project information in ip_log.xml");
+			return null;
+		} else if (projects.length != 1) {
+			getLog().debug("Unable to read license info: Too many 'project' elements. Only one 'project' element is expected in the ip_log.xml.");
+			return null;
+		}
+
+		// walk through legal info to extract license name
+		final Xpp3Dom[] legals = projects[0].getChildren("legal");
+		if ((legals == null) || (legals.length == 0)) {
+			getLog().debug("Unable to read license info: Missing legal information in ip_log.xml");
+			return null;
+		} else if (legals.length != 1) {
+			getLog().debug("Unable to read license info: Too many 'legal' elements. Only one 'legal' element is expected in the ip_log.xml.");
+			return null;
+		}
+		final Xpp3Dom[] licenses = legals[0].getChildren("license");
+		if ((licenses == null) || (licenses.length == 0)) {
+			getLog().debug("Unable to read license info: Incomplete legal information in ip_log.xml. Element 'license' with license information is required!");
+			return null;
+		} else if (legals.length != 1) {
+			getLog().debug("Unable to read license info: Too many 'license' elements. Only one 'license' element is expected in the ip_log.xml.");
+			return null;
+		}
+		final Xpp3Dom name = licenses[0].getChild("name");
+		if ((name == null) || Strings.isNullOrEmpty(name.getValue())) {
+			getLog().debug("Unable to read license info: Incomplete license information in ip_log.xml. Element 'name' is required and must not be empty!");
+			return null;
+		}
+
+		return name.getValue();
+	}
+
 	private Xpp3Dom getNotes(final Xpp3Dom existingIpLog) {
 		if (existingIpLog == null)
 			return null;
