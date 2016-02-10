@@ -225,13 +225,8 @@ public class AboutFilesUtil extends LicenseProcessingUtility {
 		}
 
 		String aboutHtmlText = readAboutHtmlTemplate();
-		aboutHtmlText = StringUtils.replaceEach(aboutHtmlText, new String[] {// @formatter:off
-				"@DATE@",
-				"@THIRD_PARTY_INFO@"
-		}, new String[] {
-				DateFormat.getDateInstance(DateFormat.LONG, Locale.US).format(new Date()),
-				getThirdPartyInfo(dependencies, outputDirectory)
-		});
+		aboutHtmlText = StringUtils.replaceEach(aboutHtmlText, new String[] { // @formatter:off
+				"@DATE@", "@THIRD_PARTY_INFO@" }, new String[] { DateFormat.getDateInstance(DateFormat.LONG, Locale.US).format(new Date()), getThirdPartyInfo(dependencies, outputDirectory) });
 		// @formatter:on
 
 		try {
@@ -286,12 +281,26 @@ public class AboutFilesUtil extends LicenseProcessingUtility {
 		final KnownLicense knownLicense = getLicense(resolvedPomArtifact);
 		List<License> licenses = artifactPom.getLicenses();
 
+		if (getLog().isDebugEnabled()) {
+			getLog().debug("Collecting license information...");
+			getLog().debug("  known license: " + knownLicense);
+			if ((licenses != null) && !licenses.isEmpty()) {
+				for (final License license : licenses) {
+					getLog().debug(format("    pom license: %s (%s)", license.getName(), license.getUrl()));
+				}
+			} else {
+				getLog().debug("    pom license: none");
+			}
+		}
+
 		if ((knownLicense != null) && isDualOrMoreLicensed(licenses)) {
+			getLog().debug("Detected dual license ... electing to use package under: " + knownLicense);
 			licenseInfo.append("Though this package is dually licensed, the Eclipse Foundation elects to use the package under the ");
 			appendAndDownloadLicenseInfo(licenseInfo, resourcesDir, resolvedPomArtifact, Arrays.asList(knownLicense.toMavenLicense()));
 			licenseInfo.append(" license.");
 		} else if ((knownLicense != null) || !licenses.isEmpty()) {
 			if (knownLicense != null) {
+				getLog().debug("Overruling pom license with known license " + knownLicense);
 				licenses = Arrays.asList(knownLicense.toMavenLicense());
 			}
 			licenseInfo.append(escapeHtml4(artifactPom.getName())).append(" is provided to you under the terms and conditions of the ");
@@ -387,19 +396,8 @@ public class AboutFilesUtil extends LicenseProcessingUtility {
 			String thirdPartyInfo = readThirdPartyHtmlTemplate();
 			final Artifact artifact = entry.getKey();
 			final Model artifactPom = entry.getValue();
-			thirdPartyInfo = StringUtils.replaceEach(thirdPartyInfo, new String[] {// @formatter:off
-					"@DEPENDENCY_HEADLINE@",
-					"@DEPENDENCY_BY@",
-					"@DEPENDENCY_NAME@",
-					"@DEPENDENCY_LICENSING@",
-					"@DEPENDENCY_ORIGIN@"
-			}, new String[] {
-					escapeHtml4(artifactPom.getName()),
-					getDevelopedByInfo(artifact, artifactPom),
-					escapeHtml4(artifactPom.getName()),
-					getLicenseInfo(artifact, artifactPom, outputDirectory),
-					getOriginInfo(artifact, artifactPom)
-			});
+			thirdPartyInfo = StringUtils.replaceEach(thirdPartyInfo, new String[] { // @formatter:off
+					"@DEPENDENCY_HEADLINE@", "@DEPENDENCY_BY@", "@DEPENDENCY_NAME@", "@DEPENDENCY_LICENSING@", "@DEPENDENCY_ORIGIN@" }, new String[] { escapeHtml4(artifactPom.getName()), getDevelopedByInfo(artifact, artifactPom), escapeHtml4(artifactPom.getName()), getLicenseInfo(artifact, artifactPom, outputDirectory), getOriginInfo(artifact, artifactPom) });
 			// @formatter:on
 
 			thirdPartyInfoText.append(thirdPartyInfo);
