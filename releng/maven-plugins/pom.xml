@@ -61,7 +61,7 @@
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <minimum-maven-version>3.2.3</minimum-maven-version>
     <maven-compiler-plugin-version>3.2</maven-compiler-plugin-version>
-    <tycho-version>0.24</tycho-version>
+    <tycho-version>0.26.0</tycho-version>
     <apache-httpclient-version>4.5.1</apache-httpclient-version>
   </properties>
 
@@ -72,7 +72,15 @@
   <modules>
     <module>ebr-maven-plugin</module>
     <module>ebr-tycho-extras-plugin</module>
+    <module>ebr-maven-shared</module>
   </modules>
+
+  <repositories>
+    <repository>
+      <id>tycho-snapshots</id>
+      <url>https://repo.eclipse.org/content/repositories/tycho-snapshots/</url>
+    </repository>
+  </repositories>
 
   <build>
     <plugins>
@@ -235,6 +243,11 @@
         <groupId>commons-io</groupId>
         <artifactId>commons-io</artifactId>
         <version>2.4</version>
+      </dependency>
+      <dependency>
+        <artifactId>ebr-maven-shared</artifactId>
+        <groupId>org.eclipse.ebr</groupId>
+        <version>${project.version}</version>
       </dependency>
     </dependencies>
   </dependencyManagement>

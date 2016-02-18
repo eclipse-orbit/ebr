@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<site>
+   <iu id="@BUNDLE_SYMBOLIC_NAME@" version="@BUNDLE_VERSION@">
+      <category name="@CATEGORY_ID@"/>
+   </iu>
+   <iu id="@BUNDLE_SYMBOLIC_NAME@.source" version="@BUNDLE_VERSION@">
+      <category name="@CATEGORY_ID@"/>
+   </iu>
+   <category-def name="@CATEGORY_ID@" label="@CATEGORY_LABEL@">
+      <description>@CATEGORY_DESCRIPTION@</description>
+   </category-def>
+</site>

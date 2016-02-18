@@ -14,10 +14,10 @@ package org.eclipse.ebr.maven;
 
 import static java.lang.String.format;
 import static org.apache.commons.lang3.CharEncoding.UTF_8;
-import static org.eclipse.ebr.maven.BaseUtility.REQUIRES_FORCE_TO_OVERRIDE_MESSAGE;
-import static org.eclipse.ebr.maven.BaseUtility.getTemplate;
 import static org.eclipse.ebr.maven.OsgiLocalizationUtil.I18N_KEY_BUNDLE_NAME;
 import static org.eclipse.ebr.maven.OsgiLocalizationUtil.I18N_KEY_BUNDLE_VENDOR;
+import static org.eclipse.ebr.maven.TemplateHelper.getTemplate;
+import static org.eclipse.ebr.maven.shared.BaseUtility.REQUIRES_FORCE_TO_OVERRIDE_MESSAGE;
 import static org.osgi.framework.Constants.BUNDLE_LOCALIZATION_DEFAULT_BASENAME;
 
 import java.io.File;
@@ -209,7 +209,11 @@ public class CreateRecipeMojo extends AbstractMojo {
 		}
 		String eclipseProjectFileText = readEclipseProjectFileTemplate();
 		eclipseProjectFileText = StringUtils.replaceEach(eclipseProjectFileText, new String[] { // @formatter:off
-				"@RECIPE_PROJECT_NAME@" }, new String[] { projectDir.getName() });
+						"@RECIPE_PROJECT_NAME@"
+				},
+				new String[] {
+						projectDir.getName()
+				});
 		// @formatter:on
 
 		try {

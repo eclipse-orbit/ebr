@@ -52,16 +52,12 @@
       <type>maven-plugin</type>
     </dependency>
     <dependency>
-      <groupId>org.apache.commons</groupId>
-      <artifactId>commons-lang3</artifactId>
-    </dependency>
-    <dependency>
-      <groupId>commons-io</groupId>
-      <artifactId>commons-io</artifactId>
-    </dependency>
-    <dependency>
       <groupId>org.apache.httpcomponents</groupId>
       <artifactId>httpclient</artifactId>
+    </dependency>
+    <dependency>
+      <artifactId>ebr-maven-shared</artifactId>
+      <groupId>org.eclipse.ebr</groupId>
     </dependency>
   </dependencies>
 
