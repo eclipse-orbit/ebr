@@ -183,14 +183,27 @@ public class BundleMojo extends ManifestPlugin {
 	@Parameter(defaultValue = "${buildQualifier}")
 	protected String qualifier;
 
-	@Parameter(defaultValue = "0.22", property = "tycho-plugin.version", required = true)
+	/**
+	 * Set to 'eclipse' in order to sign using Eclipse.org signing service.
+	 * Possible values: <code>none</code>, <code>eclipse</code>
+	 */
+	@Parameter(defaultValue = "none", property = "signingServiceType")
+	protected String signingServiceType;
+
+	@Parameter(defaultValue = "0.24", property = "tycho-plugin.version", required = true)
 	protected String tychoPluginVersionFallback;
+
+	@Parameter(defaultValue = "0.24", property = "tycho-extras-plugin.version", required = true)
+	protected String tychoExtrasPluginVersionFallback;
 
 	@Parameter(defaultValue = "2.7", property = "maven-resource-plugin.version", required = true)
 	protected String mavenResourcesPluginVersionFallback;
 
 	@Parameter(defaultValue = "2.10", property = "maven-dependency-plugin.version", required = true)
 	protected String mavenDependencyPluginVersionFallback;
+
+	@Parameter(defaultValue = "1.1.3", property = "cbi-plugin.version", required = true)
+	protected String cbiPluginVersionFallback;
 
 	private File assembleJar(final String jarName, final File manifest, final File directory, final MavenArchiveConfiguration archiveConfiguration) throws MojoExecutionException {
 		try {
@@ -365,7 +378,8 @@ public class BundleMojo extends ManifestPlugin {
 		final Set<Artifact> dependencies = getDependenciesToInclude();
 		buildBundle(dependencies);
 		buildSourceBundle(dependencies);
-		publishP2Metedata();
+		packAndSignBundle();
+		publishP2Metadata();
 	}
 
 	private File generateFinalBundleManifest() throws MojoExecutionException {
@@ -568,7 +582,73 @@ public class BundleMojo extends ManifestPlugin {
 		}
 	}
 
-	private void publishP2Metedata() throws MojoExecutionException {
+	private void packAndSignBundle() throws MojoExecutionException {
+		if (!"eclipse".equalsIgnoreCase(signingServiceType)) {
+			getLog().debug("Skipping pack and signing. Set signing service type to 'eclipse' in order to enable signing using Eclipse.org CBI signing plug-in..");
+			return;
+		}
+
+		getLog().info("Packing and signing bundle");
+
+		// 1) normalize
+		// @formatter:off
+		executeMojo(
+				plugin(
+						groupId("org.eclipse.tycho.extras"),
+						artifactId("tycho-pack200a-plugin"),
+						version(detectPluginVersion("org.eclipse.tycho.extras", "tycho-pack200a-plugin", tychoExtrasPluginVersionFallback))),
+						goal("normalize"),
+						configuration(
+								element("supportedProjectTypes",
+										element("supportedProjectType", "eclipse-bundle-recipe"))
+						),
+						executionEnvironment(
+								project,
+								session,
+								pluginManager
+						)
+				);
+		// @formatter:on
+
+		// 2) sign
+		// @formatter:off
+		executeMojo(
+				plugin(
+						groupId("org.eclipse.cbi.maven.plugins"),
+						artifactId("eclipse-jarsigner-plugin"),
+						version(detectPluginVersion("org.eclipse.cbi.maven.plugins", "eclipse-jarsigner-plugin", cbiPluginVersionFallback))),
+						goal("sign"),
+						configuration(),
+						executionEnvironment(
+								project,
+								session,
+								pluginManager
+						)
+				);
+		// @formatter:on
+
+		// 3) pack
+		// @formatter:off
+		executeMojo(
+				plugin(
+						groupId("org.eclipse.tycho.extras"),
+						artifactId("tycho-pack200b-plugin"),
+						version(detectPluginVersion("org.eclipse.tycho.extras", "tycho-pack200a-plugin", tychoExtrasPluginVersionFallback))),
+						goal("pack"),
+						configuration(
+								element("supportedProjectTypes",
+										element("supportedProjectType", "eclipse-bundle-recipe"))
+						),
+						executionEnvironment(
+								project,
+								session,
+								pluginManager
+						)
+				);
+		// @formatter:on
+	}
+
+	private void publishP2Metadata() throws MojoExecutionException {
 		// copy into output directory
 		getLog().debug("Publishing p2 metadata...");
 		try {
@@ -577,18 +657,17 @@ public class BundleMojo extends ManifestPlugin {
 					plugin(
 							groupId("org.eclipse.tycho"),
 							artifactId("tycho-p2-plugin"),
-							version(detectPluginVersion("org.eclipse.tycho", "tycho-p2-plugin", tychoPluginVersionFallback))
-							),
+							version(detectPluginVersion("org.eclipse.tycho", "tycho-p2-plugin", tychoPluginVersionFallback))),
 							goal("p2-metadata"),
 							configuration(
 									element("supportedProjectTypes",
 											element("supportedProjectType", "eclipse-bundle-recipe"))
-									),
-									executionEnvironment(
-											project,
-											session,
-											pluginManager
-											)
+							),
+							executionEnvironment(
+									project,
+									session,
+									pluginManager
+							)
 					);
 			// @formatter:on
 		} catch (final MojoExecutionException e) {

@@ -39,8 +39,8 @@ Maven group id `MY_EBR_BUNDLES_GROUP`.
 
 The repository will be made available as archive in `releng/p2/repository/target`.
 
-Note, you **must** build the recipes first and *install* the result into your local Maven repository. Otherwise the p2 build won't find any bundles and
-the build fails.
+Note, you **must** build the recipes first and *install* the result into your local Maven repository.
+Otherwise the p2 build won't find any bundles and the build fails.
 
 
 ### How to build just a single recipe?
@@ -51,6 +51,13 @@ This is not difficult at all. Just change into the directory of the recipe to bu
 2. `mvn clean package`
 
 The resulting bundle will be available in the recipes `target` folder.
+
+
+### Pack200 and signing bundles
+
+It is possible to pack200 and sign bundles as part of the bundle build. In order to do this, simply set the
+property `signingServiceType` to `eclipse`. This can be done at the Maven command line or within a Maven profile.
+The `eclipse` signing service using Tycho Extras for pack200 and the Eclipse CBI Maven Jarsigner plug-in to sign bundles.
 
 
 Adding a recipe
