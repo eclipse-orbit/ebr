@@ -4,8 +4,7 @@ Eclipse Bundle Recipes
 This repositories hosts recipes and tools for building OSGi bundles from Java Maven artifacts.
 To learn more about Eclipse Bunde Recipes, please have a look at [this presentation](http://de.slideshare.net/guw/tasty-recipes-for-osgi-bundles).
 
-Got a recipe?
--------------
+**Got a recipe?**
 
 Please open pull requests with any recipe you would like to add. The Eclipse Bundle Recipes 
 project is open to recipes for any library. Eclipse IP rules only apply to the recipes itself 
