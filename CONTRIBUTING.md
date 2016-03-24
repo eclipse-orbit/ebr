@@ -1,21 +1,11 @@
 Contributing to Eclipse Bundle Recipes
 ======================================
 
-Thanks for your interest in this project.
+Thanks for your interest in this project. Please have a look at the README for 
+further information how to use the code base and how to submit recipes.
 
-Project description:
---------------------
+The EBR project provides a library of templates and tools that can be used to create OSGi bundles for open source projects. Check out out [project information site](https://projects.eclipse.org/projects/rt.ebr) for further information.
 
-The EBR project provides a library of templates and tools that can be used to create OSGi bundles for open source projects.
-
-- https://projects.eclipse.org/projects/rt.ebr
-
-Developer resources:
---------------------
-
-Information regarding source code management, builds, coding standards, and more.
-
-- https://projects.eclipse.org/projects/rt.ebr/developer
 
 Contributor License Agreement:
 ------------------------------
@@ -27,6 +17,6 @@ Before your contribution can be accepted by the project, you need to create and 
 Contact:
 --------
 
-Contact the project developers via the project's "dev" list.
+Please contact the project developers via the project's mailing list.
 
 - https://dev.eclipse.org/mailman/listinfo/ebr-dev
