@@ -98,6 +98,9 @@ public class CreateRecipeMojo extends AbstractMojo {
 
 	private ArtifactVersion version;
 
+	@Parameter(property = "classifier", defaultValue = "")
+	private String classifier;
+
 	@Parameter(property = "bundleSymbolicName", required = true)
 	private String bundleSymbolicName;
 
@@ -266,6 +269,9 @@ public class CreateRecipeMojo extends AbstractMojo {
 		dependency.setGroupId(artifactPom.getGroupId());
 		dependency.setArtifactId(artifactPom.getArtifactId());
 		dependency.setVersion(artifactPom.getVersion());
+		if (classifier != null && !classifier.isEmpty()) {
+			dependency.setClassifier(classifier);
+		}
 		recipePom.setDependencies(Arrays.asList(dependency));
 		return recipePom;
 	}

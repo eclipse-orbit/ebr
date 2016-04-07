@@ -566,7 +566,8 @@ public class BundleMojo extends ManifestPlugin {
 						element("artifactItem",
 								element("groupId", artifact.getGroupId()),
 								element("artifactId", artifact.getArtifactId()),
-								element("version", artifact.getVersion())
+								element("version", artifact.getVersion()),
+								element("classifier", artifact.getClassifier())
 								)
 						);
 				// @formatter:on
