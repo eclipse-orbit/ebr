@@ -2,7 +2,14 @@ Eclipse Bundle Recipes
 ======================
 
 This repositories hosts recipes and tools for building OSGi bundles from Java Maven artifacts.
-To learn more about Eclipse Bunde Recipes, please have a look at [this presentation](http://de.slideshare.net/guw/tasty-recipes-for-osgi-bundles).
+To learn more about Eclipse Bunde Recipes, please:
+
+* have a look at [this presentation](http://de.slideshare.net/guw/tasty-recipes-for-osgi-bundles)
+* get in touch on the [mailing list](https://dev.eclipse.org/mailman/listinfo/ebr-dev)
+* post to the [Forum](https://www.eclipse.org/forums/index.php/f/261/) 
+* use the [bug tracker](https://bugs.eclipse.org/bugs/buglist.cgi?bug_status=UNCONFIRMED&bug_status=NEW&bug_status=ASSIGNED&bug_status=REOPENED&classification=RT&list_id=14365599&product=EBR&query_format=advanced)
+* extend the [Wiki](https://wiki.eclipse.org/EBR) 
+* see [the EBR homepage](https://www.eclipse.org/ebr/).
 
 **Got a recipe?**
 
