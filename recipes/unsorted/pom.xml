@@ -21,6 +21,7 @@
     <module>org.jvnet.mimepull_1.9.4</module>
     <module>com.sun.jna.ebr_4.1.0</module>
     <module>com.sun.jna.platform.ebr_4.1.0</module>
+    <module>com.mongodb.ebr_3.2.2</module>
   </modules>
 
 </project>
