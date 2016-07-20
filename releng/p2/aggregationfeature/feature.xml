@@ -15,5 +15,6 @@
 
   <plugin id="com.sun.jna.ebr"           version="4.1.0.qualifier"/>
   <plugin id="com.sun.jna.platform.ebr"  version="4.1.0.qualifier"/>
+  <plugin id="com.mongodb.ebr"           version="3.2.2.qualifier"/>
 
 </feature>
