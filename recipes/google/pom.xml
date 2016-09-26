@@ -16,7 +16,7 @@
   <name>Google</name>
 
   <modules>
-    <module>com.google.guava_16.0.1</module>
+    <module>com.google.guava.ebr_19.0.0</module>
   </modules>
 
 </project>

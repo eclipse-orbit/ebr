@@ -16,6 +16,7 @@
   <name>EBR Recipes :: Testing</name>
 
   <modules>
+	<module>org.hamcrest.java.ebr_2.0.0</module>
     <module>org.junit.ebr_4.12.0</module>
     <module>org.mockito.ebr_2.1.0</module>
     <module>org.objenesis.ebr_2.1.0</module>
