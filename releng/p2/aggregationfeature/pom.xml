@@ -16,14 +16,6 @@
 
   <name>Eclipse EBR :: Bundles Aggregation Feature</name>
 
-  <repositories>
-    <repository>
-      <id>eclipse-indigo</id>
-      <url>http://download.eclipse.org/releases/neon</url>
-      <layout>p2</layout>
-    </repository>
-  </repositories>
-
   <build>
     <plugins>
       <plugin>
