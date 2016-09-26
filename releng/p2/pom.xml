@@ -18,6 +18,7 @@
   <name>Eclipse EBR :: P2 Parent</name>
 
   <modules>
+    <module>systempackages</module>
     <module>aggregationfeature</module>
     <module>repository</module>
   </modules>
