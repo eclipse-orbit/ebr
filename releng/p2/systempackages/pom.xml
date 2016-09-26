@@ -16,10 +16,12 @@
 
   <name>Eclipse EBR :: System Packages Fragment</name>
 
-  <repository>
-    <id>eclipse-indigo</id>
-    <url>http://download.eclipse.org/releases/neon</url>
-    <layout>p2</layout>
-  </repository>
+  <repositories>
+    <repository>
+      <id>eclipse-indigo</id>
+      <url>http://download.eclipse.org/releases/neon</url>
+      <layout>p2</layout>
+    </repository>
+  </repositories>
 
 </project>
