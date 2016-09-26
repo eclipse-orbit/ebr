@@ -4,18 +4,18 @@
   <modelVersion>4.0.0</modelVersion>
   <parent>
     <groupId>MY_EBR_BUNDLES_GROUP</groupId>
-    <artifactId>testing-parent</artifactId>
+    <artifactId>unsorted-parent</artifactId>
     <version>1.0.0-SNAPSHOT</version>
   </parent>
-  <artifactId>org.mockito.ebr</artifactId>
-  <version>2.0.8-SNAPSHOT</version>
+  <artifactId>com.google.code.findbugs.jsr305.ebr</artifactId>
+  <version>3.0.1-SNAPSHOT</version>
   <packaging>eclipse-bundle-recipe</packaging>
-  <name>Mockito</name>
+  <name>FindBugs-jsr305</name>
   <dependencies>
     <dependency>
-      <groupId>org.mockito</groupId>
-      <artifactId>mockito-core</artifactId>
-      <version>2.0.8-beta</version>
+      <groupId>com.google.code.findbugs</groupId>
+      <artifactId>jsr305</artifactId>
+      <version>3.0.1</version>
     </dependency>
   </dependencies>
 </project>

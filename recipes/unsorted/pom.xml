@@ -16,12 +16,18 @@
   <name>Misc</name>
 
   <modules>
-    <module>com.google.code.findbugs.jsr305_2.0.3</module>
-    <module>org.javassist_3.18.1</module>
-    <module>org.jvnet.mimepull_1.9.4</module>
+    <module>com.google.code.findbugs.annotations.ebr_3.0.1</module>
+    <module>com.google.code.findbugs.jsr305.ebr_3.0.1</module>
+
+    <module>com.mongodb.ebr_3.2.2</module>
+
     <module>com.sun.jna.ebr_4.1.0</module>
     <module>com.sun.jna.platform.ebr_4.1.0</module>
-    <module>com.mongodb.ebr_3.2.2</module>
+
+    <module>net.bytebuddy.ebr_1.4.26</module>
+
+    <module>org.javassist_3.18.1</module>
+    <module>org.jvnet.mimepull_1.9.4</module>
   </modules>
 
 </project>
