@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/eclipse/ebr.svg?branch=master)](https://travis-ci.org/eclipse/ebr)
+
 Eclipse Bundle Recipes
 ======================
 
