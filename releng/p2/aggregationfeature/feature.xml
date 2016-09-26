@@ -13,7 +13,7 @@
 
   <plugin id="javax.ws.rs.ebr"    version="2.0.1.qualifier"/>
 
-  <plugin id="com.google.guava"          version="19.0.0.qualifier"/>
+  <plugin id="com.google.guava.ebr"      version="19.0.0.qualifier"/>
 
   <plugin id="com.mongodb.ebr"           version="3.2.2.qualifier"/>
 
