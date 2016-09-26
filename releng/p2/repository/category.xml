@@ -48,4 +48,18 @@
 		<category name="logging"/>
 		<query><expression type="match">id ~= /org.slf4j.*/</expression></query>
 	</iu>
+
+	<category-def name="testing" label="Testing"/>
+	<iu>
+		<category name="testing"/>
+		<query><expression type="match">id ~= /org.junit.*/</expression></query>
+	</iu>
+	<iu>
+		<category name="testing"/>
+		<query><expression type="match">id ~= /org.mockito.*/</expression></query>
+	</iu>
+	<iu>
+		<category name="testing"/>
+		<query><expression type="match">id ~= /org.objenesis.*/</expression></query>
+	</iu>
 </site>

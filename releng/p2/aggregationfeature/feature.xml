@@ -17,4 +17,10 @@
   <plugin id="com.sun.jna.platform.ebr"  version="4.1.0.qualifier"/>
   <plugin id="com.mongodb.ebr"           version="3.2.2.qualifier"/>
 
+  <plugin id="org.mockito.ebr"           version="2.1.0.qualifier"/>
+  <plugin id="org.objenesis.ebr"         version="2.1.0.qualifier"/>
+  <plugin id="net.bytebuddy.ebr"         version="1.4.26.qualifier"/>
+
+  <plugin id="org.junit.ebr"             version="4.12.0.qualifier"/>
+
 </feature>
