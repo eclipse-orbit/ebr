@@ -227,5 +227,6 @@
   	<module>square</module>
   	<module>testing</module>
   	<module>unsorted</module>
+    <module>zeroturnaround</module>
   </modules>
 </project>
