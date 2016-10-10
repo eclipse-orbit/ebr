@@ -1,10 +1,15 @@
 package-version=${version;===;${Bundle-Version}}
+commons-io-version=${version;===;1.4}
+slf4j-api-version=${version;===;1.7.2}
 
 Export-Package: \
+ !about.html,!about_files, \
  *.internal*;x-internal:=true;version="${package-version}", \
  *.impl*;x-internal:=true;version="${package-version}", \
  *;version="${package-version}"
 
 Import-Package: \
- *
+ org.apache.commons.io.*;version="[1.4,3)", \
+ org.slf4j.*;version="${range;[==,+);${slf4j-api-version}}", \
+ *;resolution:=optional
 

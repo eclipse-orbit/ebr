@@ -5,19 +5,19 @@
 
   <parent>
     <groupId>MY_EBR_BUNDLES_GROUP</groupId>
-    <artifactId>apache-parent</artifactId>
+    <artifactId>ebr-bundles-parent</artifactId>
     <version>1.0.0-SNAPSHOT</version>
   </parent>
 
-  <artifactId>apache-commons</artifactId>
+  <artifactId>zeroturnaround-parent</artifactId>
   <version>1.0.0-SNAPSHOT</version>
   <packaging>pom</packaging>
 
-  <name>Apache Commons</name>
+  <name>Zeroturnaround Recipes</name>
 
   <modules>
-    <module>org.apache.commons.io.ebr_2.5.0</module>
-    <module>org.apache.commons.lang.ebr_2.6.0</module>
+    <module>org.zeroturnaround.exec.ebr_1.9.0</module>
+    <module>org.zeroturnaround.processkiller.ebr_1.4.0</module>
   </modules>
 
 </project>

@@ -23,6 +23,8 @@
 
     <module>com.sun.jna.ebr_4.1.0</module>
     <module>com.sun.jna.platform.ebr_4.1.0</module>
+    <module>com.sun.jna.ebr_4.2.2</module>
+    <module>com.sun.jna.platform.ebr_4.2.2</module>
 
     <module>net.bytebuddy.ebr_1.4.26</module>
 
