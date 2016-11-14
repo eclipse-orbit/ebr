@@ -115,6 +115,13 @@ public class BundleMojo extends ManifestPlugin {
 	@Parameter(defaultValue = "${project.build.directory}/dependency-src", readonly = true, required = true)
 	protected String dependenciesSourcesDirectory;
 
+	/**
+	 * Include files from the project resource directory into the generated
+	 * source bundle JAR.
+	 */
+	@Parameter(property = "includeProjectResourceDir", defaultValue = "true")
+	protected boolean includeProjectResourceDir;
+
 	@Parameter(defaultValue = "${project}", readonly = true, required = true)
 	protected MavenProject project;
 
@@ -338,6 +345,30 @@ public class BundleMojo extends ManifestPlugin {
 			getLog().warn("Unable to resolve source jar; skipping source bundle");
 			getLog().debug(e);
 			return;
+		}
+		// @formatter:on
+
+		// @formatter:off
+		if (includeProjectResourceDir) {
+			executeMojo(
+					plugin(
+							groupId("org.apache.maven.plugins"),
+							artifactId("maven-resources-plugin"),
+							version(detectPluginVersion("org.apache.maven.plugins", "maven-resources-plugin", mavenResourcesPluginVersionFallback))
+							),
+							goal("copy-resources"),
+							configuration(
+									element("outputDirectory", "${project.build.directory}/dependency-src"),
+									element("resources",
+											element("resource", element("directory", "${project.basedir}/src/main/resources"))
+											)
+									),
+									executionEnvironment(
+											project,
+											session,
+											pluginManager
+											)
+					);
 		}
 		// @formatter:on
 
