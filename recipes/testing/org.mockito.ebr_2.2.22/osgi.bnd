@@ -11,6 +11,7 @@ Export-Package: \
  *;version="${package-version}"
 
 Import-Package: \
+ net.bytebuddy.agent.*;version="${range;[==,+);${version;===;${bytebuddy-version}}}";resolution:=optional, \
  net.bytebuddy.*;version="${range;[==,+);${version;===;${bytebuddy-version}}}", \
  org.objenesis.*;version="${range;[==,+);${version;===;${objenesis-version}}}", \
  junit.*;version="${range;[==,+);${version;===;${junit-version}}}", \
