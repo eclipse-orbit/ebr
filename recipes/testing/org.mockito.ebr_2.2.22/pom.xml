@@ -7,15 +7,15 @@
     <artifactId>testing-parent</artifactId>
     <version>1.0.0-SNAPSHOT</version>
   </parent>
-  <artifactId>org.objenesis.ebr</artifactId>
-  <version>2.1.0-SNAPSHOT</version>
+  <artifactId>org.mockito.ebr</artifactId>
+  <version>2.2.22-SNAPSHOT</version>
   <packaging>eclipse-bundle-recipe</packaging>
-  <name>Objenesis</name>
+  <name>Mockito</name>
   <dependencies>
     <dependency>
-      <groupId>org.objenesis</groupId>
-      <artifactId>objenesis</artifactId>
-      <version>2.1</version>
+      <groupId>org.mockito</groupId>
+      <artifactId>mockito-core</artifactId>
+      <version>2.2.22</version>
     </dependency>
   </dependencies>
 </project>

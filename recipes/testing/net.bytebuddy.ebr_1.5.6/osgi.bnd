@@ -7,5 +7,6 @@ Export-Package: \
  *;version="${package-version}"
 
 Import-Package: \
- *
+ !net.bytebuddy.jar.asm.tree, \
+ *;resolution:=optional
 
