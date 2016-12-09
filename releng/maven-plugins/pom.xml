@@ -72,7 +72,7 @@
   </prerequisites>
 
   <modules>
-    <!-- <module>ebr-maven-plugin</module>  -->
+    <module>ebr-maven-plugin</module>
     <module>ebr-tycho-extras-plugin</module>
     <module>ebr-maven-shared</module>
   </modules>

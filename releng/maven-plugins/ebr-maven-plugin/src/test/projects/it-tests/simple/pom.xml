@@ -25,9 +25,9 @@
   <build>
     <plugins>
       <plugin>
-        <groupId>@project.groupId@</groupId>
-        <artifactId>@project.artifactId@</artifactId>
-        <version>@project.version@</version>
+        <groupId>org.eclipse.ebr</groupId>
+        <artifactId>ebr-maven-plugin</artifactId>
+        <version>${it-plugin.version}</version>
         <extensions>true</extensions>
       </plugin>
     </plugins>
