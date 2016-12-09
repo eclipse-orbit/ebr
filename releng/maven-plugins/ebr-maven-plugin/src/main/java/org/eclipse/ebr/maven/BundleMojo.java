@@ -203,10 +203,10 @@ public class BundleMojo extends ManifestPlugin {
 	@Parameter(defaultValue = "1.0.0-SNAPSHOT", property = "ebr-tycho-extras-plugin.version", required = true)
 	protected String ebrTychoExtrasPluginVersionFallback;
 
-	@Parameter(defaultValue = "0.24", property = "tycho-plugin.version", required = true)
+	@Parameter(defaultValue = "0.26.0", property = "tycho-plugin.version", required = true)
 	protected String tychoPluginVersionFallback;
 
-	@Parameter(defaultValue = "0.24", property = "tycho-extras-plugin.version", required = true)
+	@Parameter(defaultValue = "0.26.0", property = "tycho-extras-plugin.version", required = true)
 	protected String tychoExtrasPluginVersionFallback;
 
 	@Parameter(defaultValue = "2.7", property = "maven-resource-plugin.version", required = true)
