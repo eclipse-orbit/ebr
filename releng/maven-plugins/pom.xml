@@ -59,10 +59,12 @@
 
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-    <minimum-maven-version>3.2.3</minimum-maven-version>
+    <minimum-maven-version>3.3.9</minimum-maven-version>
+    <maven-plugin-plugin-version>3.5</maven-plugin-plugin-version>
+    <takari-maven-plugin-testing-version>2.9.0</takari-maven-plugin-testing-version>
     <maven-compiler-plugin-version>3.2</maven-compiler-plugin-version>
     <tycho-version>0.26.0</tycho-version>
-    <apache-httpclient-version>4.5.1</apache-httpclient-version>
+    <apache-httpclient-version>4.5.2</apache-httpclient-version>
   </properties>
 
   <prerequisites>
@@ -93,33 +95,23 @@
         </configuration>
       </plugin>
       <plugin>
-        <groupId>org.apache.maven.plugins</groupId>
-        <artifactId>maven-site-plugin</artifactId>
+        <groupId>io.takari.maven.plugins</groupId>
+        <artifactId>takari-lifecycle-plugin</artifactId>
+        <extensions>true</extensions>
         <configuration>
-          <relativizeDecorationLinks>false</relativizeDecorationLinks>
-          <reportPlugins>
-            <plugin>
-              <groupId>org.apache.maven.plugins</groupId>
-              <artifactId>maven-plugin-plugin</artifactId>
-            </plugin>
-            <plugin>
-              <groupId>org.apache.maven.plugins</groupId>
-              <artifactId>maven-project-info-reports-plugin</artifactId>
-              <reportSets>
-                <reportSet>
-                  <reports>
-                    <report>index</report>
-                  </reports>
-                </reportSet>
-              </reportSets>
-            </plugin>
-          </reportPlugins>
+          <proc>none</proc>
+          <source>1.8</source>
+          <target>1.8</target>
+          <compilerId>jdt</compilerId>
+          <encoding>UTF-8</encoding>
         </configuration>
       </plugin>
       <plugin>
-        <!-- This maven-enforcer-plugin configuration to actually break the build if run with older maven. prerequisites section
-          is kept for now as even if it doesn't break the build, it is used by other plugins like versions-maven-plugin which check and
-          warn for using plugins with older than they require Maven version. -->
+        <!-- This maven-enforcer-plugin configuration to actually break the
+          build if run with older maven. prerequisites section is kept for now as even
+          if it doesn't break the build, it is used by other plugins like versions-maven-plugin
+          which check and warn for using plugins with older than they require Maven
+          version. -->
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-enforcer-plugin</artifactId>
         <executions>
@@ -177,14 +169,9 @@
           <version>1.4.1</version>
         </plugin>
         <plugin>
-          <groupId>org.apache.maven.plugins</groupId>
-          <artifactId>maven-site-plugin</artifactId>
-          <version>3.4</version>
-        </plugin>
-        <plugin>
-          <groupId>org.apache.maven.plugins</groupId>
-          <artifactId>maven-invoker-plugin</artifactId>
-          <version>1.7</version>
+          <groupId>io.takari.maven.plugins</groupId>
+          <artifactId>takari-lifecycle-plugin</artifactId>
+          <version>1.11.11</version>
         </plugin>
       </plugins>
     </pluginManagement>
@@ -194,21 +181,27 @@
 
   <dependencyManagement>
     <dependencies>
+      <!-- managed provided dependencies -->
       <dependency>
         <groupId>org.apache.maven</groupId>
         <artifactId>maven-core</artifactId>
         <version>${minimum-maven-version}</version>
+        <scope>provided</scope>
       </dependency>
       <dependency>
         <groupId>org.apache.maven</groupId>
         <artifactId>maven-plugin-api</artifactId>
         <version>${minimum-maven-version}</version>
+        <scope>provided</scope>
       </dependency>
       <dependency>
         <groupId>org.apache.maven.plugin-tools</groupId>
         <artifactId>maven-plugin-annotations</artifactId>
-        <version>3.4</version>
+        <version>${maven-plugin-plugin-version}</version>
+        <scope>provided</scope>
       </dependency>
+
+      <!-- managed regular dependencies -->
       <dependency>
         <groupId>org.eclipse.tycho</groupId>
         <artifactId>tycho-core</artifactId>
@@ -227,27 +220,49 @@
       <dependency>
         <groupId>com.google.guava</groupId>
         <artifactId>guava</artifactId>
-        <version>18.0</version>
-      </dependency>
-      <dependency>
-        <groupId>junit</groupId>
-        <artifactId>junit</artifactId>
-        <version>4.11</version>
+        <version>20.0</version>
       </dependency>
       <dependency>
         <groupId>org.apache.commons</groupId>
         <artifactId>commons-lang3</artifactId>
-        <version>3.3.2</version>
+        <version>3.5</version>
       </dependency>
       <dependency>
         <groupId>commons-io</groupId>
         <artifactId>commons-io</artifactId>
-        <version>2.4</version>
+        <version>2.5</version>
       </dependency>
       <dependency>
         <artifactId>ebr-maven-shared</artifactId>
         <groupId>org.eclipse.ebr</groupId>
         <version>${project.version}</version>
+      </dependency>
+
+      <!-- managed test dependencies -->
+      <dependency>
+        <groupId>junit</groupId>
+        <artifactId>junit</artifactId>
+        <version>4.12</version>
+        <scope>test</scope>
+      </dependency>
+      <dependency>
+        <groupId>org.apache.maven</groupId>
+        <artifactId>maven-compat</artifactId>
+        <version>${minimum-maven-version}</version>
+        <scope>test</scope>
+      </dependency>
+      <dependency>
+        <groupId>io.takari.maven.plugins</groupId>
+        <artifactId>takari-plugin-testing</artifactId>
+        <version>${takari-maven-plugin-testing-version}</version>
+        <scope>test</scope>
+      </dependency>
+      <dependency>
+        <groupId>io.takari.maven.plugins</groupId>
+        <artifactId>takari-plugin-integration-testing</artifactId>
+        <version>${takari-maven-plugin-testing-version}</version>
+        <type>pom</type>
+        <scope>test</scope>
       </dependency>
     </dependencies>
   </dependencyManagement>

@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd" xmlns="http://maven.apache.org/POM/4.0.0"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <modelVersion>4.0.0</modelVersion>
+
+  <artifactId>ebr.tests.jsoup</artifactId>
+  <version>1.8.2-SNAPSHOT</version>
+  <packaging>eclipse-bundle-recipe</packaging>
+
+  <name>jsoup</name>
+
+  <dependencies>
+    <dependency>
+      <groupId>org.jsoup</groupId>
+      <artifactId>jsoup</artifactId>
+      <version>1.8.2</version>
+    </dependency>
+  </dependencies>
+
+  <build>
+    <plugins>
+
+      <!-- enable Tycho -->
+      <plugin>
+        <groupId>org.eclipse.tycho</groupId>
+        <artifactId>tycho-maven-plugin</artifactId>
+        <extensions>true</extensions>
+      </plugin>
+
+
+      <!-- configure bundle build so that properties defined above will be considered -->
+      <plugin>
+        <groupId>org.eclipse.ebr</groupId>
+        <artifactId>ebr-maven-plugin</artifactId>
+        <extensions>true</extensions>
+        <configuration>
+          <includes>${recipe.includes}</includes>
+          <excludes>${recipe.excludes}</excludes>
+          <bndInstructions>
+            <Bundle-Name>${recipe.Bundle-Name}</Bundle-Name>
+            <Bundle-Vendor>${recipe.Bundle-Vendor}</Bundle-Vendor>
+            <Bundle-Description>${recipe.Bundle-Description}</Bundle-Description>
+            <_removeheaders>${recipe.removeheaders}</_removeheaders>
+            <_include>-${recipe.bndfile}</_include>
+          </bndInstructions>
+        </configuration>
+      </plugin>
+
+
+      <!-- configure a target platform runtime configuration -->
+      <plugin>
+        <groupId>org.eclipse.tycho</groupId>
+        <artifactId>target-platform-configuration</artifactId>
+        <version>${tycho-version}</version>
+        <configuration>
+          <environments>
+            <environment>
+              <os>all</os>
+              <ws>all</ws>
+              <arch>all</arch>
+            </environment>
+          </environments>
+        </configuration>
+      </plugin>
+
+    </plugins>
+    <pluginManagement>
+      <plugins>
+        <plugin>
+          <groupId>org.eclipse.tycho</groupId>
+          <artifactId>tycho-maven-plugin</artifactId>
+          <version>${tycho-version}</version>
+        </plugin>
+        <plugin>
+          <groupId>org.eclipse.tycho</groupId>
+          <artifactId>tycho-packaging-plugin</artifactId>
+          <version>${tycho-version}</version>
+        </plugin>
+        <plugin>
+          <groupId>org.eclipse.tycho</groupId>
+          <artifactId>tycho-p2-plugin</artifactId>
+          <version>${tycho-version}</version>
+        </plugin>
+        <plugin>
+          <groupId>org.eclipse.tycho</groupId>
+          <artifactId>tycho-p2-repository-plugin</artifactId>
+          <version>${tycho-version}</version>
+        </plugin>
+        <plugin>
+          <groupId>org.eclipse.ebr</groupId>
+          <artifactId>ebr-maven-plugin</artifactId>
+          <version>${ebr-version}</version>
+        </plugin>
+        <plugin>
+          <groupId>org.apache.maven.plugins</groupId>
+          <artifactId>maven-resources-plugin</artifactId>
+          <version>${maven-resource-plugin-version}</version>
+        </plugin>
+        <plugin>
+          <groupId>org.apache.maven.plugins</groupId>
+          <artifactId>maven-dependency-plugin</artifactId>
+          <version>${maven-dependency-plugin-version}</version>
+        </plugin>
+      </plugins>
+    </pluginManagement>
+  </build>
+</project>
