@@ -1,6 +1,7 @@
 package org.eclipse.ebr.tycho.extras.plugin;
 
 import static java.lang.String.format;
+import static java.util.Objects.requireNonNull;
 import static org.apache.commons.lang3.CharEncoding.UTF_8;
 import static org.apache.commons.lang3.StringEscapeUtils.escapeXml10;
 import static org.apache.commons.lang3.StringUtils.trimToEmpty;
@@ -42,6 +43,7 @@ import org.eclipse.tycho.p2.facade.RepositoryReferenceTool;
 import org.eclipse.tycho.p2.resolver.facade.P2ResolverFactory;
 import org.eclipse.tycho.p2.target.facade.PomDependencyCollector;
 import org.eclipse.tycho.p2.target.facade.TargetPlatformConfigurationStub;
+import org.eclipse.tycho.p2.tools.BuildContext;
 import org.eclipse.tycho.p2.tools.DestinationRepositoryDescriptor;
 import org.eclipse.tycho.p2.tools.FacadeException;
 import org.eclipse.tycho.p2.tools.RepositoryReferences;
@@ -70,13 +72,19 @@ import org.codehaus.plexus.logging.Logger;
 @Mojo(name = "assemble-bundle-p2-repository", defaultPhase = LifecyclePhase.PACKAGE)
 public class AssembleBundleP2RepositoryMojo extends AbstractRepositoryMojo {
 
+	@Parameter(property = "project", readonly = true, required = true)
+	private MavenProject project;
+
+	@Parameter(property = "session", readonly = true, required = true)
+	private MavenSession session;
+
 	/**
 	 * <p>
 	 * Compress the repository index files <tt>content.xml</tt> and
 	 * <tt>artifacts.xml</tt>.
 	 * </p>
 	 */
-	@Parameter(defaultValue = "true")
+	@Parameter(defaultValue = "false")
 	private boolean compress;
 
 	/**
@@ -200,6 +208,14 @@ public class AssembleBundleP2RepositoryMojo extends AbstractRepositoryMojo {
 		}
 	}
 
+	@Override
+	protected BuildContext getBuildContext() {
+		// only overridden because injection into super class did not work
+		// FIXME figure out while injection in super class is broken
+		final List<TargetEnvironment> environments = TychoProjectUtils.getTargetPlatformConfiguration(project).getEnvironments();
+		return new BuildContext(getProjectIdentities(), qualifier, environments);
+	}
+
 	private String getBundleVersion() {
 		return BundleUtil.getBundleVersion(getProject().getVersion());
 	}
@@ -213,12 +229,26 @@ public class AssembleBundleP2RepositoryMojo extends AbstractRepositoryMojo {
 	}
 
 	@Override
+	protected MavenProject getProject() {
+		// only overridden because injection into super class did not work
+		// FIXME figure out while injection in super class is broken
+		return requireNonNull(project, "MavenProject not set!");
+	}
+
+	@Override
 	protected ReactorProjectIdentities getProjectIdentities() {
 		return new MavenReactorProjectIdentities(getProject());
 	}
 
 	protected ReactorProject getReactorProject() {
 		return DefaultReactorProject.adapt(getProject());
+	}
+
+	@Override
+	protected MavenSession getSession() {
+		// only overridden because injection into super class did not work
+		// FIXME figure out while injection in super class is broken
+		return requireNonNull(session, "MavenSession not set!");
 	}
 
 	private RepositoryReferences getVisibleRepositories() throws MojoExecutionException, MojoFailureException {

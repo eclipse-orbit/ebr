@@ -11,12 +11,16 @@
  */
 package org.eclipse.ebr.tycho.extras.plugin;
 
+import static java.util.Objects.requireNonNull;
+
 import java.io.File;
+
+import javax.inject.Inject;
+import javax.inject.Named;
 
 import org.eclipse.tycho.ArtifactKey;
 import org.eclipse.tycho.ReactorProject;
 import org.eclipse.tycho.core.ArtifactDependencyWalker;
-import org.eclipse.tycho.core.TychoProject;
 import org.eclipse.tycho.core.osgitools.AbstractTychoProject;
 import org.eclipse.tycho.core.osgitools.BundleReader;
 import org.eclipse.tycho.core.osgitools.OsgiManifest;
@@ -25,19 +29,20 @@ import org.eclipse.tycho.core.shared.TargetEnvironment;
 import org.apache.maven.execution.MavenSession;
 import org.apache.maven.project.MavenProject;
 
-import org.codehaus.plexus.component.annotations.Component;
-import org.codehaus.plexus.component.annotations.Requirement;
-
 /**
  * Hook into Tycho allowing an EBR project to be treated as a Tycho project.
  */
-@Component(role = TychoProject.class, hint = "eclipse-bundle-recipe")
+@Named("eclipse-bundle-recipe")
 public class RecipeBundleProject extends AbstractTychoProject {
 
 	private static final String CTX_ARTIFACT_KEY = RecipeBundleProject.class.getName() + "/bundleRecipe/artifactKey";
 
-	@Requirement
-	private BundleReader bundleReader;
+	private final BundleReader bundleReader;
+
+	@Inject
+	public RecipeBundleProject(final BundleReader bundleReader) {
+		this.bundleReader = requireNonNull(bundleReader, "BundleReader is required!");
+	}
 
 	@Override
 	public ArtifactKey getArtifactKey(final ReactorProject project) {
