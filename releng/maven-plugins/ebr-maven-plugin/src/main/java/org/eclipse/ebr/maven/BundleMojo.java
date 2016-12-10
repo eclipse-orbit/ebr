@@ -62,7 +62,6 @@ import org.apache.felix.bundleplugin.ManifestPlugin;
 import org.apache.maven.archiver.MavenArchiveConfiguration;
 import org.apache.maven.archiver.MavenArchiver;
 import org.apache.maven.artifact.Artifact;
-import org.apache.maven.execution.MavenSession;
 import org.apache.maven.model.Plugin;
 import org.apache.maven.plugin.BuildPluginManager;
 import org.apache.maven.plugin.MojoExecutionException;
@@ -124,12 +123,6 @@ public class BundleMojo extends ManifestPlugin {
 	 */
 	@Parameter(property = "includeProjectResourceDir", defaultValue = "true")
 	protected boolean includeProjectResourceDir;
-
-	@Parameter(defaultValue = "${project}", readonly = true, required = true)
-	protected MavenProject project;
-
-	@Parameter(defaultValue = "${session}", readonly = true, required = true)
-	protected MavenSession session;
 
 	@Component
 	private BuildPluginManager pluginManager;
