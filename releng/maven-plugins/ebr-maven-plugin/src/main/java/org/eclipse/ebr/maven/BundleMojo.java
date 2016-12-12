@@ -360,7 +360,8 @@ public class BundleMojo extends ManifestPlugin {
 							configuration(
 									element("outputDirectory", "${project.build.directory}/dependency-src"),
 									element("resources",
-											element("resource", element("directory", "${project.basedir}/src/main/resources"))
+											element("resource", element("directory", "${project.basedir}/src/main/resources")),
+											element("resource", element("directory", "${project.basedir}/src/main/java"))
 											)
 									),
 									executionEnvironment(
