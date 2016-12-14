@@ -75,6 +75,7 @@
     <module>ebr-maven-shared</module>
     <module>ebr-tycho-extras-plugin</module>
     <module>ebr-maven-plugin</module>
+    <module>ebr-maven-plugin-its</module>
   </modules>
 
   <repositories>
