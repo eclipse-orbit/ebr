@@ -46,6 +46,7 @@ public class KnownLicenses {
 
 		addLicense("Mozilla Public License 1.0 (MPL)", "https://www.mozilla.org/MPL/1.0/");
 		addLicense("Mozilla Public License 1.1 (MPL)", "https://www.mozilla.org/MPL/1.1/");
+		addLicense("Public Domain", "https://creativecommons.org/publicdomain/zero/1.0/");
 	}
 
 	private KnownLicense addLicense(final String name, final String... knownUrls) {
