@@ -34,7 +34,7 @@
     <recipe.Bundle-Vendor>%bundleVendor</recipe.Bundle-Vendor>
 
     <!-- remove some clutter from the generated manifests -->
-    <recipe.removeheaders>Ignore-Package,Include-Resource,Private-Package,Embed-Dependency,Built-By,Build-Jdk,Bnd-*,Tool</recipe.removeheaders>
+    <recipe.removeheaders>Ignore-Package,Include-Resource,Private-Package,Embed-Dependency,Built-By,Build-Jdk,Bnd-*</recipe.removeheaders>
 
     <!-- read BND settings from 'osgi.bnd' located next to pom.xml -->
     <recipe.bndfile>osgi.bnd</recipe.bndfile>
