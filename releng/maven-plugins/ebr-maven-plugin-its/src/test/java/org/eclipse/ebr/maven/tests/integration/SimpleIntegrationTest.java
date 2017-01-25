@@ -18,7 +18,7 @@ import io.takari.maven.testing.executor.MavenVersions;
 import io.takari.maven.testing.executor.junit.MavenJUnitTestRunner;
 
 @RunWith(MavenJUnitTestRunner.class)
-@MavenVersions({ "3.2.5" })
+@MavenVersions({ "3.3.9" })
 public class SimpleIntegrationTest {
 
 	@Rule

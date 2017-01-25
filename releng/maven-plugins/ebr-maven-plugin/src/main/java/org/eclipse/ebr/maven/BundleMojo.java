@@ -72,6 +72,7 @@ import org.apache.maven.plugins.annotations.Parameter;
 import org.apache.maven.plugins.annotations.ResolutionScope;
 import org.apache.maven.project.MavenProject;
 import org.apache.maven.project.MavenProjectHelper;
+import org.apache.maven.rtinfo.RuntimeInformation;
 
 import org.codehaus.plexus.archiver.FileSet;
 import org.codehaus.plexus.archiver.jar.JarArchiver;
@@ -129,6 +130,9 @@ public class BundleMojo extends ManifestPlugin {
 
 	@Component
 	private MavenProjectHelper projectHelper;
+
+	@Component
+	private RuntimeInformation mavenRuntimeInformation;
 
 	/**
 	 * The instructions passed to BND for the bundle.
@@ -426,6 +430,10 @@ public class BundleMojo extends ManifestPlugin {
 			getLog().debug(format("Skipping execution for project with packaging type \"%s\"", project.getPackaging()));
 			return;
 		}
+
+		// https://issues.apache.org/jira/browse/MNG-5742
+		if (!mavenRuntimeInformation.isMavenVersion("[3.3.9,)"))
+			throw new MojoExecutionException("The minimum required Maven version is 3.3.9. Please update your Maven installation!");
 
 		final Set<Artifact> dependencies = getDependenciesToInclude();
 		buildBundle(dependencies);
