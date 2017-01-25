@@ -59,7 +59,7 @@
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <minimum-maven-version>3.3.9</minimum-maven-version>
     <maven-plugin-plugin-version>3.5</maven-plugin-plugin-version>
-    <takari-maven-plugin-testing-version>2.9.0</takari-maven-plugin-testing-version>
+    <takari-maven-plugin-testing-version>2.9.1</takari-maven-plugin-testing-version>
     <maven-compiler-plugin-version>3.2</maven-compiler-plugin-version>
     <tycho-version>0.26.0</tycho-version>
     <apache-httpclient-version>4.5.2</apache-httpclient-version>
@@ -219,7 +219,7 @@
       <dependency>
         <groupId>com.google.guava</groupId>
         <artifactId>guava</artifactId>
-        <version>20.0</version>
+        <version>21.0</version>
       </dependency>
       <dependency>
         <groupId>org.apache.commons</groupId>
