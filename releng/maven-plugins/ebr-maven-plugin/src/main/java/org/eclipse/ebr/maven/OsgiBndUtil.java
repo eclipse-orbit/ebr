@@ -13,10 +13,13 @@ package org.eclipse.ebr.maven;
 
 import static java.lang.String.format;
 import static org.apache.commons.lang3.CharEncoding.UTF_8;
+import static org.eclipse.ebr.maven.TemplateHelper.getTemplate;
 
 import java.io.File;
 import java.io.IOException;
 import java.util.Collection;
+
+import org.eclipse.ebr.maven.shared.BaseUtility;
 
 import org.apache.commons.io.FileUtils;
 import org.apache.commons.io.IOUtils;

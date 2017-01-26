@@ -24,6 +24,7 @@ import java.util.Set;
 
 import org.eclipse.ebr.maven.eclipseip.KnownLicense;
 import org.eclipse.ebr.maven.eclipseip.KnownLicenses;
+import org.eclipse.ebr.maven.shared.BaseUtility;
 
 import org.apache.commons.lang3.StringUtils;
 import org.apache.commons.lang3.text.StrBuilder;

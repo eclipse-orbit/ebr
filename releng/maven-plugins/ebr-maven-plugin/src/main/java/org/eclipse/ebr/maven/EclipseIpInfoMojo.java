@@ -44,6 +44,7 @@ import org.apache.maven.plugin.BuildPluginManager;
 import org.apache.maven.plugin.MojoExecutionException;
 import org.apache.maven.plugin.MojoFailureException;
 import org.apache.maven.plugins.annotations.Component;
+import org.apache.maven.plugins.annotations.LifecyclePhase;
 import org.apache.maven.plugins.annotations.Mojo;
 import org.apache.maven.plugins.annotations.Parameter;
 import org.apache.maven.plugins.annotations.ResolutionScope;
@@ -68,7 +69,6 @@ import com.google.common.base.Strings;
  *         &lt;artifactId&gt;ebr-maven-plugin&lt;/artifactId&gt;
  *         &lt;executions&gt;
  *           &lt;execution&gt;
- *             &lt;phase&gt;package&lt;/phase&gt;
  *             &lt;goals&gt;
  *               &lt;goal&gt;eclipse-ip-info&lt;/goal&gt;
  *             &lt;/goals&gt;
@@ -88,7 +88,7 @@ import com.google.common.base.Strings;
  *   &lt;/build&gt;
  * </pre>
  */
-@Mojo(name = "eclipse-ip-info", requiresDependencyResolution = ResolutionScope.COMPILE_PLUS_RUNTIME, requiresDependencyCollection = ResolutionScope.COMPILE_PLUS_RUNTIME)
+@Mojo(name = "eclipse-ip-info", requiresDependencyResolution = ResolutionScope.COMPILE_PLUS_RUNTIME, requiresDependencyCollection = ResolutionScope.COMPILE_PLUS_RUNTIME, defaultPhase = LifecyclePhase.PREPARE_PACKAGE)
 public class EclipseIpInfoMojo extends AbstractMojo {
 
 	private static final String CLASSIFIER_SOURCES = "sources";

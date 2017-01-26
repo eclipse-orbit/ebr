@@ -14,6 +14,7 @@ package org.eclipse.ebr.maven;
 import static java.lang.String.format;
 import static org.apache.commons.lang3.CharEncoding.UTF_8;
 import static org.apache.commons.lang3.StringEscapeUtils.escapeHtml4;
+import static org.eclipse.ebr.maven.TemplateHelper.getTemplate;
 
 import java.io.File;
 import java.io.FileOutputStream;

@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+
+  <artifactId>ebr-tycho-extras-plugin</artifactId>
+  <packaging>takari-maven-plugin</packaging>
+
+  <parent>
+    <artifactId>ebr-maven-plugins-parent</artifactId>
+    <groupId>org.eclipse.ebr</groupId>
+    <version>1.0.0-SNAPSHOT</version>
+  </parent>
+
+  <name>Eclipse Bundle Recipe Tycho Extras Plugin</name>
+  <description>A Maven plug-in extending Tycho functionality for EBR.</description>
+
+  <scm>
+    <connection>scm:git:git.eclipse.org:/gitroot/ebr/org.eclipse.ebr.recipes.git</connection>
+    <developerConnection>scm:git:git.eclipse.org:/gitroot/ebr/org.eclipse.ebr.recipes.git</developerConnection>
+    <url>http://git.eclipse.org/c/ebr/org.eclipse.ebr.recipes.git/</url>
+  </scm>
+
+  <properties>
+  </properties>
+
+  <dependencies>
+    <dependency>
+      <groupId>org.apache.maven</groupId>
+      <artifactId>maven-core</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>org.apache.maven</groupId>
+      <artifactId>maven-plugin-api</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>org.apache.maven.plugin-tools</groupId>
+      <artifactId>maven-plugin-annotations</artifactId>
+    </dependency>
+    <dependency>
+      <artifactId>ebr-maven-shared</artifactId>
+      <groupId>org.eclipse.ebr</groupId>
+    </dependency>
+    <dependency>
+      <groupId>org.eclipse.tycho</groupId>
+      <artifactId>tycho-p2-repository-plugin</artifactId>
+      <version>${tycho-version}</version>
+      <type>maven-plugin</type>
+    </dependency>
+    <dependency>
+      <groupId>junit</groupId>
+      <artifactId>junit</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>org.apache.maven</groupId>
+      <artifactId>maven-compat</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>io.takari.maven.plugins</groupId>
+      <artifactId>takari-plugin-testing</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>io.takari.maven.plugins</groupId>
+      <artifactId>takari-plugin-integration-testing</artifactId>
+      <type>pom</type>
+    </dependency>
+  </dependencies>
+
+  <build>
+    <resources>
+      <resource>
+        <directory>src/main/resources</directory>
+        <filtering>true</filtering>
+      </resource>
+    </resources>
+  </build>
+
+</project>

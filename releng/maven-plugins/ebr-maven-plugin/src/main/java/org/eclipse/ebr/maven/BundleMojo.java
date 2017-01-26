@@ -53,6 +53,8 @@ import java.util.jar.Attributes;
 import java.util.jar.Attributes.Name;
 import java.util.jar.Manifest;
 
+import org.eclipse.ebr.maven.shared.BundleUtil;
+
 import org.apache.commons.io.FileUtils;
 import org.apache.commons.lang3.StringUtils;
 import org.apache.commons.lang3.exception.ExceptionUtils;
@@ -60,16 +62,17 @@ import org.apache.felix.bundleplugin.ManifestPlugin;
 import org.apache.maven.archiver.MavenArchiveConfiguration;
 import org.apache.maven.archiver.MavenArchiver;
 import org.apache.maven.artifact.Artifact;
-import org.apache.maven.execution.MavenSession;
 import org.apache.maven.model.Plugin;
 import org.apache.maven.plugin.BuildPluginManager;
 import org.apache.maven.plugin.MojoExecutionException;
 import org.apache.maven.plugins.annotations.Component;
+import org.apache.maven.plugins.annotations.LifecyclePhase;
 import org.apache.maven.plugins.annotations.Mojo;
 import org.apache.maven.plugins.annotations.Parameter;
 import org.apache.maven.plugins.annotations.ResolutionScope;
 import org.apache.maven.project.MavenProject;
 import org.apache.maven.project.MavenProjectHelper;
+import org.apache.maven.rtinfo.RuntimeInformation;
 
 import org.codehaus.plexus.archiver.FileSet;
 import org.codehaus.plexus.archiver.jar.JarArchiver;
@@ -83,7 +86,7 @@ import org.twdata.maven.mojoexecutor.MojoExecutor.Element;
  * A Maven plug-on for downloading dependencies and re-packaging them as a
  * single OSGi bundle.
  */
-@Mojo(name = "bundle", requiresDependencyResolution = ResolutionScope.COMPILE_PLUS_RUNTIME, requiresDependencyCollection = ResolutionScope.COMPILE_PLUS_RUNTIME)
+@Mojo(name = "bundle", requiresDependencyResolution = ResolutionScope.COMPILE_PLUS_RUNTIME, requiresDependencyCollection = ResolutionScope.COMPILE_PLUS_RUNTIME, defaultPhase = LifecyclePhase.PACKAGE)
 public class BundleMojo extends ManifestPlugin {
 
 	private static final String CLASSIFIER_SOURCES = "sources";
@@ -122,17 +125,14 @@ public class BundleMojo extends ManifestPlugin {
 	@Parameter(property = "includeProjectResourceDir", defaultValue = "true")
 	protected boolean includeProjectResourceDir;
 
-	@Parameter(defaultValue = "${project}", readonly = true, required = true)
-	protected MavenProject project;
-
-	@Parameter(defaultValue = "${session}", readonly = true, required = true)
-	protected MavenSession session;
-
 	@Component
 	private BuildPluginManager pluginManager;
 
 	@Component
 	private MavenProjectHelper projectHelper;
+
+	@Component
+	private RuntimeInformation mavenRuntimeInformation;
 
 	/**
 	 * The instructions passed to BND for the bundle.
@@ -197,10 +197,13 @@ public class BundleMojo extends ManifestPlugin {
 	@Parameter(defaultValue = "none", property = "signingServiceType")
 	protected String signingServiceType;
 
-	@Parameter(defaultValue = "0.24", property = "tycho-plugin.version", required = true)
+	@Parameter(defaultValue = "1.0.0-SNAPSHOT", property = "ebr-tycho-extras-plugin.version", required = true)
+	protected String ebrTychoExtrasPluginVersionFallback;
+
+	@Parameter(defaultValue = "0.26.0", property = "tycho-plugin.version", required = true)
 	protected String tychoPluginVersionFallback;
 
-	@Parameter(defaultValue = "0.24", property = "tycho-extras-plugin.version", required = true)
+	@Parameter(defaultValue = "0.26.0", property = "tycho-extras-plugin.version", required = true)
 	protected String tychoExtrasPluginVersionFallback;
 
 	@Parameter(defaultValue = "2.7", property = "maven-resource-plugin.version", required = true)
@@ -242,6 +245,27 @@ public class BundleMojo extends ManifestPlugin {
 		} catch (final Exception e) {
 			throw new MojoExecutionException("Error assembling JAR " + jarName + ": " + e.getMessage(), e);
 		}
+	}
+
+	private void assembleP2Repository() throws MojoExecutionException {
+		// copy into output directory
+		getLog().debug("Assembling p2 repository...");
+
+		// @formatter:off
+		executeMojo(
+				plugin(
+						groupId("org.eclipse.ebr"),
+						artifactId("ebr-tycho-extras-plugin"),
+						version(detectPluginVersion("org.eclipse.ebr", "ebr-tycho-extras-plugin", ebrTychoExtrasPluginVersionFallback))),
+						goal("assemble-bundle-p2-repository"),
+						configuration(),
+						executionEnvironment(
+								project,
+								session,
+								pluginManager
+						)
+				);
+		// @formatter:on
 	}
 
 	private void buildBundle(final Set<Artifact> dependencies) throws MojoExecutionException {
@@ -308,7 +332,7 @@ public class BundleMojo extends ManifestPlugin {
 			initializeBndInstruction(BUNDLE_VERSION, getExpandedVersion());
 			initializeBndInstruction(BUNDLE_NAME, project.getName());
 			initializeBndInstruction(SNAPSHOT, qualifier);
-			execute(project, bndInstructions, new Properties(), getClasspath(project)); // BND also needs transitive dependencies
+			execute(project, buildDependencyGraph(project), bndInstructions, new Properties()); // BND also needs transitive dependencies
 		} catch (final Exception e) {
 			throw new MojoExecutionException("Error generating Bundle manifest: " + e.getMessage(), e);
 		}
@@ -407,11 +431,16 @@ public class BundleMojo extends ManifestPlugin {
 			return;
 		}
 
+		// https://issues.apache.org/jira/browse/MNG-5742
+		if (!mavenRuntimeInformation.isMavenVersion("[3.3.9,)"))
+			throw new MojoExecutionException("The minimum required Maven version is 3.3.9. Please update your Maven installation!");
+
 		final Set<Artifact> dependencies = getDependenciesToInclude();
 		buildBundle(dependencies);
 		buildSourceBundle(dependencies);
 		packAndSignBundle();
 		publishP2Metadata();
+		assembleP2Repository();
 	}
 
 	private File generateFinalBundleManifest() throws MojoExecutionException {
@@ -568,7 +597,7 @@ public class BundleMojo extends ManifestPlugin {
 	}
 
 	private String getSourceBundleSymbolicName() {
-		return project.getArtifactId() + ".source";
+		return BundleUtil.getSourceBundleSymbolicName(project);
 	}
 
 	private List<Element> getUnpackConfiguration(final String outputDirectory, final Set<Artifact> dependencies, final String classifier) throws MojoExecutionException {

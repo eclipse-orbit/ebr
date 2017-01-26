@@ -21,6 +21,8 @@ import java.util.Set;
 import java.util.SortedMap;
 import java.util.TreeMap;
 
+import org.eclipse.ebr.maven.shared.BaseUtility;
+
 import org.eclipse.aether.repository.RepositoryPolicy;
 
 import org.apache.commons.lang3.StringUtils;
