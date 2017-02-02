@@ -39,6 +39,7 @@ import org.apache.commons.lang3.StringUtils;
 import org.apache.commons.lang3.SystemUtils;
 import org.apache.felix.utils.properties.Properties;
 import org.apache.maven.artifact.Artifact;
+import org.apache.maven.artifact.repository.ArtifactRepository;
 import org.apache.maven.artifact.repository.metadata.RepositoryMetadataManager;
 import org.apache.maven.artifact.versioning.ArtifactVersion;
 import org.apache.maven.artifact.versioning.DefaultArtifactVersion;
@@ -86,6 +87,9 @@ public class CreateRecipeMojo extends AbstractMojo {
 
 	@Component
 	private ModelBuilder modelBuilder;
+
+	@Parameter(defaultValue = "${project.remoteArtifactRepositories}", readonly = true)
+	protected List<ArtifactRepository> remoteRepositories;
 
 	@Parameter(property = "groupId", required = true)
 	private String groupId;
@@ -240,7 +244,7 @@ public class CreateRecipeMojo extends AbstractMojo {
 	}
 
 	private ModelUtil getModelUtil() {
-		return new ModelUtil(getLog(), mavenSession, repositorySystem, repositoryMetadataManager, modelBuilder);
+		return new ModelUtil(getLog(), mavenSession, repositorySystem, repositoryMetadataManager, modelBuilder, remoteRepositories);
 	}
 
 	private File getProjectDir(final Model recipePom) throws MojoExecutionException {
@@ -273,7 +277,7 @@ public class CreateRecipeMojo extends AbstractMojo {
 		dependency.setGroupId(artifactPom.getGroupId());
 		dependency.setArtifactId(artifactPom.getArtifactId());
 		dependency.setVersion(artifactPom.getVersion());
-		if (classifier != null && !classifier.isEmpty()) {
+		if ((classifier != null) && !classifier.isEmpty()) {
 			dependency.setClassifier(classifier);
 		}
 		recipePom.setDependencies(Arrays.asList(dependency));

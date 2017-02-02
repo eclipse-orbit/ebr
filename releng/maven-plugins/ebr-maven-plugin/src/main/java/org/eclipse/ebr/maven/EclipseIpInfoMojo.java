@@ -35,6 +35,7 @@ import java.util.SortedMap;
 
 import org.apache.commons.lang3.StringUtils;
 import org.apache.maven.artifact.Artifact;
+import org.apache.maven.artifact.repository.ArtifactRepository;
 import org.apache.maven.artifact.repository.metadata.RepositoryMetadataManager;
 import org.apache.maven.execution.MavenSession;
 import org.apache.maven.model.Model;
@@ -108,6 +109,9 @@ public class EclipseIpInfoMojo extends AbstractMojo {
 
 	@Parameter(defaultValue = "${settings}", readonly = true)
 	protected Settings settings;
+
+	@Parameter(defaultValue = "${project.remoteArtifactRepositories}", readonly = true)
+	protected List<ArtifactRepository> remoteRepositories;
 
 	@Component
 	private RepositorySystem repositorySystem;
@@ -257,7 +261,7 @@ public class EclipseIpInfoMojo extends AbstractMojo {
 	}
 
 	private ModelUtil getModelUtil() {
-		return new ModelUtil(getLog(), mavenSession, repositorySystem, repositoryMetadataManager, modelBuilder);
+		return new ModelUtil(getLog(), mavenSession, repositorySystem, repositoryMetadataManager, modelBuilder, remoteRepositories);
 	}
 
 	private File getProjectDir() throws MojoExecutionException {

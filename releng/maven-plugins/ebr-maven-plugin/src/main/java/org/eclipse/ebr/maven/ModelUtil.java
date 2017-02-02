@@ -12,14 +12,18 @@
 package org.eclipse.ebr.maven;
 
 import static com.google.common.base.Preconditions.checkNotNull;
+import static com.google.common.base.Strings.nullToEmpty;
 import static java.lang.String.format;
 
 import java.io.File;
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
+import java.util.List;
 import java.util.Set;
 import java.util.SortedMap;
 import java.util.TreeMap;
+import java.util.stream.Collectors;
 
 import org.eclipse.ebr.maven.shared.BaseUtility;
 
@@ -58,12 +62,14 @@ public class ModelUtil extends BaseUtility {
 	private final ModelBuilder modelBuilder;
 	private final RepositorySystem repositorySystem;
 	private final RepositoryMetadataManager repositoryMetadataManager;
+	private final List<ArtifactRepository> remoteRepositories;
 
-	public ModelUtil(final Log log, final MavenSession mavenSession, final RepositorySystem repositorySystem, final RepositoryMetadataManager repositoryMetadataManager, final ModelBuilder modelBuilder) {
+	public ModelUtil(final Log log, final MavenSession mavenSession, final RepositorySystem repositorySystem, final RepositoryMetadataManager repositoryMetadataManager, final ModelBuilder modelBuilder, final List<ArtifactRepository> remoteRepositories) {
 		super(log, mavenSession);
 		this.repositorySystem = repositorySystem;
 		this.repositoryMetadataManager = repositoryMetadataManager;
 		this.modelBuilder = modelBuilder;
+		this.remoteRepositories = remoteRepositories;
 	}
 
 	public Model buildEffectiveModel(final Artifact artifact) throws MojoExecutionException {
@@ -130,13 +136,24 @@ public class ModelUtil extends BaseUtility {
 	public MavenModelResolver getModelResolver() throws MojoExecutionException {
 		if (!getMavenSession().isOffline()) {
 			try {
-				return new MavenModelResolver(Arrays.asList(repositorySystem.createDefaultRemoteRepository()), getRepositorySystem(), getLog());
+				final List<ArtifactRepository> repositories = new ArrayList<>();
+				repositories.add(getMavenSession().getLocalRepository());
+				repositories.addAll(getRemoteRepositories());
+				repositories.add(getRepositorySystem().createDefaultRemoteRepository());
+				getLog().debug(format("Using repositories: %s", repositories.stream().map((r) -> nullToEmpty(r.getId())).distinct().collect(Collectors.joining(", "))));
+				return new MavenModelResolver(repositories, getRepositorySystem(), getLog());
 			} catch (final InvalidRepositoryException e) {
 				getLog().debug(e);
 				throw new MojoExecutionException(format("Unable to create the default remote repository. Please verify the Maven configuration. %s", e.getMessage()));
 			}
-		} else
-			return new MavenModelResolver(Collections.<ArtifactRepository> emptyList(), getRepositorySystem(), getLog());
+		} else {
+			getLog().debug("Using local repository in offline mode!");
+			return new MavenModelResolver(Arrays.asList(getMavenSession().getLocalRepository()), getRepositorySystem(), getLog());
+		}
+	}
+
+	public List<ArtifactRepository> getRemoteRepositories() {
+		return remoteRepositories != null ? remoteRepositories : Collections.emptyList();
 	}
 
 	public RepositoryMetadataManager getRepositoryMetadataManager() {
