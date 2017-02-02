@@ -6,7 +6,6 @@ import static org.junit.Assert.assertTrue;
 import java.io.File;
 import java.io.IOException;
 
-import org.junit.Ignore;
 import org.junit.Rule;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -20,15 +19,15 @@ import io.takari.maven.testing.executor.junit.MavenJUnitTestRunner;
 
 @RunWith(MavenJUnitTestRunner.class)
 @MavenVersions({ "3.3.9" })
-public class SimpleIntegrationTest {
+public class CreateRecipeTest {
 
 	@Rule
 	public final TestResources resources = new TestResources();
 
-	public final MavenRuntime verifier;
+	private final MavenRuntimeBuilder mvnRuntimeBuilder;
 
-	public SimpleIntegrationTest(final MavenRuntimeBuilder builder) throws Exception {
-		verifier = builder.withCliOptions("-X").build();
+	public CreateRecipeTest(final MavenRuntimeBuilder mvnRuntimeBuilder) throws Exception {
+		this.mvnRuntimeBuilder = mvnRuntimeBuilder;
 	}
 
 	private File getProjectDir(final String project) throws IOException {
@@ -38,13 +37,16 @@ public class SimpleIntegrationTest {
 	}
 
 	@Test
-	@Ignore("replaced by separate project for IT tests")
 	public void test() throws Exception {
-		final File baseDir = getProjectDir("simple");
+		final File baseDir = getProjectDir("create");
+
+		// mvn -U -e -V ebr:create-recipe -DgroupId=com.google.code.gson -DartifactId=gson -DbundleSymbolicName=com.google.gson.ebr -Dversion=2.7
+		final MavenRuntime verifier = mvnRuntimeBuilder.withCliOptions("-X", "ebr:create-recipe", "-DgroupId=org.jsoup", "-DartifactId=jsoup", "-DbundleSymbolicName=ebr.it.test.jsoup", "-Dversion=1.10.2").build();
 
 		final MavenExecutionResult result = verifier.forProject(baseDir).execute("package");
 
 		result.assertErrorFreeLog();
-		assertFilesPresent(baseDir, "target/MANIFEST.MF");
+		assertFilesPresent(baseDir, "ebr.it.test.jsoup_1.10.2/pom.xml");
+		assertFilesPresent(baseDir, "ebr.it.test.jsoup_1.10.2/osgi.bnd");
 	}
 }
