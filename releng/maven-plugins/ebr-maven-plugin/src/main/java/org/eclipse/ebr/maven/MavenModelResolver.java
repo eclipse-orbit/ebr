@@ -4,7 +4,7 @@ import static java.lang.String.format;
 
 import java.util.ArrayList;
 import java.util.Collection;
-import java.util.HashMap;
+import java.util.LinkedHashMap;
 import java.util.Map;
 
 import org.apache.maven.artifact.Artifact;
@@ -23,7 +23,7 @@ import org.apache.maven.repository.RepositorySystem;
 
 public class MavenModelResolver implements ModelResolver {
 
-	private final Map<String, ArtifactRepository> repositoryById = new HashMap<>();
+	private final Map<String, ArtifactRepository> repositoryById = new LinkedHashMap<>();
 	private final RepositorySystem repositorySystem;
 	private final Log log;
 
