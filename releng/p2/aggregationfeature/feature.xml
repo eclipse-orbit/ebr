@@ -34,6 +34,8 @@
   <plugin id="org.apache.commons.io.ebr"     version="2.5.0.qualifier"/>
   <plugin id="org.apache.commons.lang.ebr"   version="2.6.0.qualifier"/>
 
+  <plugin id="org.apache.zookeeper.ebr"   version="3.4.9.qualifier"/>
+
   <plugin id="org.zeroturnaround.exec.ebr"           version="1.9.0.qualifier"/>
   <plugin id="org.zeroturnaround.processkiller.ebr"  version="1.4.0.qualifier"/>
 
