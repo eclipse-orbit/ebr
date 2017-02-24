@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd" xmlns="http://maven.apache.org/POM/4.0.0"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <modelVersion>4.0.0</modelVersion>
+  <parent>
+    <groupId>MY_EBR_BUNDLES_GROUP</groupId>
+    <artifactId>apache-zookeeper-parent</artifactId>
+    <version>1.0.0-SNAPSHOT</version>
+  </parent>
+  <artifactId>org.apache.aries.util.ebr</artifactId>
+  <version>1.1.3-SNAPSHOT</version>
+  <packaging>eclipse-bundle-recipe</packaging>
+  <name>Apache Aries Util</name>
+  <dependencies>
+    <!-- r42 first -->
+    <dependency>
+      <groupId>org.apache.aries</groupId>
+      <artifactId>org.apache.aries.util-r42</artifactId>
+      <version>1.1.3</version>
+    </dependency>
+    <!-- r43 second to override stuff from r42 bundle -->
+    <dependency>
+      <groupId>org.apache.aries</groupId>
+      <artifactId>org.apache.aries.util</artifactId>
+      <version>1.1.3</version>
+    </dependency>
+  </dependencies>
+</project>
