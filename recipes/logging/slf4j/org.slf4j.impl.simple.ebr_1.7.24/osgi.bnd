@@ -11,4 +11,4 @@ Import-Package: \
  org.slf4j.*;version="${range;[==,=+);${slf4j-api-version}}", \
  *;resolution:=optional
 
-Fragment-Host: org.slf4j.api;bundle-version="${range;[==,=+);${slf4j-api-version}}"
+Fragment-Host: org.slf4j.api.ebr;bundle-version="${range;[==,=+);${slf4j-api-version}}"

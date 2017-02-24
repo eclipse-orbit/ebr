@@ -13,4 +13,4 @@ Import-Package: \
  org.apache.log4j;version="${range;[==,=+);${log4j-version}}", \
  *;resolution:=optional
 
-Fragment-Host: org.slf4j.api;bundle-version="${range;[==,=+);${slf4j-api-version}}"
+Fragment-Host: org.slf4j.api.ebr;bundle-version="${range;[==,=+);${slf4j-api-version}}"
