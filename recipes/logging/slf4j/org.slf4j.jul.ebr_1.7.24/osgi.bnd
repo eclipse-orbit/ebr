@@ -1,0 +1,13 @@
+package-version=${version;===;${Bundle-Version}}
+slf4j-api-version=${version;===;1.7.24}
+
+Export-Package: \
+ !about.html,!about_files, \
+ *.internal*;x-internal:=true;version="", \
+ *.impl*;x-internal:=true;version="", \
+ *;version=""
+
+Import-Package: \
+ org.slf4j.*;version="${range;[==,=+);${slf4j-api-version}}", \
+ *;resolution:=optional
+

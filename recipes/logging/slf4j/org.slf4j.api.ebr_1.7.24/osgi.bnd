@@ -1,0 +1,17 @@
+package-version=${version;===;${Bundle-Version}}
+
+Export-Package: \
+ !about.html,!about_files, \
+ *.internal*;x-internal:=true;version="${package-version}", \
+ *.impl*;x-internal:=true;version="${package-version}", \
+ *;version="${package-version}"
+
+############################
+# SLF4J Binding Requirements
+#
+# based on org.slf4j.LoggerFactory#API_COMPATIBILITY_LIST and #versionSanityCheck()
+# 1.6 as well as 1.7 are allowed 'prefixes'
+#
+Import-Package: \
+ org.slf4j.impl;version="[1.6.0,1.8)";resolution:=optional \
+ *;resolution:=optional

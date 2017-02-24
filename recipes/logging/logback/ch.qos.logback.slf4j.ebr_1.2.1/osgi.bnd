@@ -1,0 +1,11 @@
+package-version=${version;===;${Bundle-Version}}
+slf4j-api-version=${version;===;1.7.22}
+
+Export-Package: \
+ org.slf4j.*;version="${slf4j-api-version}"
+
+Import-Package: \
+ ch.qos.logback.*;version="${range;[===,=+);${package-version}}", \
+ org.slf4j.spi.*;version="${range;[===,=+);${slf4j-api-version}}", \
+ org.slf4j.*;version="${range;[==,+);${slf4j-api-version}}", \
+ *;resolution:=optional

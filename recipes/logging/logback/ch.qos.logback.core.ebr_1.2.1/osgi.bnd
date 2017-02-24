@@ -1,0 +1,20 @@
+package-version=${version;===;${Bundle-Version}}
+janino-version=${version;===;2.7.8}
+jansi-version=${version;===;1.9}
+mail-version=${version;===;1.4}
+geronimo-jms_1.1_spec-version=${version;===;1.0}
+javax.servlet-api-version=${version;===;3.1.0}
+
+Export-Package: \
+ !about.html,!about_files, \
+ *.internal*;x-internal:=true;version="${package-version}", \
+ *.impl*;x-internal:=true;version="${package-version}", \
+ *;version="${package-version}"
+
+Import-Package: \
+ javax.ws.*;version="[2.0,3)";resolution:=optional, \
+ javax.servlet.*;version="[2.6,4)";resolution:=optional, \
+ javax.inject.*;version="[1.0,2)";resolution:=optional, \
+ javax.annotation.*;version="[1.2,2)";resolution:=optional, \
+ ch.qos.logback.*;version="${range;[===,=+);${package-version}}", \
+ *;resolution:=optional
