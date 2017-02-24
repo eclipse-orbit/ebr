@@ -51,7 +51,10 @@ public class OsgiBndUtil extends BaseUtility {
 
 		String osgiBndText = readOsgiBndTemplate();
 		osgiBndText = StringUtils.replaceEach(osgiBndText, new String[] { // @formatter:off
-				"@VERSION_VARIABLES@" }, new String[] { getVersionDeclarations(compileTimeDependencies) });
+			"@VERSION_VARIABLES@"
+		}, new String[] {
+			getVersionDeclarations(compileTimeDependencies)
+		});
 		// @formatter:on
 
 		try {

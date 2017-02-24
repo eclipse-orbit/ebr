@@ -95,7 +95,8 @@
     <resources>
       <resource>
         <directory>src/main/resources</directory>
-        <filtering>true</filtering>
+        <!-- don't filter because of ${..} in templates -->
+        <filtering>false</filtering>
       </resource>
     </resources>
 
