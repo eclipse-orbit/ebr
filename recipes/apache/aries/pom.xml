@@ -9,11 +9,11 @@
     <version>1.0.0-SNAPSHOT</version>
   </parent>
 
-  <artifactId>apache-zookeeper-parent</artifactId>
+  <artifactId>apache-aries-parent</artifactId>
   <version>1.0.0-SNAPSHOT</version>
   <packaging>pom</packaging>
 
-  <name>Apache Zookeeper Parent</name>
+  <name>Apache Aries Parent</name>
 
   <modules>
     <module>org.apache.aries.spifly.dynamic.bundle-all-in-one.ebr_1.0.8</module>
