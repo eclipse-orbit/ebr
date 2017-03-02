@@ -30,6 +30,9 @@
 
     <module>org.javassist_3.18.1</module>
     <module>org.jvnet.mimepull_1.9.4</module>
+
+    <module>org.ow2.asm.debug-all.ebr_5.2.0</module>
+
   </modules>
 
 </project>

@@ -7,16 +7,11 @@
     <artifactId>apache-zookeeper-parent</artifactId>
     <version>1.0.0-SNAPSHOT</version>
   </parent>
-  <artifactId>org.apache.aries.spifly.dynamic.bundle-all-in-one.ebr</artifactId>
+  <artifactId>org.apache.aries.spifly.dynamic.bundle.ebr</artifactId>
   <version>1.0.8-SNAPSHOT</version>
   <packaging>eclipse-bundle-recipe</packaging>
   <name>Apache Aries SPI Fly Dynamic Weaving Bundle</name>
   <dependencies>
-    <dependency>
-      <groupId>org.apache.aries.spifly</groupId>
-      <artifactId>org.apache.aries.spifly.dynamic.bundle</artifactId>
-      <version>1.0.8</version>
-    </dependency>
     <dependency>
       <groupId>org.apache.aries.spifly</groupId>
       <artifactId>org.apache.aries.spifly.core-internal</artifactId>
@@ -25,6 +20,11 @@
     <dependency>
       <groupId>org.apache.aries.spifly</groupId>
       <artifactId>org.apache.aries.spifly.weaver-internal</artifactId>
+      <version>1.0.8</version>
+    </dependency>
+    <dependency>
+      <groupId>org.apache.aries.spifly</groupId>
+      <artifactId>org.apache.aries.spifly.dynamic.bundle</artifactId>
       <version>1.0.8</version>
     </dependency>
   </dependencies>

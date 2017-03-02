@@ -16,7 +16,7 @@
   <name>Apache Aries Parent</name>
 
   <modules>
-    <module>org.apache.aries.spifly.dynamic.bundle-all-in-one.ebr_1.0.8</module>
+    <module>org.apache.aries.spifly.dynamic.bundle.ebr_1.0.8</module>
     <module>org.apache.aries.util.ebr_1.1.3</module>
   </modules>
 
