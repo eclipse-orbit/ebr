@@ -57,7 +57,7 @@
     <tycho.scmUrl>scm:git:https://git.eclipse.org/r/p/ebr/org.eclipse.ebr.recipes.git</tycho.scmUrl>
 
     <!-- by default complain if working tree is dirty (error|warning|ignore) -->
-    <jgit.dirtyWorkingTree>error</jgit.dirtyWorkingTree>
+    <jgit.dirtyWorkingTree>warning</jgit.dirtyWorkingTree>
 
   </properties>
 
