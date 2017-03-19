@@ -119,7 +119,7 @@ public class ModelUtil extends BaseUtility {
 		request.setLocalRepository(getMavenSession().getLocalRepository());
 		if (!getMavenSession().isOffline()) {
 			try {
-				request.setRemoteRepositories(Arrays.asList(repositorySystem.createDefaultRemoteRepository()));
+				request.setRemoteRepositories(getRepositories(false));
 			} catch (final InvalidRepositoryException e) {
 				getLog().debug(e);
 				throw new MojoExecutionException(format("Unable to create the default remote repository. Please verify the Maven configuration. %s", e.getMessage()));
@@ -136,12 +136,7 @@ public class ModelUtil extends BaseUtility {
 	public MavenModelResolver getModelResolver() throws MojoExecutionException {
 		if (!getMavenSession().isOffline()) {
 			try {
-				final List<ArtifactRepository> repositories = new ArrayList<>();
-				repositories.add(getMavenSession().getLocalRepository());
-				repositories.addAll(getRemoteRepositories());
-				repositories.add(getRepositorySystem().createDefaultRemoteRepository());
-				getLog().debug(format("Using repositories: %s", repositories.stream().map((r) -> nullToEmpty(r.getId())).distinct().collect(Collectors.joining(", "))));
-				return new MavenModelResolver(repositories, getRepositorySystem(), getLog());
+				return new MavenModelResolver(getRepositories(true), getRepositorySystem(), getLog());
 			} catch (final InvalidRepositoryException e) {
 				getLog().debug(e);
 				throw new MojoExecutionException(format("Unable to create the default remote repository. Please verify the Maven configuration. %s", e.getMessage()));
@@ -154,6 +149,17 @@ public class ModelUtil extends BaseUtility {
 
 	public List<ArtifactRepository> getRemoteRepositories() {
 		return remoteRepositories != null ? remoteRepositories : Collections.emptyList();
+	}
+
+	private List<ArtifactRepository> getRepositories(final boolean includeLocal) throws InvalidRepositoryException {
+		final List<ArtifactRepository> repositories = new ArrayList<>();
+		if (includeLocal) {
+			repositories.add(getMavenSession().getLocalRepository());
+		}
+		repositories.addAll(getRemoteRepositories());
+		repositories.add(getRepositorySystem().createDefaultRemoteRepository());
+		getLog().debug(format("Using repositories: %s", repositories.stream().map((r) -> nullToEmpty(r.getId())).distinct().collect(Collectors.joining(", "))));
+		return repositories;
 	}
 
 	public RepositoryMetadataManager getRepositoryMetadataManager() {
