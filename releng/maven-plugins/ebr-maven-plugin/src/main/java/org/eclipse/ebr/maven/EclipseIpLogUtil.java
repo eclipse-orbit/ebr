@@ -68,6 +68,7 @@ import org.codehaus.plexus.util.xml.Xpp3DomBuilder;
 import org.codehaus.plexus.util.xml.pull.XmlPullParserException;
 
 import com.google.common.base.Strings;
+import com.google.common.primitives.Ints;
 
 /**
  * A utility for generating an Eclipse IP log.
@@ -670,6 +671,11 @@ public class EclipseIpLogUtil extends LicenseProcessingUtility {
 		return null;
 	}
 
+	private boolean isValidCqId(final String cqId) {
+		final Integer parsedCqId = Ints.tryParse(cqId);
+		return (parsedCqId != null) && (parsedCqId.intValue() > 0);
+	}
+
 	private void loginToPortal(final CloseableHttpClient httpclient, final Server server) throws IOException, MojoExecutionException, URISyntaxException {
 		final URIBuilder postUri = new URIBuilder(PORTAL_PHP);
 
@@ -784,6 +790,9 @@ public class EclipseIpLogUtil extends LicenseProcessingUtility {
 					final String cqId = getCqId(legal);
 					if (Strings.isNullOrEmpty(cqId)) {
 						logWarningOrFailBuild(failIfIpLogIsIncomplete, "Incomplete legal information in ip_log.xml. Reference to IPzilla CQ is required!");
+					}
+					if (!isValidCqId(cqId)) {
+						logWarningOrFailBuild(failIfIpLogIsIncomplete, "Incomplete legal information in ip_log.xml. The referenced IPzilla CQ number is invalid!");
 					}
 					final Xpp3Dom[] licenses = legal.getChildren("license");
 					if ((licenses == null) || (licenses.length == 0)) {
