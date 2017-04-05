@@ -18,6 +18,7 @@ import static java.lang.String.format;
 import static org.eclipse.ebr.maven.OsgiLocalizationUtil.I18N_KEY_BUNDLE_NAME;
 import static org.eclipse.ebr.maven.OsgiLocalizationUtil.I18N_KEY_BUNDLE_VENDOR;
 import static org.eclipse.ebr.maven.OsgiLocalizationUtil.I18N_KEY_PREFIX;
+import static org.osgi.framework.Constants.BUNDLE_CLASSPATH;
 import static org.osgi.framework.Constants.BUNDLE_LOCALIZATION;
 import static org.osgi.framework.Constants.BUNDLE_LOCALIZATION_DEFAULT_BASENAME;
 import static org.osgi.framework.Constants.BUNDLE_MANIFESTVERSION;
@@ -43,6 +44,7 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
+import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.LinkedHashMap;
 import java.util.List;
@@ -52,6 +54,8 @@ import java.util.Set;
 import java.util.jar.Attributes;
 import java.util.jar.Attributes.Name;
 import java.util.jar.Manifest;
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 import org.eclipse.ebr.maven.shared.BundleUtil;
 
@@ -124,6 +128,20 @@ public class BundleMojo extends ManifestPlugin {
 	 */
 	@Parameter(property = "includeProjectResourceDir", defaultValue = "true")
 	protected boolean includeProjectResourceDir;
+
+	/**
+	 * Indicates if dependencies should be unpacked (recommended).
+	 * <p>
+	 * If set to false, dependencies will be included as jar files within the
+	 * bundle and the <code>Bundle-ClassPath</code> header will be populated.
+	 * </p>
+	 * <p>
+	 * Note that excludes and includes will be ignored when unpacking
+	 * dependencies is disabled.
+	 * </p>
+	 */
+	@Parameter(property = "unpackDependencies", defaultValue = "true")
+	protected boolean unpackDependencies;
 
 	@Component
 	private BuildPluginManager pluginManager;
@@ -270,26 +288,8 @@ public class BundleMojo extends ManifestPlugin {
 
 	private void buildBundle(final Set<Artifact> dependencies) throws MojoExecutionException {
 		// unpack dependencies
-		getLog().info("Gathering and extracting dependencies");
-		// @formatter:off
-		final List<Element> unpackConfiguration = getUnpackConfiguration(dependenciesDirectory, dependencies, null);
-		executeMojo(
-				plugin(
-						groupId("org.apache.maven.plugins"),
-						artifactId("maven-dependency-plugin"),
-						version(detectPluginVersion("org.apache.maven.plugins", "maven-dependency-plugin", mavenDependencyPluginVersionFallback))
-						),
-						goal("unpack"),
-						configuration(
-								unpackConfiguration.toArray(new Element[unpackConfiguration.size()])
-								),
-								executionEnvironment(
-										project,
-										session,
-										pluginManager
-										)
-				);
-		// @formatter:on
+		getLog().info("Gathering dependencies");
+		executeMavenDependenciesPluginForGatheringBinaryDependencies(dependencies);
 
 		// copy into output directory
 		getLog().info("Merging collected dependencies");
@@ -332,6 +332,9 @@ public class BundleMojo extends ManifestPlugin {
 			initializeBndInstruction(BUNDLE_VERSION, getExpandedVersion());
 			initializeBndInstruction(BUNDLE_NAME, project.getName());
 			initializeBndInstruction(SNAPSHOT, qualifier);
+			if (!unpackDependencies) {
+				initializeBndInstruction(BUNDLE_CLASSPATH, ".,".concat(getDependenciesJarFilesFromLibFolderAsBundleClassPath()));
+			}
 			execute(project, buildDependencyGraph(project), bndInstructions, new Properties()); // BND also needs transitive dependencies
 		} catch (final Exception e) {
 			throw new MojoExecutionException("Error generating Bundle manifest: " + e.getMessage(), e);
@@ -347,7 +350,7 @@ public class BundleMojo extends ManifestPlugin {
 		// unpack sources
 		getLog().info("Gathering sources");
 		// @formatter:off
-		final List<Element> unpackConfigurationSource = getUnpackConfiguration(dependenciesSourcesDirectory, dependencies, CLASSIFIER_SOURCES);
+		final List<Element> unpackConfigurationSource = getDependenciesUnpackConfiguration(dependenciesSourcesDirectory, dependencies, CLASSIFIER_SOURCES);
 		try {
 			executeMojo(
 					plugin(
@@ -441,6 +444,52 @@ public class BundleMojo extends ManifestPlugin {
 		packAndSignBundle();
 		publishP2Metadata();
 		assembleP2Repository();
+	}
+
+	private void executeMavenDependenciesPluginForGatheringBinaryDependencies(final Set<Artifact> dependencies) throws MojoExecutionException {
+		if (unpackDependencies) {
+			// @formatter:off
+			final List<Element> unpackConfiguration = getDependenciesUnpackConfiguration(dependenciesDirectory, dependencies, null);
+			executeMojo(
+					plugin(
+							groupId("org.apache.maven.plugins"),
+							artifactId("maven-dependency-plugin"),
+							version(detectPluginVersion("org.apache.maven.plugins", "maven-dependency-plugin", mavenDependencyPluginVersionFallback))
+							),
+					goal("unpack"),
+					configuration(
+							unpackConfiguration.toArray(new Element[unpackConfiguration.size()])
+							),
+					executionEnvironment(
+							project,
+							session,
+							pluginManager
+							)
+					);
+			// @formatter:on
+		} else {
+			// place jars into "lib" folder
+			final String outputDirectory = dependenciesDirectory.concat("/lib");
+			// @formatter:off
+			final List<Element> copyConfiguration = getDependenciesCopyConfiguration(outputDirectory, dependencies, null);
+			executeMojo(
+					plugin(
+							groupId("org.apache.maven.plugins"),
+							artifactId("maven-dependency-plugin"),
+							version(detectPluginVersion("org.apache.maven.plugins", "maven-dependency-plugin", mavenDependencyPluginVersionFallback))
+							),
+					goal("copy"),
+					configuration(
+							copyConfiguration.toArray(new Element[copyConfiguration.size()])
+							),
+					executionEnvironment(
+							project,
+							session,
+							pluginManager
+							)
+					);
+			// @formatter:on
+		}
 	}
 
 	private File generateFinalBundleManifest() throws MojoExecutionException {
@@ -552,14 +601,79 @@ public class BundleMojo extends ManifestPlugin {
 		}
 	}
 
+	private Element getArtifactItems(final Set<Artifact> dependencies, final String classifier) {
+		final List<Element> artifactItems = new ArrayList<Element>();
+		for (final Artifact artifact : dependencies) {
+			// @formatter:off
+			if(classifier != null) {
+				artifactItems.add(
+						element("artifactItem",
+								element("groupId", artifact.getGroupId()),
+								element("artifactId", artifact.getArtifactId()),
+								element("version", artifact.getVersion()),
+								element("classifier", classifier)
+								)
+						);
+			}
+			else {
+				artifactItems.add(
+						element("artifactItem",
+								element("groupId", artifact.getGroupId()),
+								element("artifactId", artifact.getArtifactId()),
+								element("version", artifact.getVersion()),
+								element("classifier", artifact.getClassifier())
+								)
+						);
+				// @formatter:on
+			}
+		}
+		return element("artifactItems", artifactItems.toArray(new Element[artifactItems.size()]));
+	}
+
 	private String getBundleVersion() {
 		return BundleUtil.getBundleVersion(project.getVersion());
+	}
+
+	private List<Element> getDependenciesCopyConfiguration(final String outputDirectory, final Set<Artifact> dependencies, final String classifier) throws MojoExecutionException {
+		final List<Element> copyConfiguration = new ArrayList<Element>();
+		copyConfiguration.add(element(name("outputDirectory"), outputDirectory));
+		copyConfiguration.add(getArtifactItems(dependencies, classifier));
+		return copyConfiguration;
+	}
+
+	private String getDependenciesJarFilesFromLibFolderAsBundleClassPath() throws MojoExecutionException {
+		final File libDirectory = Paths.get(dependenciesDirectory).resolve("lib").toFile();
+		if (!libDirectory.isDirectory())
+			throw new MojoExecutionException(format("Folder '%s' does not exists. It seems no dependencies were downloaded at all.", libDirectory));
+
+		final String[] jars = libDirectory.list((f, s) -> {
+			return s.toLowerCase().endsWith(".jar");
+		});
+		if ((jars == null) || (jars.length == 0))
+			throw new MojoExecutionException(format("No jar files found in folder '%s'. Please verify that dependencies are specified and downloaded successfully.", libDirectory));
+
+		return Stream.of(jars).sorted().map((jar) -> {
+			return "lib/".concat(jar);
+		}).collect(Collectors.joining(","));
 	}
 
 	private Set<Artifact> getDependenciesToInclude() {
 		final DependencyUtil dependencyUtil = new DependencyUtil(getLog(), session);
 		dependencyUtil.initializeExcludeDependencies(excludeDependencies);
 		return dependencyUtil.getDependenciesToInclude(project);
+	}
+
+	private List<Element> getDependenciesUnpackConfiguration(final String outputDirectory, final Set<Artifact> dependencies, final String classifier) throws MojoExecutionException {
+		final List<Element> unpackConfiguration = new ArrayList<Element>();
+		unpackConfiguration.add(element(name("outputDirectory"), outputDirectory));
+		if (null != excludes) {
+			unpackConfiguration.add(element(name("excludes"), excludes));
+		}
+		if (null != includes) {
+			unpackConfiguration.add(element(name("includes"), includes));
+		}
+		unpackConfiguration.add(getArtifactItems(dependencies, classifier));
+		return unpackConfiguration;
 	}
 
 	private String getExpandedVersion() {
@@ -598,44 +712,6 @@ public class BundleMojo extends ManifestPlugin {
 
 	private String getSourceBundleSymbolicName() {
 		return BundleUtil.getSourceBundleSymbolicName(project);
-	}
-
-	private List<Element> getUnpackConfiguration(final String outputDirectory, final Set<Artifact> dependencies, final String classifier) throws MojoExecutionException {
-		final List<Element> unpackConfiguration = new ArrayList<Element>();
-		unpackConfiguration.add(element(name("outputDirectory"), outputDirectory));
-		if (null != excludes) {
-			unpackConfiguration.add(element(name("excludes"), excludes));
-		}
-		if (null != includes) {
-			unpackConfiguration.add(element(name("includes"), includes));
-		}
-		final List<Element> artifactItems = new ArrayList<Element>();
-		for (final Artifact artifact : dependencies) {
-			// @formatter:off
-			if(classifier != null) {
-				artifactItems.add(
-						element("artifactItem",
-								element("groupId", artifact.getGroupId()),
-								element("artifactId", artifact.getArtifactId()),
-								element("version", artifact.getVersion()),
-								element("classifier", classifier)
-								)
-						);
-			}
-			else {
-				artifactItems.add(
-						element("artifactItem",
-								element("groupId", artifact.getGroupId()),
-								element("artifactId", artifact.getArtifactId()),
-								element("version", artifact.getVersion()),
-								element("classifier", artifact.getClassifier())
-								)
-						);
-				// @formatter:on
-			}
-		}
-		unpackConfiguration.add(element("artifactItems", artifactItems.toArray(new Element[artifactItems.size()])));
-		return unpackConfiguration;
 	}
 
 	private void initializeBndInstruction(final String key, final String value) {
