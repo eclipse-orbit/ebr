@@ -143,6 +143,18 @@ public class BundleMojo extends ManifestPlugin {
 	@Parameter(property = "unpackDependencies", defaultValue = "true")
 	protected boolean unpackDependencies;
 
+	/**
+	 * Indicates if dependencies that are not unpacked should have their version
+	 * stripped from their file name.
+	 * <p>
+	 * If set to true, dependencies that are to be included as unpacked
+	 * artifacts within the bundle (unpackDependencies set to true) will not
+	 * include their version in the file name.
+	 * </p>
+	 */
+	@Parameter(property = "stripVersion", defaultValue = "false")
+	protected boolean stripVersion;
+
 	@Component
 	private BuildPluginManager pluginManager;
 
@@ -637,6 +649,7 @@ public class BundleMojo extends ManifestPlugin {
 	private List<Element> getDependenciesCopyConfiguration(final String outputDirectory, final Set<Artifact> dependencies, final String classifier) throws MojoExecutionException {
 		final List<Element> copyConfiguration = new ArrayList<Element>();
 		copyConfiguration.add(element(name("outputDirectory"), outputDirectory));
+		copyConfiguration.add(element(name("stripVersion"), String.valueOf(stripVersion)));
 		copyConfiguration.add(getArtifactItems(dependencies, classifier));
 		return copyConfiguration;
 	}
