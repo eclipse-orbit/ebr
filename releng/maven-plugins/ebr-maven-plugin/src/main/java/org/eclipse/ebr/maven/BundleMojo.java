@@ -132,8 +132,9 @@ public class BundleMojo extends ManifestPlugin {
 	/**
 	 * Indicates if dependencies should be unpacked (recommended).
 	 * <p>
-	 * If set to false, dependencies will be included as jar files within the
-	 * bundle and the <code>Bundle-ClassPath</code> header will be populated.
+	 * If set to <code>false</code>, dependencies will be included as jar files
+	 * within the bundle and the <code>Bundle-ClassPath</code> header will be
+	 * populated.
 	 * </p>
 	 * <p>
 	 * Note that excludes and includes will be ignored when unpacking
@@ -148,12 +149,19 @@ public class BundleMojo extends ManifestPlugin {
 	 * stripped from their file name.
 	 * <p>
 	 * If set to true, dependencies that are to be included as unpacked
-	 * artifacts within the bundle (unpackDependencies set to true) will not
-	 * include their version in the file name.
+	 * artifacts within the bundle (<code>unpackDependencies</code> set to
+	 * <code>true</code>) will not include their version in the file name.
 	 * </p>
 	 */
 	@Parameter(property = "stripVersion", defaultValue = "false")
 	protected boolean stripVersion;
+
+	/**
+	 * Prevents inclusion of '.' into the code>Bundle-ClassPath</code> header
+	 * when <code>unpackDependencies</code> is set to <code>false</code>.
+	 */
+	@Parameter(property = "excludeDotFolderFromBundleClasspath", defaultValue = "false")
+	protected boolean excludeDotFolderFromBundleClasspath;
 
 	@Component
 	private BuildPluginManager pluginManager;
@@ -345,7 +353,7 @@ public class BundleMojo extends ManifestPlugin {
 			initializeBndInstruction(BUNDLE_NAME, project.getName());
 			initializeBndInstruction(SNAPSHOT, qualifier);
 			if (!unpackDependencies) {
-				initializeBndInstruction(BUNDLE_CLASSPATH, ".,".concat(getDependenciesJarFilesFromLibFolderAsBundleClassPath()));
+				initializeBndInstruction(BUNDLE_CLASSPATH, getBundleClassPathHeaderPopulatedWithDependencyJars());
 			}
 			execute(project, buildDependencyGraph(project), bndInstructions, new Properties()); // BND also needs transitive dependencies
 		} catch (final Exception e) {
@@ -642,6 +650,13 @@ public class BundleMojo extends ManifestPlugin {
 		return element("artifactItems", artifactItems.toArray(new Element[artifactItems.size()]));
 	}
 
+	private String getBundleClassPathHeaderPopulatedWithDependencyJars() throws MojoExecutionException {
+		if (excludeDotFolderFromBundleClasspath)
+			return getDependenciesJarFilesFromLibFolderAsCommaSeparatedString();
+		else
+			return ".,".concat(getDependenciesJarFilesFromLibFolderAsCommaSeparatedString());
+	}
+
 	private String getBundleVersion() {
 		return BundleUtil.getBundleVersion(project.getVersion());
 	}
@@ -654,7 +669,7 @@ public class BundleMojo extends ManifestPlugin {
 		return copyConfiguration;
 	}
 
-	private String getDependenciesJarFilesFromLibFolderAsBundleClassPath() throws MojoExecutionException {
+	private String getDependenciesJarFilesFromLibFolderAsCommaSeparatedString() throws MojoExecutionException {
 		final File libDirectory = Paths.get(dependenciesDirectory).resolve("lib").toFile();
 		if (!libDirectory.isDirectory())
 			throw new MojoExecutionException(format("Folder '%s' does not exists. It seems no dependencies were downloaded at all.", libDirectory));

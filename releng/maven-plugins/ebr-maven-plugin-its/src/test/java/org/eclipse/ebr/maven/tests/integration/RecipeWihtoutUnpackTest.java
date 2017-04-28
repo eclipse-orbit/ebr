@@ -38,9 +38,8 @@ public class RecipeWihtoutUnpackTest {
 		return projectDir;
 	}
 
-	@Test
-	public void test() throws Exception {
-		final File baseDir = getProjectDir("recipe-without-unpack");
+	private void packageProjectAndAssertBundleClasspathHeader(final String testProject, final String expectedBundleClasspathValue) throws Exception, IOException {
+		final File baseDir = getProjectDir(testProject);
 
 		final MavenExecutionResult result = verifier.forProject(baseDir).execute("package");
 
@@ -50,10 +49,19 @@ public class RecipeWihtoutUnpackTest {
 		assertFilesPresent(baseDir, "target/classes/lib/ant-launcher-1.10.1.jar");
 
 		// check Bundle-ClassPath
-		assertManifestHeaderValue(baseDir, "target/MANIFEST.MF", "Bundle-ClassPath", ".,lib/ant-1.10.1.jar,lib/ant-launcher-1.10.1.jar");
+		assertManifestHeaderValue(baseDir, "target/MANIFEST.MF", "Bundle-ClassPath", expectedBundleClasspathValue);
 
 		// check jar
 		assertFilesPresentInJar(baseDir, "target/recipe-without-unpack-it-1.0.0-SNAPSHOT.jar", "lib/ant-1.10.1.jar", "lib/ant-launcher-1.10.1.jar");
 	}
 
+	@Test
+	public void test() throws Exception {
+		packageProjectAndAssertBundleClasspathHeader("recipe-without-unpack", ".,lib/ant-1.10.1.jar,lib/ant-launcher-1.10.1.jar");
+	}
+
+	@Test
+	public void testWithoutDot() throws Exception {
+		packageProjectAndAssertBundleClasspathHeader("recipe-without-unpack2", "lib/ant-1.10.1.jar,lib/ant-launcher-1.10.1.jar");
+	}
 }
