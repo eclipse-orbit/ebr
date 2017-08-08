@@ -33,7 +33,7 @@ public class KnownLicenses {
 
 	private KnownLicenses() {
 		addLicense("Apache Software License 1.1", "http://www.apache.org/licenses/LICENSE-1.1").setAlternateNames("Apache License, Version 1.0");
-		addLicense("Custom license based on Apache Software License 1.1");
+		addLicense("Custom license based on Apache Software License 1.1", "(see about_files)");
 		addLicense("Apache License, 2.0", "http://www.apache.org/licenses/LICENSE-2.0.txt", "http://www.apache.org/licenses/LICENSE-2.0", "http://www.apache.org/licenses/LICENSE-2.0.html", "http://opensource.org/licenses/Apache-2.0");
 
 		addLicense("New BSD license", "http://opensource.org/licenses/BSD-3-Clause").setAlternateNames("The BSD 3-Clause License", "BSD New", "New BSD");
