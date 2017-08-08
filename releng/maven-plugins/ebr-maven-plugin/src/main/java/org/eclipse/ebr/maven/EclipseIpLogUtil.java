@@ -699,15 +699,16 @@ public class EclipseIpLogUtil extends LicenseProcessingUtility {
 
 			for (final Entry<Artifact, Model> dependency : dependencies.entrySet()) {
 				final Artifact artifact = dependency.getKey();
-				final String existingCq = existingCqs.get(artifact.getFile().getName());
+				final String artifactFileName = artifact.getFile().getName();
+				final String existingCq = existingCqs.get(artifactFileName);
 				if ((null == existingCq) || existingCq.trim().isEmpty()) {
 					if (httpclient != null) {
 						getLog().info(format("Creating CQ for artifact %s:%s:%s.", artifact.getGroupId(), artifact.getArtifactId(), artifact.getVersion()));
 						final String cqId = createCq(httpclient, artifact, dependency.getValue(), existingLicenses);
-						existingCqs.put(artifact.getFile().getName(), cqId);
-						getLog().info(format("Created CQ %s for artifact %s:%s:%s.", cqId, artifact.getGroupId(), artifact.getArtifactId(), artifact.getVersion()));
+						existingCqs.put(artifactFileName, cqId);
+						getLog().info(format("Created CQ %s for %s (artifact %s:%s:%s).", cqId, artifactFileName, artifact.getGroupId(), artifact.getArtifactId(), artifact.getVersion()));
 					} else {
-						getLog().warn(format("Missing CQ for artifact %s:%s:%s. Please visit portal.eclipse.org and file a CQ with IPzilla!", artifact.getGroupId(), artifact.getArtifactId(), artifact.getVersion()));
+						getLog().warn(format("Missing CQ for %s (artifact %s:%s:%s). Please visit portal.eclipse.org and file a CQ with IPzilla!", artifactFileName, artifact.getGroupId(), artifact.getArtifactId(), artifact.getVersion()));
 					}
 				}
 			}
