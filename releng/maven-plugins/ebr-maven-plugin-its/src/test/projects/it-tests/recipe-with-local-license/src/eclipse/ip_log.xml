@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ip_log version="1.0">
+  <project id="recipe-with-local-license" version="2.0.1" status="done">
+    <info>
+      <name>IT Test Dummy</name>
+      <repository>...</repository>
+      <location>...</location>
+    </info>
+    <contact>
+      <name>EBR Committers</name>
+      <email>ebr-dev@eclipse.org</email>
+      <company>Multiple</company>
+    </contact>
+    <legal>
+      <ipzilla bug_id="123"/>
+      <license>
+        <name>Custom license based on Apache Software License 1.1</name>
+        <reference>n/a</reference>
+      </license>
+      <package>dom4j-2.0.1.jar</package>
+    </legal>
+  </project>
+</ip_log>
