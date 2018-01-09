@@ -236,6 +236,8 @@
     <module>google</module>
     <module>glassfish</module>
     <module>javax</module>
+    <module>jogl</module>
+    <module>jzy3d</module>
     <module>logging</module>
     <module>spring</module>
     <module>square</module>

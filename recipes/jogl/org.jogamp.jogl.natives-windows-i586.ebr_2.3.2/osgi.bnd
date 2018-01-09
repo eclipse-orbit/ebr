@@ -1,0 +1,22 @@
+package-version=${version;===;${Bundle-Version}}
+
+Export-Package: \
+ !about.html,!about_files, \
+ *.internal.*;x-internal:=true;version="${package-version}", \
+ *.implementation.*;x-internal:=true;version="${package-version}", \
+ *.impl.*;x-internal:=true;version="${package-version}", \
+ *;version="${package-version}"
+
+Import-Package: \
+ *
+
+Fragment-Host: org.jogamp.jogl.ebr
+
+Bundle-NativeCode: natives/windows-i586/jogl_mobile.dll; \
+ natives/windows-i586/jogl_desktop.dll; \
+ natives/windows-i586/nativewindow_win32.dll; \
+ natives/windows-i586/newt.dll; \
+ natives/windows-i586/nativewindow_awt.dll; \
+ natives/windows-i586/gluegen-rt.dll; \
+ osname=win32; processor=x86, \
+ *
