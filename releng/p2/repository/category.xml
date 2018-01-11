@@ -39,6 +39,18 @@
 		<query><expression type="match">id ~= /org.glassfish.*/</expression></query>
 	</iu>
 
+	<category-def name="jogamp" label="Jogamp"/>
+	<iu>
+		<category name="jogamp"/>
+		<query><expression type="match">id ~= /org.jogamp.*/</expression></query>
+	</iu>
+
+	<category-def name="jzy3d" label="Jzy3d"/>
+	<iu>
+		<category name="jzy3d"/>
+		<query><expression type="match">id ~= /org.jzy3d.*/</expression></query>
+	</iu>
+
 	<category-def name="logging" label="Logging"/>
 	<iu>
 		<category name="logging"/>
