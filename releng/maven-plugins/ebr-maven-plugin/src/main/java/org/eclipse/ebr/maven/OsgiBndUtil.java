@@ -70,7 +70,7 @@ public class OsgiBndUtil extends BaseUtility {
 		declarations.append("package-version=${version;===;${Bundle-Version}}");
 		for (final Dependency dependency : dependencies) {
 			declarations.appendNewLine();
-			declarations.append(format("%s=${version;===;%s}", getVersionVariableName(dependency), dependency.getVersion()));
+			declarations.append(format("%s=${range;[===,+);%s}", getVersionVariableName(dependency), dependency.getVersion()));
 		}
 		return declarations.toString();
 	}
