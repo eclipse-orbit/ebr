@@ -49,6 +49,7 @@ public class KnownLicenses {
 		addLicense("Mozilla Public License 1.1 (MPL)", "https://www.mozilla.org/MPL/1.1/");
 		addLicense("Public Domain", "https://creativecommons.org/publicdomain/zero/1.0/");
 		addLicense("SUN Industry Standards Source License 1.2", "http://gridscheduler.sourceforge.net/Gridengine_SISSL_license.html").setAlternateNames("SISSL-1.2");
+		addLicense("Java Cup License (MIT Style)", "http://www2.cs.tum.edu/projekte/cup/licence.php");
 	}
 
 	private KnownLicense addLicense(final String name, final String... knownUrls) {
