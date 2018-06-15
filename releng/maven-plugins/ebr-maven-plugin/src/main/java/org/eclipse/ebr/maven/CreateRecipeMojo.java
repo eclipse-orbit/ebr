@@ -114,6 +114,9 @@ public class CreateRecipeMojo extends AbstractMojo {
 	@Parameter(defaultValue = ".", property = "baseDir")
 	private File baseDir;
 
+	@Parameter(property = "recipeDirectoryName")
+	private String recipeDirectoryName;
+
 	@Parameter(defaultValue = "false", property = "force")
 	private boolean force;
 
@@ -248,7 +251,12 @@ public class CreateRecipeMojo extends AbstractMojo {
 	}
 
 	private File getProjectDir(final Model recipePom) throws MojoExecutionException {
-		final File projectDir = new File(baseDir, recipePom.getArtifactId() + "_" + StringUtils.removeEnd(recipePom.getVersion(), SNAPSHOT_SUFFIX));
+		final File projectDir;
+		if (recipeDirectoryName != null) {
+			projectDir = new File(baseDir, recipeDirectoryName);
+		} else {
+			projectDir = new File(baseDir, recipePom.getArtifactId() + "_" + StringUtils.removeEnd(recipePom.getVersion(), SNAPSHOT_SUFFIX));
+		}
 		getLog().debug("Using project directory: " + projectDir);
 		try {
 			FileUtils.forceMkdir(projectDir);
