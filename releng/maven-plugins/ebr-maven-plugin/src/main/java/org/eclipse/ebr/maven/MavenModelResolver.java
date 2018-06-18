@@ -12,6 +12,7 @@ import org.apache.maven.artifact.InvalidRepositoryException;
 import org.apache.maven.artifact.repository.ArtifactRepository;
 import org.apache.maven.artifact.resolver.ArtifactResolutionRequest;
 import org.apache.maven.artifact.resolver.ArtifactResolutionResult;
+import org.apache.maven.model.Dependency;
 import org.apache.maven.model.Parent;
 import org.apache.maven.model.Repository;
 import org.apache.maven.model.building.FileModelSource;
@@ -93,6 +94,11 @@ public class MavenModelResolver implements ModelResolver {
 		if (result.getArtifacts().size() > 1)
 			throw new UnresolvableModelException(format("More than one POM found for artifact %s:%s:%s. This is unexpected. Please re-try with a more specific version or report this error.", groupId, artifactId, version), groupId, artifactId, version);
 		return result.getArtifacts().iterator().next();
+	}
+
+	@Override
+	public ModelSource resolveModel(final Dependency dependency) throws UnresolvableModelException {
+		return resolveModel(dependency.getGroupId(), dependency.getArtifactId(), dependency.getVersion());
 	}
 
 	@Override

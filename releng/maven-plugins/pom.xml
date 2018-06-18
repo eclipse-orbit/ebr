@@ -57,12 +57,12 @@
 
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-    <minimum-maven-version>3.3.9</minimum-maven-version>
-    <maven-plugin-plugin-version>3.5</maven-plugin-plugin-version>
-    <takari-maven-plugin-testing-version>2.9.1</takari-maven-plugin-testing-version>
+    <minimum-maven-version>3.5.3</minimum-maven-version>
+    <maven-plugin-plugin-version>3.5.2</maven-plugin-plugin-version>
+    <takari-maven-plugin-testing-version>2.9.2</takari-maven-plugin-testing-version>
     <maven-compiler-plugin-version>3.2</maven-compiler-plugin-version>
-    <tycho-version>0.26.0</tycho-version>
-    <apache-httpclient-version>4.5.2</apache-httpclient-version>
+    <tycho-version>1.2.0</tycho-version>
+    <apache-httpclient-version>4.5.5</apache-httpclient-version>
   </properties>
 
   <prerequisites>
@@ -219,17 +219,17 @@
       <dependency>
         <groupId>com.google.guava</groupId>
         <artifactId>guava</artifactId>
-        <version>21.0</version>
+        <version>25.1-jre</version>
       </dependency>
       <dependency>
         <groupId>org.apache.commons</groupId>
         <artifactId>commons-lang3</artifactId>
-        <version>3.5</version>
+        <version>3.7</version>
       </dependency>
       <dependency>
         <groupId>commons-io</groupId>
         <artifactId>commons-io</artifactId>
-        <version>2.5</version>
+        <version>2.6</version>
       </dependency>
       <dependency>
         <artifactId>ebr-maven-shared</artifactId>
