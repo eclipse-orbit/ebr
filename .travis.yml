@@ -14,7 +14,7 @@ before_install:
 - echo "MAVEN_OPTS='-Xmx1g -Dorg.slf4j.simpleLogger.showDateTime=true -Dorg.slf4j.simpleLogger.dateTimeFormat=HH:mm:ss:SSS'" > ~/.mavenrc
 
 install:
-- mvn -f releng/maven-plugins/pom.xml install
+- mvn -X -f releng/maven-plugins/pom.xml install
 - mvn -f recipes/pom.xml install
 
 script:
