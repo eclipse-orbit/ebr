@@ -238,19 +238,19 @@ public class BundleMojo extends ManifestPlugin {
 	@Parameter(defaultValue = "1.0.0-SNAPSHOT", property = "ebr-tycho-extras-plugin.version", required = true)
 	protected String ebrTychoExtrasPluginVersionFallback;
 
-	@Parameter(defaultValue = "0.26.0", property = "tycho-plugin.version", required = true)
+	@Parameter(defaultValue = "1.2.0", property = "tycho-plugin.version", required = true)
 	protected String tychoPluginVersionFallback;
 
-	@Parameter(defaultValue = "0.26.0", property = "tycho-extras-plugin.version", required = true)
+	@Parameter(defaultValue = "1.2.0", property = "tycho-extras-plugin.version", required = true)
 	protected String tychoExtrasPluginVersionFallback;
 
-	@Parameter(defaultValue = "2.7", property = "maven-resource-plugin.version", required = true)
+	@Parameter(defaultValue = "3.1.0", property = "maven-resource-plugin.version", required = true)
 	protected String mavenResourcesPluginVersionFallback;
 
-	@Parameter(defaultValue = "2.10", property = "maven-dependency-plugin.version", required = true)
+	@Parameter(defaultValue = "3.1.1", property = "maven-dependency-plugin.version", required = true)
 	protected String mavenDependencyPluginVersionFallback;
 
-	@Parameter(defaultValue = "1.1.3", property = "cbi-plugin.version", required = true)
+	@Parameter(defaultValue = "1.1.5", property = "cbi-plugin.version", required = true)
 	protected String cbiPluginVersionFallback;
 
 	private File assembleJar(final String jarName, final File manifest, final File directory, final MavenArchiveConfiguration archiveConfiguration) throws MojoExecutionException {

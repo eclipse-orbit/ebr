@@ -11,7 +11,7 @@
   <description>Maven parent for EBR recipes.</description>
 
   <prerequisites>
-    <maven>3.2.3</maven>
+    <maven>3.5.3</maven>
   </prerequisites>
 
   <scm>
@@ -46,12 +46,12 @@
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 
     <!-- versions used for plug-ins below -->
-    <tycho-version>0.26.0</tycho-version>
+    <tycho-version>1.2.0</tycho-version>
     <ebr-version>1.0.0-SNAPSHOT</ebr-version>
 
     <!-- versions for plug-ins used by the EBR plug-in -->
-    <maven-dependency-plugin-version>2.10</maven-dependency-plugin-version>
-    <maven-resource-plugin-version>2.7</maven-resource-plugin-version>
+    <maven-dependency-plugin-version>3.1.1</maven-dependency-plugin-version>
+    <maven-resource-plugin-version>3.1.0</maven-resource-plugin-version>
 
     <!-- property for generating Eclipse source reference bundle headers -->
     <tycho.scmUrl>scm:git:https://git.eclipse.org/r/p/ebr/org.eclipse.ebr.recipes.git</tycho.scmUrl>

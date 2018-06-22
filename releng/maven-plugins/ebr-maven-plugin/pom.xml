@@ -1,5 +1,8 @@
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+<project
+  xmlns="http://maven.apache.org/POM/4.0.0"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd"
+>
   <modelVersion>4.0.0</modelVersion>
 
   <artifactId>ebr-maven-plugin</artifactId>
@@ -51,6 +54,12 @@
       <artifactId>mojo-executor</artifactId>
       <version>2.3.0</version>
       <type>maven-plugin</type>
+    </dependency>
+    <dependency>
+      <!-- force newer version because of: https://github.com/eclipse/eclipse-collections/issues/535 -->
+      <groupId>org.codehaus.plexus</groupId>
+      <artifactId>plexus-archiver</artifactId>
+      <version>3.5</version>
     </dependency>
 
     <!-- regular dependencies -->

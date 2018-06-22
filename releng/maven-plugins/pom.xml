@@ -1,6 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+<project
+  xmlns="http://maven.apache.org/POM/4.0.0"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd"
+>
   <modelVersion>4.0.0</modelVersion>
 
   <groupId>org.eclipse.ebr</groupId>
@@ -60,7 +63,6 @@
     <minimum-maven-version>3.5.3</minimum-maven-version>
     <maven-plugin-plugin-version>3.5.2</maven-plugin-plugin-version>
     <takari-maven-plugin-testing-version>2.9.2</takari-maven-plugin-testing-version>
-    <maven-compiler-plugin-version>3.2</maven-compiler-plugin-version>
     <tycho-version>1.2.0</tycho-version>
     <apache-httpclient-version>4.5.5</apache-httpclient-version>
   </properties>
@@ -87,7 +89,6 @@
     <plugins>
       <plugin>
         <artifactId>maven-compiler-plugin</artifactId>
-        <version>${maven-compiler-plugin-version}</version>
         <configuration>
           <source>1.8</source>
           <target>1.8</target>
@@ -106,11 +107,9 @@
         </configuration>
       </plugin>
       <plugin>
-        <!-- This maven-enforcer-plugin configuration to actually break the
-          build if run with older maven. prerequisites section is kept for now as even
-          if it doesn't break the build, it is used by other plugins like versions-maven-plugin
-          which check and warn for using plugins with older than they require Maven
-          version. -->
+        <!-- This maven-enforcer-plugin configuration to actually break the build if run with older maven. prerequisites section is kept for
+          now as even if it doesn't break the build, it is used by other plugins like versions-maven-plugin which check and warn for using plugins with
+          older than they require Maven version. -->
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-enforcer-plugin</artifactId>
         <executions>
@@ -130,9 +129,8 @@
         </executions>
       </plugin>
       <plugin>
-        <groupId>org.codehaus.mojo</groupId>
-        <artifactId>findbugs-maven-plugin</artifactId>
-        <version>3.0.2</version>
+        <groupId>com.github.spotbugs</groupId>
+        <artifactId>spotbugs-maven-plugin</artifactId>
         <configuration>
           <threshold>High</threshold>
         </configuration>
@@ -160,7 +158,7 @@
         <plugin>
           <groupId>org.apache.maven.plugins</groupId>
           <artifactId>maven-plugin-plugin</artifactId>
-          <version>3.4</version>
+          <version>3.5.2</version>
         </plugin>
         <plugin>
           <groupId>org.apache.maven.plugins</groupId>
@@ -170,7 +168,22 @@
         <plugin>
           <groupId>io.takari.maven.plugins</groupId>
           <artifactId>takari-lifecycle-plugin</artifactId>
-          <version>1.11.11</version>
+          <version>1.13.5</version>
+        </plugin>
+        <plugin>
+          <groupId>org.apache.maven.plugins</groupId>
+          <artifactId>maven-compiler-plugin</artifactId>
+          <version>3.5</version>
+        </plugin>
+        <plugin>
+          <groupId>org.apache.maven.plugins</groupId>
+          <artifactId>maven-surefire-plugin</artifactId>
+          <version>2.22.0</version>
+        </plugin>
+        <plugin>
+          <groupId>com.github.spotbugs</groupId>
+          <artifactId>spotbugs-maven-plugin</artifactId>
+          <version>3.1.5</version>
         </plugin>
       </plugins>
     </pluginManagement>
@@ -225,6 +238,11 @@
         <groupId>org.apache.commons</groupId>
         <artifactId>commons-lang3</artifactId>
         <version>3.7</version>
+      </dependency>
+      <dependency>
+        <groupId>org.apache.commons</groupId>
+        <artifactId>commons-text</artifactId>
+        <version>1.4</version>
       </dependency>
       <dependency>
         <groupId>commons-io</groupId>

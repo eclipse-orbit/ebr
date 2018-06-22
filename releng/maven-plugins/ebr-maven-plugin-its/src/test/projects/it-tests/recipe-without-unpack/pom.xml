@@ -11,16 +11,9 @@
   <description>An IT verifying a recipe that does not unpack its dependencies.</description>
 
   <properties>
-    <tycho-version>0.27.0-SNAPSHOT</tycho-version>
+    <tycho-version>1.2.0</tycho-version>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
   </properties>
-
-  <pluginRepositories>
-    <pluginRepository>
-      <id>tycho-snapshots</id>
-      <url>https://repo.eclipse.org/content/repositories/tycho-snapshots/</url>
-    </pluginRepository>
-  </pluginRepositories>
 
   <dependencies>
     <dependency>
