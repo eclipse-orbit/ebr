@@ -1,6 +1,7 @@
 package org.eclipse.ebr.maven.tests.integration;
 
 import static io.takari.maven.testing.TestResources.assertFilesPresent;
+import static org.eclipse.ebr.maven.tests.integration.RecipeAsserts.assertNoErrorsInMavenLog;
 import static org.junit.Assert.assertTrue;
 
 import java.io.File;
@@ -45,7 +46,9 @@ public class CreateRecipeTest {
 
 		final MavenExecutionResult result = verifier.forProject(baseDir).execute("package");
 
-		result.assertErrorFreeLog();
+		// check for no errors in log
+		assertNoErrorsInMavenLog(baseDir, result);
+
 		assertFilesPresent(baseDir, "ebr.it.test.jsoup_1.10.2/pom.xml");
 		assertFilesPresent(baseDir, "ebr.it.test.jsoup_1.10.2/osgi.bnd");
 	}

@@ -2,6 +2,7 @@ package org.eclipse.ebr.maven.tests.integration;
 
 import static org.eclipse.ebr.maven.tests.integration.RecipeAsserts.assertFilesPresentInJar;
 import static org.eclipse.ebr.maven.tests.integration.RecipeAsserts.assertManifestHeaderValue;
+import static org.eclipse.ebr.maven.tests.integration.RecipeAsserts.assertNoErrorsInMavenLog;
 import static org.junit.Assert.assertTrue;
 
 import java.io.File;
@@ -43,7 +44,8 @@ public class RecipeWithLocalLicenseTest {
 
 		final MavenExecutionResult result = verifier.forProject(baseDir).execute("package");
 
-		result.assertErrorFreeLog();
+		// check for no errors in log
+		assertNoErrorsInMavenLog(baseDir, result);
 
 		// check Bundle-ClassPath
 		assertManifestHeaderValue(baseDir, "target/MANIFEST.MF", "Bundle-ClassPath", null);

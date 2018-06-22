@@ -3,6 +3,7 @@ package org.eclipse.ebr.maven.tests.integration;
 import static io.takari.maven.testing.TestResources.assertFilesPresent;
 import static org.eclipse.ebr.maven.tests.integration.RecipeAsserts.assertFilesPresentInJar;
 import static org.eclipse.ebr.maven.tests.integration.RecipeAsserts.assertManifestHeaderValue;
+import static org.eclipse.ebr.maven.tests.integration.RecipeAsserts.assertNoErrorsInMavenLog;
 import static org.junit.Assert.assertTrue;
 
 import java.io.File;
@@ -43,7 +44,8 @@ public class RecipeWihtoutUnpackTest {
 
 		final MavenExecutionResult result = verifier.forProject(baseDir).execute("package");
 
-		result.assertErrorFreeLog();
+		// check for no errors in log
+		assertNoErrorsInMavenLog(baseDir, result);
 
 		assertFilesPresent(baseDir, "target/classes/lib/ant-1.10.1.jar");
 		assertFilesPresent(baseDir, "target/classes/lib/ant-launcher-1.10.1.jar");
