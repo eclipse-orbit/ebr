@@ -9,18 +9,13 @@
     <version>1.0.0-SNAPSHOT</version>
   </parent>
 
-  <artifactId>apache-parent</artifactId>
-  <version>1.0.0-SNAPSHOT</version>
+  <artifactId>elasticsearch-parent</artifactId>
   <packaging>pom</packaging>
 
   <name>Apache</name>
 
   <modules>
-    <module>aries</module>
-    <module>commons</module>
-    <module>httpcomponents</module>
-    <module>lucene-solr</module>
-    <module>zookeeper</module>
+    <module>org.elasticsearch.client.rest.ebr_6.3.1</module>
   </modules>
 
 </project>

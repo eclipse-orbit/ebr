@@ -1,0 +1,17 @@
+package-version=${version;===;${Bundle-Version}}
+httpclient-version=${range;[===,+);4.5.2}
+httpcore-version=${range;[===,+);4.4.5}
+httpasyncclient-version=${range;[===,+);4.1.2}
+httpcore-nio-version=${range;[===,+);4.4.5}
+commons-codec-version=${range;[===,+);1.10}
+commons-logging-version=${range;[===,+);1.1.3}
+
+Export-Package: \
+ !about.html,!about_files, \
+ *.internal.*;x-internal:=true;version="${package-version}", \
+ *.implementation.*;x-internal:=true;version="${package-version}", \
+ *.impl.*;x-internal:=true;version="${package-version}", \
+ *;version="${package-version}"
+
+Import-Package: \
+ *

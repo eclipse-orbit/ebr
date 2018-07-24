@@ -1,0 +1,15 @@
+package-version=${version;===;${Bundle-Version}}
+httpcore-version=${range;[===,+);4.4.10}
+commons-logging-version=${range;[===,+);1.2}
+commons-codec-version=${range;[===,+);1.10}
+
+Export-Package: \
+ !about.html,!about_files, \
+ !mozilla, \
+ *.internal.*;x-internal:=true;version="${package-version}", \
+ *.implementation.*;x-internal:=true;version="${package-version}", \
+ *.impl.*;x-internal:=true;version="${package-version}", \
+ *;version="${package-version}"
+
+Import-Package: \
+ *
