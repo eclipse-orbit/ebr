@@ -16,8 +16,10 @@
   <name>Apache Commons</name>
 
   <modules>
+    <module>org.apache.commons.codec.ebr_1.11.0</module>
     <module>org.apache.commons.io.ebr_2.5.0</module>
     <module>org.apache.commons.lang.ebr_2.6.0</module>
+    <module>org.apache.commons.lang3.ebr_3.7.0</module>
   </modules>
 
 </project>

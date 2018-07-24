@@ -5,22 +5,20 @@
 
   <parent>
     <groupId>MY_EBR_BUNDLES_GROUP</groupId>
-    <artifactId>ebr-bundles-parent</artifactId>
+    <artifactId>apache-parent</artifactId>
     <version>1.0.0-SNAPSHOT</version>
   </parent>
 
-  <artifactId>apache-parent</artifactId>
-  <version>1.0.0-SNAPSHOT</version>
+  <artifactId>apache-httpcomponents</artifactId>
   <packaging>pom</packaging>
 
-  <name>Apache</name>
+  <name>Apache HTTP Components</name>
 
   <modules>
-    <module>aries</module>
-    <module>commons</module>
-    <module>httpcomponents</module>
-    <module>lucene-solr</module>
-    <module>zookeeper</module>
+    <module>org.apache.httpcomponents.httpasyncclient.ebr_4.1.4</module>
+    <module>org.apache.httpcomponents.httpclient.ebr_4.5.6</module>
+    <module>org.apache.httpcomponents.httpcore.ebr_4.4.10</module>
+    <module>org.apache.httpcomponents.httpcore.nio.ebr_4.4.10</module>
   </modules>
 
 </project>
