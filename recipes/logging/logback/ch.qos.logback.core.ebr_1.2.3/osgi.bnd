@@ -1,0 +1,22 @@
+package-version=${version;===;${Bundle-Version}}
+janino-version=${range;[===,+);3.0.6}
+jansi-version=${range;[===,+);1.9}
+mail-version=${range;[===,+);1.4}
+javax.servlet-api-version=${range;[===,+);3.1.0}
+
+Export-Package: \
+ !about.html,!about_files, \
+ *.internal.*;x-internal:=true;version="${package-version}", \
+ *.implementation.*;x-internal:=true;version="${package-version}", \
+ *.impl.*;x-internal:=true;version="${package-version}", \
+ *;version="${package-version}"
+
+# note, we intentionally don't use versions on javax.* allowing for greater deployment flexibility
+Import-Package: \
+ javax.ws.*;resolution:=optional, \
+ javax.servlet.*;resolution:=optional, \
+ javax.inject.*;resolution:=optional, \
+ javax.annotation.*;resolution:=optional, \
+ ch.qos.logback.*;version="${range;[===,=+);${package-version}}", \
+ *;resolution:=optional
+

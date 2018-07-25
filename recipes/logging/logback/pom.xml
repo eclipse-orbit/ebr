@@ -16,9 +16,9 @@
   <name>Logging :: Logback</name>
 
   <modules>
-    <module>ch.qos.logback.core.ebr_1.2.1</module>
-    <module>ch.qos.logback.classic.ebr_1.2.1</module>
-    <module>ch.qos.logback.slf4j.ebr_1.2.1</module>
+    <module>ch.qos.logback.core.ebr_1.2.3</module>
+    <module>ch.qos.logback.classic.ebr_1.2.3</module>
+    <module>ch.qos.logback.slf4j.ebr_1.2.3</module>
   </modules>
 
 </project>

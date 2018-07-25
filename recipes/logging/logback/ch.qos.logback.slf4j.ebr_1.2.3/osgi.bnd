@@ -1,13 +1,14 @@
 package-version=${version;===;${Bundle-Version}}
-slf4j-api-version=${version;===;1.7.22}
+slf4j-api-version=${range;[===,+);1.7.25}
 
 Export-Package: \
  org.slf4j.*;version="${slf4j-api-version}"
 
 Import-Package: \
  ch.qos.logback.*;version="${range;[===,=+);${package-version}}", \
- org.slf4j.spi.*;version="${range;[===,=+);${slf4j-api-version}}", \
- org.slf4j.*;version="${range;[==,+);${slf4j-api-version}}", \
+ org.slf4j.spi.*;version="${slf4j-api-version}", \
+ org.slf4j.*;version="${slf4j-api-version}", \
  *;resolution:=optional
 
+# attach as fragment to SLF4J API bundle
 Fragment-Host: org.slf4j.api.ebr;bundle-version="${range;[==,=+);${slf4j-api-version}}"

@@ -41,9 +41,9 @@
   <plugin id="org.slf4j.impl.nop.ebr"        version="1.7.25.qualifier"/>
   <plugin id="org.slf4j.impl.simple.ebr"     version="1.7.25.qualifier"/>
 
-  <plugin id="ch.qos.logback.core.ebr"       version="1.2.1.qualifier"/>
-  <plugin id="ch.qos.logback.classic.ebr"    version="1.2.1.qualifier"/>
-  <plugin id="ch.qos.logback.slf4j.ebr"      version="1.2.1.qualifier"/>
+  <plugin id="ch.qos.logback.core.ebr"       version="1.2.4.qualifier"/>
+  <plugin id="ch.qos.logback.classic.ebr"    version="1.2.4.qualifier"/>
+  <plugin id="ch.qos.logback.slf4j.ebr"      version="1.2.4.qualifier"/>
 
   <plugin id="org.apache.commons.codec.ebr"    version="1.11.0.qualifier"/>
   <plugin id="org.apache.commons.io.ebr"       version="2.5.0.qualifier"/>

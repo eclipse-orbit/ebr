@@ -8,14 +8,14 @@
     <version>1.0.0-SNAPSHOT</version>
   </parent>
   <artifactId>ch.qos.logback.classic.ebr</artifactId>
-  <version>1.2.1-SNAPSHOT</version>
+  <version>1.2.3-SNAPSHOT</version>
   <packaging>eclipse-bundle-recipe</packaging>
   <name>Logback Classic Module</name>
   <dependencies>
     <dependency>
       <groupId>ch.qos.logback</groupId>
       <artifactId>logback-classic</artifactId>
-      <version>1.2.1</version>
+      <version>1.2.3</version>
     </dependency>
   </dependencies>
 
@@ -23,5 +23,4 @@
     <!-- exclude the org.slf4j.impl package -->
     <recipe.excludes>org/slf4j/impl/*.*,META-INF/maven/**/*.*</recipe.excludes>
   </properties>
-
 </project>
