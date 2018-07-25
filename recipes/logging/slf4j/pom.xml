@@ -16,13 +16,13 @@
   <name>Logging :: SLF4J</name>
 
   <modules>
-    <module>org.slf4j.api.ebr_1.7.24</module>
-    <module>org.slf4j.impl.log4j12.ebr_1.7.24</module>
-    <module>org.slf4j.impl.nop.ebr_1.7.24</module>
-    <module>org.slf4j.impl.simple.ebr_1.7.24</module>
-    <module>org.slf4j.jcl.ebr_1.7.24</module>
-    <module>org.slf4j.jul.ebr_1.7.24</module>
-    <module>org.slf4j.log4j.ebr_1.7.24</module>
+    <module>org.slf4j.api.ebr_1.7.25</module>
+    <module>org.slf4j.impl.log4j12.ebr_1.7.25</module>
+    <module>org.slf4j.impl.nop.ebr_1.7.25</module>
+    <module>org.slf4j.impl.simple.ebr_1.7.25</module>
+    <module>org.slf4j.jcl.ebr_1.7.25</module>
+    <module>org.slf4j.jul.ebr_1.7.25</module>
+    <module>org.slf4j.log4j.ebr_1.7.25</module>
   </modules>
 
 </project>

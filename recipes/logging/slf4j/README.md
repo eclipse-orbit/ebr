@@ -16,23 +16,10 @@ bundle and delivering the implementation. It does not create a circular referenc
 between the actual logging implementation and the API bundle *if* the fragment is just
 a small separate module. Therefore, logging implementations might need to change too.
 
-Additional, the API bundle defines a `Require-Capability` constraint. Therefore,
-logging implementations have to define a `Provide-Capability` header in there OSGi
-manifest.
-
-org.slf4j.api:
-
-    Require-Capability: org.slf4j.impl; filter:="(version=1.7.5)"
-
-
-Any logging implementation:
-
-    Provide-Capability: org.slf4j.impl; org.slf4j.impl="logback"; version:Version="1.7.5"
-
-or
-
-    Provide-Capability: org.slf4j.impl; org.slf4j.impl="logback"; version:List<Version>="1.7.5,1.7.4,1.7.3"
-
+Note, previously the EBR SLF4J bundles also used Provide-Capability and Require-Capability
+headers. However, this seemed to be overly restrictive and was therefore dropped. The
+current recommended approach with fragments also supports the ServiceLoader approach
+that will be used with SLF4J version 1.8 onwards.
 
 Bundles
 -------
@@ -47,20 +34,14 @@ the implementation packages. However, this approach is not recommended
 because it will introduced binary (or even worse - source) cycles in a
 workspace which has both - the API and the implementation bundle.
 
-An `Require-Capability` header is used in order to specify a dependency
-on a SLF4J logger implementation. Note, the requirement  will try
-to align with the SLF4J API compatibility list as found in LoggerFactory.
-
-
 ### org.slf4j.impl.<impl-name>
 
 This defines a bundle for a SLF4J implementation library. Every
 implementation bundle will be a fragment of the API bundle
-(`Fragment-Host: org.slf4j.api`) _and_ provide a SLF4J logger implementation
-(`Provide-Capability: org.slf4j.impl`) header.
+(`Fragment-Host: org.slf4j.api`).
 
 Special care must be taken to the version dependency as SLF4J allows for
 breaking changes within the implementation between minor releases. As for
 the implementation they could also break within micro releases.
 
-
+We do not verify this with OSGi metadata but rely on SLF4J's mechanism.

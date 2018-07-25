@@ -33,13 +33,13 @@
   <plugin id="org.hamcrest.java.ebr"     version="2.0.0.qualifier"/>
   <plugin id="org.junit.ebr"             version="4.12.0.qualifier"/>
 
-  <plugin id="org.slf4j.api.ebr"             version="1.7.24.qualifier"/>
-  <plugin id="org.slf4j.jcl.ebr"             version="1.7.24.qualifier"/>
-  <plugin id="org.slf4j.jul.ebr"             version="1.7.24.qualifier"/>
-  <plugin id="org.slf4j.log4j.ebr"           version="1.7.24.qualifier"/>
-  <plugin id="org.slf4j.impl.log4j12.ebr"    version="1.7.24.qualifier"/>
-  <plugin id="org.slf4j.impl.nop.ebr"        version="1.7.24.qualifier"/>
-  <plugin id="org.slf4j.impl.simple.ebr"     version="1.7.24.qualifier"/>
+  <plugin id="org.slf4j.api.ebr"             version="1.7.25.qualifier"/>
+  <plugin id="org.slf4j.jcl.ebr"             version="1.7.25.qualifier"/>
+  <plugin id="org.slf4j.jul.ebr"             version="1.7.25.qualifier"/>
+  <plugin id="org.slf4j.log4j.ebr"           version="1.7.25.qualifier"/>
+  <plugin id="org.slf4j.impl.log4j12.ebr"    version="1.7.25.qualifier"/>
+  <plugin id="org.slf4j.impl.nop.ebr"        version="1.7.25.qualifier"/>
+  <plugin id="org.slf4j.impl.simple.ebr"     version="1.7.25.qualifier"/>
 
   <plugin id="ch.qos.logback.core.ebr"       version="1.2.1.qualifier"/>
   <plugin id="ch.qos.logback.classic.ebr"    version="1.2.1.qualifier"/>

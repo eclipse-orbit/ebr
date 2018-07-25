@@ -1,9 +1,0 @@
-package-version=${version;===;${Bundle-Version}}
-slf4j-api-version=${version;===;1.7.24}
-
-Export-Package: \
- org.apache.commons.logging.*;version="1.1.1"
-
-Import-Package: \
- org.slf4j.*;version="${range;[==,=+);${slf4j-api-version}}", \
- *;resolution:=optional
