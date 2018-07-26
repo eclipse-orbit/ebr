@@ -11,4 +11,4 @@ Import-Package: \
  *;resolution:=optional
 
 # attach as fragment to SLF4J API bundle
-Fragment-Host: org.slf4j.api.ebr;bundle-version="${range;[==,=+);${slf4j-api-version}}"
+Fragment-Host: org.slf4j.api.ebr;bundle-version="${slf4j-api-version}"
