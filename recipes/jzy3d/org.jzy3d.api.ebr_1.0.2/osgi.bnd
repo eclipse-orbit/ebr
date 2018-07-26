@@ -1,5 +1,5 @@
 package-version=${version;===;${Bundle-Version}}
-jzy3d-jdt-core-version=${version;===;1.0.1}
+jzy3d-jdt-core-version=${version;===;1.0.2}
 gluegen-rt-main-version=${version;===;2.3.2}
 jogl-all-main-version=${version;===;2.3.2}
 jply-version=${version;===;0.2.1}

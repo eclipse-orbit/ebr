@@ -16,9 +16,9 @@
   <name>Jzy3d Recipes</name>
 
   <modules>
-    <module>org.jzy3d.api.ebr_1.0.1</module>
-    <module>org.jzy3d.jdt.core.ebr_1.0.1</module>
-    <module>org.jzy3d.swt.ebr_1.0.1</module>
+    <module>org.jzy3d.api.ebr_1.0.2</module>
+    <module>org.jzy3d.jdt.core.ebr_1.0.2</module>
+    <module>org.jzy3d.swt.ebr_1.0.2</module>
   </modules>
 
   <repositories>

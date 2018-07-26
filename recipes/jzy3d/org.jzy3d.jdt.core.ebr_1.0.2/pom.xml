@@ -7,15 +7,15 @@
     <artifactId>jzy3d-parent</artifactId>
     <version>1.0.0-SNAPSHOT</version>
   </parent>
-  <artifactId>org.jzy3d.api.ebr</artifactId>
-  <version>1.0.1-SNAPSHOT</version>
+  <artifactId>org.jzy3d.jdt.core.ebr</artifactId>
+  <version>1.0.2</version>
   <packaging>eclipse-bundle-recipe</packaging>
-  <name>Jzy3d API</name>
+  <name>JDT core (fork of https://github.com/yonatang/JDT)</name>
   <dependencies>
     <dependency>
       <groupId>org.jzy3d</groupId>
-      <artifactId>jzy3d-api</artifactId>
-      <version>1.0.1</version>
+      <artifactId>jzy3d-jdt-core</artifactId>
+      <version>1.0.2</version>
     </dependency>
   </dependencies>
 </project>

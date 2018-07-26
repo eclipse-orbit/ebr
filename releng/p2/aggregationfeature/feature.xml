@@ -62,9 +62,9 @@
   <plugin id="org.zeroturnaround.exec.ebr"           version="1.9.0.qualifier"/>
   <plugin id="org.zeroturnaround.processkiller.ebr"  version="1.4.0.qualifier"/>
 
-  <plugin id="org.jzy3d.api.ebr"             version="1.0.1.qualifier"/>
-  <plugin id="org.jzy3d.jdt.core.ebr"        version="1.0.1.qualifier"/>
-  <plugin id="org.jzy3d.swt.ebr"             version="1.0.1.qualifier"/>
+  <plugin id="org.jzy3d.api.ebr"             version="1.0.2.qualifier"/>
+  <plugin id="org.jzy3d.jdt.core.ebr"        version="1.0.2.qualifier"/>
+  <plugin id="org.jzy3d.swt.ebr"             version="1.0.2.qualifier"/>
 
   <plugin id="org.jogamp.jogl.ebr"                       version="2.3.2.qualifier"/>
   <plugin id="org.jogamp.jogl.natives-linux-amd64.ebr"   version="2.3.2.qualifier"/>

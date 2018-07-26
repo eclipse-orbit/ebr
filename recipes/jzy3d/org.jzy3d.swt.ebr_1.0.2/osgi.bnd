@@ -1,5 +1,5 @@
 package-version=${version;===;${Bundle-Version}}
-jzy3d-api-version=${version;===;1.0.1}
+jzy3d-api-version=${version;===;1.0.2}
 org.eclipse.swt.cocoa.macosx.x86_64-version=${version;===;4.3}
 org.eclipse.swt.cocoa.macosx-version=${version;===;4.3}
 
