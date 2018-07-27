@@ -1,5 +1,5 @@
 package-version=${version;===;${Bundle-Version}}
-slf4j-api-version=${range;[===,+);1.7.25}
+slf4j-api-version=1.7.25
 
 Export-Package: \
  !about.html,!about_files, \
