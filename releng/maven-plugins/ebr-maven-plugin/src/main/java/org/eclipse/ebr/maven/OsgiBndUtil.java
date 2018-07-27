@@ -12,7 +12,7 @@
 package org.eclipse.ebr.maven;
 
 import static java.lang.String.format;
-import static org.apache.commons.lang3.CharEncoding.UTF_8;
+import static java.nio.charset.StandardCharsets.UTF_8;
 import static org.eclipse.ebr.maven.TemplateHelper.getTemplate;
 
 import java.io.File;
@@ -24,7 +24,7 @@ import org.eclipse.ebr.maven.shared.BaseUtility;
 import org.apache.commons.io.FileUtils;
 import org.apache.commons.io.IOUtils;
 import org.apache.commons.lang3.StringUtils;
-import org.apache.commons.lang3.text.StrBuilder;
+import org.apache.commons.text.TextStringBuilder;
 import org.apache.maven.execution.MavenSession;
 import org.apache.maven.model.Dependency;
 import org.apache.maven.plugin.MojoExecutionException;
@@ -66,13 +66,18 @@ public class OsgiBndUtil extends BaseUtility {
 	}
 
 	private String getVersionDeclarations(final Collection<Dependency> dependencies) {
-		final StrBuilder declarations = new StrBuilder();
+		final TextStringBuilder declarations = new TextStringBuilder();
 		declarations.append("package-version=${version;===;${Bundle-Version}}");
 		for (final Dependency dependency : dependencies) {
 			declarations.appendNewLine();
-			declarations.append(format("%s=${range;[===,+);%s}", getVersionVariableName(dependency), dependency.getVersion()));
+			declarations.append(format("%s=${range;[===,+);%s}", getVersionRangeVariableName(dependency), dependency.getVersion()));
+			declarations.append(format("%s=${version;===;%s}", getVersionVariableName(dependency), dependency.getVersion()));
 		}
 		return declarations.toString();
+	}
+
+	private String getVersionRangeVariableName(final Dependency dependency) {
+		return format("%s-version-range", dependency.getArtifactId());
 	}
 
 	private String getVersionVariableName(final Dependency dependency) {
