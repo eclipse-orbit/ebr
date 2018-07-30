@@ -33,11 +33,6 @@
         </executions>
         <configuration>
           <labelSuffix> (source)</labelSuffix>
-          <excludes>
-            <plugin id="org.jzy3d.api.ebr"/>
-            <plugin id="org.jzy3d.jdt.core.ebr"/>
-            <plugin id="org.jzy3d.swt.ebr"/>
-          </excludes>
         </configuration>
       </plugin>
       <plugin>
