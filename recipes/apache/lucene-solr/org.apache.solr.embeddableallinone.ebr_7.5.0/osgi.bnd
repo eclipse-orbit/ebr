@@ -1,22 +1,21 @@
 package-version=${version;===;${Bundle-Version}}
 commons-io-version-range=${range;[===,+);2.5}commons-io-version=${version;===;2.5}
-commons-math3-version-range=${range;[===,+);3.6.1}commons-math3-version=${version;===;3.6.1}
-httpclient-version-range=${range;[===,+);4.5.3}httpclient-version=${version;===;4.5.3}
-httpcore-version-range=${range;[===,+);4.4.6}httpcore-version=${version;===;4.4.6}
-httpmime-version-range=${range;[===,+);4.5.3}httpmime-version=${version;===;4.5.3}
+commons-math3-version-range=${range;[==,+);3.6.1}
 zookeeper-version-range=${range;[===,+);3.4.11}zookeeper-version=${version;===;3.4.11}
-stax2-api-version-range=${range;[===,+);3.1.4}stax2-api-version=${version;===;3.1.4}
-woodstox-core-asl-version-range=${range;[===,+);4.4.1}woodstox-core-asl-version=${version;===;4.4.1}
-noggit-version-range=${range;[===,+);0.8}noggit-version=${version;===;0.8}
-jcl-over-slf4j-version-range=${range;[===,+);1.7.24}jcl-over-slf4j-version=${version;===;1.7.24}
-slf4j-api-version-range=${range;[===,+);1.7.24}slf4j-api-version=${version;===;1.7.24}
+slf4j-api-version-range=${range;[==,+);1.7}
+http-version-range=${range;[==,+);4.4}
 
 Export-Package: \
- !about.html,!about_files, \
+ !about.html,!about_files,!apispec \
  *.internal.*;x-internal:=true;version="${package-version}", \
  *.implementation.*;x-internal:=true;version="${package-version}", \
  *.impl.*;x-internal:=true;version="${package-version}", \
  *;version="${package-version}"
 
 Import-Package: \
- *
+ !org.apache.solr*, \
+ !org.apache.lucene*, \
+ !org.tartarus*, \
+ org.apache.http.*;version="${http-version-range}", \
+ org.slf4j.*;version="${slf4j-api-version-range}", \
+ *;resolution:=optional
