@@ -39,6 +39,7 @@ import org.apache.maven.artifact.repository.ArtifactRepository;
 import org.apache.maven.artifact.repository.metadata.RepositoryMetadataManager;
 import org.apache.maven.execution.MavenSession;
 import org.apache.maven.model.Model;
+import org.apache.maven.model.Plugin;
 import org.apache.maven.model.building.ModelBuilder;
 import org.apache.maven.plugin.AbstractMojo;
 import org.apache.maven.plugin.BuildPluginManager;
@@ -141,6 +142,9 @@ public class EclipseIpInfoMojo extends AbstractMojo {
 	@Parameter(defaultValue = "2.8", property = "maven-dependency-plugin.version", required = true)
 	protected String mavenDependencyPluginVersion = "2.8";
 
+	@Parameter(defaultValue = "3.1.1", property = "maven-dependency-plugin.version", required = true)
+	protected String mavenDependencyPluginVersionFallback;
+
 	@Parameter(defaultValue = "false", property = "force")
 	private boolean force;
 
@@ -155,6 +159,24 @@ public class EclipseIpInfoMojo extends AbstractMojo {
 
 	@Parameter(property = "cqCryptography")
 	protected String cqCryptography;
+
+	/**
+	 * A comma separated list of file patterns to include when unpacking the
+	 * artifacts. i.e. <code>**\/*.xml,**\/*.properties</code> NOTE: Excludes
+	 * patterns override the includes. (component code =
+	 * <code>return isIncluded( name ) AND !isExcluded( name );</code>)
+	 */
+	@Parameter
+	protected String includes;
+
+	/**
+	 * A comma separated list of file patterns to exclude when unpacking the
+	 * artifacts. i.e. <code>**\/*.xml,**\/*.properties</code> NOTE: Excludes
+	 * patterns override the includes. (component code =
+	 * <code>return isIncluded( name ) AND !isExcluded( name );</code>)
+	 */
+	@Parameter
+	protected String excludes;
 
 	@Component
 	private SettingsDecrypter settingsDecrypter;
@@ -177,6 +199,34 @@ public class EclipseIpInfoMojo extends AbstractMojo {
 		// collect sources
 		getLog().info("Gathering sources archives");
 
+		// collect source files (filtered with excludes and includes) into folders
+		// @formatter:off
+		final List<Element> unpackConfigurationSource = getDependenciesUnpackConfiguration(outputDirectory, dependencies, CLASSIFIER_SOURCES);
+		try {
+			executeMojo(
+					plugin(
+							groupId("org.apache.maven.plugins"),
+							artifactId("maven-dependency-plugin"),
+							version(detectPluginVersion("org.apache.maven.plugins", "maven-dependency-plugin", mavenDependencyPluginVersionFallback))
+							),
+					goal("unpack"),
+					configuration(
+							unpackConfigurationSource.toArray(new Element[unpackConfigurationSource.size()])
+							),
+					executionEnvironment(
+							project,
+							mavenSession,
+							pluginManager
+							)
+					);
+		} catch(final MojoExecutionException e) {
+			getLog().warn("Unable to resolve source jar; skipping Eclipse IP information");
+			getLog().debug(e);
+			return;
+		}
+		// @formatter:on
+
+		// copy full source jars into output folder
 		// @formatter:off
 		final List<Element> copyConfigurationSource = getCopyConfiguration(outputDirectory.getAbsolutePath(), dependencies, CLASSIFIER_SOURCES);
 		try {
@@ -189,14 +239,24 @@ public class EclipseIpInfoMojo extends AbstractMojo {
 		// @formatter:on
 
 		// rename all jars to zip
-		for (final File file : outputDirectory.listFiles()) {
+		for (final File file : outputDirectory.listFiles((f) -> f.getAbsolutePath().endsWith(".jar"))) {
 			final String absolutePath = file.getAbsolutePath();
-			if (absolutePath.endsWith(".jar")) {
-				final File newFile = new File(StringUtils.removeEnd(absolutePath, ".jar") + ".zip");
-				getLog().debug(format("Renaming '%s' to '%s'.", file.getName(), newFile.getName()));
-				file.renameTo(newFile);
+			final File newFile = new File(StringUtils.removeEnd(absolutePath, ".jar") + ".zip");
+			getLog().debug(format("Renaming '%s' to '%s'.", file.getName(), newFile.getName()));
+			file.renameTo(newFile);
+		}
+	}
+
+	private String detectPluginVersion(final String groupId, final String artifactId, final String fallbackVersion) {
+		final List<Plugin> plugins = project.getPluginManagement().getPlugins();
+		for (final Plugin plugin : plugins) {
+			if (groupId.equals(plugin.getGroupId()) && artifactId.equals(plugin.getArtifactId())) {
+				getLog().debug("Using managed version " + plugin.getVersion() + " for plugin " + groupId + ":" + artifactId + ".");
+				return plugin.getVersion();
 			}
 		}
+		getLog().warn(format("No version defined in the efective model for plugin %s:%s. Please consider defining one in the pluginManagement section. Falling back to version \"%s\"", groupId, artifactId, fallbackVersion));
+		return fallbackVersion;
 	}
 
 	private void discoverLicenseFromExistingIpLog(final Set<Artifact> dependencies) throws MojoExecutionException {
@@ -256,12 +316,48 @@ public class EclipseIpInfoMojo extends AbstractMojo {
 		return dependencyUtil.getDependenciesToInclude(project);
 	}
 
+	private Element getDependenciesUnpackArtifactItems(final Set<Artifact> dependencies, final String classifier, final File outputDirectory) {
+		final List<Element> artifactItems = new ArrayList<Element>();
+		for (final Artifact artifact : dependencies) {
+			// @formatter:off
+			artifactItems.add(
+					element("artifactItem",
+							element("groupId", artifact.getGroupId()),
+							element("artifactId", artifact.getArtifactId()),
+							element("version", artifact.getVersion()),
+							element("classifier", classifier),
+							element("outputDirectory", getOutputDirectoryForFilteredDependencySources(outputDirectory, artifact).getAbsolutePath())
+							)
+					);
+		}
+		return element("artifactItems", artifactItems.toArray(new Element[artifactItems.size()]));
+	}
+
+	private List<Element> getDependenciesUnpackConfiguration(final File outputDirectory, final Set<Artifact> dependencies, final String classifier) throws MojoExecutionException {
+		final List<Element> unpackConfiguration = new ArrayList<Element>();
+		unpackConfiguration.add(element(name("outputDirectory"), outputDirectory.getAbsolutePath()));
+		if (null != excludes) {
+			unpackConfiguration.add(element(name("excludes"), excludes));
+		}
+		if (null != includes) {
+			unpackConfiguration.add(element(name("includes"), includes));
+		}
+		unpackConfiguration.add(getDependenciesUnpackArtifactItems(dependencies, classifier, outputDirectory));
+
+
+		return unpackConfiguration;
+	}
+
 	private File getIpLogXmlDirectory() throws MojoExecutionException {
 		return new File(getProjectDir(), "src/eclipse");
 	}
 
 	private ModelUtil getModelUtil() {
 		return new ModelUtil(getLog(), mavenSession, repositorySystem, repositoryMetadataManager, modelBuilder, remoteRepositories);
+	}
+
+	private File getOutputDirectoryForFilteredDependencySources(final File outputDirectory, final Artifact dependency) {
+		return new File(outputDirectory, format("%s-%s-sources-filtered", dependency.getArtifactId(), dependency.getVersion()));
 	}
 
 	private File getProjectDir() throws MojoExecutionException {
