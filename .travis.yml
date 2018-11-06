@@ -19,8 +19,12 @@ before_install:
 
 install:
 - mvn -e -f releng/maven-plugins/pom.xml install
-- mvn -f recipes/pom.xml install
+- travis_wait 30 mvn -f recipes/pom.xml install  > build.log 2>&1
 
 script:
-- mvn -f releng/p2/pom.xml package
+- travis_wait 20 mvn -f releng/p2/pom.xml package >> build.log 2>&1
+
+after_failure:
+- tail --lines=3000 build.log
+
 
