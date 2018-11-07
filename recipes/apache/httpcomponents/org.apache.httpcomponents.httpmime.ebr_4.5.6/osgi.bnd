@@ -1,0 +1,12 @@
+package-version=${version;===;${Bundle-Version}}
+httpclient-version-range=${range;[===,+);4.5.6}httpclient-version=${version;===;4.5.6}
+
+Export-Package: \
+ !about.html,!about_files, \
+ *.internal.*;x-internal:=true;version="${package-version}", \
+ *.implementation.*;x-internal:=true;version="${package-version}", \
+ *.impl.*;x-internal:=true;version="${package-version}", \
+ *;version="${package-version}"
+
+Import-Package: \
+ *

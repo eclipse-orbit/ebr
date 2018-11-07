@@ -54,6 +54,7 @@
   <plugin id="org.apache.httpcomponents.httpclient.ebr"          version="4.5.6.qualifier"/>
   <plugin id="org.apache.httpcomponents.httpcore.ebr"            version="4.4.10.qualifier"/>
   <plugin id="org.apache.httpcomponents.httpcore.nio.ebr"        version="4.4.10.qualifier"/>
+  <plugin id="org.apache.httpcomponents.httpmime.ebr"            version="4.5.6.qualifier"/>
 
   <plugin id="org.apache.solr.embeddableallinone.ebr"            version="7.5.0.qualifier"/>
 
