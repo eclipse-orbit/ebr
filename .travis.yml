@@ -25,6 +25,6 @@ script:
 - travis_wait 20 mvn -f releng/p2/pom.xml package >> build.log 2>&1
 
 after_failure:
-- tail --lines=3000 build.log
+- tail --lines=300 build.log
 
 
