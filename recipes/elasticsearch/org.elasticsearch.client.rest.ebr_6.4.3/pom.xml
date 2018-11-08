@@ -12,16 +12,11 @@
   <version>6.4.3-SNAPSHOT</version>
   <packaging>eclipse-bundle-recipe</packaging>
 
-  <name>Elasticsearch Low- and High-Level REST Client</name>
+  <name>Elasticsearch Low-Level REST Client</name>
   <dependencies>
     <dependency>
       <groupId>org.elasticsearch.client</groupId>
       <artifactId>elasticsearch-rest-client</artifactId>
-      <version>6.4.3</version>
-    </dependency>
-    <dependency>
-      <groupId>org.elasticsearch.client</groupId>
-      <artifactId>elasticsearch-rest-high-level-client</artifactId>
       <version>6.4.3</version>
     </dependency>
   </dependencies>
