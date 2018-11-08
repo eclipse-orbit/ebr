@@ -24,5 +24,10 @@
       <artifactId>elasticsearch-rest-high-level-client</artifactId>
       <version>6.4.3</version>
     </dependency>
+    <dependency>
+      <groupId>org.elasticsearch</groupId>
+      <artifactId>elasticsearch</artifactId>
+      <version>6.4.3</version>
+    </dependency>
   </dependencies>
 </project>

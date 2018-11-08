@@ -8,10 +8,10 @@ commons-logging-version=${range;[===,+);1.1.3}
 
 Export-Package: \
  !about.html,!about_files, \
- *.internal.*;x-internal:=true;version="${package-version}", \
- *.implementation.*;x-internal:=true;version="${package-version}", \
- *.impl.*;x-internal:=true;version="${package-version}", \
- *;version="${package-version}"
+ org.elasticsearch.*.internal.*;x-internal:=true;version="${package-version}", \
+ org.elasticsearch.*.implementation.*;x-internal:=true;version="${package-version}", \
+ org.elasticsearch.*.impl.*;x-internal:=true;version="${package-version}", \
+ org.elasticsearch.*;version="${package-version}"
 
 Import-Package: \
  *
