@@ -29,5 +29,15 @@
       <artifactId>elasticsearch</artifactId>
       <version>6.4.3</version>
     </dependency>
+    <dependency>
+      <groupId>org.elasticsearch</groupId>
+      <artifactId>elasticsearch-core</artifactId>
+      <version>6.4.3</version>
+    </dependency>
+    <dependency>
+      <groupId>org.elasticsearch</groupId>
+      <artifactId>elasticsearch-x-content</artifactId>
+      <version>6.4.3</version>
+    </dependency>
   </dependencies>
 </project>
