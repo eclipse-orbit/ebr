@@ -1,10 +1,11 @@
 package org.eclipse.ebr.tycho.extras.plugin;
 
 import static java.lang.String.format;
+import static java.nio.charset.StandardCharsets.UTF_8;
+import static java.util.Collections.emptyMap;
 import static java.util.Objects.requireNonNull;
-import static org.apache.commons.lang3.CharEncoding.UTF_8;
-import static org.apache.commons.lang3.StringEscapeUtils.escapeXml10;
 import static org.apache.commons.lang3.StringUtils.trimToEmpty;
+import static org.apache.commons.text.StringEscapeUtils.escapeXml10;
 import static org.eclipse.ebr.maven.shared.BundleUtil.getBundleSymbolicName;
 
 import java.io.ByteArrayInputStream;
@@ -168,7 +169,7 @@ public class AssembleBundleP2RepositoryMojo extends AbstractRepositoryMojo {
 			final TargetPlatformConfiguration configuration = TychoProjectUtils.getTargetPlatformConfiguration(getProject());
 
 			final MirrorApplicationService mirrorApp = p2.getService(MirrorApplicationService.class);
-			final DestinationRepositoryDescriptor destinationRepoDescriptor = new DestinationRepositoryDescriptor(destination, repositoryName, compress, xzCompress, keepNonXzIndexFiles, false, true);
+			final DestinationRepositoryDescriptor destinationRepoDescriptor = new DestinationRepositoryDescriptor(destination, repositoryName, compress, xzCompress, keepNonXzIndexFiles, false, true, emptyMap());
 			mirrorApp.mirrorReactor(sources, destinationRepoDescriptor, projectSeeds, getBuildContext(), false, configuration.isIncludePackedArtifacts(), profileProperties);
 		} catch (final FacadeException e) {
 			throw new MojoExecutionException("Could not assemble p2 repository", e);
