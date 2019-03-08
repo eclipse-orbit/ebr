@@ -46,7 +46,7 @@
     <dependency>
       <groupId>org.apache.felix</groupId>
       <artifactId>maven-bundle-plugin</artifactId>
-      <version>3.5.0</version>
+      <version>4.1.0</version>
       <type>maven-plugin</type>
     </dependency>
     <dependency>
@@ -59,7 +59,7 @@
       <!-- force newer version because of: https://github.com/eclipse/eclipse-collections/issues/535 -->
       <groupId>org.codehaus.plexus</groupId>
       <artifactId>plexus-archiver</artifactId>
-      <version>3.5</version>
+      <version>4.1.0</version>
     </dependency>
 
     <!-- regular dependencies -->

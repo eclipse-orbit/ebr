@@ -1,7 +1,7 @@
 package org.eclipse.ebr.maven.shared;
 
 import static java.lang.String.format;
-import static org.apache.commons.lang3.CharEncoding.UTF_8;
+import static java.nio.charset.StandardCharsets.UTF_8;
 
 import java.io.FileNotFoundException;
 import java.io.InputStream;
