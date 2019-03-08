@@ -7,8 +7,6 @@ mailing list: [https://dev.eclipse.org/mailman/listinfo/ebr-dev](https://dev.ecl
 
 bugzilla: [https://bugs.eclipse.org](https://bugs.eclipse.org/bugs/buglist.cgi?list_id=6321580&classification=Eclipse%20Foundation&query_format=advanced&bug_status=UNCONFIRMED&bug_status=NEW&bug_status=ASSIGNED&bug_status=REOPENED&product=CBI)
 
-sitedocs: [http://www.eclipse.org/ebr/sitedocs](http://www.eclipse.org/ebr/sitedocs)
-
 Using the plugins
 =================
 
