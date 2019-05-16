@@ -47,7 +47,7 @@
 
     <!-- versions used for plug-ins below -->
     <tycho-version>1.3.0</tycho-version>
-    <ebr-version>1.0.0-SNAPSHOT</ebr-version>
+    <ebr-version>1.0.0</ebr-version>
 
     <!-- versions for plug-ins used by the EBR plug-in -->
     <maven-dependency-plugin-version>3.1.1</maven-dependency-plugin-version>
