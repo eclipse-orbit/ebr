@@ -12,10 +12,10 @@
   <artifactId>elasticsearch-parent</artifactId>
   <packaging>pom</packaging>
 
-  <name>Apache</name>
+  <name>Elasticsearch</name>
 
   <modules>
-    <module>org.elasticsearch.client.rest.ebr_6.4.3</module>
+    <module>org.elasticsearch.client.rest.ebr_7.1.0</module>
   </modules>
 
 </project>
