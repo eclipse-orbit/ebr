@@ -355,7 +355,7 @@ public class BundleMojo extends ManifestPlugin {
 			if (!unpackDependencies) {
 				initializeBndInstruction(BUNDLE_CLASSPATH, getBundleClassPathHeaderPopulatedWithDependencyJars());
 			}
-			execute(project, buildDependencyGraph(project), bndInstructions, new Properties()); // BND also needs transitive dependencies
+			execute(bndInstructions, getClasspath(project)); // BND also needs transitive dependencies
 		} catch (final Exception e) {
 			throw new MojoExecutionException("Error generating Bundle manifest: " + e.getMessage(), e);
 		}
