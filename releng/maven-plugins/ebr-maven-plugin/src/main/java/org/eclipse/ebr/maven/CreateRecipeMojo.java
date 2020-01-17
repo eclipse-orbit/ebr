@@ -13,7 +13,7 @@
 package org.eclipse.ebr.maven;
 
 import static java.lang.String.format;
-import static org.apache.commons.lang3.CharEncoding.UTF_8;
+import static java.nio.charset.StandardCharsets.UTF_8;
 import static org.eclipse.ebr.maven.OsgiLocalizationUtil.I18N_KEY_BUNDLE_NAME;
 import static org.eclipse.ebr.maven.OsgiLocalizationUtil.I18N_KEY_BUNDLE_VENDOR;
 import static org.eclipse.ebr.maven.TemplateHelper.getTemplate;
@@ -36,7 +36,6 @@ import java.util.TreeMap;
 import org.apache.commons.io.FileUtils;
 import org.apache.commons.io.IOUtils;
 import org.apache.commons.lang3.StringUtils;
-import org.apache.commons.lang3.SystemUtils;
 import org.apache.felix.utils.properties.Properties;
 import org.apache.maven.artifact.Artifact;
 import org.apache.maven.artifact.repository.ArtifactRepository;
@@ -303,7 +302,7 @@ public class CreateRecipeMojo extends AbstractMojo {
 		if (!artifactDependencies.isEmpty()) {
 			if (getLog().isDebugEnabled()) {
 				getLog().debug("Dependency trail for " + resolvedPomArtifact);
-				getLog().debug(StringUtils.join(resolvedPomArtifact.getDependencyTrail(), SystemUtils.LINE_SEPARATOR));
+				getLog().debug(StringUtils.join(resolvedPomArtifact.getDependencyTrail(), System.lineSeparator()));
 				getLog().debug("------------");
 			}
 			getLog().info(format("The following dependencies are defined for artifact %s:%s:%s. Please consider creating recipes for them as well.", artifactPom.getGroupId(), artifactPom.getArtifactId(), artifactPom.getVersion()));
@@ -323,15 +322,11 @@ public class CreateRecipeMojo extends AbstractMojo {
 	}
 
 	private Model readPomTemplate() throws MojoExecutionException {
-		XmlStreamReader reader = null;
-		try {
-			reader = ReaderFactory.newXmlReader(getTemplate("recipe-pom.xml"));
+		try (XmlStreamReader reader = ReaderFactory.newXmlReader(getTemplate("recipe-pom.xml"));) {
 			return modelReader.read(reader);
 		} catch (final Exception e) {
 			getLog().debug(e);
 			throw new MojoExecutionException(format("Error reading pom.xml template: %s", e.getMessage()));
-		} finally {
-			IOUtils.closeQuietly(reader);
 		}
 	}
 
@@ -354,15 +349,11 @@ public class CreateRecipeMojo extends AbstractMojo {
 	}
 
 	private void writePom(final File file, final Model model) throws MojoExecutionException {
-		Writer writer = null;
-		try {
-			writer = new OutputStreamWriter(new FileOutputStream(file), UTF_8);
+		try (Writer writer = new OutputStreamWriter(new FileOutputStream(file), UTF_8)) {
 			modelWriter.write(writer, model);
 		} catch (final IOException e) {
 			getLog().debug(e);
 			throw new MojoExecutionException(format("Error writing '%s': %s", file.getAbsolutePath(), e.getMessage()));
-		} finally {
-			IOUtils.closeQuietly(writer);
 		}
 	}
 
