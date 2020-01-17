@@ -19,7 +19,7 @@ import io.takari.maven.testing.executor.MavenVersions;
 import io.takari.maven.testing.executor.junit.MavenJUnitTestRunner;
 
 @RunWith(MavenJUnitTestRunner.class)
-@MavenVersions({ "3.6.0" })
+@MavenVersions({ "3.6.0", "3.6.3" })
 public class CreateRecipeTest {
 
 	@Rule
@@ -51,5 +51,21 @@ public class CreateRecipeTest {
 
 		assertFilesPresent(baseDir, "ebr.it.test.jsoup_1.10.2/pom.xml");
 		assertFilesPresent(baseDir, "ebr.it.test.jsoup_1.10.2/osgi.bnd");
+	}
+
+	@Test
+	public void testJUnit413() throws Exception {
+		final File baseDir = getProjectDir("create");
+
+		// mvn -U -e -V ebr:create-recipe -DgroupId=junit -DartifactId=junit -Dversion=4.13 -DbundleSymbolicName=org.junit
+		final MavenRuntime verifier = mvnRuntimeBuilder.withCliOptions("-X", "ebr:create-recipe", "-DgroupId=junit", "-DartifactId=junit", "-Dversion=4.13", "-DbundleSymbolicName=org.junit").build();
+
+		final MavenExecutionResult result = verifier.forProject(baseDir).execute("package");
+
+		// check for no errors in log
+		assertNoErrorsInMavenLog(baseDir, result);
+
+		assertFilesPresent(baseDir, "org.junit_4.13.0/pom.xml");
+		assertFilesPresent(baseDir, "org.junit_4.13.0/osgi.bnd");
 	}
 }

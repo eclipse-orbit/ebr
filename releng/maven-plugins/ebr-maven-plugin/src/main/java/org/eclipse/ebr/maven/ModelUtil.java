@@ -181,13 +181,29 @@ public class ModelUtil extends BaseUtility {
 		}
 	}
 
+	/**
+	 * Resolves an artifact version to either a specific given version or the
+	 * latest available or released version (in case
+	 * <code>artifactVersion</code> is blank, equal to <code>LATEST</code> or
+	 * <code>RELEASE</code>).
+	 *
+	 * @param groupId
+	 *            group id
+	 * @param artifactId
+	 *            artifact id
+	 * @param artifactVersion
+	 *            a version string, <code>LATEST</code>, <code>RELEASE</code>,
+	 *            blank or <code>null</code>
+	 * @return resolved version
+	 * @throws MojoExecutionException
+	 */
 	public ArtifactVersion resolveArtifactVersion(final String groupId, final String artifactId, final String artifactVersion) throws MojoExecutionException {
 		getLog().debug(format("Reading version metadata for artifact %s:%s.", groupId, artifactId));
 
 		final RepositoryRequest request = new DefaultRepositoryRequest();
 		configureRepositoryRequest(request);
 
-		final Artifact artifact = repositorySystem.createArtifact(groupId, artifactId, "", null, "pom");
+		final Artifact artifact = repositorySystem.createArtifact(groupId, artifactId, "[0,)", null, "pom");
 		try {
 			final RepositoryMetadata metadata = new ArtifactRepositoryMetadata(artifact);
 			getRepositoryMetadataManager().resolve(metadata, request);
@@ -197,7 +213,7 @@ public class ModelUtil extends BaseUtility {
 				final Versioning metadataVersions = checkNotNull(repositoryMetadata.getVersioning(), "No versioning information available in repository metadata.");
 				getLog().debug(format("Resolving '%s' to latest version.", artifactVersion));
 				return new DefaultArtifactVersion(metadataVersions.getLatest());
-			} else if (StringUtils.equals("RELEASE", artifactVersion)) {
+			} else if (StringUtils.equals("RELEASE", artifactVersion) || StringUtils.isBlank(artifactVersion)) {
 				final Versioning metadataVersions = checkNotNull(repositoryMetadata.getVersioning(), "No versioning information available in repository metadata.");
 				getLog().debug(format("Resolving '%s' to release version.", artifactVersion));
 				return new DefaultArtifactVersion(metadataVersions.getRelease());
