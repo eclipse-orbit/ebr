@@ -12,7 +12,8 @@
   <packaging>pom</packaging>
 
   <name>Eclipse Bundle Recipe Maven Plugins</name>
-  <description>Eclipse Bundle Recipe Maven plugins for simplfying and automating working with Eclipse Bundle Recipies.</description>
+  <description>Eclipse Bundle Recipe Maven plugins for simplfying and automating working with Eclipse Bundle Recipies.
+  </description>
   <url>http://www.eclipse.org/ebr</url>
 
   <licenses>
@@ -157,6 +158,9 @@
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-release-plugin</artifactId>
+        <configuration>
+          <tagNameFormat>ebr_maven_plugins_v@{project.version}</tagNameFormat>
+        </configuration>
       </plugin>
     </plugins>
 

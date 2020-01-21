@@ -1,5 +1,6 @@
 bin/
 target/
+
 *~
 *.rej
 *.bak
@@ -7,4 +8,10 @@ target/
 .Trashes
 *.swp
 *.lock
+
+# Maven
 pom.xml.versionsBackup
+pom.xml.next
+pom.xml.releaseBackup
+pom.xml.tag
+release.properties
