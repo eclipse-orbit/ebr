@@ -17,12 +17,6 @@
   <name>Eclipse Bundle Recipe Maven Plugin</name>
   <description>A Maven plug-in for generating OSGi bundles based on Maven artifacts listed as direct project dependencies.</description>
 
-  <scm>
-    <connection>scm:git:git.eclipse.org:/gitroot/ebr/org.eclipse.ebr.recipes.git</connection>
-    <developerConnection>scm:git:git.eclipse.org:/gitroot/ebr/org.eclipse.ebr.recipes.git</developerConnection>
-    <url>http://git.eclipse.org/c/ebr/org.eclipse.ebr.recipes.git/</url>
-  </scm>
-
   <dependencies>
 
     <!-- provided dependencies -->
