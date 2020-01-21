@@ -6,6 +6,10 @@ Semantic Versioning does not apply.
 
 ## [Unreleased]
 
+## [1.1.0 - 2020-01-21]
+### Changed
+- Fixed create-recipe mojo failing in Maven 3.6.3
+
 ## 1.0.0 - 2019-04-12
 ### Added
 - First official release.
