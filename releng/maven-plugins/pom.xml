@@ -18,7 +18,7 @@
   <licenses>
     <license>
       <name>Eclipse Public License</name>
-      <url>http://www.eclipse.org/legal/epl-v10.html</url>
+      <url>https://www.eclipse.org/legal/epl-2.0/</url>
       <distribution>repo</distribution>
     </license>
   </licenses>
@@ -34,14 +34,17 @@
   </issueManagement>
 
   <scm>
-    <connection>scm:git:git.eclipse.org:/gitroot/ebr/org.eclipse.ebr.recipes.git</connection>
-    <developerConnection>scm:git:git.eclipse.org:/gitroot/ebr/org.eclipse.ebr.recipes.git</developerConnection>
-    <url>http://git.eclipse.org/c/ebr/org.eclipse.ebr.recipes.git/</url>
+    <connection>scm:git:github.com:eclipse/ebr.git</connection>
+    <developerConnection>scm:git:github.com:eclipse/ebr.git</developerConnection>
+    <url>https://github.com/eclipse/ebr/</url>
   </scm>
 
   <developers>
     <developer>
       <name>Gunnar Wagenknecht</name>
+    </developer>
+    <developer>
+      <name>Roland Grunberg</name>
     </developer>
   </developers>
 
@@ -107,9 +110,9 @@
         </configuration>
       </plugin>
       <plugin>
-        <!-- This maven-enforcer-plugin configuration to actually break the build if run with older maven. prerequisites section is kept for
-          now as even if it doesn't break the build, it is used by other plugins like versions-maven-plugin which check and warn for using plugins with
-          older than they require Maven version. -->
+        <!-- This maven-enforcer-plugin configuration to actually break the build if run with older maven. prerequisites
+          section is kept for now as even if it doesn't break the build, it is used by other plugins like versions-maven-plugin which
+          check and warn for using plugins with older than they require Maven version. -->
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-enforcer-plugin</artifactId>
         <executions>
@@ -151,6 +154,10 @@
           </requirements>
         </configuration>
       </plugin>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-release-plugin</artifactId>
+      </plugin>
     </plugins>
 
     <pluginManagement>
@@ -184,6 +191,11 @@
           <groupId>com.github.spotbugs</groupId>
           <artifactId>spotbugs-maven-plugin</artifactId>
           <version>3.1.11</version>
+        </plugin>
+        <plugin>
+          <groupId>org.apache.maven.plugins</groupId>
+          <artifactId>maven-release-plugin</artifactId>
+          <version>3.0.0-M1</version>
         </plugin>
       </plugins>
     </pluginManagement>
