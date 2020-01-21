@@ -160,6 +160,7 @@
         <artifactId>maven-release-plugin</artifactId>
         <configuration>
           <tagNameFormat>ebr_maven_plugins_v@{project.version}</tagNameFormat>
+          <autoVersionSubmodules>true</autoVersionSubmodules>
         </configuration>
       </plugin>
     </plugins>
