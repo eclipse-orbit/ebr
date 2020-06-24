@@ -11,7 +11,7 @@
   <description>An IT verifying a recipe that uses a local license file.</description>
 
   <properties>
-    <tycho-version>1.3.0</tycho-version>
+    <tycho-version>1.7.0</tycho-version>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
   </properties>
 

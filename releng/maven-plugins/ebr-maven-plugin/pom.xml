@@ -40,13 +40,13 @@
     <dependency>
       <groupId>org.apache.felix</groupId>
       <artifactId>maven-bundle-plugin</artifactId>
-      <version>4.2.0</version>
+      <version>4.2.1</version>
       <type>maven-plugin</type>
     </dependency>
     <dependency>
       <groupId>org.twdata.maven</groupId>
       <artifactId>mojo-executor</artifactId>
-      <version>2.3.0</version>
+      <version>2.3.1</version>
       <type>maven-plugin</type>
     </dependency>
     <dependency>

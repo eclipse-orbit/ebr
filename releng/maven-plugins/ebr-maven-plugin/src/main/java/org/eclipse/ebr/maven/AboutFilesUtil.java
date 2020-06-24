@@ -12,8 +12,7 @@
 package org.eclipse.ebr.maven;
 
 import static java.lang.String.format;
-import static org.apache.commons.lang3.CharEncoding.UTF_8;
-import static org.apache.commons.lang3.StringEscapeUtils.escapeHtml4;
+import static org.apache.commons.text.StringEscapeUtils.escapeHtml4;
 import static org.eclipse.ebr.maven.TemplateHelper.getTemplate;
 
 import java.io.File;
@@ -22,6 +21,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.net.MalformedURLException;
 import java.net.URL;
+import java.nio.charset.StandardCharsets;
 import java.text.DateFormat;
 import java.util.Arrays;
 import java.util.Date;
@@ -37,7 +37,7 @@ import org.apache.commons.io.FileUtils;
 import org.apache.commons.io.FilenameUtils;
 import org.apache.commons.io.IOUtils;
 import org.apache.commons.lang3.StringUtils;
-import org.apache.commons.lang3.text.StrBuilder;
+import org.apache.commons.text.TextStringBuilder;
 import org.apache.http.HttpEntity;
 import org.apache.http.client.methods.CloseableHttpResponse;
 import org.apache.http.client.methods.HttpGet;
@@ -67,7 +67,7 @@ public class AboutFilesUtil extends LicenseProcessingUtility {
 		this.forceDownload = forceDownload;
 	}
 
-	private void appendAndDownloadLicenseInfo(final StrBuilder text, final File downloadDir, final Artifact artifact, final List<License> licenses) throws MojoExecutionException {
+	private void appendAndDownloadLicenseInfo(final TextStringBuilder text, final File downloadDir, final Artifact artifact, final List<License> licenses) throws MojoExecutionException {
 		boolean first = true;
 		for (final Iterator<License> stream = licenses.iterator(); stream.hasNext();) {
 			final License license = stream.next();
@@ -117,7 +117,7 @@ public class AboutFilesUtil extends LicenseProcessingUtility {
 		}
 	}
 
-	private void appendIssueTrackingInfo(final StrBuilder text, final Artifact artifact, final Model artifactPom) {
+	private void appendIssueTrackingInfo(final TextStringBuilder text, final Artifact artifact, final Model artifactPom) {
 		final String url = artifactPom.getIssueManagement().getUrl();
 		if (isPotentialWebUrl(url)) {
 			try {
@@ -136,7 +136,7 @@ public class AboutFilesUtil extends LicenseProcessingUtility {
 		}
 	}
 
-	private void appendMailingListInfo(final StrBuilder text, final Artifact artifact, final Model artifactPom) {
+	private void appendMailingListInfo(final TextStringBuilder text, final Artifact artifact, final Model artifactPom) {
 		boolean first = true;
 		for (final Iterator<MailingList> stream = artifactPom.getMailingLists().iterator(); stream.hasNext();) {
 			final MailingList mailingList = stream.next();
@@ -198,11 +198,8 @@ public class AboutFilesUtil extends LicenseProcessingUtility {
 						licenseFileName = licenseFileName + ".txt";
 					}
 
-					final FileOutputStream os = FileUtils.openOutputStream(new File(licenseOutputDir, licenseFileName));
-					try {
+					try (FileOutputStream os = FileUtils.openOutputStream(new File(licenseOutputDir, licenseFileName))) {
 						IOUtils.copy(is, os);
-					} finally {
-						IOUtils.closeQuietly(os);
 					}
 				}
 			}
@@ -226,7 +223,8 @@ public class AboutFilesUtil extends LicenseProcessingUtility {
 		}
 
 		String aboutHtmlText = readAboutHtmlTemplate();
-		aboutHtmlText = StringUtils.replaceEach(aboutHtmlText, new String[] { // @formatter:off
+		aboutHtmlText = StringUtils.replaceEach(aboutHtmlText,
+				new String[] { // @formatter:off
 				"@DATE@",
 				"@THIRD_PARTY_INFO@"
 			}, new String[] {
@@ -236,7 +234,7 @@ public class AboutFilesUtil extends LicenseProcessingUtility {
 		// @formatter:on
 
 		try {
-			FileUtils.writeStringToFile(aboutHtmlFile, aboutHtmlText, UTF_8);
+			FileUtils.writeStringToFile(aboutHtmlFile, aboutHtmlText, StandardCharsets.UTF_8);
 		} catch (final IOException e) {
 			getLog().debug(e);
 			throw new MojoExecutionException(format("Unable to write about.html file '%s'. %s", aboutHtmlFile, e.getMessage()));
@@ -244,7 +242,7 @@ public class AboutFilesUtil extends LicenseProcessingUtility {
 	}
 
 	private String getDevelopedByInfo(final Artifact artifact, final Model artifactPom) {
-		final StrBuilder developedByInfo = new StrBuilder();
+		final TextStringBuilder developedByInfo = new TextStringBuilder();
 
 		// prefer organization if available
 		if (null != artifactPom.getOrganization()) {
@@ -283,7 +281,7 @@ public class AboutFilesUtil extends LicenseProcessingUtility {
 	}
 
 	private String getLicenseInfo(final Artifact resolvedPomArtifact, final Model artifactPom, final File resourcesDir) throws MojoExecutionException {
-		final StrBuilder licenseInfo = new StrBuilder();
+		final TextStringBuilder licenseInfo = new TextStringBuilder();
 		final KnownLicense knownLicense = getLicense(resolvedPomArtifact);
 		List<License> licenses = artifactPom.getLicenses();
 
@@ -349,7 +347,7 @@ public class AboutFilesUtil extends LicenseProcessingUtility {
 	}
 
 	private String getOriginInfo(final Artifact artifact, final Model artifactPom) {
-		final StrBuilder originInfo = new StrBuilder();
+		final TextStringBuilder originInfo = new TextStringBuilder();
 		{
 			final String url = artifactPom.getUrl();
 			if (isPotentialWebUrl(url)) {
@@ -396,13 +394,14 @@ public class AboutFilesUtil extends LicenseProcessingUtility {
 	}
 
 	private String getThirdPartyInfo(final SortedMap<Artifact, Model> dependencies, final File outputDirectory) throws MojoExecutionException {
-		final StrBuilder thirdPartyInfoText = new StrBuilder();
+		final TextStringBuilder thirdPartyInfoText = new TextStringBuilder();
 
 		for (final Entry<Artifact, Model> entry : dependencies.entrySet()) {
 			String thirdPartyInfo = readThirdPartyHtmlTemplate();
 			final Artifact artifact = entry.getKey();
 			final Model artifactPom = entry.getValue();
-			thirdPartyInfo = StringUtils.replaceEach(thirdPartyInfo, new String[] { // @formatter:off
+			thirdPartyInfo = StringUtils.replaceEach(thirdPartyInfo,
+					new String[] { // @formatter:off
 					"@DEPENDENCY_HEADLINE@",
 					"@DEPENDENCY_BY@",
 					"@DEPENDENCY_NAME@",
@@ -425,7 +424,7 @@ public class AboutFilesUtil extends LicenseProcessingUtility {
 
 	private String readAboutHtmlTemplate() throws MojoExecutionException {
 		try {
-			return IOUtils.toString(getTemplate("recipe-about.html"), UTF_8);
+			return IOUtils.toString(getTemplate("recipe-about.html"), StandardCharsets.UTF_8);
 		} catch (final Exception e) {
 			getLog().debug(e);
 			throw new MojoExecutionException(format("Error reading about.html template: %s", e.getMessage()));
@@ -434,7 +433,7 @@ public class AboutFilesUtil extends LicenseProcessingUtility {
 
 	private String readThirdPartyHtmlTemplate() throws MojoExecutionException {
 		try {
-			return IOUtils.toString(getTemplate("recipe-about-3rdparty.html"), UTF_8);
+			return IOUtils.toString(getTemplate("recipe-about-3rdparty.html"), StandardCharsets.UTF_8);
 		} catch (final Exception e) {
 			getLog().debug(e);
 			throw new MojoExecutionException(format("Error reading 3rd party info template: %s", e.getMessage()));
@@ -442,7 +441,7 @@ public class AboutFilesUtil extends LicenseProcessingUtility {
 	}
 
 	private String sanitizeFileName(final String name) {
-		final StrBuilder result = new StrBuilder();
+		final TextStringBuilder result = new TextStringBuilder();
 		for (final char c : name.toCharArray()) {
 			if (Character.isLetterOrDigit(c) || (c == '+') || (c == '-') || (c == '.')) {
 				result.append(c);

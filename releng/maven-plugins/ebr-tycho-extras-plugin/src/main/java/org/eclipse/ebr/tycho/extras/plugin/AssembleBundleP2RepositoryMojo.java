@@ -169,7 +169,7 @@ public class AssembleBundleP2RepositoryMojo extends AbstractRepositoryMojo {
 			final TargetPlatformConfiguration configuration = TychoProjectUtils.getTargetPlatformConfiguration(getProject());
 
 			final MirrorApplicationService mirrorApp = p2.getService(MirrorApplicationService.class);
-			final DestinationRepositoryDescriptor destinationRepoDescriptor = new DestinationRepositoryDescriptor(destination, repositoryName, compress, xzCompress, keepNonXzIndexFiles, false, true, emptyMap());
+			final DestinationRepositoryDescriptor destinationRepoDescriptor = new DestinationRepositoryDescriptor(destination, repositoryName, compress, xzCompress, keepNonXzIndexFiles, false, true, emptyMap(), Collections.emptyList());
 			mirrorApp.mirrorReactor(sources, destinationRepoDescriptor, projectSeeds, getBuildContext(), false, configuration.isIncludePackedArtifacts(), profileProperties);
 		} catch (final FacadeException e) {
 			throw new MojoExecutionException("Could not assemble p2 repository", e);
@@ -183,7 +183,8 @@ public class AssembleBundleP2RepositoryMojo extends AbstractRepositoryMojo {
 
 		try {
 			final TemplateHelper templateHelper = new TemplateHelper(getLog(), this.getClass());
-			final String categoryXml = StringUtils.replaceEach(templateHelper.readTemplateAsString("category.xml"), new String[] { // @formatter:off
+			final String categoryXml = StringUtils.replaceEach(templateHelper.readTemplateAsString("category.xml"),
+					new String[] { // @formatter:off
 							"@BUNDLE_SYMBOLIC_NAME@",
 							"@BUNDLE_VERSION@",
 							"@CATEGORY_ID@",
@@ -221,6 +222,7 @@ public class AssembleBundleP2RepositoryMojo extends AbstractRepositoryMojo {
 		return BundleUtil.getBundleVersion(getProject().getVersion());
 	}
 
+	@Override
 	protected List<TargetEnvironment> getEnvironments() {
 		return TychoProjectUtils.getTargetPlatformConfiguration(getProject()).getEnvironments();
 	}
@@ -241,6 +243,7 @@ public class AssembleBundleP2RepositoryMojo extends AbstractRepositoryMojo {
 		return new MavenReactorProjectIdentities(getProject());
 	}
 
+	@Override
 	protected ReactorProject getReactorProject() {
 		return DefaultReactorProject.adapt(getProject());
 	}

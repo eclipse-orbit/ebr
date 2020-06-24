@@ -12,13 +12,13 @@
 package org.eclipse.ebr.maven;
 
 import static java.lang.String.format;
-import static org.apache.commons.lang3.CharEncoding.UTF_8;
-import static org.apache.commons.lang3.StringEscapeUtils.escapeHtml4;
+import static org.apache.commons.text.StringEscapeUtils.escapeHtml4;
 
 import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
 import java.net.URISyntaxException;
+import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -33,7 +33,7 @@ import org.osgi.framework.Version;
 
 import org.apache.commons.io.FileUtils;
 import org.apache.commons.lang3.StringUtils;
-import org.apache.commons.lang3.text.StrBuilder;
+import org.apache.commons.text.TextStringBuilder;
 import org.apache.http.HttpEntity;
 import org.apache.http.NameValuePair;
 import org.apache.http.client.ClientProtocolException;
@@ -175,7 +175,7 @@ public class EclipseIpLogUtil extends LicenseProcessingUtility {
 
 		final String cqUrl = "https://dev.eclipse.org/ipzilla/show_bug.cgi?id=";
 		final int cqUrlIndex = responseHtml.indexOf(cqUrl);
-		final StrBuilder cqId = new StrBuilder();
+		final TextStringBuilder cqId = new TextStringBuilder();
 		for (int i = cqUrlIndex + cqUrl.length(); i < responseHtml.length(); i++) {
 			final char c = responseHtml.charAt(i);
 			if (Character.isDigit(c)) {
@@ -226,7 +226,7 @@ public class EclipseIpLogUtil extends LicenseProcessingUtility {
 
 			try {
 				final File responseHtmlFile = new File(outputDirectory, responseHtmlFileName);
-				FileUtils.writeStringToFile(responseHtmlFile, responseHtml, UTF_8);
+				FileUtils.writeStringToFile(responseHtmlFile, responseHtml, StandardCharsets.UTF_8);
 				getLog().debug(format("  (response written to '%s')", responseHtmlFile.getAbsolutePath()));
 			} catch (final Exception e) {
 				if (getLog().isDebugEnabled()) {
@@ -270,7 +270,7 @@ public class EclipseIpLogUtil extends LicenseProcessingUtility {
 
 		// save
 		try {
-			FileUtils.writeStringToFile(iplogXmlFile, ipLogXmlDom.toString(), UTF_8);
+			FileUtils.writeStringToFile(iplogXmlFile, ipLogXmlDom.toString(), StandardCharsets.UTF_8);
 		} catch (final IOException e) {
 			getLog().debug(e);
 			throw new MojoExecutionException(format("Unable to write ip_log.xml file '%s'. %s", iplogXmlFile, e.getMessage()));
@@ -310,7 +310,7 @@ public class EclipseIpLogUtil extends LicenseProcessingUtility {
 	}
 
 	private String getCqDescription(final Artifact artifact, final Model artifactPom) {
-		final StrBuilder description = new StrBuilder();
+		final TextStringBuilder description = new TextStringBuilder();
 		if (null != artifactPom.getDescription()) {
 			description.append(artifactPom.getDescription()).appendNewLine().appendNewLine();
 		}
@@ -574,7 +574,7 @@ public class EclipseIpLogUtil extends LicenseProcessingUtility {
 		if (existingValue != null)
 			return existingValue;
 
-		final StrBuilder developedByInfo = new StrBuilder();
+		final TextStringBuilder developedByInfo = new TextStringBuilder();
 
 		// prefer organization if available
 		if (null != recipePom.getOrganization()) {
@@ -736,7 +736,7 @@ public class EclipseIpLogUtil extends LicenseProcessingUtility {
 		final Xpp3Dom existingIpLog;
 		if (iplogXmlFile.isFile()) {
 			try (InputStream is = FileUtils.openInputStream(iplogXmlFile)) {
-				existingIpLog = Xpp3DomBuilder.build(is, UTF_8);
+				existingIpLog = Xpp3DomBuilder.build(is, StandardCharsets.UTF_8.name());
 			} catch (IOException | XmlPullParserException e) {
 				getLog().debug(e);
 				throw new MojoExecutionException(format("Unable to read ip_log.xml file '%s'. %s", iplogXmlFile, e.getMessage()));
