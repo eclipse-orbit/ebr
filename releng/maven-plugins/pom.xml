@@ -68,7 +68,7 @@
     <maven-plugin-plugin-version>3.6.0</maven-plugin-plugin-version>
     <takari-maven-plugin-testing-version>2.9.2</takari-maven-plugin-testing-version>
     <tycho-version>1.7.0</tycho-version>
-    <apache-httpclient-version>4.5.7</apache-httpclient-version>
+    <apache-httpclient-version>4.5.12</apache-httpclient-version>
   </properties>
 
   <prerequisites>
