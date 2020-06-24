@@ -19,6 +19,7 @@ import java.util.SortedSet;
 import java.util.TreeSet;
 
 import org.apache.commons.lang3.StringUtils;
+import org.apache.commons.text.similarity.JaroWinklerDistance;
 import org.apache.maven.model.License;
 
 public class KnownLicenses {
@@ -67,7 +68,7 @@ public class KnownLicenses {
 	public KnownLicense findByUrl(final String url) {
 		for (final KnownLicense l : licensesByName.values()) {
 			for (final String knownUrl : l.getKnownUrls()) {
-				if (StringUtils.getJaroWinklerDistance(url, knownUrl) >= 0.99)
+				if (new JaroWinklerDistance().apply(url, knownUrl) >= 0.99)
 					return l;
 			}
 		}
@@ -113,7 +114,7 @@ public class KnownLicenses {
 	}
 
 	private boolean isSimilar(final String name, final String alternateName) {
-		final double distance = StringUtils.getJaroWinklerDistance(name, alternateName);
+		final double distance = new JaroWinklerDistance().apply(name, alternateName);
 		return distance >= 0.9;
 	}
 

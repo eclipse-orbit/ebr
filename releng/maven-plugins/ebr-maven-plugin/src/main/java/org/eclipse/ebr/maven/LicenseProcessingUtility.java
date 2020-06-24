@@ -12,7 +12,7 @@
 package org.eclipse.ebr.maven;
 
 import static java.lang.String.format;
-import static org.apache.commons.lang3.StringEscapeUtils.escapeHtml4;
+import static org.apache.commons.text.StringEscapeUtils.escapeHtml4;
 
 import java.net.MalformedURLException;
 import java.net.URL;
@@ -27,7 +27,7 @@ import org.eclipse.ebr.maven.eclipseip.KnownLicenses;
 import org.eclipse.ebr.maven.shared.BaseUtility;
 
 import org.apache.commons.lang3.StringUtils;
-import org.apache.commons.lang3.text.StrBuilder;
+import org.apache.commons.text.TextStringBuilder;
 import org.apache.maven.artifact.Artifact;
 import org.apache.maven.execution.MavenSession;
 import org.apache.maven.model.Developer;
@@ -52,7 +52,7 @@ public abstract class LicenseProcessingUtility extends BaseUtility {
 		setForce(force);
 	}
 
-	protected void appendDeveloperInfo(final StrBuilder text, final Model artifactPom) {
+	protected void appendDeveloperInfo(final TextStringBuilder text, final Model artifactPom) {
 		boolean first = true;
 		for (final Iterator<Developer> stream = artifactPom.getDevelopers().iterator(); stream.hasNext();) {
 			final Developer developer = stream.next();
