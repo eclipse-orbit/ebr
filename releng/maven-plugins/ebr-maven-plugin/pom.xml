@@ -11,7 +11,7 @@
   <parent>
     <groupId>org.eclipse.ebr</groupId>
     <artifactId>ebr-maven-plugins-parent</artifactId>
-    <version>1.1.1-SNAPSHOT</version>
+    <version>1.2.0</version>
   </parent>
 
   <name>Eclipse Bundle Recipe Maven Plugin</name>

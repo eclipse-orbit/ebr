@@ -6,6 +6,10 @@ Semantic Versioning does not apply.
 
 ## [Unreleased]
 
+## 1.2.0 - 2020-06-24
+### Changed
+- Updated to Tycho 1.7.0
+
 ## 1.1.0 - 2020-01-21
 ### Changed
 - Fixed create-recipe mojo failing in Maven 3.6.3
