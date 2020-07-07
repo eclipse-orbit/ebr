@@ -17,7 +17,9 @@ import static org.apache.commons.text.StringEscapeUtils.escapeHtml4;
 import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
+import java.net.MalformedURLException;
 import java.net.URISyntaxException;
+import java.net.URL;
 import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -344,9 +346,14 @@ public class EclipseIpLogUtil extends LicenseProcessingUtility {
 	}
 
 	private String getCqId(final Xpp3Dom legal) {
-		final Xpp3Dom ipzilla = legal.getChild("ipzilla");
+		Xpp3Dom ipzilla = legal.getChild("ipzilla");
 		if (ipzilla != null)
 			return ipzilla.getAttribute("bug_id");
+		else {
+			ipzilla = legal.getChild("clearlydefined");
+			if (ipzilla != null)
+				return ipzilla.getAttribute("url");
+		}
 		return null;
 	}
 
@@ -673,7 +680,16 @@ public class EclipseIpLogUtil extends LicenseProcessingUtility {
 
 	private boolean isValidCqId(final String cqId) {
 		final Integer parsedCqId = Ints.tryParse(cqId);
-		return (parsedCqId != null) && (parsedCqId.intValue() > 0);
+		if ((parsedCqId != null) && (parsedCqId.intValue() > 0))
+			return true;
+		else {
+			try {
+				new URL(cqId).toURI(); // URL validation
+				return true;
+			} catch (final URISyntaxException | MalformedURLException e) {
+				return false;
+			}
+		}
 	}
 
 	private void loginToPortal(final CloseableHttpClient httpclient, final Server server) throws IOException, MojoExecutionException, URISyntaxException {
@@ -790,10 +806,10 @@ public class EclipseIpLogUtil extends LicenseProcessingUtility {
 				for (final Xpp3Dom legal : legals) {
 					final String cqId = getCqId(legal);
 					if (Strings.isNullOrEmpty(cqId)) {
-						logWarningOrFailBuild(failIfIpLogIsIncomplete, "Incomplete legal information in ip_log.xml. Reference to IPzilla CQ is required!");
+						logWarningOrFailBuild(failIfIpLogIsIncomplete, "Incomplete legal information in ip_log.xml. Reference to IP information is required!");
 					}
 					if (!isValidCqId(cqId)) {
-						logWarningOrFailBuild(failIfIpLogIsIncomplete, "Incomplete legal information in ip_log.xml. The referenced IPzilla CQ number is invalid!");
+						logWarningOrFailBuild(failIfIpLogIsIncomplete, "Incomplete legal information in ip_log.xml. The referenced IP information is invalid!");
 					}
 					final Xpp3Dom[] licenses = legal.getChildren("license");
 					if ((licenses == null) || (licenses.length == 0)) {
