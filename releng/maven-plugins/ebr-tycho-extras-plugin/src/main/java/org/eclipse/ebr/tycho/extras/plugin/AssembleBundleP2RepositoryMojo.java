@@ -319,8 +319,8 @@ public class AssembleBundleP2RepositoryMojo extends AbstractRepositoryMojo {
 		final TargetPlatformConfiguration configuration = configurationReader.getTargetPlatformConfiguration(session, project);
 		project.setContextValue(TychoConstants.CTX_TARGET_PLATFORM_CONFIGURATION, configuration);
 
-		final ExecutionEnvironmentConfiguration eeConfiguration = new ExecutionEnvironmentConfigurationImpl(logger, !configuration.isResolveWithEEConstraints());
-		dr.readExecutionEnvironmentConfiguration(project, eeConfiguration);
+		final ExecutionEnvironmentConfiguration eeConfiguration = new ExecutionEnvironmentConfigurationImpl(logger, !configuration.isResolveWithEEConstraints(), null, session);
+		dr.readExecutionEnvironmentConfiguration(project, session, eeConfiguration);
 		project.setContextValue(TychoConstants.CTX_EXECUTION_ENVIRONMENT_CONFIGURATION, eeConfiguration);
 
 		// we assume dependency resolution was done when generating p2 metadata
