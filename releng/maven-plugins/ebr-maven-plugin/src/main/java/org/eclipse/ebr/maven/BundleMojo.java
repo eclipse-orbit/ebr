@@ -335,29 +335,33 @@ public class BundleMojo extends ManifestPlugin {
 				);
 		// @formatter:on
 
-		// generate manifest based on output only
-		getLog().info("Generating OSGi MANIFEST.MF");
-		try {
-			setOutputDirectory(outputDirectory);
-			setBuildDirectory(buildDirectory);
-			manifestLocation = new File(outputDirectory, "META-INF");
-			super.excludeDependencies = excludeDependencies;
+		if (Paths.get(project.getBasedir().getAbsolutePath(), "osgi.bnd").toFile().exists()) {
+			// generate manifest based on output only
+			getLog().info("Generating OSGi MANIFEST.MF");
+			try {
+				setOutputDirectory(outputDirectory);
+				setBuildDirectory(buildDirectory);
+				manifestLocation = new File(outputDirectory, "META-INF");
+				super.excludeDependencies = excludeDependencies;
 
-			// sanity check
-			if (bndInstructions.containsKey(BUNDLE_SYMBOLICNAME) && !StringUtils.equals(project.getArtifactId(), bndInstructions.get(BUNDLE_SYMBOLICNAME)))
-				// something is wrong, fail and report to the use instead of overriding quietly
-				throw new MojoExecutionException("Plug-in configuration is wrong! The Bundle-SymbolicName must match the project's artifact id but it doesn't. Please correct the value in bndInstructions.");
+				// sanity check
+				if (bndInstructions.containsKey(BUNDLE_SYMBOLICNAME) && !StringUtils.equals(project.getArtifactId(), bndInstructions.get(BUNDLE_SYMBOLICNAME)))
+					// something is wrong, fail and report to the use instead of overriding quietly
+					throw new MojoExecutionException("Plug-in configuration is wrong! The Bundle-SymbolicName must match the project's artifact id but it doesn't. Please correct the value in bndInstructions.");
 
-			initializeBndInstruction(BUNDLE_SYMBOLICNAME, project.getArtifactId());
-			initializeBndInstruction(BUNDLE_VERSION, getExpandedVersion());
-			initializeBndInstruction(BUNDLE_NAME, project.getName());
-			initializeBndInstruction(SNAPSHOT, qualifier);
-			if (!unpackDependencies) {
-				initializeBndInstruction(BUNDLE_CLASSPATH, getBundleClassPathHeaderPopulatedWithDependencyJars());
+				initializeBndInstruction(BUNDLE_SYMBOLICNAME, project.getArtifactId());
+				initializeBndInstruction(BUNDLE_VERSION, getExpandedVersion());
+				initializeBndInstruction(BUNDLE_NAME, project.getName());
+				initializeBndInstruction(SNAPSHOT, qualifier);
+				if (!unpackDependencies) {
+					initializeBndInstruction(BUNDLE_CLASSPATH, getBundleClassPathHeaderPopulatedWithDependencyJars());
+				}
+				execute(bndInstructions, getClasspath(project)); // BND also needs transitive dependencies
+			} catch (final Exception e) {
+				throw new MojoExecutionException("Error generating Bundle manifest: " + e.getMessage(), e);
 			}
-			execute(bndInstructions, getClasspath(project)); // BND also needs transitive dependencies
-		} catch (final Exception e) {
-			throw new MojoExecutionException("Error generating Bundle manifest: " + e.getMessage(), e);
+		} else {
+			getLog().info("Skipping OSGi MANIFEST.MF generation");
 		}
 
 		// create JAR
