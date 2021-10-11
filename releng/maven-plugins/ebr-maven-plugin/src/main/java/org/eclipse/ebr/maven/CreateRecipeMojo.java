@@ -32,6 +32,7 @@ import java.util.List;
 import java.util.Objects;
 import java.util.SortedMap;
 import java.util.TreeMap;
+import java.util.stream.Collectors;
 
 import org.apache.commons.io.FileUtils;
 import org.apache.commons.io.IOUtils;
@@ -234,7 +235,7 @@ public class CreateRecipeMojo extends AbstractMojo {
 	}
 
 	private Collection<Dependency> getCompileTimeDependencies(final Model artifactPom) {
-		return artifactPom.getDependencies().stream().filter(input -> (input != null) && (Objects.equals(input.getScope(), Artifact.SCOPE_COMPILE) || Objects.equals(input.getScope(), Artifact.SCOPE_PROVIDED))).toList();
+		return artifactPom.getDependencies().stream().filter(input -> (input != null) && (Objects.equals(input.getScope(), Artifact.SCOPE_COMPILE) || Objects.equals(input.getScope(), Artifact.SCOPE_PROVIDED))).collect(Collectors.toList());
 	}
 
 	private ModelUtil getModelUtil() {
