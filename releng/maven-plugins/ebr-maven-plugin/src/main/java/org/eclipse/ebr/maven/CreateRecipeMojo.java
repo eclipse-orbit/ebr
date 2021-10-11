@@ -60,9 +60,6 @@ import org.codehaus.plexus.util.IOUtil;
 import org.codehaus.plexus.util.ReaderFactory;
 import org.codehaus.plexus.util.xml.XmlStreamReader;
 
-import com.google.common.base.Predicate;
-import com.google.common.collect.Collections2;
-
 /**
  * A Maven plug-in for creating recipes.
  */
@@ -214,7 +211,8 @@ public class CreateRecipeMojo extends AbstractMojo {
 			return;
 		}
 		String eclipseProjectFileText = readEclipseProjectFileTemplate();
-		eclipseProjectFileText = StringUtils.replaceEach(eclipseProjectFileText, new String[] { // @formatter:off
+		eclipseProjectFileText = StringUtils.replaceEach(eclipseProjectFileText,
+				new String[] { // @formatter:off
 						"@RECIPE_PROJECT_NAME@"
 				},
 				new String[] {
@@ -236,13 +234,7 @@ public class CreateRecipeMojo extends AbstractMojo {
 	}
 
 	private Collection<Dependency> getCompileTimeDependencies(final Model artifactPom) {
-		return Collections2.filter(artifactPom.getDependencies(), new Predicate<Dependency>() {
-
-			@Override
-			public boolean apply(final Dependency input) {
-				return (input != null) && (Objects.equals(input.getScope(), Artifact.SCOPE_COMPILE) || Objects.equals(input.getScope(), Artifact.SCOPE_PROVIDED));
-			}
-		});
+		return artifactPom.getDependencies().stream().filter(input -> (input != null) && (Objects.equals(input.getScope(), Artifact.SCOPE_COMPILE) || Objects.equals(input.getScope(), Artifact.SCOPE_PROVIDED))).toList();
 	}
 
 	private ModelUtil getModelUtil() {
