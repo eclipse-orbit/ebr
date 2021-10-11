@@ -11,12 +11,12 @@
  */
 package org.eclipse.ebr.maven;
 
-import static com.google.common.base.Preconditions.checkNotNull;
 import static java.lang.String.format;
 
 import java.util.HashSet;
 import java.util.Iterator;
 import java.util.LinkedHashSet;
+import java.util.Objects;
 import java.util.Set;
 
 import org.eclipse.ebr.maven.shared.BaseUtility;
@@ -45,7 +45,7 @@ public class DependencyUtil extends BaseUtility {
 		final Set<Artifact> dependencies = new LinkedHashSet<Artifact>(project.getDependencyArtifacts());
 
 		// prepare set of artifact ids to exclude
-		final Set<String> excludedArtifactIds = checkNotNull(this.excludedArtifactIds, "programming error: list of dependencies not initialized");
+		final Set<String> excludedArtifactIds = Objects.requireNonNull(this.excludedArtifactIds, "programming error: list of dependencies not initialized");
 
 		// remove all dependencies which should not be in the list
 		for (final Iterator<Artifact> stream = dependencies.iterator(); stream.hasNext();) {
