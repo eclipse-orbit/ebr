@@ -11,9 +11,9 @@
  */
 package org.eclipse.ebr.maven;
 
-import static com.google.common.base.Preconditions.checkNotNull;
 import static com.google.common.base.Strings.nullToEmpty;
 import static java.lang.String.format;
+import static java.util.Objects.requireNonNull;
 
 import java.io.File;
 import java.util.ArrayList;
@@ -208,13 +208,13 @@ public class ModelUtil extends BaseUtility {
 			final RepositoryMetadata metadata = new ArtifactRepositoryMetadata(artifact);
 			getRepositoryMetadataManager().resolve(metadata, request);
 
-			final Metadata repositoryMetadata = checkNotNull(metadata.getMetadata(), "No repository metadata loaded.");
+			final Metadata repositoryMetadata = requireNonNull(metadata.getMetadata(), "No repository metadata loaded.");
 			if (StringUtils.equals("LATEST", artifactVersion)) {
-				final Versioning metadataVersions = checkNotNull(repositoryMetadata.getVersioning(), "No versioning information available in repository metadata.");
+				final Versioning metadataVersions = requireNonNull(repositoryMetadata.getVersioning(), "No versioning information available in repository metadata.");
 				getLog().debug(format("Resolving '%s' to latest version.", artifactVersion));
 				return new DefaultArtifactVersion(metadataVersions.getLatest());
 			} else if (StringUtils.equals("RELEASE", artifactVersion) || StringUtils.isBlank(artifactVersion)) {
-				final Versioning metadataVersions = checkNotNull(repositoryMetadata.getVersioning(), "No versioning information available in repository metadata.");
+				final Versioning metadataVersions = requireNonNull(repositoryMetadata.getVersioning(), "No versioning information available in repository metadata.");
 				getLog().debug(format("Resolving '%s' to release version.", artifactVersion));
 				return new DefaultArtifactVersion(metadataVersions.getRelease());
 			} else {
