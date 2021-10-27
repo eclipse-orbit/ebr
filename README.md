@@ -1,4 +1,4 @@
-[![Build Status](https://travis-ci.org/eclipse/ebr.svg?branch=master)](https://travis-ci.org/eclipse/ebr)
+[![Build Status](https://github.com/eclipse/ebr/actions/workflows/plugins.yml/badge.svg)](https://github.com/eclipse/ebr/actions/workflows/plugins.yml)
 
 Eclipse Bundle Recipes
 ======================
