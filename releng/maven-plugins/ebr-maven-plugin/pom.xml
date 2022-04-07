@@ -40,7 +40,7 @@
     <dependency>
       <groupId>org.apache.felix</groupId>
       <artifactId>maven-bundle-plugin</artifactId>
-      <version>4.2.1</version>
+      <version>5.1.4</version>
       <type>maven-plugin</type>
     </dependency>
     <dependency>
