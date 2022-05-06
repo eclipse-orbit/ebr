@@ -204,7 +204,7 @@
         </plugin>
         <plugin>
           <groupId>org.eclipse.tycho.extras</groupId>
-          <artifactId>tycho-source-feature-pluging</artifactId>
+          <artifactId>tycho-source-feature-plugin</artifactId>
           <version>${tycho-version}</version>
         </plugin>
         <plugin>
