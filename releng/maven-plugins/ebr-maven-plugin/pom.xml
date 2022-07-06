@@ -42,6 +42,17 @@
       <artifactId>maven-bundle-plugin</artifactId>
       <version>5.1.4</version>
       <type>maven-plugin</type>
+      <exclusions>
+        <exclusion>
+          <groupId>biz.aQute.bnd</groupId>
+          <artifactId>biz.aQute.bndlib</artifactId>
+        </exclusion>
+      </exclusions>
+    </dependency>
+    <dependency>
+      <groupId>biz.aQute.bnd</groupId>
+      <artifactId>biz.aQute.bndlib</artifactId>
+      <version>6.3.1</version>
     </dependency>
     <dependency>
       <groupId>org.twdata.maven</groupId>
