@@ -1,4 +1,0 @@
-Bundle-SymbolicName: com.springsource.org.jboss.logmanager
-Bundle-Name: JBoss Log Manager
-Bundle-Vendor: SpringSource
-Bundle-ManifestVersion: 2

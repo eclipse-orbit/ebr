@@ -1,4 +1,0 @@
-Bundle-SymbolicName: com.springsource.org.apache.juli.extras.springsource
-Bundle-Name: Apache Java Util Logging extras
-Bundle-Vendor: SpringSource
-Bundle-ManifestVersion: 2

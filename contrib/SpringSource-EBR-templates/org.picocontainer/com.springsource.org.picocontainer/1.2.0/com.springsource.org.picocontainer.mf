@@ -1,4 +1,0 @@
-Bundle-SymbolicName: com.springsource.org.picocontainer
-Bundle-Name: PicoContainer
-Bundle-Vendor: SpringSource
-Bundle-ManifestVersion: 2

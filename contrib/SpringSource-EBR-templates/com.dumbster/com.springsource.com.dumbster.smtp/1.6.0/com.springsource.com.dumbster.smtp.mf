@@ -1,4 +1,0 @@
-Bundle-SymbolicName: com.springsource.com.dumbster.smtp
-Bundle-Name: Dumbster Fake SMTP Server
-Bundle-Vendor: SpringSource
-Bundle-ManifestVersion: 2

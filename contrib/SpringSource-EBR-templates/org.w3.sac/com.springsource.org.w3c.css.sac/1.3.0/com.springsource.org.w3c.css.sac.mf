@@ -1,4 +1,0 @@
-Bundle-SymbolicName: com.springsource.org.w3c.css.sac
-Bundle-Name: SAC: The Simple API for CSS
-Bundle-Vendor: SpringSource
-Bundle-ManifestVersion: 2

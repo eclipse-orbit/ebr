@@ -1,4 +1,0 @@
-Bundle-SymbolicName: com.springsource.org.objectweb.asm
-Bundle-Name: ObjectWeb ASM
-Bundle-Vendor: SpringSource
-Bundle-ManifestVersion: 2

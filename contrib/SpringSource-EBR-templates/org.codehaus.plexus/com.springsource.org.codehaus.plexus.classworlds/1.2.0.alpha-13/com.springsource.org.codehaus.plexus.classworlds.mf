@@ -1,4 +1,0 @@
-Bundle-SymbolicName: com.springsource.org.codehaus.plexus.classworlds
-Bundle-Name: Plexus Classworlds
-Bundle-Vendor: SpringSource
-Bundle-ManifestVersion: 2

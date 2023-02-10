@@ -1,4 +1,0 @@
-Bundle-SymbolicName: com.springsource.org.junit
-Bundle-Name: JUnit
-Bundle-Vendor: SpringSource
-Bundle-ManifestVersion: 2

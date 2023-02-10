@@ -1,4 +1,0 @@
-Bundle-SymbolicName: com.springsource.com.fasterxml.classmate
-Bundle-Name: FasterXML ClassMate
-Bundle-Vendor: SpringSource
-Bundle-ManifestVersion: 2

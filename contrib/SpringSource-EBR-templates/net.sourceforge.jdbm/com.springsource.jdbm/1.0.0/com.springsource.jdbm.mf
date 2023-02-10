@@ -1,4 +1,0 @@
-Bundle-SymbolicName: com.springsource.jdbm
-Bundle-Name: JDBM
-Bundle-Vendor: SpringSource
-Bundle-ManifestVersion: 2

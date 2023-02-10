@@ -1,4 +1,0 @@
-Bundle-SymbolicName: com.springsource.edu.emory.mathcs.backport
-Bundle-Name: Backport Util Concurrent
-Bundle-Vendor: SpringSource
-Bundle-ManifestVersion: 2

@@ -351,8 +351,14 @@ public class EclipseIpLogUtil extends LicenseProcessingUtility {
 			return ipzilla.getAttribute("bug_id");
 		else {
 			ipzilla = legal.getChild("clearlydefined");
-			if (ipzilla != null)
+			if (ipzilla != null) {
 				return ipzilla.getAttribute("url");
+			} else {
+				ipzilla = legal.getChild("iplab");
+				if (ipzilla != null) {
+					return ipzilla.getAttribute("url");
+				}
+			}
 		}
 		return null;
 	}

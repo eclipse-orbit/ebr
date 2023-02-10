@@ -1,4 +1,0 @@
-Bundle-SymbolicName: com.springsource.org.apache.lucene
-Bundle-Name: Apache Lucene
-Bundle-Vendor: SpringSource
-Bundle-ManifestVersion: 2

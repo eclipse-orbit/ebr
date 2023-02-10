@@ -1,4 +1,0 @@
-Bundle-SymbolicName: com.springsource.org.easymock
-Bundle-Name: EasyMock Mock Library
-Bundle-Vendor: SpringSource
-Bundle-ManifestVersion: 2

@@ -1,4 +1,0 @@
-Bundle-SymbolicName: com.springsource.org.doomdark.uuid
-Bundle-Name: Java Uuid Generator (JUG)
-Bundle-Vendor: SpringSource
-Bundle-ManifestVersion: 2

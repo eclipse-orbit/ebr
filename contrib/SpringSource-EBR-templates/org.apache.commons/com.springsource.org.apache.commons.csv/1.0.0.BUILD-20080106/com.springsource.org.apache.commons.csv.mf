@@ -1,4 +1,0 @@
-Bundle-SymbolicName: com.springsource.org.apache.commons.csv
-Bundle-Name: Apache Commons CSV
-Bundle-Vendor: SpringSource
-Bundle-ManifestVersion: 2

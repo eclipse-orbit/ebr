@@ -1,4 +1,0 @@
-Bundle-SymbolicName: com.springsource.org.apache.tools.ant.launch
-Bundle-Name: Apache ANT Launcher
-Bundle-Vendor: SpringSource
-Bundle-ManifestVersion: 2

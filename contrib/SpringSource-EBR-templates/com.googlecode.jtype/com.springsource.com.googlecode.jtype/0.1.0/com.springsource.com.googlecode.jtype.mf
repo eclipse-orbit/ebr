@@ -1,4 +1,0 @@
-Bundle-SymbolicName: com.springsource.com.googlecode.jtype
-Bundle-Name: JType
-Bundle-Vendor: SpringSource
-Bundle-ManifestVersion: 2

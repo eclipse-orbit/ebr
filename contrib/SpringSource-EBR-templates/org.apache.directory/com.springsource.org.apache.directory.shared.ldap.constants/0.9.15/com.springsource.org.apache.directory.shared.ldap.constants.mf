@@ -1,4 +1,0 @@
-Bundle-SymbolicName: com.springsource.org.apache.directory.shared.ldap.constants
-Bundle-Name: Apache Directory Server Shared LDAP Constants
-Bundle-Vendor: SpringSource
-Bundle-ManifestVersion: 2

@@ -1,4 +1,0 @@
-Bundle-SymbolicName: com.springsource.jsr166y
-Bundle-Name: Concurrency Utilities - jsr166y
-Bundle-Vendor: SpringSource
-Bundle-ManifestVersion: 2

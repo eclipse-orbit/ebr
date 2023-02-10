@@ -1,4 +1,0 @@
-Bundle-SymbolicName: com.springsource.joptsimple
-Bundle-Name: JOpt Simple
-Bundle-Vendor: SpringSource
-Bundle-ManifestVersion: 2

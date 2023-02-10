@@ -1,22 +1,29 @@
-Contributing to Eclipse Bundle Recipes
-======================================
+Contributing to Eclipse Orbit
+=============================
 
-Thanks for your interest in this project. Please have a look at the README for 
-further information how to use the code base and how to submit recipes.
+Thanks for your interest in this project.
+The EBR directory contains the maven plug-ins that are needed to build Eclipse Orbit recipes.
+Please see the main [Eclipse Orbit pages](https://projects.eclipse.org/projects/tools.orbit/developer) for additional information.
 
-The EBR project provides a library of templates and tools that can be used to create OSGi bundles for open source projects. Check out out [project information site](https://projects.eclipse.org/projects/rt.ebr) for further information.
+## Eclipse Contributor Agreement
 
+Before your contribution can be accepted by the project team contributors must
+electronically sign the Eclipse Contributor Agreement (ECA).
 
-Contributor License Agreement:
-------------------------------
+-   http://www.eclipse.org/legal/ECA.php
 
-Before your contribution can be accepted by the project, you need to create and electronically sign the Eclipse Foundation Contributor License Agreement (CLA).
+Commits that are provided by non-committers must have a Signed-off-by field in
+the footer indicating that the author is aware of the terms by which the
+contribution has been provided to the project. The non-committer must
+additionally have an Eclipse Foundation account and must have a signed Eclipse
+Contributor Agreement (ECA) on file.
 
-- http://www.eclipse.org/legal/CLA.php
+For more information, please see the Eclipse Committer Handbook:
+https://www.eclipse.org/projects/handbook/#resources-commit
 
-Contact:
---------
+## Contact
 
-Please contact the project developers via the project's mailing list.
+Contact the project developers via the project's "dev" list.
 
-- https://dev.eclipse.org/mailman/listinfo/ebr-dev
+-   https://dev.eclipse.org/mailman/listinfo/orbit-dev
+

@@ -1,4 +1,0 @@
-Bundle-SymbolicName: com.springsource.org.fontbox
-Bundle-Name: FontBox - Java Font Library
-Bundle-Vendor: SpringSource
-Bundle-ManifestVersion: 2

@@ -1,4 +1,0 @@
-Bundle-SymbolicName: com.springsource.org.objectweb.howl
-Bundle-Name: ObjectWeb Howl
-Bundle-Vendor: SpringSource
-Bundle-ManifestVersion: 2

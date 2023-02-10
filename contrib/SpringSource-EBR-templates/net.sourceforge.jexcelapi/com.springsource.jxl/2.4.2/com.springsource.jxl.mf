@@ -1,4 +1,0 @@
-Bundle-SymbolicName: com.springsource.jxl
-Bundle-Name: JExcelApi
-Bundle-Vendor: SpringSource
-Bundle-ManifestVersion: 2

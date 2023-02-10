@@ -1,4 +1,0 @@
-Bundle-SymbolicName: com.springsource.org.w3c.tidy
-Bundle-Name: JTidy HTML Syntax Checker and Pretty Printer
-Bundle-Vendor: SpringSource
-Bundle-ManifestVersion: 2

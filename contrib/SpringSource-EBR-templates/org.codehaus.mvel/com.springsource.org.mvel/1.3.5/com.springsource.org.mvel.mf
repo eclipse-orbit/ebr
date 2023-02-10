@@ -1,4 +1,0 @@
-Bundle-SymbolicName: com.springsource.org.mvel
-Bundle-Name: MVFlex Expression Language
-Bundle-Vendor: SpringSource
-Bundle-ManifestVersion: 2

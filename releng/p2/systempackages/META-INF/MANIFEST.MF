@@ -1,7 +1,0 @@
-Bundle-ManifestVersion: 2
-Bundle-SymbolicName: org.eclipse.ebr.releng.systempackages
-Bundle-Version: 1.0.0.qualifier
-Fragment-Host: system.bundle; extension:=framework
-Bundle-Name: Eclipse EBR :: System Packages Fragment
-Bundle-Description: Framework extension for exposing JRE system packages
-Export-Package: sun.misc
