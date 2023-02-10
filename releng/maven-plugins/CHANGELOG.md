@@ -7,6 +7,7 @@ Semantic Versioning does not apply.
 ## 2.0.0-SNAPSHOT (Unreleased)
 
 - Migrate EBR to the Eclipse Orbit project
+- Bug 581504: Remove use of ip_log.xml
 
 ## 1.3.0 -> 1.4.0
 
