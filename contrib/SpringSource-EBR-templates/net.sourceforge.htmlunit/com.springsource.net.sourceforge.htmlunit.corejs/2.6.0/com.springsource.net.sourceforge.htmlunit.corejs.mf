@@ -1,4 +1,0 @@
-Bundle-SymbolicName: com.springsource.net.sourceforge.htmlunit.corejs
-Bundle-Name: HTMLUnit Core JS
-Bundle-Vendor: SpringSource
-Bundle-ManifestVersion: 2

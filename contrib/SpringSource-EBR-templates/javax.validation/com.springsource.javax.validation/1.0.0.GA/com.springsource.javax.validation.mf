@@ -1,4 +1,0 @@
-Bundle-SymbolicName: com.springsource.javax.validation
-Bundle-Name: Java Bean Validation API
-Bundle-Vendor: SpringSource
-Bundle-ManifestVersion: 2

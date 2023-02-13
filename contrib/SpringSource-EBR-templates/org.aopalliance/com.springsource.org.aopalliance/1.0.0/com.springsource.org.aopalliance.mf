@@ -1,4 +1,0 @@
-Bundle-SymbolicName: com.springsource.org.aopalliance
-Bundle-Name: AOP Alliance API
-Bundle-Vendor: SpringSource
-Bundle-ManifestVersion: 2

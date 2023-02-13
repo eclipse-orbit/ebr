@@ -1,4 +1,0 @@
-Bundle-SymbolicName: com.springsource.serp
-Bundle-Name: SERP
-Bundle-Vendor: SpringSource
-Bundle-ManifestVersion: 2

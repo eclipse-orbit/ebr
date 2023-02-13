@@ -1,4 +1,0 @@
-Bundle-SymbolicName: com.springsource.org.apache.batik.util
-Bundle-Name: Apache Batik Utilities
-Bundle-Vendor: SpringSource
-Bundle-ManifestVersion: 2

@@ -1,4 +1,0 @@
-Bundle-SymbolicName: com.springsource.org.codehaus.plexus.util
-Bundle-Name: Plexus Common Utilities
-Bundle-Vendor: SpringSource
-Bundle-ManifestVersion: 2

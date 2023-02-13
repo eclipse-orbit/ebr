@@ -1,4 +1,0 @@
-Bundle-SymbolicName: com.springsource.org.codehaus.jackson
-Bundle-Name: Jackson JSON parser
-Bundle-Vendor: SpringSource
-Bundle-ManifestVersion: 2

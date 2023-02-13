@@ -1,5 +1,0 @@
--include: ~../org.glassfish.jersey.core.common.ebr_2.14.0/osgi.bnd
-
-Import-Package: \
- javax.annotation;resolution:=optional, \
- sun.misc.*;resolution:=optional

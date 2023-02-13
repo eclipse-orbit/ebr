@@ -1,4 +1,0 @@
-Bundle-SymbolicName: com.springsource.oracle.classloader
-Bundle-Name: Oracle OC4J ClassLoader API
-Bundle-Vendor: SpringSource
-Bundle-ManifestVersion: 2

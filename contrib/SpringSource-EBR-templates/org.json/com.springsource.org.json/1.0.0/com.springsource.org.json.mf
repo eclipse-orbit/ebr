@@ -1,4 +1,0 @@
-Bundle-SymbolicName: com.springsource.org.json
-Bundle-Name: JSON Library
-Bundle-Vendor: SpringSource
-Bundle-ManifestVersion: 2

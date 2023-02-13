@@ -1,4 +1,0 @@
-Bundle-SymbolicName: com.springsource.com.sun.jna
-Bundle-Name: Java Native Access (JNA)
-Bundle-Vendor: SpringSource
-Bundle-ManifestVersion: 2

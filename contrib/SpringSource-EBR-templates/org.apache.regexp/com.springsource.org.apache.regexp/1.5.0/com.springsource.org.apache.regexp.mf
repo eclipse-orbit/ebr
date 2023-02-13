@@ -1,4 +1,0 @@
-Bundle-SymbolicName: com.springsource.org.apache.regexp
-Bundle-Name: Apache Regular Expression Library
-Bundle-Vendor: SpringSource
-Bundle-ManifestVersion: 2

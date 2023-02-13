@@ -1,4 +1,0 @@
-Bundle-SymbolicName: com.springsource.org.apache.commons.compress
-Bundle-Name: Apache Commons Compression Library
-Bundle-Vendor: SpringSource
-Bundle-ManifestVersion: 2

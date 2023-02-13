@@ -1,5 +1,0 @@
-Bundle-SymbolicName: com.springsource.org.jivesoftware.smack
-Bundle-Name: Smack XMPP (Jabber) client library
-Bundle-Vendor: SpringSource
-Bundle-ManifestVersion: 2
-

@@ -1,4 +1,0 @@
-Bundle-SymbolicName: com.springsource.org.ognl
-Bundle-Name: Object-Graph Navigation Language (OGNL)
-Bundle-Vendor: SpringSource
-Bundle-ManifestVersion: 2

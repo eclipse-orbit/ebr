@@ -1,4 +1,0 @@
-Bundle-SymbolicName: com.springsource.javax.transaction
-Bundle-Name: Java Transaction API
-Bundle-Vendor: SpringSource
-Bundle-ManifestVersion: 2

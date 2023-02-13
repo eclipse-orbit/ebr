@@ -1,4 +1,0 @@
-Bundle-SymbolicName: com.springsource.org.codehaus.classworlds
-Bundle-Name: Classworlds Java ClassLoader Management Framework
-Bundle-Vendor: SpringSource
-Bundle-ManifestVersion: 2

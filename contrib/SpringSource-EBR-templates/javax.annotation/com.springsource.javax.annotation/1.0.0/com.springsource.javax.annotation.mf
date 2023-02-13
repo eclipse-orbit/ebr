@@ -1,4 +1,0 @@
-Bundle-SymbolicName: com.springsource.javax.annotation
-Bundle-Name: Java Common Annotations API
-Bundle-Vendor: SpringSource
-Bundle-ManifestVersion: 2

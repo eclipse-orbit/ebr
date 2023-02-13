@@ -1,4 +1,0 @@
-Bundle-SymbolicName: com.springsource.org.apache.commons.cli
-Bundle-Name: Apache Commons Command Line Interface
-Bundle-Vendor: SpringSource
-Bundle-ManifestVersion: 2

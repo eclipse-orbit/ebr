@@ -1,4 +1,0 @@
-Bundle-SymbolicName: com.springsource.org.jboss.logging
-Bundle-Name: JBoss Logging SPI
-Bundle-Vendor: SpringSource
-Bundle-ManifestVersion: 2

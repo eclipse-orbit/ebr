@@ -1,8 +1,0 @@
-add-osgi
-clean
-clean-ivy
-osgi-validate
-publish
-publish-ivy
-publish-maven
-publish-test

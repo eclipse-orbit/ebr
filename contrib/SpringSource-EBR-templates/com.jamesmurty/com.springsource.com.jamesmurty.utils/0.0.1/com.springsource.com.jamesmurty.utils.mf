@@ -1,4 +1,0 @@
-Bundle-SymbolicName: com.springsource.com.jamesmurty.utils
-Bundle-Name: James Murty's XML Builder
-Bundle-Vendor: SpringSource
-Bundle-ManifestVersion: 2

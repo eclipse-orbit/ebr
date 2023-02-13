@@ -1,4 +1,0 @@
-Bundle-SymbolicName: com.springsource.net.sf.jsr107cache
-Bundle-Name: JSR107 (JCACHE) Java caching API
-Bundle-Vendor: SpringSource
-Bundle-ManifestVersion: 2

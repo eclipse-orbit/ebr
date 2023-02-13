@@ -1,4 +1,0 @@
-Bundle-SymbolicName: com.springsource.net.jcip.annotations
-Bundle-Name: Java Concurrency in Practice Annotations
-Bundle-Vendor: SpringSource
-Bundle-ManifestVersion: 2

@@ -1,4 +1,0 @@
-Bundle-SymbolicName: com.springsource.com.jcraft.jzlib
-Bundle-Name: Java zlib
-Bundle-Vendor: SpringSource
-Bundle-ManifestVersion: 2

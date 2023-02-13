@@ -1,4 +1,0 @@
-Bundle-SymbolicName: com.springsource.org.relaxng.datatype
-Bundle-Name: RelaxNG Datatypes
-Bundle-Vendor: SpringSource
-Bundle-ManifestVersion: 2

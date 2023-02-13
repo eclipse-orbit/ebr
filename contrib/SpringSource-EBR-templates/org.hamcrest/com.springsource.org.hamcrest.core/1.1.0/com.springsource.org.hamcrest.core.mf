@@ -1,4 +1,0 @@
-Bundle-SymbolicName: com.springsource.org.hamcrest.core
-Bundle-Name: Hamcrest - core library of matchers for building test expressions
-Bundle-Vendor: SpringSource
-Bundle-ManifestVersion: 2

@@ -1,6 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<project name="com.springsource.org.aspectj.weaver">
-	<property name="version" value="1.7.2.RELEASE"/>
-	<property name="release.type" value="external"/>
-	<import file="${basedir}/../../../../spring-build/add-osgi/default.xml"/>
-</project>

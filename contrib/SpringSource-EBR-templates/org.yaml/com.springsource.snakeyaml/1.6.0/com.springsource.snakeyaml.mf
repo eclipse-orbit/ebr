@@ -1,4 +1,0 @@
-Bundle-SymbolicName: com.springsource.snakeyaml
-Bundle-Name: SnakeYAML
-Bundle-Vendor: SpringSource
-Bundle-ManifestVersion: 2

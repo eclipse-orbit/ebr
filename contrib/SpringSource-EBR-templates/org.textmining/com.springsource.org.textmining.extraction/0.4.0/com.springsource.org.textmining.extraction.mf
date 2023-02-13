@@ -1,4 +1,0 @@
-Bundle-SymbolicName: com.springsource.org.textmining.extraction
-Bundle-Name: TextMining.org tm-extractors
-Bundle-Vendor: SpringSource
-Bundle-ManifestVersion: 2

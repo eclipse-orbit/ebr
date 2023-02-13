@@ -1,4 +1,0 @@
-Bundle-SymbolicName: com.springsource.com.trilead.ssh2
-Bundle-Name: Trilead SSH for Java
-Bundle-Vendor: SpringSource
-Bundle-ManifestVersion: 2

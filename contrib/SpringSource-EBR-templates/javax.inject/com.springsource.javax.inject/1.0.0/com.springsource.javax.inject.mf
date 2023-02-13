@@ -1,4 +1,0 @@
-Bundle-SymbolicName: com.springsource.javax.inject
-Bundle-Name: Dependency Injection for Java
-Bundle-Vendor: SpringSource
-Bundle-ManifestVersion: 2

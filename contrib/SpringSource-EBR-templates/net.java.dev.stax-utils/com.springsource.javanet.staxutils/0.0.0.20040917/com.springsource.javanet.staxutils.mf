@@ -1,4 +1,0 @@
-Bundle-SymbolicName: com.springsource.javanet.staxutils
-Bundle-Name: StAX Utilities
-Bundle-Vendor: SpringSource
-Bundle-ManifestVersion: 2
