@@ -3,10 +3,10 @@ name: CI EBR Maven Plug-ins Verification Build
 on:
   push:
     branches:
-      - master
+      - main
   pull_request:
     branches:
-      - master
+      - main
   repository_dispatch:
   # manually from the Actions tab
   workflow_dispatch:
